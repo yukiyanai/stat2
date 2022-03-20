@@ -1,0 +1,88 @@
+# Rマークダウンの使い方
+
+**今日の目標**
+
+- Rマークダウンファイル (.Rmd ファイル) から PDF (.pdf) 文書を作成できるようになる
+- R マークダウンファイルの基本的な使い方を身につける
+
+
+## Rマークダウンファイルを knit してレポートを作る
+
+Rマークダウンファイルの作り方と書き方は後で説明する。その前に、Rマークダウンファイルを書いた後、それをどうやって他の形式のファイルに出力する（言い換えると、レポートとして提出可能な状態に変換する）方法を説明する。
+
+RマークダウンファイルをPDF（またはHTML） に出力するために、`rmarkdown::render()` や`knitr::knit()` を利用する。これらがインストール済みでない場合はまずインストールする。
+```{r}
+#| eval: false
+install.packages("tidyverse", dependencies = TRUE)
+install.packages("rmarkdown", dependencies = TRUE) 
+install.packages("knitr", dependencies = TRUE) 
+install.packages("systemfonts")
+install.packages("remotes")
+remotes::install_github("Gedevan-Aleksizde/fontregisterer", 
+                        repos = NULL, type = "source")
+```   
+
+
+### RマークダウンファイルをPDFファイルに出力する
+
+RマークダウンファイルからPDFファイルを作るためにはTeXが必要である。まず、 **tinytex** をインストールする（**注意**：大学PCにはインストールしない！）。
+
+```{r}
+#| eval: false
+install.packages("tinytex")
+```
+
+TeXを使った経験がなく、パソコンにTeXがインストールされていない場合は、以下のコマンドを実行してTeX環境を整える。それなりに時間がかかるので気長に待とう。
+
+:::callout-important
+既にLaTeX環境が設定済みなら、以下のコードを実行する必要はない。情報演習室のパソコンには Tex Live がインストールされているので、次のコードは実行しない！
+:::
+
+:::callout-tip
+数式や図表を含む論文を書く際には、LaTeX を使うことが多い。LaTeX を利用するためには、TeX Live（macOS の場合は MacTeX でも可）をインストールする（無料）。インストール方法は [ココ](https://texwiki.texjp.org/?TeX%20Live) で説明されている。TeX Live (MacTeX) をインストールするなら次のコードを実行してはいけない。
+実行してしまったが TeX Live に切り替えたいという場合は、`tinytex::uninstall_tinytex()`
+を実行して tinytex をアンインストールしてから、TeX Live をインストールしよう。
+:::
+
+```{r tinylatex}
+#| eval: false
+tinytex::install_tinytex()
+```
+
+
+試しに、[stat2_sample2022.Rmd](https://drive.google.com/file/d/1-yu3Q5ZdCojrqTaNiFQ0aR_Lv09j4Yj-/view?usp=sharing) を "stat2_sample2022.pdf" に変換してみよう。
+
+まず、リンク先からファイルをダウンロードして、RStudio で開こう。開いたら、コード編集画面の上にある "Knit" ボタン（毛糸と棒針のマーク）の右にある三角ボタンを押して、表示されたメニューから "Knit to PDF" を選べばPDFができる。初めて実行するときは、足りないパッケージを自動でインストールするので、時間がかかるかもしれない。
+
+出力されたPDFファイルは（他のディレクトリを指定しない限り）元のRmdファイルと同じディレクトリ（ダウンロードしてそのまま開いた場合は「ダウンロード」フォルダ）に保存される。出来上がったPDFファイルをAdobe Readerやskim 等のPDFリーダで開いて確認してみよう。
+
+うまくいけば [stat2_sample2022_success.pdf](https://drive.google.com/file/d/1065UBeSbQ_vlwTj5qvhTX8DMb3Wc72G3/view?usp=sharing) と同じ（ような）ファイルができるはずである。
+
+
+### R MarkdownファイルをHTMLファイルに出力する
+
+
+試しに、[stat2_sample2022.Rmd](https://drive.google.com/file/d/1-yu3Q5ZdCojrqTaNiFQ0aR_Lv09j4Yj-/view?usp=sharing) （上と同じファイル）を "stat2_sample2022.html" に変換してみよう。コード編集画面の上にある "Knit" ボタン（毛糸と棒針のマーク）の右にある三角ボタンを押して、表示されたメニューから "Knit to HTML" を選べばHTMLファイルができる。
+
+出力されたHTMLファイルは（他のディレクトリを指定しない限り）元のRmdファイルと同じディレクトリ（ダウンロードしてそのまま開いた場合は「ダウンロード」フォルダ）に保存される。出来上がったHTMLファイルをウェブブラウザ（Google Chrome, Firefox, Safari, etc.）で開いて確認してみよう。
+
+うまくいけば [stat2_sample2022_success.html](https://yukiyanai.github.io/jp/classes/stat2/contents/R/stat2_sample2022_success.html) と同じ（ような）ファイルができるはずである。
+
+## Rマークダウンによるレポート作成
+
+RマークダウンファイルをPDF（やHTML）に変換する方法がわかったところで、Rマークダウンファイルの書き方を覚えよう。
+
+RStudio では、上部のメニューから [File] -> [New File] -> [R Markdown...] を選ぶと、新しい R マークダウンファイルを作ることができる。
+ファイルを開くことができたら、名前をつけて保存しよう。
+このファイルの拡張子は `.Rmd` にする。
+
+このウェブ資料は、.Rmd ファイルではなく .qmd (Quatro マークダウン) ファイルで作られている。Rマークダウンファイルの書き方を .qmd ファイル内で説明すると混乱するので、以降の説明は
+[r-markdown.html](https://yukiyanai.github.io/jp/classes/stat2/contents/R/r-markdown.html) に記載する。
+
+Rマークダウンの書き方を説明する上のページ（.html ファイル）の元となったRマークダウンファイルは [r-markdown.Rmd]() である。また、同じファイルをPDFに変換すると、[r-markdown.pdf]() ができる。元の`.Rmd` ファイルと、それを元に作られた `.pdf` ファイル、`.html` ファイルの3つをよく比べてみよう。
+
+この授業の課題の作成には、Rマークダウンの利用が必須である。
+そこで、今後の授業で使えるテンプレートを配布する。
+[stat2_template2022.Rmd](https://drive.google.com/file/d/10aoMXFcj2OZ0UHFuVBYqKzkI1GlJU37n/view?usp=sharing) をダウンロードし、YAML ヘッダやグローバルチャンクオプションをそのまま利用してほしい。
+
+

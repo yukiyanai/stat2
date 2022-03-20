@@ -1,0 +1,42 @@
+# はじめに
+
+これは、[高知工科大学](https://www.kochi-tech.ac.jp/) [経済・マネジメント学群](https://www.kochi-tech.ac.jp/academics/mng/)で開講されている「統計学2」（担当：[矢内勇生](https://yukiyanai.github.io/)）の講義用資料である。
+
+## 基本情報
+
+-   シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022
+- 教科書：浅野正彦, 矢内勇生. 2018.『Rによる計量政治学』オーム社（[サポートページ](https://github.com/yukiyanai/quant-methods-R)）
+-   [講義スライド](https://drive.google.com/drive/folders/1-tff1nEf0s09C0JhSQmcyS7D1sL4Z2D4?usp=sharing)
+    -   各授業の**後**に最新版をアップロードする
+    
+:::callout-warning
+一般公開用のスライドでは一部の情報がカットされているので、正規受講生（単位を取得したい者）は [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=2505) で完全版を入手すること
+:::
+
+-   [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=2505)
+    -   登録キーはポータルで通知する
+-   [授業用のSlackグループ](https://kut-stat2-2022.slack.com)
+    -   [登録](https://join.slack.com/t/kut-stat2-2022/signup%7D)には大学ドメインのメールアドレスが必要
+
+## 講義トピックとウェブ資料の対応
+
+授業の内容は、10のトピックに分かれている。[シラバス (PDF)](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022-1Q.pdf) にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。
+
+| トピック                          | ウェブ資料                                                               |
+|:-----------------------------------|:-----------------------------------|
+| 1\. イントロダクション            |                                                                          |
+| 2\. Rの基本操作                   | [Rの基本操作](intro-to-R.html)                                           |
+| 3\. 記述統計とデータの可視化      | [RStudio入門](intro-to-RStudio.html)                                     |
+|                                   | [記述統計](descriptive-stat.html)                                        |
+| 4\. R Markdown によるレポート作成 | [Rマークダウンの使い方](r-markdown.html)                                 |
+| 5\. ggplot2 入門                  | [ggplot2入門](intro-to-ggplot2.html)                                     |
+| 6\. シミュレーション              | [乱数生成](rng.html)                                                     |
+|                                   | [中心極限定理](clt.html)                                                 |
+| 7\. 統計的推定と仮説検定の基礎    | [統計的推定と仮説検定の基礎](intro-to-inference.html)                    |
+|                                   | [母集団と標本をシミュレーションで理解する](pop-n-sample.html)            |
+| 8\. 標本平均と母平均              | [シミュレーションを利用して大数の法則を理解する](lawoflargenumbers.html) |
+|                                   | [標本分布を理解する](sampling-distribution.html)                         |
+|                                   | [母平均の推定](estimating-mean.html)                                     |
+| 9\. $t$ 分布と母平均の推定        | [$t$ 分布を利用した母平均の推定](t-distribution.html)                    |
+| 10\. 2つの平均値を比較する        | [統計的検定と平均値の比較](mean-comparison.html)                         |
+

@@ -1,0 +1,43 @@
+project:
+  type: book
+  output-dir: docs
+editor: sourc
+lang: ja
+language: jayy.yml
+  
+book: 
+  title: "KUT 統計学2"
+  author: "矢内 勇生"
+  sidebar: 
+    style: docked
+    background: dark
+  page-navigation: true
+  page-footer: 
+    center: "Copyright 2022, Yuki Yanai"
+    background: light
+    border: false
+  search: true
+  repo-url: https://yukiyanai.github.io/statistics/
+  sharing: [twitter, facebook]
+  chapters: 
+    - index.qmd
+    - intro-to-R.qmd
+    - intro-to-RStudio.qmd
+    - descriptive-stat.qmd
+    - r-markdown.qmd
+  
+    
+format:
+  html:
+    theme: flatly
+    number-sections: true
+    highlight-style: arrow
+    html-math-method: mathjax
+    code-link: true
+    filters:
+      - add-target-attr.lua
+
+crossref:
+  ref-hyperlink: true
+  
+

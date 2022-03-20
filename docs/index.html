@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.120">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="矢内 勇生">
+  <title>KUT 統計学2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="./">
+  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <link href="./intro-to-R.html" rel="next">
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "sidebar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "start",
+    "type": "textbox",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body class="docked">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">KUT 統計学2</h1>
+      <button type="button" class="quarto-btn-toggle btn">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">KUT 統計学2</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rの基本操作</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio入門</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descriptive-stat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">記述統計</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rマークダウンの使い方</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">このページの内容</h2>
+<ul>
+<li><a href="#はじめに" class="nav-link active" data-scroll-target="#はじめに"> <span class="header-section-number">1</span> はじめに</a>
+<ul class="collapse">
+<li><a href="#基本情報" class="nav-link" data-scroll-target="#基本情報"> <span class="header-section-number">1.1</span> 基本情報</a></li>
+<li><a href="#講義トピックとウェブ資料の対応" class="nav-link" data-scroll-target="#講義トピックとウェブ資料の対応"> <span class="header-section-number">1.2</span> 講義トピックとウェブ資料の対応</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-title"><h1 class="title d-none d-lg-block display-7">KUT 統計学2</h1></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Author</div><div class="quarto-title-meta-contents"><div class="quarto-title-authors"><div>矢内 勇生</div></div></div></div></div></header>
+
+<section id="はじめに" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> はじめに</h1>
+<p>これは、<a href="https://www.kochi-tech.ac.jp/" target="_blank" rel="external">高知工科大学</a> <a href="https://www.kochi-tech.ac.jp/academics/mng/" target="_blank" rel="external">経済・マネジメント学群</a>で開講されている「統計学2」（担当：<a href="https://yukiyanai.github.io/" target="_blank" rel="external">矢内勇生</a>）の講義用資料である。</p>
+<section id="基本情報" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="基本情報"><span class="header-section-number">1.1</span> 基本情報</h2>
+<ul>
+<li>シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022</li>
+<li>教科書：浅野正彦, 矢内勇生. 2018.『Rによる計量政治学』オーム社（<a href="https://github.com/yukiyanai/quant-methods-R" target="_blank" rel="external">サポートページ</a>）</li>
+<li><a href="https://drive.google.com/drive/folders/1-tff1nEf0s09C0JhSQmcyS7D1sL4Z2D4?usp=sharing" target="_blank" rel="external">講義スライド</a>
+<ul>
+<li>各授業の<strong>後</strong>に最新版をアップロードする</li>
+</ul></li>
+</ul>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+注意
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>一般公開用のスライドでは一部の情報がカットされているので、正規受講生（単位を取得したい者）は <a href="https://lms.kochi-tech.ac.jp/course/view.php?id=2505" target="_blank" rel="external">KUTLMS</a> で完全版を入手すること</p>
+</div>
+</div>
+<ul>
+<li><a href="https://lms.kochi-tech.ac.jp/course/view.php?id=2505" target="_blank" rel="external">KUTLMS</a>
+<ul>
+<li>登録キーはポータルで通知する</li>
+</ul></li>
+<li><a href="https://kut-stat2-2022.slack.com" target="_blank" rel="external">授業用のSlackグループ</a>
+<ul>
+<li><a href="https://join.slack.com/t/kut-stat2-2022/signup%7D" target="_blank" rel="external">登録</a>には大学ドメインのメールアドレスが必要</li>
+</ul></li>
+</ul>
+</section>
+<section id="講義トピックとウェブ資料の対応" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="講義トピックとウェブ資料の対応"><span class="header-section-number">1.2</span> 講義トピックとウェブ資料の対応</h2>
+<p>授業の内容は、10のトピックに分かれている。<a href="https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022-1Q.pdf" target="_blank" rel="external">シラバス (PDF)</a> にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">トピック</th>
+<th style="text-align: left;">ウェブ資料</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1. イントロダクション</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2. Rの基本操作</td>
+<td style="text-align: left;"><a href="intro-to-R.html" target="_blank" rel="external">Rの基本操作</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3. 記述統計とデータの可視化</td>
+<td style="text-align: left;"><a href="intro-to-RStudio.html" target="_blank" rel="external">RStudio入門</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="descriptive-stat.html" target="_blank" rel="external">記述統計</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4. R Markdown によるレポート作成</td>
+<td style="text-align: left;"><a href="r-markdown.html" target="_blank" rel="external">Rマークダウンの使い方</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5. ggplot2 入門</td>
+<td style="text-align: left;"><a href="intro-to-ggplot2.html" target="_blank" rel="external">ggplot2入門</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6. シミュレーション</td>
+<td style="text-align: left;"><a href="rng.html" target="_blank" rel="external">乱数生成</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="clt.html" target="_blank" rel="external">中心極限定理</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7. 統計的推定と仮説検定の基礎</td>
+<td style="text-align: left;"><a href="intro-to-inference.html" target="_blank" rel="external">統計的推定と仮説検定の基礎</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="pop-n-sample.html" target="_blank" rel="external">母集団と標本をシミュレーションで理解する</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8. 標本平均と母平均</td>
+<td style="text-align: left;"><a href="lawoflargenumbers.html" target="_blank" rel="external">シミュレーションを利用して大数の法則を理解する</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="sampling-distribution.html" target="_blank" rel="external">標本分布を理解する</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="estimating-mean.html" target="_blank" rel="external">母平均の推定</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9. <span class="math inline">t</span> 分布と母平均の推定</td>
+<td style="text-align: left;"><a href="t-distribution.html" target="_blank" rel="external"><span class="math inline">t</span> 分布を利用した母平均の推定</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">10. 2つの平均値を比較する</td>
+<td style="text-align: left;"><a href="mean-comparison.html" target="_blank" rel="external">統計的検定と平均値の比較</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+</section>
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./intro-to-R.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rの基本操作</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Yuki Yanai</div>
+  </div>
+</footer>
+
+
+</body></html>

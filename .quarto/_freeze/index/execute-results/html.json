@@ -1,0 +1,14 @@
+{
+  "hash": "a7cae358723a58095ff1544f135cbd5d",
+  "result": {
+    "markdown": "---\ndate: \"2022-03-20\"\n---\n\n# はじめに\n\nこれは、[高知工科大学](https://www.kochi-tech.ac.jp/) [経済・マネジメント学群](https://www.kochi-tech.ac.jp/academics/mng/)で開講されている「統計学2」（担当：[矢内勇生](https://yukiyanai.github.io/)）の講義用資料である。\n\n\n\n## 基本的な情報\n\n- シラバス（講義要項）：[PDF]()\n- [講義スライド](https://drive.google.com/drive/folders/1-tff1nEf0s09C0JhSQmcyS7D1sL4Z2D4?usp=sharing)\n  - 各授業の**後**に最新版をアップロードする\n  - 一般公開用のスライドでは一部の情報がカットされているので、受講生は [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=2505) で完全版を入手すること\n- [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=2505) \n  - 登録キーはポータルで通知する\n- [授業用のSlackグループ](https://kut-stat2-2022.slack.com)\n  - [登録](https://join.slack.com/t/kut-stat2-2022/signup})には大学ドメインのメールアドレスが必要\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": [],
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": null
+  }
+}
