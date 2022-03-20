@@ -4,8 +4,8 @@
 
 ## 基本情報
 
--   シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022
-- 教科書：浅野正彦, 矢内勇生. 2018.『Rによる計量政治学』オーム社（[サポートページ](https://github.com/yukiyanai/quant-methods-R)）
+-   シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022.pdf)
+
 -   [講義スライド](https://drive.google.com/drive/folders/1-tff1nEf0s09C0JhSQmcyS7D1sL4Z2D4?usp=sharing)
     -   各授業の**後**に最新版をアップロードする
     
@@ -17,6 +17,19 @@
     -   登録キーはポータルで通知する
 -   [授業用のSlackグループ](https://kut-stat2-2022.slack.com)
     -   [登録](https://join.slack.com/t/kut-stat2-2022/signup%7D)には大学ドメインのメールアドレスが必要
+
+## 教科書・副読本
+
+### 教科書
+
+- 浅野正彦, 矢内勇生. 2018.『Rによる計量政治学』オーム社（[サポートページ](https://github.com/yukiyanai/quant-methods-R)）
+
+![](https://yukiyanai.github.io/jp/textbooks/images/quant-methods-R-cover.png){fig-align="middle" fig-alt="Rによる計量政治学" width="200"}
+
+### 副読本
+
+- 宋財泫, 矢内勇生 （執筆中）『[私たちのR：ベストプラクティスの探求](http://www.jaysong.net/RBook/)』(web book、無料) 
+
 
 ## 講義トピックとウェブ資料の対応
 

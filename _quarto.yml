@@ -10,7 +10,7 @@ book:
   author: "矢内 勇生"
   sidebar: 
     style: docked
-    background: dark
+    background: light
   page-navigation: true
   page-footer: 
     center: "Copyright 2022, Yuki Yanai"
@@ -29,7 +29,7 @@ book:
     
 format:
   html:
-    theme: flatly
+    theme: yeti
     number-sections: true
     highlight-style: arrow
     html-math-method: mathjax
