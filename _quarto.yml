@@ -1,7 +1,7 @@
 project:
   type: book
   output-dir: docs
-editor: sourc
+editor: source
 lang: ja
 language: jayy.yml
   
@@ -25,6 +25,16 @@ book:
     - intro-to-RStudio.qmd
     - descriptive-stat.qmd
     - r-markdown.qmd
+    - intro-to-ggplot2.qmd
+    - rng.qmd
+    - clt.qmd
+    - intro-to-inference.qmd
+    - pop-n-sample.qmd
+    - lawoflargenumbers.qmd
+    - sampling-distribution.qmd
+    - estimating-mean.qmd
+    - t-distribution.qmd
+    - mean-comparison.qmd
   
     
 format:
@@ -34,6 +44,8 @@ format:
     highlight-style: arrow
     html-math-method: mathjax
     code-link: true
+    fig-width: 5
+    fig-height: 4
     filters:
       - add-target-attr.lua
 

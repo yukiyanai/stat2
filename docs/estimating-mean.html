@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.120">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>KUT 統計学2 - 13&nbsp; 母平均の推定</title>
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./t-distribution.html" rel="next">
+<link href="./sampling-distribution.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+    "location": "sidebar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "start",
+    "type": "textbox",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body class="docked">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">母平均の推定</span>
+</h1>
+      <button type="button" class="quarto-btn-toggle btn">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">KUT 統計学2</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+<li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rの基本操作</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio入門</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descriptive-stat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">記述統計</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rマークダウンの使い方</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-ggplot2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2 入門</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rng.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">乱数生成</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">中心極限定理</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">統計的推定と仮説検定の基礎</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pop-n-sample.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">母集団と標本をシミュレーションで理解する</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lawoflargenumbers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">シミュレーションを利用して大数の法則を理解する</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sampling-distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">標本分布を理解する</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estimating-mean.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">母平均の推定</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t-distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="math inline">\(t\)</span> 分布を利用した母平均の推定</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mean-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">統計的検定と平均値の比較</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
+<ul>
+<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">13.1</span> 準備</a></li>
+<li><a href="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B"> <span class="header-section-number">13.2</span> 母集団を定義する</a></li>
+<li>
+<a href="#%E6%A8%99%E6%9C%AC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%97%E3%81%A6%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%82%92%E6%8E%A8%E5%AE%9A%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%97%E3%81%A6%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%82%92%E6%8E%A8%E5%AE%9A%E3%81%99%E3%82%8B"> <span class="header-section-number">13.3</span> 標本を抽出して母平均を推定する</a>
+<ul class="collapse">
+<li><a href="#%E6%A8%99%E6%9C%AC1" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC1"> <span class="header-section-number">13.3.1</span> 標本1</a></li>
+<li><a href="#%E4%BF%A1%E9%A0%BC%E5%8C%BA%E9%96%93%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%82%8B" class="nav-link" data-scroll-target="#%E4%BF%A1%E9%A0%BC%E5%8C%BA%E9%96%93%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%82%8B"> <span class="header-section-number">13.3.2</span> 信頼区間を求める関数を作る</a></li>
+<li><a href="#%E6%A8%99%E6%9C%AC2" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC2"> <span class="header-section-number">13.3.3</span> 標本2</a></li>
+<li><a href="#%E6%A8%99%E6%9C%AC3" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC3"> <span class="header-section-number">13.3.4</span> 標本3</a></li>
+</ul>
+</li>
+<li>
+<a href="#%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="nav-link" data-scroll-target="#%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"> <span class="header-section-number">13.4</span> シミュレーション</a>
+<ul class="collapse">
+<li><a href="#%E4%B8%8D%E5%81%8F%E6%80%A7%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E4%B8%8D%E5%81%8F%E6%80%A7%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"> <span class="header-section-number">13.4.1</span> 不偏性を確認する</a></li>
+<li><a href="#%E4%BF%A1%E9%A0%BC%E5%8C%BA%E9%96%93%E3%81%AE%E6%84%8F%E5%91%B3%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E4%BF%A1%E9%A0%BC%E5%8C%BA%E9%96%93%E3%81%AE%E6%84%8F%E5%91%B3%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B"> <span class="header-section-number">13.4.2</span> 信頼区間の意味を理解する</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AE%9F%E7%BF%92%E8%AA%B2%E9%A1%8C" class="nav-link" data-scroll-target="#%E5%AE%9F%E7%BF%92%E8%AA%B2%E9%A1%8C"> <span class="header-section-number">13.5</span> 実習課題</a></li>
+</ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title"><h1 class="title d-none d-lg-block display-7">
+<span class="chapter-number">13</span>&nbsp; <span class="chapter-title">母平均の推定</span>
+</h1></div></header><p><strong>今回の目標</strong></p>
+<ul>
+<li>標本を利用して母平均を推定する方法を理解しよう！</li>
+</ul>
+<section id="準備" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="準備">
+<span class="header-section-number">13.1</span> 準備</h2>
+<p>必要なパッケージを読み込む。</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>次に、日本語が正しく表示されるようにする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co">## 図のなかで日本語を使えるようにする</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> <span class="co"># Window</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Yu Gothic"</span>
+  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+    <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Japan1"</span>
+  <span class="op">}</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/capabilities.html">capabilities</a></span><span class="op">(</span><span class="st">"aqua"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> <span class="co"># macOS</span>
+  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"HiraginoSans-W3"</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="op">{</span> <span class="co"># Unix/Linux</span>
+  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"IPAexGothic"</span>
+<span class="op">}</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
+                     base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="母集団を定義する" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="母集団を定義する">
+<span class="header-section-number">13.2</span> 母集団を定義する</h2>
+<div class="cell">
+
+</div>
+<p>成人男性の身長に興味があるとする。母集団の人口を100万、母平均を約170cm、母標準偏差を約6cm に設定する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e6</span>, mean <span class="op">=</span> <span class="fl">170</span>, sd <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>母集団の身長分布は以下のようになる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">pop_height</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, 
+                     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">pop</span>, 
+                         y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, 
+       y <span class="op">=</span> <span class="st">"確率密度"</span>, 
+       title <span class="op">=</span> <span class="st">"母集団の分布"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pop_height</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>この母集団における身長の母平均は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 170.0008</code></pre>
+</div>
+</div>
+<p>であり、母標準偏差は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 6.001557</code></pre>
+</div>
+</div>
+<p>である。</p>
+</section><section id="標本を抽出して母平均を推定する" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="標本を抽出して母平均を推定する">
+<span class="header-section-number">13.3</span> 標本を抽出して母平均を推定する</h2>
+<section id="標本1" class="level3" data-number="13.3.1"><h3 data-number="13.3.1" class="anchored" data-anchor-id="標本1">
+<span class="header-section-number">13.3.1</span> 標本1</h3>
+<p>100万人の母集団全員を調べるのではなく、100人だけ標本として抽出し、その標本を利用して母平均を推定してみよう。</p>
+<p>標本サイズ100の標本を1つ抽出する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">100</span>  <span class="co"># 標本サイズ</span>
+<span class="va">sample_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="点推定-point-estimation" class="level4" data-number="13.3.1.1"><h4 data-number="13.3.1.1" class="anchored" data-anchor-id="点推定-point-estimation">
+<span class="header-section-number">13.3.1.1</span> 点推定 (point estimation)</h4>
+<p>標本平均を計算する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 169.3795</code></pre>
+</div>
+</div>
+<p>これが母平均の点推定値 (point estimate) である。</p>
+</section><section id="区間推定-interval-estimation" class="level4" data-number="13.3.1.2"><h4 data-number="13.3.1.2" class="anchored" data-anchor-id="区間推定-interval-estimation">
+<span class="header-section-number">13.3.1.2</span> 区間推定 (interval estimation)</h4>
+<p>区間推定では、1つの値を示す代わりに推定に区間を利用することで、推定に対する<strong>不確実性</strong>（自信のなさ）を示す。</p>
+<p>推定に標準正規分布を利用する場合、身長 <span class="math inline">\(h\)</span> の点推定値を <span class="math inline">\(\bar{h}\)</span> とすると、以下のように定義される信頼区間 (confidence interval) を区間推定に使う。 <span class="math display">\[
+\left[\bar{h} - Q \cdot \mathrm{SE}, \bar{h} + Q \cdot \mathrm{SE} \right].
+\]</span> ここで、SE は標準誤差 (standard error) で、これは以下のように推定する。 <span class="math display">\[\mathrm{SE} = \frac{u}{\sqrt{N}}.\]</span> <span class="math inline">\(N\)</span> は標本サイズ、<span class="math inline">\(u\)</span> は不偏分散の平方根（下で説明する）である。</p>
+<p>また、<span class="math inline">\(Q\)</span>（と<span class="math inline">\(-Q\)</span>） は、どのような信頼区間を求めたいかによって変わる。 例えば、95％信頼区間を求めたいときは、<span class="math inline">\(Q = 1.96\)</span> を使う。</p>
+<p>特定の信頼度（信頼度に何パーセントを使うか）に対するQの求め方は次の通りである。 まず、100%から信頼度を引く。95%の場合 <span class="math inline">\(1 - 0.95 = 0.05\)</span> である。次に、その値を2で割る。 95%の場合、<span class="math inline">\(0.05/2= 0.025\)</span> である。この値を <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> 関数に当てはめる。ただし、<code>lower.tail = FALSE</code> を指定する（指定しない場合は<span class="math inline">\(-Q\)</span> が出てくるので、それを利用してもよい）。</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">Q_95</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, lower.tail<span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 1.959964</code></pre>
+</div>
+</div>
+<p>小数第2位までで丸めると、</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Q_95</span>, digit <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 1.96</code></pre>
+</div>
+</div>
+<p>である。</p>
+<p>87%信頼区間を使いたいときは、</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">Q_87</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">0.87</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 1.514102</code></pre>
+</div>
+</div>
+<p>を使う。</p>
+<p>次に、SE（標準誤差）を求めよう。 そのためにまず、標本の分散（不偏分散, unbiased variance）を計算する。身長を <span class="math inline">\(h\)</span>とすると、身長の不偏分散 Var(<span class="math inline">\(h\)</span>) は <span class="math display">\[\mathrm{Var}(h) = \frac{\sum_{i=1}^n (h_i - \bar{h})^2}{N - 1}\]</span> と定義される。これは、<code><a href="https://rdrr.io/r/stats/cor.html">var()</a></code> で計算できる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">var_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 37.35728</code></pre>
+</div>
+</div>
+<p>この平方根が不偏分散の平方根である。</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">sd_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">var_1</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 6.11206</code></pre>
+</div>
+</div>
+<p>この値は<code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> で直接求められる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 6.11206</code></pre>
+</div>
+</div>
+<p>母分散（母集団の分散）または母標準偏差（母集団の標準偏差）を知らないときは、ここで計算した標本から得られる値を推定値として使う。ここでは、標本の標準偏差（不偏分散の平方根）を母標準偏差の推定値として使おう。 すると、このサンプルから推定されるSEは、</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">SE_1</span> <span class="op">&lt;-</span> <span class="va">sd_1</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 0.611206</code></pre>
+</div>
+</div>
+<p>となる。</p>
+<p>以上から、95%信頼区間の下限は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">lb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span> <span class="op">-</span> <span class="va">Q_95</span> <span class="op">*</span> <span class="va">SE_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 168.1816</code></pre>
+</div>
+</div>
+<p>上限は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">ub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span> <span class="op">+</span> <span class="va">Q_95</span> <span class="op">*</span> <span class="va">SE_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 170.5775</code></pre>
+</div>
+</div>
+<p>よって、この標本（標本1）から得られる95%信頼区間は、[168.18, 170.58] である。</p>
+</section></section><section id="信頼区間を求める関数を作る" class="level3" data-number="13.3.2"><h3 data-number="13.3.2" class="anchored" data-anchor-id="信頼区間を求める関数を作る">
+<span class="header-section-number">13.3.2</span> 信頼区間を求める関数を作る</h3>
+<p>上で説明した方法で信頼区間を求められるが、以上の内容を標本を抽出し直す度に実行するのは面倒なので、信頼区間 (confidence intervals) を求める関数を作ってしまおう。信頼度は引数を指定して選べるようにする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">get_confint</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">level</span> <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co">## 標準正規分布を利用して信頼区間を求める関数</span>
+  <span class="co">## 引数：x = 推定に使う標本（サンプル）</span>
+  <span class="co">##       level = 信頼度。既定値（デフォルト）は 0.95</span>
+  <span class="co">## 返り値：点推定値、信頼区間の下限値、信頼区間の上限値の3つを含むベクトル</span>
+  <span class="va">N</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>  <span class="co"># サンプルサイズ</span>
+  <span class="va">mean_x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+  <span class="va">SE</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>
+  <span class="va">Q</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">level</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="va">lb</span> <span class="op">&lt;-</span> <span class="va">mean_x</span> <span class="op">-</span> <span class="va">Q</span> <span class="op">*</span> <span class="va">SE</span>
+  <span class="va">ub</span> <span class="op">&lt;-</span> <span class="va">mean_x</span> <span class="op">+</span> <span class="va">Q</span> <span class="op">*</span> <span class="va">SE</span>
+  <span class="va">estimates</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">mean_x</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">lb</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">ub</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"estimate"</span>, <span class="st">"lower bound"</span>, <span class="st">"upper bound"</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">estimates</span><span class="op">)</span>
+<span class="op">}</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>先ほどのサンプルを使い、この関数が意図した通りに動くか確認しよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>   estimate lower bound upper bound 
+     169.38      168.18      170.58 </code></pre>
+</div>
+</div>
+<p>上で求めたのものと同じ結果が得られた。</p>
+<p>この関数を使って50%信頼区間を求めるには、</p>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span>, level <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>   estimate lower bound upper bound 
+     169.38      168.97      169.79 </code></pre>
+</div>
+</div>
+<p>とする。</p>
+<p>87%信頼区間は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span>, level <span class="op">=</span> <span class="fl">0.87</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>   estimate lower bound upper bound 
+     169.38      168.45      170.30 </code></pre>
+</div>
+</div>
+<p>で求められる。</p>
+<p>以下ではこの関数を利用しよう。</p>
+</section><section id="標本2" class="level3" data-number="13.3.3"><h3 data-number="13.3.3" class="anchored" data-anchor-id="標本2">
+<span class="header-section-number">13.3.3</span> 標本2</h3>
+<p>先ほどとは別の標本（サイズは同じ）を抽出して、母平均を推定してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sample_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>   estimate lower bound upper bound 
+     169.41      168.22      170.59 </code></pre>
+</div>
+</div>
+<p>先ほどとは異なる推定値が得られた。</p>
+<p><br></p>
+</section><section id="標本3" class="level3" data-number="13.3.4"><h3 data-number="13.3.4" class="anchored" data-anchor-id="標本3">
+<span class="header-section-number">13.3.4</span> 標本3</h3>
+<p>もう1度やってみよう。 先ほどとは別の標本（サイズは同じ）を抽出して、母平均を推定してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sample_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>   estimate lower bound upper bound 
+     169.65      168.44      170.86 </code></pre>
+</div>
+</div>
+</section></section><section id="シミュレーション" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="シミュレーション">
+<span class="header-section-number">13.4</span> シミュレーション</h2>
+<p>標本抽出を何度も繰り返し、推定（の誤差）がどのようにばらつくか確認してみよう。</p>
+<p>まず、シミュレーションの繰り返し回数を決める。1万回にしてみよう。（コンピュータの性能があまり良くない場合は、この回数を少し小さめ [例えば <code>1e3</code>]　にしたほうがいいかもしれない）。</p>
+<div class="cell">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>結果を保存する容器を用意する。今回は、1回ごとに保存する値が3つあるので、1万行 <span class="math inline">\(\times\)</span> 3列の行列 (matrix) を用意する。行 (row) の数は <code>nrow</code>、列 (column) の数は <code>ncol</code> で指定する。いつものシミュレーションと同じように、とりあえず <code>NA</code> を入れておく。</p>
+<div class="cell">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">res_sim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, nrow <span class="op">=</span> <span class="va">n_sims</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>行列の中身をわかりやすくするために、3つの列に名前をつけておこう。名前は、<code>est</code>（estimate, 推定値）、<code>lb</code>（lower bound, 95％信頼区間の下限値)、<code>ub</code> (upper bound, 95％信頼区間の上限値）にする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">res_sim</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"est"</span>, <span class="st">"lb"</span>, <span class="st">"ub"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>準備ができたので、<code>for</code>ループでシミュレーションを行う。結果を <code>res_sim</code> の <span class="math inline">\(i\)</span> 行目に保存するために、<code>res_sim[i, ]</code> で <span class="math inline">\(i\)</span>行目を指定する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">smpl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="va">res_sim</span><span class="op">[</span><span class="va">i</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">get_confint</span><span class="op">(</span><span class="va">smpl</span><span class="op">)</span>
+<span class="op">}</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>まず、最初の5つの結果を確認してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">res_sim</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="op">]</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>        est     lb     ub
+[1,] 169.15 167.90 170.39
+[2,] 171.05 169.87 172.23
+[3,] 169.95 168.85 171.05
+[4,] 170.46 169.05 171.86
+[5,] 169.81 168.67 170.95</code></pre>
+</div>
+</div>
+<p>このように、1つの標本から計算された値が各行に保存されている。</p>
+<section id="不偏性を確認する" class="level3" data-number="13.4.1"><h3 data-number="13.4.1" class="anchored" data-anchor-id="不偏性を確認する">
+<span class="header-section-number">13.4.1</span> 不偏性を確認する</h3>
+<p>上で実行したシミュレーションの結果を利用して、点推定値のヒストグラムを作ってみよう。点推定値は <code>res_sim</code> の1列目に保存されている。 ggplotで図を描くために、行列をデータフレームに変換しよう。<code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble()</a></code> で変換できる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">df_sim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">res_sim</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>中身を確認してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>Rows: 10,000
+Columns: 3
+$ est &lt;dbl&gt; 169.15, 171.05, 169.95, 170.46, 169.81, 170.30, 169.66, 169.45, 16…
+$ lb  &lt;dbl&gt; 167.90, 169.87, 168.85, 169.05, 168.67, 169.11, 168.55, 168.25, 16…
+$ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65, 17…</code></pre>
+</div>
+</div>
+<p>このように、行列 <code>res_sim</code> の列名を変数名とするデータフレームができた。あとで使うために、シミュレーションid を通し番号で追加しておく。</p>
+<div class="cell">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">df_sim</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>シミュレーションで得られた点推定値の分布をヒストグラムで確認してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">h_est</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">est</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, 
+                 fill <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, 
+             color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>    <span class="co"># 母平均を赤線で示す</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長の標本平均 (cm)"</span>, 
+       y <span class="op">=</span> <span class="st">"度数"</span>,
+       title <span class="op">=</span> <span class="st">"標本平均の標本分布"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h_est</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>これらの標本平均の平均は母平均に一致するというのが「不偏性」である。確かめてみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">$</span><span class="va">est</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 170.0055</code></pre>
+</div>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 170.0008</code></pre>
+</div>
+</div>
+<p>標本平均の平均と母平均が、ほぼ一致することがわかる。</p>
+</section><section id="信頼区間の意味を理解する" class="level3" data-number="13.4.2"><h3 data-number="13.4.2" class="anchored" data-anchor-id="信頼区間の意味を理解する">
+<span class="header-section-number">13.4.2</span> 信頼区間の意味を理解する</h3>
+<p>95%信頼区間とは何だろうか。</p>
+<p>1つの信頼区間を取り出してみる。ここでは、79番目の信頼区間を取り出す。79番目にした理由は特にない。</p>
+<div class="cell">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">res_sim</span><span class="op">[</span><span class="fl">79</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>    lb     ub 
+167.53 170.28 </code></pre>
+</div>
+</div>
+<p>この信頼区間に、真の母平均170.0007993 は含まれているだろうか。母数が区間内にあれば、<strong>この</strong>95％信頼区間が母数（パラメタ）を区間内に捉えている確率は1 (100%) である。反対に、母数がこの区間内になければ、<strong>この</strong>95％信頼区間が母数（パラメタ）を区間内に捉えている確率は0である。</p>
+<p>別の信頼区間を取り出してみる。ここでは、5番目の信頼区間を取り出す。5番目を選んだ理由は特にない。</p>
+<div class="cell">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">res_sim</span><span class="op">[</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>    lb     ub 
+168.67 170.95 </code></pre>
+</div>
+</div>
+<p>この信頼区間に、真の母平均170.0007993 は含まれているだろうか。母数が区間内にあれば、<strong>この</strong>95％信頼区間が母数（パラメタ）を区間内に捉えている確率は1 (100%) である。反対に、母数がこの区間内になければ、<strong>この</strong>95％信頼区間が母数（パラメタ）を区間内に捉えている確率は0である。</p>
+<p>これを、1つひとつの標本について確かめ、1万回行ったシミュレーションのうち、母数を捉える95%信頼区間がいくつ得られたか数えてみよう。母数を捉えているかどうかは、2つの不等式で判断できる。</p>
+<ul>
+<li>95%信頼区間の下限値 <span class="math inline">\(\leq\)</span> 母数（母平均）</li>
+<li>95%信頼区間の上限値 <span class="math inline">\(\geq\)</span> 母数（母平均）</li>
+</ul>
+<p>上の2つの条件を<strong>両方とも</strong>満たすとき、信頼区間が母数を捉えているといえる。今回のように、2つの以上の条件があるときは、<code>&amp;</code> で条件を並べる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">caught</span> <span class="op">&lt;-</span> <span class="va">res_sim</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">res_sim</span><span class="op">[</span>, <span class="fl">3</span><span class="op">]</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>条件を2つとも満たす場合は <code>TRUE</code>, そうでない（1つでも条件に合わない）場合は <code>FALSE</code> になる。最初の5つ分だけ確認してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">caught</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] TRUE TRUE TRUE TRUE TRUE</code></pre>
+</div>
+</div>
+<p>母数を捉えた区間の数は <code>TRUE</code> の個数なので、</p>
+<div class="cell">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">caught</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 9481</code></pre>
+</div>
+</div>
+<p>である。つまり、1万個の95％信頼区間のうち、母数を捉えることができた区間は 9481個ある。言い換えると、標本抽出と区間推定を繰り返し行うと、得られた95%信頼区間の94.8%（約95％）は、母数を区間内に捉えられる。これが、信頼区間のパーセンテージの意味である。</p>
+<p>理解を深めるために、信頼区間を図示してみよう。 シミュレーションで得た1万個の信頼区間から、50個だけ無作為に選び、選んだ50個の信頼区間を図示してみよう。</p>
+<p>まず、無作為に50個の結果を選ぶ。データフレームから無作為に行を選びたいときは、<strong>dplyr</strong> パッケージ（<strong>tidyverse</strong> に含まれる）の <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample()</a></code> を使う。</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">rdm_50</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span><span class="va">df_sim</span>, n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>選ばれた信頼区間を図示する。 ::: {.cell}</p>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">ci1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, 
+              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">id</span><span class="op">)</span>, 
+                  y <span class="op">=</span> <span class="va">est</span>, 
+                  ymin <span class="op">=</span> <span class="va">lb</span>, 
+                  ymax <span class="op">=</span> <span class="va">ub</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_pointrange</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"シミュレーション ID"</span>, 
+       y <span class="op">=</span> <span class="st">"点推定値と95%信頼区間"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># x軸とy軸を入れ替える</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ci1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="480"></p>
+</div>
+<p>:::</p>
+<p>結果を見やすくするため、点推定値の大きで並べ替えてみよう。並べ替えは、<code><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder()</a></code> で行う。 点推定値 (est) が小さい順に並べ替えよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">ci2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">est</span><span class="op">)</span><span class="op">)</span>, 
+                          y <span class="op">=</span> <span class="va">est</span>, 
+                          ymin <span class="op">=</span> <span class="va">lb</span>,
+                          ymax <span class="op">=</span> <span class="va">ub</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_pointrange</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, 
+             color <span class="op">=</span> <span class="st">"blue"</span>, 
+             linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"シミュレーション ID"</span>, 
+       y <span class="op">=</span> <span class="st">"点推定値と95%信頼区間"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># x軸とy軸を入れ替える</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ci2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>95％信頼区間が青い点線の位置を区間内に含めば、その信頼区間は母数を捉えている。反対に、95％信頼区間が青い点線と交わっていないとき、その信頼区間は母数を捉え損ねている。母数を捉え損ねた区間に色をつけてみよう。</p>
+<p>まず、先ほどと同じ条件を使い、母数を捉えているかどうかを調べる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">rdm_50</span><span class="op">$</span><span class="va">caught</span> <span class="op">&lt;-</span> <span class="va">rdm_50</span><span class="op">$</span><span class="va">lb</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">rdm_50</span><span class="op">$</span><span class="va">ub</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>myd$caught</code> が <code>TRUE</code> の場合と<code>FALSE</code>の場合で線の色と点推定値の形を区別する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">ci3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">est</span><span class="op">)</span><span class="op">)</span>, 
+                          y <span class="op">=</span> <span class="va">est</span>,
+                          ymin <span class="op">=</span> <span class="va">lb</span>, 
+                          ymax <span class="op">=</span> <span class="va">ub</span>, 
+                          color <span class="op">=</span> <span class="va">caught</span>,
+                          shape <span class="op">=</span> <span class="va">caught</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_pointrange</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, 
+             color <span class="op">=</span> <span class="st">"black"</span>, 
+             linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"シミュレーション ID"</span>, 
+       y <span class="op">=</span> <span class="st">"点推定値と95%信頼区間"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Set1"</span>,
+                     name <span class="op">=</span> <span class="st">"母数を捉えることに"</span>, 
+                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"失敗"</span>, <span class="st">"成功"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_shape.html">scale_shape_discrete</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"母数を捉えることに"</span>, 
+                     　labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"失敗"</span>, <span class="st">"成功"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># x軸とy軸を入れ替える</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ci3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+<p>50個の95％信頼区間のうち、2個（2/50 = 0.04）の信頼区間が母数を捉え損ねている。 言い換えると、96％（約95％）の信頼区間が母数を捉えることに成功している。 これが95%信頼区間の「95%」の意味である。</p>
+</section></section><section id="実習課題" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="実習課題">
+<span class="header-section-number">13.5</span> 実習課題</h2>
+<p>成人女性の身長に興味があるとする。母集団の人口を100万、母平均を約162cm、母標準偏差を約5cm に設定して、上と同様のシミュレーションを行い、複数の95％信頼区間を図示してみよう。</p>
+
+
+
+</section></main><!-- /main --><script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./sampling-distribution.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">標本分布を理解する</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./t-distribution.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="math inline">\(t\)</span> 分布を利用した母平均の推定</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Yuki Yanai</div>
+  </div>
+</footer>
+
+
+</body></html>

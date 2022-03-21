@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.120">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>KUT 統計学2 - 14&nbsp; \(t\) 分布を利用した母平均の推定</title>
+<style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./mean-comparison.html" rel="next">
+<link href="./estimating-mean.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+    "location": "sidebar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "start",
+    "type": "textbox",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body class="docked">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="math inline">\(t\)</span> 分布を利用した母平均の推定</span>
+</h1>
+      <button type="button" class="quarto-btn-toggle btn">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">KUT 統計学2</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+<li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rの基本操作</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-RStudio.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">RStudio入門</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descriptive-stat.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">記述統計</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-markdown.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rマークダウンの使い方</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-ggplot2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">ggplot2 入門</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rng.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">乱数生成</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clt.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">中心極限定理</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-to-inference.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">統計的推定と仮説検定の基礎</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pop-n-sample.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">母集団と標本をシミュレーションで理解する</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lawoflargenumbers.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">シミュレーションを利用して大数の法則を理解する</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sampling-distribution.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">標本分布を理解する</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estimating-mean.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">母平均の推定</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./t-distribution.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="math inline">\(t\)</span> 分布を利用した母平均の推定</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mean-comparison.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">統計的検定と平均値の比較</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
+<ul>
+<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">14.1</span> 準備</a></li>
+<li><a href="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B"> <span class="header-section-number">14.2</span> 母集団を定義する</a></li>
+<li>
+<a href="#%E6%A8%99%E6%9C%AC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%97%E3%81%A6%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%82%92%E6%8E%A8%E5%AE%9A%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%97%E3%81%A6%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%82%92%E6%8E%A8%E5%AE%9A%E3%81%99%E3%82%8B"> <span class="header-section-number">14.3</span> 標本を抽出して母平均を推定する</a>
+<ul class="collapse">
+<li><a href="#%E6%A8%99%E6%9C%AC%E6%8A%BD%E5%87%BA%E3%81%A8%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%81%AE%E6%8E%A8%E5%AE%9A%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E6%8A%BD%E5%87%BA%E3%81%A8%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%81%AE%E6%8E%A8%E5%AE%9A%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"> <span class="header-section-number">14.3.1</span> 標本抽出と母平均の推定のシミュレーション</a></li>
+</ul>
+</li>
+<li><a href="#t-%E5%88%86%E5%B8%83%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#t-%E5%88%86%E5%B8%83%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B"> <span class="header-section-number">14.4</span> <span class="math inline">\(t\)</span> 分布を理解する</a></li>
+<li><a href="#t-%E5%88%86%E5%B8%83%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E5%8C%BA%E9%96%93%E6%8E%A8%E5%AE%9A" class="nav-link" data-scroll-target="#t-%E5%88%86%E5%B8%83%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E5%8C%BA%E9%96%93%E6%8E%A8%E5%AE%9A"> <span class="header-section-number">14.5</span> <span class="math inline">\(t\)</span> 分布を利用した区間推定</a></li>
+</ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title"><h1 class="title d-none d-lg-block display-7">
+<span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><span class="math inline">\(t\)</span> 分布を利用した母平均の推定</span>
+</h1></div></header><p><strong>今回の目標</strong></p>
+<ul>
+<li>
+<span class="math inline">\(t\)</span> 分布と標準正規分布の違いを理解しよう！</li>
+<li>
+<span class="math inline">\(t\)</span> 分布を利用した統計的推定の方法を身につけよう！</li>
+</ul>
+<section id="準備" class="level2" data-number="14.1"><h2 data-number="14.1" class="anchored" data-anchor-id="準備">
+<span class="header-section-number">14.1</span> 準備</h2>
+<p>必要なパッケージを読み込み、図の日本語が正しく表示されるようにする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+
+<span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> 
+  <span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Yu Gothic"</span>
+  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+    <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Japan1"</span>
+  <span class="op">}</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/capabilities.html">capabilities</a></span><span class="op">(</span><span class="st">"aqua"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"HiraginoSans-W3"</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"IPAexGothic"</span>
+<span class="op">}</span>
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
+                     base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="母集団を定義する" class="level2" data-number="14.2"><h2 data-number="14.2" class="anchored" data-anchor-id="母集団を定義する">
+<span class="header-section-number">14.2</span> 母集団を定義する</h2>
+<div class="cell">
+
+</div>
+<p>成人男性の身長に興味があるとする。母集団の人口を100万、母平均を約170cm、母標準偏差を約6cm に設定する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e6</span>, mean <span class="op">=</span> <span class="fl">170</span>, sd <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>母集団の身長分布は以下のようになる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">pop_height</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, 
+                     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">pop</span>, 
+                         y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, 
+       y <span class="op">=</span> <span class="st">"確率密度"</span>, 
+       title <span class="op">=</span> <span class="st">"母集団の分布"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pop_height</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>この母集団の身長の平均（母平均）は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 169.9955</code></pre>
+</div>
+</div>
+<p>であり、身長の標準偏差（母標準偏差）は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 6.011032</code></pre>
+</div>
+</div>
+<p>である。</p>
+</section><section id="標本を抽出して母平均を推定する" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="標本を抽出して母平均を推定する">
+<span class="header-section-number">14.3</span> 標本を抽出して母平均を推定する</h2>
+<section id="標本抽出と母平均の推定のシミュレーション" class="level3" data-number="14.3.1"><h3 data-number="14.3.1" class="anchored" data-anchor-id="標本抽出と母平均の推定のシミュレーション">
+<span class="header-section-number">14.3.1</span> 標本抽出と母平均の推定のシミュレーション</h3>
+<p>100万人の母集団で全員を調べるのではなく、10人だけ標本として抜き出して母平均を推定することを考える。 シミュレーションで標本抽出を1万回繰り返し、それぞれの標本で標本平均を計算しよう。</p>
+<p>まず、標本サイズを10に、シミュレーション回数を1万に設定する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">10</span>          <span class="co"># 標本サイズ</span>
+<span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span>    <span class="co"># シミュレーションの繰り返し回数</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>1万個の標本平均を保存するためのベクトルを用意する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">1e4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>また、後で使うので、不偏分散の平方根も保存できるようにする。</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">1e4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>母集団 <code>pop</code> から標本サイズ <code>N = 10</code> の標本を抽出する作業を <code>n_sims</code> = 10^{4} 回繰り返し、それぞれで標本平均と不偏分散の平方根を計算する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">smpl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="va">means</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smpl</span><span class="op">)</span>
+  <span class="va">u</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">smpl</span><span class="op">)</span>
+<span class="op">}</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>標本平均の標本分布を確認してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">df_sim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="va">means</span>, 
+                 sd <span class="op">=</span> <span class="va">u</span><span class="op">)</span>
+<span class="va">h1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mean</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span>, 
+                 color <span class="op">=</span> <span class="st">"black"</span>, 
+                 fill <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長の標本平均 (cm)"</span>, 
+       y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>なんとなく正規分布になっているように見えるが、はたしてそうだろうか。 得られた標本平均を標準化して、標準正規分布と分布を比べてみよう。</p>
+<section id="母分散-sigma2-を知っているとき" class="level4" data-number="14.3.1.1"><h4 data-number="14.3.1.1" class="anchored" data-anchor-id="母分散-sigma2-を知っているとき">
+<span class="header-section-number">14.3.1.1</span> <strong>母分散</strong> <span class="math inline">\(\sigma^2\)</span> を知っているとき</h4>
+<p>母分散 <span class="math inline">\(\sigma^2\)</span>（あるいは母標準偏差 <span class="math inline">\(\sigma\)</span>）を知っているという特殊な場合について考える。このとき、標本平均 <span class="math inline">\(\bar{x}\)</span>は、以下の式で標準化 (standardize) できる。</p>
+<p><span class="math display">\[
+z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
+\]</span> 標本平均は不偏推定量なので、 <span class="math display">\[
+\mathbb{E}[\bar{x}] = \mu
+\]</span> となる。そこで、<span class="math inline">\(\mu\)</span> は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">means</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 169.9729</code></pre>
+</div>
+</div>
+<p>としよう。</p>
+<p>また、仮定により <span class="math inline">\(\sigma\)</span> は知っているので母集団の <span class="math inline">\(\sigma\)</span> を使う。</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 6.011032</code></pre>
+</div>
+</div>
+<p>これらの値を使うと、標準化された標本平均 <span class="math inline">\(z\)</span> は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">z</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">means</span> <span class="op">-</span> <span class="va">mu</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">sigma</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>となる。</p>
+<p>この <span class="math inline">\(z\)</span> の分布を確認してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">df_sim</span><span class="op">$</span><span class="va">z</span> <span class="op">&lt;-</span> <span class="va">z</span>
+<span class="va">h2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">z</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">0.5</span>, 
+                 color <span class="op">=</span> <span class="st">"black"</span>, 
+                 fill <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"母分散が既知の場合"</span>, 
+       y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>標準正規分布に似ているように見える。<code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code> を使って <span class="math inline">\(z\)</span> の確率密度曲線（青い点線） を描き、標準正規分布の確率密度曲線（赤い実線）と比べてみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">df_sim</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="op">-</span><span class="fl">4</span>, to <span class="op">=</span> <span class="fl">4</span>, length.out <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">)</span><span class="op">)</span>
+<span class="va">df_sim</span><span class="op">$</span><span class="va">dens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">$</span><span class="va">x</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="va">h3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">z</span>, 
+                     y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>,
+                 binwidth <span class="op">=</span> <span class="fl">0.5</span>, 
+                 color <span class="op">=</span> <span class="st">"black"</span>, 
+                 fill <span class="op">=</span> <span class="st">"lightblue"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">z</span>, 
+                   y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>, 
+               color <span class="op">=</span> <span class="st">"blue"</span>, 
+               linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, 
+                y <span class="op">=</span> <span class="va">dens</span><span class="op">)</span>, 
+            color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"確率密度"</span>, 
+       title <span class="op">=</span> <span class="st">"母分散が既知の場合"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+<p>2つの確率密度曲線はほぼ一致している。</p>
+<p>この例のように、母分散を知っているとき、標本平均を標準化した <span class="math inline">\(z\)</span> の分布は標準正規分布に従う。したがって、私たちは区間推定に（これまでどおり）標準正規分布を利用することができる。</p>
+</section><section id="母分散-sigma2-を知らないとき" class="level4" data-number="14.3.1.2"><h4 data-number="14.3.1.2" class="anchored" data-anchor-id="母分散-sigma2-を知らないとき">
+<span class="header-section-number">14.3.1.2</span> <strong>母分散</strong> <span class="math inline">\(\sigma^2\)</span> を知らないとき</h4>
+<p>しかし、通常私たちは標本しか調べられないので母分散を知らない。母分散を知らないときはどうなるだろうか。</p>
+<p>母分散を知らないとき、先ほどと同じ標準化はできない。なぜなら、上で使った標準化の式には、<span class="math inline">\(\sigma\)</span> が出てくるが、その値を知らないからだ。そこで、母標準偏差 <span class="math inline">\(\sigma\)</span> の推定値として、不偏分散の平方根 <span class="math inline">\(u\)</span> を使う。この値は既に<code>u</code>として保存してある。</p>
+<p>この <span class="math inline">\(u\)</span> を使い、標本平均 <span class="math inline">\(\bar{x}\)</span>は、以下の式で標準化する（<span class="math inline">\(\hat{z}\)</span> は「<span class="math inline">\(z\)</span>ハット」と読む）。 <span class="math display">\[\hat{z} = \frac{\bar{x} - \mu}{\frac{u}{\sqrt{N}}}.\]</span></p>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">z_hat</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">means</span> <span class="op">-</span> <span class="va">mu</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">u</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>この <span class="math inline">\(\hat{z}\)</span> の分布を確認してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">df_sim</span><span class="op">$</span><span class="va">z_hat</span> <span class="op">&lt;-</span> <span class="va">z_hat</span>
+<span class="va">h4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">z_hat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">0.5</span>, 
+                 color <span class="op">=</span> <span class="st">"black"</span>, 
+                 fill <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">hat</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span>,
+       y <span class="op">=</span> <span class="st">"度数"</span>, 
+       title <span class="op">=</span> <span class="st">"母分散が未知の場合"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>標準正規分布に似ているように見えるが、どうだろうか。<code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code> を使って <span class="math inline">\(\hat{z}\)</span>の確率密度曲線（青い点線） を描き、標準正規分布の確率密度曲線（赤い実線）と比べてみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">h5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">z_hat</span>, 
+                     y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>,
+                 binwidth <span class="op">=</span> <span class="fl">0.5</span>, 
+                 color <span class="op">=</span> <span class="st">"black"</span>, 
+                 fill <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">z_hat</span>,
+                   y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>, 
+               color <span class="op">=</span> <span class="st">"blue"</span>, 
+               linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, 
+                y <span class="op">=</span> <span class="va">dens</span><span class="op">)</span>, 
+            color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">hat</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span>, 
+       y <span class="op">=</span> <span class="st">"確率密度"</span>, 
+       title <span class="op">=</span> <span class="st">"母分散が未知の場合"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+<p>2つの確率密度曲線は、少しずれている。 2つの確率密度は、0（付近）で最大値をとるという点で同じである。 しかし、分布のばらつきが違う。 平均値付近を比べると、<span class="math inline">\(\hat{z}\)</span> の分布の方が確率密度が低くなっている。 代わりに、分布の両裾を比べると、<span class="math inline">\(\hat{z}\)</span> の分布の方が、確率密度が高い。 言い換えると、<span class="math inline">\(\hat{z}\)</span> の分布は、標準正規分布よりも裾が厚い（重い）分布になっている。</p>
+<p>この例のように、母分散を知らないとき、標本平均を標準化した <span class="math inline">\(\hat{z}\)</span> の分布は<strong>標準正規分布に従わない</strong>。したがって、私たちは区間推定に標準正規分布を利用することが<strong>できない</strong>。</p>
+<p>実は、<span class="math inline">\(\hat{z}\)</span> の分布は自由度 <span class="math inline">\(N - 1\)</span> の <span class="math inline">\(t\)</span> 分布にしたがっている。 ためしに（シミュレーションで使ったサンプル<span class="math inline">\(N\)</span>は 10なので）自由度9の<span class="math inline">\(t\)</span>分布の確率密度曲線（赤い実線）を重ね書きしてみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">df_sim</span><span class="op">$</span><span class="va">tdens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">dt</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">$</span><span class="va">x</span>, df <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>
+<span class="va">h6</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">z_hat</span>, 
+                     y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>,
+                 binwidth <span class="op">=</span> <span class="fl">0.5</span>, 
+                 color <span class="op">=</span> <span class="st">"black"</span>, 
+                 fill <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">z_hat</span>, 
+                   y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span>, 
+               color <span class="op">=</span> <span class="st">"blue"</span>, 
+               linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">tdens</span><span class="op">)</span>, 
+            color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">hat</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span>, 
+       y <span class="op">=</span> <span class="st">"確率密度"</span>, 
+       title <span class="op">=</span> <span class="st">"母分散が未知の場合"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h6</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+<p>このように、確率密度曲線がほぼ一致する。</p>
+</section><section id="ast分布の比べ方" class="level4" data-number="14.3.1.3"><h4 data-number="14.3.1.3" class="anchored" data-anchor-id="ast分布の比べ方">
+<span class="header-section-number">14.3.1.3</span> <span class="math inline">\(\ast\)</span>分布の比べ方</h4>
+<p>上の例では、確率密度曲線を重ね書きすることで分布を比較した。 もう少し厳密に分布を比べたいとき、特に2つの分布が同じ分布といえるかどうか確かめたいときには、Q-Qプロット (qunatile-quantile plot) という図を使う。</p>
+<p>この図では、分布を確かめる対象となるシミュレーションで得た変数の分位点 (quantile) を縦軸に、比較対象の分布の分位点を横軸にとる。分位点と分位点を比べるので、Q-Q プロットと呼ばれる。</p>
+<p>分位点とは、簡単に言うと、「確率分布で下からa%分に相当する値はいくつか」という値である。標準正規分布では、2.5%の分位点 (「2.5パーセンタイル」と呼ばれる) は<span class="math inline">\(-1.96\)</span>、50%の分位点（50パーセンタイル）は0、97.5％の分位点は1.96 である。 Rでは、<code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> で分位点を求めることができる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">z</span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.5</span>, <span class="fl">0.975</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>        2.5%          50%        97.5% 
+-1.968565253 -0.001995798  1.922012245 </code></pre>
+</div>
+</div>
+<p>シミュレーションで得た <span class="math inline">\(z\)</span> の分布については、2.5パーセンタイルが -1.97、50パーセンタイルが0、97.5パーセンタイルが 1.92 であることがわかる。</p>
+<p>2つの分布がもし完全に一致するなら、2つの分布の a% の分位点は、aがどんな値であっても等しいはずである。したがって、片方の分布の分位点を <span class="math inline">\(y\)</span>、もう一方の分布の分位点を <span class="math inline">\(x\)</span> とすれば、2つの分布が等しいときには <span class="math inline">\(y=x\)</span> になるはずである。つまり、yとxの散布図の点が45度線の上にすべて乘るはずである。</p>
+<p>この性質を利用し、Q-Qプロット上の点が45度線の上にあるかどうか（45度線からどれだけずれているか）を調べることで、分布を比較してみよう。</p>
+<p>まず、<span class="math inline">\(z\)</span>（母分散を知っているときに、標本平均を標準化したもの; sample）と標準正規分布 (<code>qnorm</code>) を比べてみよう。 標準正規分布と比較するためのQ-Qプロットは、<code><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq()</a></code> で作れる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">qq1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">z</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>, 
+              slope <span class="op">=</span> <span class="fl">1</span>, 
+              linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># 45度線 </span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq</a></span><span class="op">(</span>distribution <span class="op">=</span> <span class="va">qnorm</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>       　   <span class="co"># 図の縦横比を1:1にする</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"標準正規分布"</span>, 
+       y <span class="op">=</span> <span class="st">"シミュレーションで得たz"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">qq1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>シミュレーションなので多少のずれはあるものの、点がほぼ45度線上にあることがわかる。</p>
+<p>次に、<span class="math inline">\(\hat{z}\)</span>（母分散を知らないときに、標本平均を標準化したもの）と標準正規分布を比べてみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">qq2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">z_hat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>, 
+              slope <span class="op">=</span> <span class="fl">1</span>, 
+              linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># 45度線 </span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq</a></span><span class="op">(</span>distribution <span class="op">=</span> <span class="va">qnorm</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>            <span class="co"># 図の縦横比を1:1にする</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"標準正規分布"</span>, 
+       y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"シミュレーションで得た"</span>, <span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">hat</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">qq2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>先ほどとは異なり、点が45度線から大きくずれている。ここから、<span class="math inline">\(\hat{z}\)</span>は標準正規分布に従わないことがよりはっきりとわかる。特に、裾（図の両端）で標準正規分布との違いが大きいことがわかるだろう。</p>
+<p>最後に、<span class="math inline">\(\hat{z}\)</span>（母分散を知らないときに、標本平均を標準化したもの）と自由度9の<span class="math inline">\(t\)</span>分布 (<code>qt(df = 9)</code>) を比べてみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">qq3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>sample <span class="op">=</span> <span class="va">z_hat</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>,
+              slope <span class="op">=</span> <span class="fl">1</span>,
+              linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>  <span class="co"># 45度線 </span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_qq.html">stat_qq</a></span><span class="op">(</span>distribution <span class="op">=</span> <span class="va">qt</span>, dparams <span class="op">=</span> <span class="fl">9</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="op">-</span><span class="fl">6</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>            <span class="co"># 図の縦横比を1:1にする</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"自由度9のt分布"</span>,
+       y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"シミュレーションで得た"</span>, <span class="fu"><a href="https://rdrr.io/r/grDevices/plotmath.html">hat</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">qq3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>やはり多少のずれはあるものの、ほとんどの点が45度線上に乗っていることがわかる。よって、<span class="math inline">\(\hat{z}\)</span>は、自由度9の<span class="math inline">\(t\)</span>分布に従っていると言えそうである（少なくとも、「自由度9の<span class="math inline">\(t\)</span>分布に従っていない」とはっきり言うことはできない）。</p>
+</section></section></section><section id="t-分布を理解する" class="level2" data-number="14.4"><h2 data-number="14.4" class="anchored" data-anchor-id="t-分布を理解する">
+<span class="header-section-number">14.4</span> <span class="math inline">\(t\)</span> 分布を理解する</h2>
+<p><span class="math inline">\(t\)</span> 分布は、自由度 <span class="math inline">\(df &gt; 0\)</span> によってその形を変える。</p>
+<p>たとえば、自由度1, 2, 10の <span class="math inline">\(t\)</span>乗分布は以下のように分布する。比較のため、標準正規分布も一緒に示す。</p>
+<p>まず、データフレームを作る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">x1</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span>, length <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+<span class="va">stdn</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x1</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="va">t1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">dt</a></span><span class="op">(</span><span class="va">x1</span>, df <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="va">t2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">dt</a></span><span class="op">(</span><span class="va">x1</span>, df <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="va">t10</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">dt</a></span><span class="op">(</span><span class="va">x1</span>, df <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>
+<span class="va">df_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">x1</span>, <span class="fl">4</span><span class="op">)</span>,
+               t <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">stdn</span>, <span class="va">t1</span>, <span class="va">t2</span>, <span class="va">t10</span><span class="op">)</span>,
+               group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"stdn"</span>, <span class="st">"t1"</span>, <span class="st">"t2"</span>, <span class="st">"t10"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_t</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>Rows: 4,000
+Columns: 3
+$ x     &lt;dbl&gt; -3.000000, -2.993994, -2.987988, -2.981982, -2.975976, -2.969970…
+$ t     &lt;dbl&gt; 0.004431848, 0.004512344, 0.004594136, 0.004677241, 0.004761679,…
+$ group &lt;chr&gt; "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", …</code></pre>
+</div>
+</div>
+<p>図を作る（この図の作り方は理解できなくてもよい）。</p>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">plt_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_t</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">t</span>, 
+                          color <span class="op">=</span> <span class="va">group</span>, linetype <span class="op">=</span> <span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>palette <span class="op">=</span> <span class="st">"Accent"</span>,
+                     name <span class="op">=</span> <span class="st">""</span>, 
+                     labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"標準正規分布"</span>, <span class="st">"t(df = 1)"</span>,
+                                <span class="st">"t(df = 2)"</span>, <span class="st">"t(df = 10)"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_linetype.html">scale_linetype_discrete</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">""</span>, 
+                          labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"標準正規分布"</span>, <span class="st">"t(df = 1)"</span>,
+                                     <span class="st">"t(df = 2)"</span>, <span class="st">"t(df = 10)"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">"確率密度"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">plt_t</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p><span class="math inline">\(t\)</span>分布の特徴として、</p>
+<ul>
+<li>0を中心として左右対称</li>
+<li>標準正規分布より山の頂上が低く、裾が厚い（重い）</li>
+<li>自由度が大きくなるほど標準正規分布に近づく</li>
+</ul>
+<p>という点が挙げられらる。</p>
+<p><span class="math inline">\(t\)</span>分布の形状を確認するための関数を用意したので、これを使って色々な<span class="math inline">\(t\)</span>分布の形状を確認し、<span class="math inline">\(t\)</span>分布の特徴を理解しよう（この関数の中身を理解する必要はない）。</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">plot_t</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="op">-</span><span class="fl">4</span>, to <span class="op">=</span> <span class="fl">4</span>, length <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span>
+  <span class="va">t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">dt</a></span><span class="op">(</span><span class="va">x</span>, df <span class="op">=</span> <span class="va">df</span><span class="op">)</span>
+  <span class="va">nml</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+  <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">t</span>, <span class="va">nml</span><span class="op">)</span>
+  <span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">d</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">nml</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">t</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"royalblue"</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">"確率密度"</span>,
+         title <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"自由度"</span>, <span class="va">df</span>, <span class="st">"のt分布（青い実線）と標準正規分布（黒い点線）"</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>
+<span class="op">}</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>自由度1の<span class="math inline">\(t\)</span>分布は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">plot_t</span><span class="op">(</span>df <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>自由度3の <span class="math inline">\(t\)</span>分布は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">plot_t</span><span class="op">(</span>df <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>となることが確認できる。</p>
+<p><strong>実習課題</strong></p>
+<p>自由度 (df) の値をによって<span class="math inline">\(t\)</span>分布がどのように変化するか、関数 <code>plot_t()</code> を使って確かめてみよう。</p>
+</section><section id="t-分布を利用した区間推定" class="level2" data-number="14.5"><h2 data-number="14.5" class="anchored" data-anchor-id="t-分布を利用した区間推定">
+<span class="header-section-number">14.5</span> <span class="math inline">\(t\)</span> 分布を利用した区間推定</h2>
+<p><span class="math inline">\(t\)</span> 分布を使った区間推定の方法も、基本的に標準正規分布を使った推定方法と同じである。 身長 <span class="math inline">\(x\)</span> の点推定値を <span class="math inline">\(\bar{x}\)</span> とすると、以下のように定義される信頼区間 (confidence interval) を区間推定に使う。</p>
+<p><span class="math display">\[
+\left[\bar{h} - t_{N-1, p} \cdot \mathrm{SE}, \bar{h} + t_{N-1, p} \cdot \mathrm{SE} \right].
+\]</span></p>
+<p>標準正規分布で <span class="math inline">\(Q\)</span> と表していた値（<code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> で求めた）を<span class="math inline">\(t_{N-1, p}\)</span> （<code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code> で求める）に変えただけである。</p>
+<p>母集団から <span class="math inline">\(N=10\)</span> の標本を1つ取り出して、身長の母平均を推定してみよう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">smpl_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>身長 <span class="math inline">\(x\)</span> の母平均の点推定値 <span class="math inline">\(\bar{x}\)</span> は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">x_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smpl_1</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 167.7088</code></pre>
+</div>
+</div>
+<p>である。</p>
+<p>また、標準誤差は、<span class="math display">\[\mathrm{SE} = \frac{u}{\sqrt{N}}\]</span> だから、</p>
+<div class="cell">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">se</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">smpl_1</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 2.283386</code></pre>
+</div>
+</div>
+<p>である。</p>
+<p>ここで、標本サイズ<span class="math inline">\(N = 10\)</span> だから、区間推定を行うには自由度 <span class="math inline">\(N - 1 = 9\)</span> の <span class="math inline">\(t\)</span> 分布を利用する。95パーセント信頼区間を求めたいとすると、<span class="math inline">\(t\)</span>分布の下側2.5%分と、上側2.5%分を除外したい。そのために必要なのが、<span class="math inline">\(t_{9, 0.025}\)</span>（または、<span class="math inline">\(-t_{9, 0.025}\)</span>）の値である。これを <code><a href="https://rdrr.io/r/stats/TDist.html">qt()</a></code> で求める。</p>
+<div class="cell" data-hold="true">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>df <span class="op">=</span> <span class="fl">9</span>, p <span class="op">=</span> <span class="fl">0.025</span><span class="op">)</span>  <span class="co"># 下側</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] -2.262157</code></pre>
+</div>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co">## qt(df = 9, p = 0.025, lower.tail = FALSE)  # 上側</span>
+<span class="co">## qt(df = 9, p = 0.975)  # 上側はこれでも求められる</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>これらの値を使うと、母平均の95%信頼区間を求める。</p>
+<div class="cell">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">lb</span> <span class="op">&lt;-</span> <span class="va">x_bar</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>df <span class="op">=</span> <span class="fl">9</span>, p <span class="op">=</span> <span class="fl">0.025</span><span class="op">)</span> <span class="op">*</span> <span class="va">se</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 162.5434</code></pre>
+</div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">ub</span> <span class="op">&lt;-</span> <span class="va">x_bar</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>df <span class="op">=</span> <span class="fl">9</span>, p <span class="op">=</span> <span class="fl">0.975</span><span class="op">)</span> <span class="op">*</span> <span class="va">se</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 172.8742</code></pre>
+</div>
+</div>
+<p>よって、母平均の95%信頼区間は、[162.54, 172.87] である。</p>
+<p>ちなみに、<span class="math inline">\(t\)</span> 分布の代わりに標準正規分布を使って95%信頼区間を求めると、</p>
+<div class="cell">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">lb_n</span> <span class="op">&lt;-</span> <span class="va">x_bar</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.025</span><span class="op">)</span> <span class="op">*</span> <span class="va">se</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 163.2335</code></pre>
+</div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="op">(</span><span class="va">ub_n</span> <span class="op">&lt;-</span> <span class="va">x_bar</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.975</span><span class="op">)</span> <span class="op">*</span> <span class="va">se</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>[1] 172.1842</code></pre>
+</div>
+</div>
+<p>となり、[163.23, 172.18] という区間が得られる。この区間は、<span class="math inline">\(t\)</span>分布を使って求めた区間よりも短い。 つまり、標準正規分布を使うと、不確実性を低く見積もり、「自信過剰な」信頼区間を出してしまう。結果として、標本抽出を繰り返しても<strong>95%信頼区間が正解を出す確率が95%よりも低くなってしまう</strong>ので注意が必要である。</p>
+<p>最後に、<span class="math inline">\(t\)</span> 分布を使って区間推定を行う関数を作っておこう。</p>
+<div class="cell">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">get_ci</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">level</span> <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">{</span>
+  <span class="co">## t 分布を利用して母平均の95%信頼区間を求める関数</span>
+  <span class="co">## 引数：x = 標本（観測値のベクトル）</span>
+  <span class="co">##       level = 信頼度（既定値は0.95）</span>
+  <span class="va">N</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>  <span class="co"># 標本サイズを調べる</span>
+  <span class="va">x_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+  <span class="va">se</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>
+  <span class="va">t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>df <span class="op">=</span> <span class="va">N</span> <span class="op">-</span> <span class="fl">1</span>, p <span class="op">=</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">level</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+  <span class="va">lb</span> <span class="op">&lt;-</span> <span class="va">x_bar</span> <span class="op">-</span> <span class="va">t</span> <span class="op">*</span> <span class="va">se</span>
+  <span class="va">ub</span> <span class="op">&lt;-</span> <span class="va">x_bar</span> <span class="op">+</span> <span class="va">t</span> <span class="op">*</span> <span class="va">se</span>
+  <span class="va">confint</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>下限値 <span class="op">=</span> <span class="va">lb</span>, 上限値 <span class="op">=</span> <span class="va">ub</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/message.html">message</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">level</span> <span class="op">*</span> <span class="fl">100</span>, <span class="st">"%信頼区間"</span><span class="op">)</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">confint</span><span class="op">)</span>
+<span class="op">}</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>この関数を使ってみよう。標本1 (smpl_1) から得られる母平均の95%信頼区間は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">get_ci</span><span class="op">(</span><span class="va">smpl_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>95%信頼区間</code></pre>
+</div>
+<div class="cell-output-stdout">
+<pre><code>  下限値   上限値 
+162.5434 172.8742 </code></pre>
+</div>
+</div>
+<p>となり、先ほどと同じ結果が得られた。</p>
+<p>89%信頼区間は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">get_ci</span><span class="op">(</span><span class="va">smpl_1</span>, level <span class="op">=</span> <span class="fl">0.89</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>89%信頼区間</code></pre>
+</div>
+<div class="cell-output-stdout">
+<pre><code>  下限値   上限値 
+163.6606 171.7571 </code></pre>
+</div>
+</div>
+<p>である。</p>
+<p>99.9%信頼区間は、</p>
+<div class="cell">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">get_ci</span><span class="op">(</span><span class="va">smpl_1</span>, level <span class="op">=</span> <span class="fl">0.999</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stderr">
+<pre><code>99.9%信頼区間</code></pre>
+</div>
+<div class="cell-output-stdout">
+<pre><code>  下限値   上限値 
+156.7921 178.6255 </code></pre>
+</div>
+</div>
+<p>である。</p>
+
+
+
+</section></main><!-- /main --><script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./estimating-mean.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">母平均の推定</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./mean-comparison.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">統計的検定と平均値の比較</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Yuki Yanai</div>
+  </div>
+</footer>
+
+
+</body></html>
