@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -227,16 +227,16 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">10.1</span> 準備</a></li>
+<li><a href="#sec-prep10" class="nav-link active" data-scroll-target="#sec-prep10"> <span class="header-section-number">10.1</span> 準備</a></li>
 <li>
-<a href="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%81%A8%E6%A8%99%E6%9C%AC%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="nav-link" data-scroll-target="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%81%A8%E6%A8%99%E6%9C%AC%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"> <span class="header-section-number">10.2</span> 母集団と標本のシミュレーション</a>
+<a href="#sec-simpopnsample" class="nav-link" data-scroll-target="#sec-simpopnsample"> <span class="header-section-number">10.2</span> 母集団と標本のシミュレーション</a>
 <ul class="collapse">
-<li><a href="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E7%94%A8%E6%84%8F%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E7%94%A8%E6%84%8F%E3%81%99%E3%82%8B"> <span class="header-section-number">10.2.1</span> 母集団を用意する</a></li>
-<li><a href="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%81%8B%E3%82%89100%E4%BA%BA%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%AB%E9%81%B8%E3%81%B6" class="nav-link" data-scroll-target="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%81%8B%E3%82%89100%E4%BA%BA%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%AB%E9%81%B8%E3%81%B6"> <span class="header-section-number">10.2.2</span> 母集団から100人をランダムに選ぶ</a></li>
-<li><a href="#%E6%A8%99%E6%BA%96%E8%AA%A4%E5%B7%AE-standard-error-se" class="nav-link" data-scroll-target="#%E6%A8%99%E6%BA%96%E8%AA%A4%E5%B7%AE-standard-error-se"> <span class="header-section-number">10.2.3</span> 標準誤差 (standard error; SE)</a></li>
+<li><a href="#sec-pop10" class="nav-link" data-scroll-target="#sec-pop10"> <span class="header-section-number">10.2.1</span> 母集団を用意する</a></li>
+<li><a href="#sec-sampling" class="nav-link" data-scroll-target="#sec-sampling"> <span class="header-section-number">10.2.2</span> 母集団から100人をランダムに選ぶ</a></li>
+<li><a href="#sec-se1" class="nav-link" data-scroll-target="#sec-se1"> <span class="header-section-number">10.2.3</span> 標準誤差 (standard error; SE)</a></li>
 </ul>
 </li>
-<li><a href="#%E5%AE%9F%E7%BF%92%E8%AA%B2%E9%A1%8C" class="nav-link" data-scroll-target="#%E5%AE%9F%E7%BF%92%E8%AA%B2%E9%A1%8C"> <span class="header-section-number">10.3</span> 実習課題</a></li>
+<li><a href="#sec-ex10" class="nav-link" data-scroll-target="#sec-ex10"> <span class="header-section-number">10.3</span> 実習課題</a></li>
 </ul></nav>
     </div>
 <!-- main -->
@@ -248,7 +248,7 @@
 <li>母集団と標本の違いを理解する</li>
 <li>母数（パラメタ）と統計量の違いを理解する</li>
 </ul>
-<section id="準備" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="準備">
+<section id="sec-prep10" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="sec-prep10">
 <span class="header-section-number">10.1</span> 準備</h2>
 <p>必要なパッケージを読み込む。</p>
 <div class="cell">
@@ -272,9 +272,9 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="母集団と標本のシミュレーション" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="母集団と標本のシミュレーション">
+</section><section id="sec-simpopnsample" class="level2" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="sec-simpopnsample">
 <span class="header-section-number">10.2</span> 母集団と標本のシミュレーション</h2>
-<section id="母集団を用意する" class="level3" data-number="10.2.1"><h3 data-number="10.2.1" class="anchored" data-anchor-id="母集団を用意する">
+<section id="sec-pop10" class="level3" data-number="10.2.1"><h3 data-number="10.2.1" class="anchored" data-anchor-id="sec-pop10">
 <span class="header-section-number">10.2.1</span> 母集団を用意する</h3>
 <p>例として、女性4,600人、男性5,400人から成る母集団を考える。合計10,000人で、女性比率が0.46、男性比率は0.54である。これらは<strong>母</strong>集団の比率なので、母比率と呼ばれる。</p>
 <p>この母集団 (population) をRで定義しよう。</p>
@@ -299,7 +299,7 @@ female   male
 </div>
 <p>例題どおりの母集団が定義できた。</p>
 <p>ここで、私たちは母比率を知らないと仮定しよう。 正しい母比率を調べるもっとも単純な方法は、1万人全員の性別を調べることである。しかし、1万人を調査するのは大変なので、1万人から100人だけを無作為に（ランダムに）選び、100人の性別を調べ、その結果を利用して母比率を推定することにする。</p>
-</section><section id="母集団から100人をランダムに選ぶ" class="level3" data-number="10.2.2"><h3 data-number="10.2.2" class="anchored" data-anchor-id="母集団から100人をランダムに選ぶ">
+</section><section id="sec-sampling" class="level3" data-number="10.2.2"><h3 data-number="10.2.2" class="anchored" data-anchor-id="sec-sampling">
 <span class="header-section-number">10.2.2</span> 母集団から100人をランダムに選ぶ</h3>
 <p>上で定義した母集団から、ランダムに100人を抜き出してみよう。</p>
 <p><code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> でランダムに100人抽出すればよい。同じ人物を2度以上抜き出すことがないよう、<code>replace = FALSE</code> で非復元抽出を指定する。また、標本サイズ <span class="math inline">\(N\)</span> は繰り返し使うので、最初に定義しておく。</p>
@@ -313,21 +313,21 @@ female   male
 <div class="cell-output-stdout">
 <pre><code>sample_1
 female   male 
-  0.47   0.53 </code></pre>
+  0.49   0.51 </code></pre>
 </div>
 </div>
 <p>この比率は標本（サンプル）の比率なので、標本比率と呼ばれる。 女性比率だけを調べる（女性比率がわかれば男性比率もわかるので）には、</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">sample_1</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span> <span class="op">/</span> <span class="va">N</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.47</code></pre>
+<pre><code>[1] 0.49</code></pre>
 </div>
 </div>
 <p>または、</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.47</code></pre>
+<pre><code>[1] 0.49</code></pre>
 </div>
 </div>
 <p>とすればよい。</p>
@@ -336,7 +336,7 @@ female   male
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sample_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_2</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.5</code></pre>
+<pre><code>[1] 0.51</code></pre>
 </div>
 </div>
 <p>もう一度、別の100人で調べてみよう（先ほどと同じ人物が選ばれる可能性はある）。</p>
@@ -344,7 +344,7 @@ female   male
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sample_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_3</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.58</code></pre>
+<pre><code>[1] 0.51</code></pre>
 </div>
 </div>
 <p>このように、毎回異なる標本比率が得られる。標本から得られる統計量は、母数（この例題の場合は母比率）と必ずしも一致しないし、同じ方法を何度も繰り返すと異なる値が得られる。</p>
@@ -386,7 +386,7 @@ female   male
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">res_1</span><span class="op">[</span><span class="fl">1</span> <span class="op">:</span> <span class="fl">10</span><span class="op">]</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code> [1] 0.49 0.48 0.40 0.47 0.46 0.42 0.44 0.41 0.53 0.42</code></pre>
+<pre><code> [1] 0.49 0.53 0.45 0.47 0.46 0.41 0.58 0.54 0.52 0.45</code></pre>
 </div>
 </div>
 <p>さきほどは <code>NA</code> だったところに数値（標本比率）が保存されたことがわかる。</p>
@@ -409,13 +409,13 @@ female   male
 </div>
 <p>ヒストグラムを見ると、一つひとつの標本比率は母比率よりも大きかったり、母比率よりも小さかったりすることがわかる。しかし、<strong>平均すると</strong>母比率に近い値を得ることができそうだ。</p>
 <p>このヒストグラムからわかる通り、統計量は分布する（つまり、標本ごとにばらばらの値をとる）。このような標本ごとの分布を <strong>標本分布 (sampling distribution)</strong> と呼ぶ（標本分布については、次のトピックで説明する）。</p>
-</section><section id="標準誤差-standard-error-se" class="level3" data-number="10.2.3"><h3 data-number="10.2.3" class="anchored" data-anchor-id="標準誤差-standard-error-se">
+</section><section id="sec-se1" class="level3" data-number="10.2.3"><h3 data-number="10.2.3" class="anchored" data-anchor-id="sec-se1">
 <span class="header-section-number">10.2.3</span> 標準誤差 (standard error; SE)</h3>
 <p>標準誤差は、標本分布に現れる標準偏差（統計量のばらつき）なので、このシミュレーションで得られる標準誤差は、</p>
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">res_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.04920171</code></pre>
+<pre><code>[1] 0.04942399</code></pre>
 </div>
 </div>
 <p>である。</p>
@@ -429,7 +429,7 @@ female   male
 </div>
 </div>
 <p>になるはずであるが、シミュレーションなので実行する度に値が変わり、理論値に近づいたり離れたりする。</p>
-</section></section><section id="実習課題" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="実習課題">
+</section></section><section id="sec-ex10" class="level2" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="sec-ex10">
 <span class="header-section-number">10.3</span> 実習課題</h2>
 <p>標本サイズ <span class="math inline">\(N\)</span> の値を変えて (N = 25, N = 400)、同様のシミュレーションを実行してみよう。</p>
 <ul>
@@ -513,6 +513,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./intro-to-inference.html" class="pagination-link">

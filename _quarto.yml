@@ -1,8 +1,6 @@
 project:
   type: book
   output-dir: docs
-editor: source
-lang: ja
 language: jayy.yml
   
 book: 
@@ -17,7 +15,9 @@ book:
     background: light
     border: false
   search: true
-  repo-url: https://yukiyanai.github.io/statistics/
+  site-url: https://yukiyanai.github.io/stat2/
+  repo-url: https://github.com/yukiyanai/stat2/
+  repo-branch: main
   sharing: [twitter, facebook]
   chapters: 
     - index.qmd
@@ -35,21 +35,19 @@ book:
     - estimating-mean.qmd
     - t-distribution.qmd
     - mean-comparison.qmd
-  
     
 format:
   html:
     theme: yeti
+    toc: true
+    toc-depth: 3
     number-sections: true
     highlight-style: arrow
     html-math-method: mathjax
     code-link: true
     fig-width: 5
     fig-height: 4
-    filters:
-      - add-target-attr.lua
+    link-external-newwindow: true
 
 crossref:
   ref-hyperlink: true
-  
-

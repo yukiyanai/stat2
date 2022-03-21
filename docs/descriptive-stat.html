@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -228,20 +228,20 @@
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
 <li>
-<a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E8%A8%98%E8%BF%B0%E7%B5%B1%E8%A8%88%E3%81%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96" class="nav-link active" data-scroll-target="#%E5%A4%89%E6%95%B0%E3%81%AE%E8%A8%98%E8%BF%B0%E7%B5%B1%E8%A8%88%E3%81%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96"> <span class="header-section-number">4.1</span> 1変数の記述統計とデータの可視化</a>
+<a href="#sec-1var" class="nav-link active" data-scroll-target="#sec-1var"> <span class="header-section-number">4.1</span> 1変数の記述統計とデータの可視化</a>
 <ul class="collapse">
-<li><a href="#%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" class="nav-link" data-scroll-target="#%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"> <span class="header-section-number">4.1.1</span> パッケージの読み込み</a></li>
-<li><a href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" class="nav-link" data-scroll-target="#%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"> <span class="header-section-number">4.1.2</span> データセットの読み込み</a></li>
-<li><a href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E7%B5%B1%E8%A8%88%E9%87%8F%E3%81%AE%E8%A8%88%E7%AE%97" class="nav-link" data-scroll-target="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E7%B5%B1%E8%A8%88%E9%87%8F%E3%81%AE%E8%A8%88%E7%AE%97"> <span class="header-section-number">4.1.3</span> 基本的な統計量の計算</a></li>
-<li><a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96" class="nav-link" data-scroll-target="#%E5%A4%89%E6%95%B0%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96"> <span class="header-section-number">4.1.4</span> 変数の可視化</a></li>
+<li><a href="#sec-pacs" class="nav-link" data-scroll-target="#sec-pacs"> <span class="header-section-number">4.1.1</span> パッケージの読み込み</a></li>
+<li><a href="#sec-datasets" class="nav-link" data-scroll-target="#sec-datasets"> <span class="header-section-number">4.1.2</span> データセットの読み込み</a></li>
+<li><a href="#sec-stats" class="nav-link" data-scroll-target="#sec-stats"> <span class="header-section-number">4.1.3</span> 基本的な統計量の計算</a></li>
+<li><a href="#sec-viz1" class="nav-link" data-scroll-target="#sec-viz1"> <span class="header-section-number">4.1.4</span> 変数の可視化</a></li>
 </ul>
 </li>
 <li>
-<a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E8%A8%98%E8%BF%B0%E7%B5%B1%E8%A8%88%E3%81%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96-1" class="nav-link" data-scroll-target="#%E5%A4%89%E6%95%B0%E3%81%AE%E8%A8%98%E8%BF%B0%E7%B5%B1%E8%A8%88%E3%81%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%8F%AF%E8%A6%96%E5%8C%96-1"> <span class="header-section-number">4.2</span> 2変数の記述統計とデータの可視化</a>
+<a href="#sec-2var" class="nav-link" data-scroll-target="#sec-2var"> <span class="header-section-number">4.2</span> 2変数の記述統計とデータの可視化</a>
 <ul class="collapse">
-<li><a href="#%E3%81%A4%E3%81%AE%E9%87%8F%E7%9A%84%E5%A4%89%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82%E3%82%92%E5%9B%B3%E7%A4%BA%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E3%81%A4%E3%81%AE%E9%87%8F%E7%9A%84%E5%A4%89%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82%E3%82%92%E5%9B%B3%E7%A4%BA%E3%81%99%E3%82%8B"> <span class="header-section-number">4.2.1</span> 2つの量的変数の関係を図示する</a></li>
-<li><a href="#%E3%81%A4%E3%81%AE%E9%87%8F%E7%9A%84%E5%A4%89%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82%E3%82%92%E7%B5%B1%E8%A8%88%E9%87%8F%E3%81%A7%E7%A4%BA%E3%81%99" class="nav-link" data-scroll-target="#%E3%81%A4%E3%81%AE%E9%87%8F%E7%9A%84%E5%A4%89%E6%95%B0%E3%81%AE%E9%96%A2%E4%BF%82%E3%82%92%E7%B5%B1%E8%A8%88%E9%87%8F%E3%81%A7%E7%A4%BA%E3%81%99"> <span class="header-section-number">4.2.2</span> 2つの量的変数の関係を統計量で示す</a></li>
-<li><a href="#%E6%95%A3%E5%B8%83%E5%9B%B3%E3%81%A8%E7%9B%B8%E9%96%A2%E4%BF%82%E6%95%B0" class="nav-link" data-scroll-target="#%E6%95%A3%E5%B8%83%E5%9B%B3%E3%81%A8%E7%9B%B8%E9%96%A2%E4%BF%82%E6%95%B0"> <span class="header-section-number">4.2.3</span> 散布図と相関係数</a></li>
+<li><a href="#sec-bivarviz" class="nav-link" data-scroll-target="#sec-bivarviz"> <span class="header-section-number">4.2.1</span> 2つの量的変数の関係を図示する</a></li>
+<li><a href="#sec-bivarstat" class="nav-link" data-scroll-target="#sec-bivarstat"> <span class="header-section-number">4.2.2</span> 2つの量的変数の関係を統計量で示す</a></li>
+<li><a href="#sec-scatcor" class="nav-link" data-scroll-target="#sec-scatcor"> <span class="header-section-number">4.2.3</span> 散布図と相関係数</a></li>
 </ul>
 </li>
 </ul></nav>
@@ -255,9 +255,9 @@
 <li>Rで基本的な統計量を求めてみよう！</li>
 <li>Rで作図する例を見てみよう！（今回は、作図コードの内容を理解しなくても良い）</li>
 </ul>
-<section id="変数の記述統計とデータの可視化" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="変数の記述統計とデータの可視化">
+<section id="sec-1var" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="sec-1var">
 <span class="header-section-number">4.1</span> 1変数の記述統計とデータの可視化</h2>
-<section id="パッケージの読み込み" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="パッケージの読み込み">
+<section id="sec-pacs" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="sec-pacs">
 <span class="header-section-number">4.1.1</span> パッケージの読み込み</h3>
 <p>まず、この授業で頻繁（ほぼ常に）に使う、<strong>tidyverse</strong>パッケージをインストールしよう。既にインストール済みなら、改めてインストールする必要はない。割と時間がかかるので注意。</p>
 <div class="callout-important callout callout-style-default callout-captioned">
@@ -290,7 +290,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>図中の日本語が文字化けすることがあるので、OSに合わせてフォントを指定する以下のコードを実行する（RStudio Cloud の場合は回避策が面倒なので省略。Cloudユーザは 英語 [アルファベット] を使うように）。これは、<code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> の後に、<strong>毎回実行する</strong>ことが必要。（Linux ユーザは、自分の環境で使用可能なフォントを指定すること。）</p>
-<p>Linux ユーザ（<a href="https://moji.or.jp/ipafont/" target="_blank" rel="external">IPAexフォント</a> が利用可能である場合）は、</p>
+<p>Linux ユーザ（<a href="https://moji.or.jp/ipafont/">IPAexフォント</a> が利用可能である場合）は、</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size   <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="st">"IPAexGothic"</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -309,19 +309,19 @@
                      base_family <span class="op">=</span> <span class="st">"Yu Gothic"</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>を実行する。</p>
-</section><section id="データセットの読み込み" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="データセットの読み込み">
+</section><section id="sec-datasets" class="level3" data-number="4.1.2"><h3 data-number="4.1.2" class="anchored" data-anchor-id="sec-datasets">
 <span class="header-section-number">4.1.2</span> データセットの読み込み</h3>
 <p>まず、今回の実習で利用するデータをダウンロードしよう。 準備として、現在利用しているプロジェクト（上で作ったフォルダ）の中に、<strong>data</strong> という名前のフォルダを作ろう。</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>次にデータセット <a href="http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake-data-01.csv" target="_blank" rel="external">fake-data-01.csv</a> をダウンロードし、今作った data フォルダの中に保存する。</p>
+<p>次にデータセット <a href="http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake-data-01.csv">fake-data-01.csv</a> をダウンロードし、今作った data フォルダの中に保存する。</p>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span>
     url <span class="op">=</span> <span class="st">"http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_data_01.csv"</span>,
     destfile <span class="op">=</span> <span class="st">"data/fake_data_01.csv"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>ダウンロードがうまくいかない（あるいは、次の読み込み段階で失敗する）場合は、ファイル (<code>fake_data_01.csv</code>) を<a href="https://drive.google.com/drive/folders/1_TGTq6cgn5UAJhT8JOz6oSlmW6lV1vIU?usp=sharing" target="_blank" rel="external">ここ</a> から手動でダウンロードして、プロジェクト内の data ディレクトリに移動する。</p>
+<p>ダウンロードがうまくいかない（あるいは、次の読み込み段階で失敗する）場合は、ファイル (<code>fake_data_01.csv</code>) を<a href="https://drive.google.com/drive/folders/1_TGTq6cgn5UAJhT8JOz6oSlmW6lV1vIU?usp=sharing">ここ</a> から手動でダウンロードして、プロジェクト内の data ディレクトリに移動する。</p>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -425,7 +425,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 </div>
 </div>
 <p>とする。</p>
-</section><section id="基本的な統計量の計算" class="level3" data-number="4.1.3"><h3 data-number="4.1.3" class="anchored" data-anchor-id="基本的な統計量の計算">
+</section><section id="sec-stats" class="level3" data-number="4.1.3"><h3 data-number="4.1.3" class="anchored" data-anchor-id="sec-stats">
 <span class="header-section-number">4.1.3</span> 基本的な統計量の計算</h3>
 <p>基本的な統計量の計算方法を学習しよう。Rにはよく使われる統計量を計算するための関数があらかじめ用意されているので、関数を利用する。Rの関数の基本的な形は、<code>関数名()</code> である。この <code>()</code> の中に何を書くべきかは、関数によって異なる。Rの関数の使い方を身につけるためには、<code>()</code> の中身を適切に指定できるようになることが必要である。<code>()</code> の中身は関数の<strong>引数（ひきすう; arguments）</strong>と呼ばれる。</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -438,7 +438,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>引数には仮引数 (paramter) と実引数 (argument) という区別があるが、現時点では深入りしないことにする。気になる場合は、<a href="http://www.cc.kyoto-su.ac.jp/~yamada/ap/parameter_argument.html" target="_blank" rel="external">この説明</a> を参照されたい。</p>
+<p>引数には仮引数 (paramter) と実引数 (argument) という区別があるが、現時点では深入りしないことにする。気になる場合は、<a href="http://www.cc.kyoto-su.ac.jp/~yamada/ap/parameter_argument.html">この説明</a> を参照されたい。</p>
 </div>
 </div>
 <p>私たちが利用しているデータセット <code>myd</code> に含まれる <code>height</code>（身長）という変数 (variable) の平均値（算術平均; mean）を求めよう。Rでは、<code>mean(変数名)</code>とすると、平均値が求められる。</p>
@@ -556,7 +556,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 <ul>
 <li>体重 (weight) について、平均値、中央値、分散、標準偏差、四分位範囲を求めよう。</li>
 <li>所得 (income) について、平均値、中央値、分散、標準偏差、四分位範囲を求めよう。</li>
-</ul></section><section id="変数の可視化" class="level3" data-number="4.1.4"><h3 data-number="4.1.4" class="anchored" data-anchor-id="変数の可視化">
+</ul></section><section id="sec-viz1" class="level3" data-number="4.1.4"><h3 data-number="4.1.4" class="anchored" data-anchor-id="sec-viz1">
 <span class="header-section-number">4.1.4</span> 変数の可視化</h3>
 <p>変数の特徴は統計量によってある程度把握することができるが、統計量だけではわかりにくい特徴もある。そこで、データ分析を行う際には、図を作って自分が持っているデータを可視化するという作業が必要かつ重要である。</p>
 <p>今日は、<strong>ggplot2</strong>パッケージを使って、簡単な図をいくつか作ってみよう。<strong>ggplot2</strong>は先ほど読み込んだ <strong>tidyverse</strong> の一部なので、新たに読み込む必要はない。また、<strong>ggplot2</strong>の詳しい使い方は Topic 5 で解説するので、今日はコードの中身まで理解しなくてもよい。</p>
@@ -580,7 +580,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 <p><img src="descriptive-stat_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
-<p>バーの色を変えたいときは、<code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> で <code>fill</code> を指定する。 指定可能な色については <a href="http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC" target="_blank" rel="external">このページ</a> を参照。</p>
+<p>バーの色を変えたいときは、<code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> で <code>fill</code> を指定する。 指定可能な色については <a href="http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC">このページ</a> を参照。</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">hist_h3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span> <span class="op">+</span>
@@ -618,9 +618,9 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 <ul>
 <li>体重 (weight) のヒストグラム（色付き）を作り、日本語でラベルを付けよう。</li>
 <li>所得 (income) のヒストグラム（色付き）を作り、日本語でラベルを付けよう。</li>
-</ul></section></section><section id="変数の記述統計とデータの可視化-1" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="変数の記述統計とデータの可視化-1">
+</ul></section></section><section id="sec-2var" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="sec-2var">
 <span class="header-section-number">4.2</span> 2変数の記述統計とデータの可視化</h2>
-<section id="つの量的変数の関係を図示する" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="つの量的変数の関係を図示する">
+<section id="sec-bivarviz" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="sec-bivarviz">
 <span class="header-section-number">4.2.1</span> 2つの量的変数の関係を図示する</h3>
 <p>2つの量的変数の関係は、散布図 (scatter plot) で確認する。ここでは、身長 (height) と体重 (weight) の関係を図示してみよう。ggplot2では、<code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> で散布図ができる。</p>
 <div class="cell">
@@ -633,7 +633,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 </div>
 </div>
 <p>このデータセットに含まれる身長と体重の間には、どのような関係があるだろうか？</p>
-</section><section id="つの量的変数の関係を統計量で示す" class="level3" data-number="4.2.2"><h3 data-number="4.2.2" class="anchored" data-anchor-id="つの量的変数の関係を統計量で示す">
+</section><section id="sec-bivarstat" class="level3" data-number="4.2.2"><h3 data-number="4.2.2" class="anchored" data-anchor-id="sec-bivarstat">
 <span class="header-section-number">4.2.2</span> 2つの量的変数の関係を統計量で示す</h3>
 <p>2つの量的変数の関係を表すのにもっともよく使われるのは、相関係数 (correlation coefficient) である。この統計量は、<span class="math inline">\(r\)</span> で表されることが多い。<span class="math inline">\(-1 \leq r \leq 1\)</span>となる。<span class="math inline">\(a\)</span>と<span class="math inline">\(b\)</span> という2つの変数があったとき、<span class="math inline">\(a\)</span>が大きくなるほど<span class="math inline">\(b\)</span> も大きくなるという関係があるとき、「<span class="math inline">\(a\)</span>と<span class="math inline">\(b\)</span>には正の相関 (positive correlation) がある」と言い、このとき <span class="math inline">\(r &gt; 0\)</span> である。また、<span class="math inline">\(a\)</span>が大きくなるほど<span class="math inline">\(b\)</span> が小さくなるという関係があるとき、「<span class="math inline">\(a\)</span>と<span class="math inline">\(b\)</span>には負の相関 (negative correlation) がある」と言い、このとき <span class="math inline">\(r &lt; 0\)</span> である。<span class="math inline">\(r = 0\)</span> のとき、「<span class="math inline">\(a\)</span>と<span class="math inline">\(b\)</span>は相関関係がない」と言う。</p>
 <p>正の相関があるとき、<span class="math inline">\(r\)</span>が<span class="math inline">\(1\)</span>に近いほど、その関係は強い。また、負の相関があるとき、<span class="math inline">\(r\)</span>が<span class="math inline">\(-1\)</span>に近いほど、その関係は強い。つまり、相関関係は、相関係数の絶対値が1に近いほど強い。</p>
@@ -645,7 +645,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 </div>
 </div>
 <p>である。この2変数にはどんな関係があるだろうか？</p>
-</section><section id="散布図と相関係数" class="level3" data-number="4.2.3"><h3 data-number="4.2.3" class="anchored" data-anchor-id="散布図と相関係数">
+</section><section id="sec-scatcor" class="level3" data-number="4.2.3"><h3 data-number="4.2.3" class="anchored" data-anchor-id="sec-scatcor">
 <span class="header-section-number">4.2.3</span> 散布図と相関係数</h3>
 <p>2つの量的な変数の関係を調べるときは、散布図と相関係数の<strong>両者</strong>を使ったほうがよい。</p>
 <p>散布図だけを使うと、本当は存在しない関係を、誤って見つけてしまうことがある。例えば、本当は相関がない2つの変数の散布図を描いたとき、描かれた点がなんとなく右肩上がりの直線の周りに集まっているように見えてしまうことがある。これは、人間がパタンを見つける能力に優れている（優れ過ぎている？）からだと考えられる。偶然できた壁のシミが人間の顔に見えてしまうことがあるというのも似たような現象である。</p>
@@ -762,6 +762,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./intro-to-RStudio.html" class="pagination-link">

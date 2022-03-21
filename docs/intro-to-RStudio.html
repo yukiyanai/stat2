@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -227,9 +227,9 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90" class="nav-link active" data-scroll-target="#%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90"> <span class="header-section-number">3.1</span> プロジェクトの作成</a></li>
-<li><a href="#r%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E5%88%A9%E7%94%A8" class="nav-link" data-scroll-target="#r%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E5%88%A9%E7%94%A8"> <span class="header-section-number">3.2</span> Rスクリプトの作成と利用</a></li>
-<li><a href="#%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AE%E5%88%A9%E7%94%A8" class="nav-link" data-scroll-target="#%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%81%AE%E5%88%A9%E7%94%A8"> <span class="header-section-number">3.3</span> コメントの利用</a></li>
+<li><a href="#sec-projects" class="nav-link active" data-scroll-target="#sec-projects"> <span class="header-section-number">3.1</span> プロジェクトの作成</a></li>
+<li><a href="#sec-scripts" class="nav-link" data-scroll-target="#sec-scripts"> <span class="header-section-number">3.2</span> Rスクリプトの作成と利用</a></li>
+<li><a href="#sec-comments" class="nav-link" data-scroll-target="#sec-comments"> <span class="header-section-number">3.3</span> コメントの利用</a></li>
 </ul></nav>
     </div>
 <!-- main -->
@@ -240,7 +240,7 @@
 <ul>
 <li>RStudio（とR）の基本的な操作を覚えよう！</li>
 </ul>
-<section id="プロジェクトの作成" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="プロジェクトの作成">
+<section id="sec-projects" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="sec-projects">
 <span class="header-section-number">3.1</span> プロジェクトの作成</h2>
 <p>RStudio にはプロジェクト機能がある。この機能を使うと、プロジェクトの管理が容易になる。ここでは、「統計学2」をプロジェクトの1つと考え、新規プロジェクトを作成してみよう。</p>
 <p>以下のステップを踏めば、プロジェクトが作れる。</p>
@@ -286,13 +286,13 @@
 <p>大学の情報演習室にあるパソコンを使っている場合は、<strong>Zドライブ</strong> 経由でプロジェクトを開く必要がある。授業で説明するので、説明をよく聞くように。わからなくなったら、担当教員またはSAに<strong>その場ですぐに</strong>質問しよう。</p>
 </div>
 </div>
-</section><section id="rスクリプトの作成と利用" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="rスクリプトの作成と利用">
+</section><section id="sec-scripts" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="sec-scripts">
 <span class="header-section-number">3.2</span> Rスクリプトの作成と利用</h2>
 <p>Rのコマンド（命令文）は、RStudio 右側（あるいは左下）の Console に直接打ち込むこともできる。しかし、通常はそのような使い方はしない。代わりに、Rの命令が書かれたファイルを別に作り、その中に命令を記入する。</p>
 <p>RStudio で新しいRスクリプトを作るには、RStudioで 「Cmd/Ctrl + Shift + N」を入力する （あるいはRStudio 上部のメニューで、File -&gt; New File -&gt; R Script の順番で選ぶ）。そうすると、RStudio の左側のウィンドウが上下に2分割されるはずである。このとき、左上に新たに開くのがRスクリプトである。（左下が Hisotory の場合は、不要なので最小化する。左下 Console の場合はそのままにする）</p>
 <p>Rスクリプトができたら、「Cmd/Ctrl + S」 を押し、名前をつけて保存しよう（名前の付け方はフォルダ名の付け方と同じルールで）。このファイルにRの命令を書き込む。基本的には、1つの行には1つの命令しか書かない。</p>
 <p>このファイルに書いた命令を実行したいときは、実行したい行にカーソルをおいた状態で、「Cmd/Ctrl + Return/Enter」を押す。すると、命令がConsole に送られ、実行される。</p>
-</section><section id="コメントの利用" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="コメントの利用">
+</section><section id="sec-comments" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="sec-comments">
 <span class="header-section-number">3.3</span> コメントの利用</h2>
 <p>Rスクリプトには、Rに送る命令以外に、自分（あるいは他の人間）用のコメントを書き込むことができる。Rでコメントを書くときは、<code>#</code> （ハッシュ）という記号を使う。Rは、その行で <code>#</code> より後にあるものを無視する。</p>
 <div class="callout-warning callout callout-style-default callout-captioned">
@@ -422,6 +422,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./intro-to-R.html" class="pagination-link">

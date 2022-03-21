@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -228,11 +228,11 @@
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
 <li>
-<a href="#r%E3%81%AE%E5%9F%BA%E7%A4%8E" class="nav-link active" data-scroll-target="#r%E3%81%AE%E5%9F%BA%E7%A4%8E"> <span class="header-section-number">2.1</span> Rの基礎</a>
+<a href="#sec-rbasic" class="nav-link active" data-scroll-target="#sec-rbasic"> <span class="header-section-number">2.1</span> Rの基礎</a>
 <ul class="collapse">
-<li><a href="#r%E3%82%92%E9%9B%BB%E5%8D%93%E4%BB%A3%E3%82%8F%E3%82%8A%E3%81%AB%E4%BD%BF%E3%81%86" class="nav-link" data-scroll-target="#r%E3%82%92%E9%9B%BB%E5%8D%93%E4%BB%A3%E3%82%8F%E3%82%8A%E3%81%AB%E4%BD%BF%E3%81%86"> <span class="header-section-number">2.1.1</span> Rを電卓代わりに使う</a></li>
-<li><a href="#%E5%A4%89%E6%95%B0%E3%81%AE%E5%88%A9%E7%94%A8" class="nav-link" data-scroll-target="#%E5%A4%89%E6%95%B0%E3%81%AE%E5%88%A9%E7%94%A8"> <span class="header-section-number">2.1.2</span> 変数の利用</a></li>
-<li><a href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%A8%E8%A1%8C%E5%88%97" class="nav-link" data-scroll-target="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E3%81%A8%E8%A1%8C%E5%88%97"> <span class="header-section-number">2.1.3</span> ベクトルと行列</a></li>
+<li><a href="#sec-calculator" class="nav-link" data-scroll-target="#sec-calculator"> <span class="header-section-number">2.1.1</span> Rを電卓代わりに使う</a></li>
+<li><a href="#sec-vars" class="nav-link" data-scroll-target="#sec-vars"> <span class="header-section-number">2.1.2</span> 変数の利用</a></li>
+<li><a href="#sec-vector" class="nav-link" data-scroll-target="#sec-vector"> <span class="header-section-number">2.1.3</span> ベクトルと行列</a></li>
 </ul>
 </li>
 </ul></nav>
@@ -244,13 +244,13 @@
 </h1></div></header><p>ここでは、Rの基本的な使い方を解説する。RとRStudioのインストールについては、以下の資料を参照されたい。</p>
 <ul>
 <li>
-<a href="https://yukiyanai.github.io/jp/resources/docs/install-R_ubuntu.pdf" target="_blank" rel="external">Linux (Ubuntu) 編</a> (PDF, 4.6MB)</li>
+<a href="https://yukiyanai.github.io/jp/resources/docs/install-R_ubuntu.pdf">Linux (Ubuntu) 編</a> (PDF, 4.6MB)</li>
 <li>
-<a href="https://yukiyanai.github.io/jp/resources/docs/install-R_macOS.pdf" target="_blank" rel="external">macOS 編</a> (PDF, 4.9MB)</li>
+<a href="https://yukiyanai.github.io/jp/resources/docs/install-R_macOS.pdf">macOS 編</a> (PDF, 4.9MB)</li>
 <li>
-<a href="https://yukiyanai.github.io/jp/resources/docs/install-R_windows.pdf" target="_blank" rel="external">Windows 編</a> (PDF, 5.8MB)</li>
+<a href="https://yukiyanai.github.io/jp/resources/docs/install-R_windows.pdf">Windows 編</a> (PDF, 5.8MB)</li>
 </ul>
-<section id="rの基礎" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="rの基礎">
+<section id="sec-rbasic" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="sec-rbasic">
 <span class="header-section-number">2.1</span> Rの基礎</h2>
 <p>RのコードはRのConsoleに直接入力してもいいし、スクリプトに保存してRから呼び出してもよい。スクリプトを使うときは、スクリプトファイルを<strong>file_name.R</strong> のように <strong>.R</strong> ファイルとして保存する。そして、RのConsole で <code>source("file_name.R")</code> とすれば、スクリプト全体が実行される。</p>
 <p>Rコマンドの区切りは改行である。改行すれば、1つのコマンドが終了したと認識される。</p>
@@ -316,7 +316,7 @@
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>とする。パッケージをインストールする際は、<code>install.packages("パッケージ名")</code> とする。その際、どのレポジトリからダウンロードするか尋ねられるので、自分に一番近いところ選ぶ。（パッケージをインストールする度にレポジトリを指定するのが面倒なら、<code>.Rprofile</code> であらかじめレポジトリを指定しておく。）</p>
-<section id="rを電卓代わりに使う" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="rを電卓代わりに使う">
+<section id="sec-calculator" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="sec-calculator">
 <span class="header-section-number">2.1.1</span> Rを電卓代わりに使う</h3>
 <p>Rは電卓の代わりとして使うことができる。 たとえば、</p>
 <div class="cell">
@@ -356,7 +356,7 @@
 <pre><code>[1] 3375</code></pre>
 </div>
 </div>
-</section><section id="変数の利用" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="変数の利用">
+</section><section id="sec-vars" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="sec-vars">
 <span class="header-section-number">2.1.2</span> 変数の利用</h3>
 <p>Rでは、変数（正確にはオブジェクト）を（ある程度）自由に作ることができる。 変数の名前は自由に決めてよい（ただし、数字から始まるものはだめ。また、<code>-</code> [ハイフン] はマイナスと区別できないので使えない）。 たとえば、</p>
 <div class="cell">
@@ -452,7 +452,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="ベクトルと行列" class="level3" data-number="2.1.3"><h3 data-number="2.1.3" class="anchored" data-anchor-id="ベクトルと行列">
+</section><section id="sec-vector" class="level3" data-number="2.1.3"><h3 data-number="2.1.3" class="anchored" data-anchor-id="sec-vector">
 <span class="header-section-number">2.1.3</span> ベクトルと行列</h3>
 <section id="ベクトル-vectors" class="level4" data-number="2.1.3.1"><h4 data-number="2.1.3.1" class="anchored" data-anchor-id="ベクトル-vectors">
 <span class="header-section-number">2.1.3.1</span> ベクトル (vectors)</h4>
@@ -879,6 +879,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link">

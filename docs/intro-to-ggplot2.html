@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -227,34 +227,34 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">6.1</span> 準備</a></li>
+<li><a href="#sec-prep6" class="nav-link active" data-scroll-target="#sec-prep6"> <span class="header-section-number">6.1</span> 準備</a></li>
 <li>
-<a href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0" class="nav-link" data-scroll-target="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0"> <span class="header-section-number">6.2</span> データフレーム</a>
+<a href="#sec-dataframe" class="nav-link" data-scroll-target="#sec-dataframe"> <span class="header-section-number">6.2</span> データフレーム</a>
 <ul class="collapse">
-<li><a href="#csv%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" class="nav-link" data-scroll-target="#csv%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"> <span class="header-section-number">6.2.1</span> CSVデータの読み込み</a></li>
-<li><a href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%81%AE%E4%BD%9C%E6%88%90" class="nav-link" data-scroll-target="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%81%AE%E4%BD%9C%E6%88%90"> <span class="header-section-number">6.2.2</span> データフレームの作成</a></li>
-<li><a href="#%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF%E3%83%87%E3%83%BC%E3%82%BF" class="nav-link" data-scroll-target="#%E7%B5%84%E3%81%BF%E8%BE%BC%E3%81%BF%E3%83%87%E3%83%BC%E3%82%BF"> <span class="header-section-number">6.2.3</span> 組み込みデータ</a></li>
+<li><a href="#sec-csv" class="nav-link" data-scroll-target="#sec-csv"> <span class="header-section-number">6.2.1</span> CSVデータの読み込み</a></li>
+<li><a href="#sec-makedf" class="nav-link" data-scroll-target="#sec-makedf"> <span class="header-section-number">6.2.2</span> データフレームの作成</a></li>
+<li><a href="#sec-builtindata" class="nav-link" data-scroll-target="#sec-builtindata"> <span class="header-section-number">6.2.3</span> 組み込みデータ</a></li>
 </ul>
 </li>
 <li>
-<a href="#ggplot2%E3%81%AE%E5%9F%BA%E7%A4%8E" class="nav-link" data-scroll-target="#ggplot2%E3%81%AE%E5%9F%BA%E7%A4%8E"> <span class="header-section-number">6.3</span> ggplot2の基礎</a>
+<a href="#sec-ggplotbasic" class="nav-link" data-scroll-target="#sec-ggplotbasic"> <span class="header-section-number">6.3</span> ggplot2の基礎</a>
 <ul class="collapse">
-<li><a href="#ggplot2-%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B" class="nav-link" data-scroll-target="#ggplot2-%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B"> <span class="header-section-number">6.3.1</span> ggplot2 とは何か</a></li>
-<li><a href="#ggplot2-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF" class="nav-link" data-scroll-target="#ggplot2-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BF"> <span class="header-section-number">6.3.2</span> ggplot2 パッケージの読み込み</a></li>
-<li><a href="#ggplot-%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9" class="nav-link" data-scroll-target="#ggplot-%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9"> <span class="header-section-number">6.3.3</span> ggplot の基本的な使い方</a></li>
+<li><a href="#sec-wiggplt" class="nav-link" data-scroll-target="#sec-wiggplt"> <span class="header-section-number">6.3.1</span> ggplot2 とは何か</a></li>
+<li><a href="#sec-loadggplot2" class="nav-link" data-scroll-target="#sec-loadggplot2"> <span class="header-section-number">6.3.2</span> ggplot2 パッケージの読み込み</a></li>
+<li><a href="#sec-how2gg" class="nav-link" data-scroll-target="#sec-how2gg"> <span class="header-section-number">6.3.3</span> ggplot の基本的な使い方</a></li>
 </ul>
 </li>
-<li><a href="#%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E5%9B%B3%E3%81%AE%E4%BF%9D%E5%AD%98" class="nav-link" data-scroll-target="#%E4%BD%9C%E6%88%90%E3%81%97%E3%81%9F%E5%9B%B3%E3%81%AE%E4%BF%9D%E5%AD%98"> <span class="header-section-number">6.4</span> 作成した図の保存</a></li>
+<li><a href="#sec-savefig" class="nav-link" data-scroll-target="#sec-savefig"> <span class="header-section-number">6.4</span> 作成した図の保存</a></li>
 <li>
-<a href="#%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86%E5%9B%B3%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9" class="nav-link" data-scroll-target="#%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86%E5%9B%B3%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9"> <span class="header-section-number">6.5</span> よく使う図の作り方</a>
+<a href="#sec-commonfig" class="nav-link" data-scroll-target="#sec-commonfig"> <span class="header-section-number">6.5</span> よく使う図の作り方</a>
 <ul class="collapse">
-<li><a href="#%E6%A3%92%E3%82%B0%E3%83%A9%E3%83%95" class="nav-link" data-scroll-target="#%E6%A3%92%E3%82%B0%E3%83%A9%E3%83%95"> <span class="header-section-number">6.5.1</span> 棒グラフ</a></li>
-<li><a href="#%E3%83%92%E3%82%B9%E3%83%88%E3%82%B0%E3%83%A9%E3%83%A0" class="nav-link" data-scroll-target="#%E3%83%92%E3%82%B9%E3%83%88%E3%82%B0%E3%83%A9%E3%83%A0"> <span class="header-section-number">6.5.2</span> ヒストグラム</a></li>
-<li><a href="#%E7%AE%B1%E3%81%B2%E3%81%92%E5%9B%B3" class="nav-link" data-scroll-target="#%E7%AE%B1%E3%81%B2%E3%81%92%E5%9B%B3"> <span class="header-section-number">6.5.3</span> 箱ひげ図</a></li>
-<li><a href="#%E3%83%90%E3%82%A4%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%97%E3%83%AD%E3%83%83%E3%83%88" class="nav-link" data-scroll-target="#%E3%83%90%E3%82%A4%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%97%E3%83%AD%E3%83%83%E3%83%88"> <span class="header-section-number">6.5.4</span> バイオリンプロット</a></li>
-<li><a href="#%E7%AE%B1%E3%81%B2%E3%81%92%E5%9B%B3%E3%81%A8%E3%83%90%E3%82%A4%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%97%E3%83%AD%E3%83%83%E3%83%88%E3%81%AE%E9%87%8D%E3%81%AD%E6%8F%8F%E3%81%8D" class="nav-link" data-scroll-target="#%E7%AE%B1%E3%81%B2%E3%81%92%E5%9B%B3%E3%81%A8%E3%83%90%E3%82%A4%E3%82%AA%E3%83%AA%E3%83%B3%E3%83%97%E3%83%AD%E3%83%83%E3%83%88%E3%81%AE%E9%87%8D%E3%81%AD%E6%8F%8F%E3%81%8D"> <span class="header-section-number">6.5.5</span> 箱ひげ図とバイオリンプロットの重ね描き</a></li>
-<li><a href="#%E3%83%93%E3%83%BC%E3%82%B9%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%83%83%E3%83%88%E8%9C%82%E7%BE%A4%E5%9B%B3" class="nav-link" data-scroll-target="#%E3%83%93%E3%83%BC%E3%82%B9%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%A0%E3%83%97%E3%83%AD%E3%83%83%E3%83%88%E8%9C%82%E7%BE%A4%E5%9B%B3"> <span class="header-section-number">6.5.6</span> ビースウォームプロット（蜂群図）</a></li>
-<li><a href="#%E6%95%A3%E5%B8%83%E5%9B%B3" class="nav-link" data-scroll-target="#%E6%95%A3%E5%B8%83%E5%9B%B3"> <span class="header-section-number">6.5.7</span> 散布図</a></li>
+<li><a href="#sec-barchart" class="nav-link" data-scroll-target="#sec-barchart"> <span class="header-section-number">6.5.1</span> 棒グラフ</a></li>
+<li><a href="#sec-histogram" class="nav-link" data-scroll-target="#sec-histogram"> <span class="header-section-number">6.5.2</span> ヒストグラム</a></li>
+<li><a href="#sec-boxplot" class="nav-link" data-scroll-target="#sec-boxplot"> <span class="header-section-number">6.5.3</span> 箱ひげ図</a></li>
+<li><a href="#sec-violinplot" class="nav-link" data-scroll-target="#sec-violinplot"> <span class="header-section-number">6.5.4</span> バイオリンプロット</a></li>
+<li><a href="#sec-overlay" class="nav-link" data-scroll-target="#sec-overlay"> <span class="header-section-number">6.5.5</span> 箱ひげ図とバイオリンプロットの重ね描き</a></li>
+<li><a href="#sec-beeswarm" class="nav-link" data-scroll-target="#sec-beeswarm"> <span class="header-section-number">6.5.6</span> ビースウォームプロット（蜂群図）</a></li>
+<li><a href="#sec-scatterplot" class="nav-link" data-scroll-target="#sec-scatterplot"> <span class="header-section-number">6.5.7</span> 散布図</a></li>
 </ul>
 </li>
 </ul></nav>
@@ -267,17 +267,17 @@
 <ul>
 <li>ggplot2 の使い方を覚えよう！</li>
 </ul>
-<section id="準備" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="準備">
+<section id="sec-prep6" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="sec-prep6">
 <span class="header-section-number">6.1</span> 準備</h2>
 <p>今回利用するパッケージを読み込もう。<strong>ggplot2</strong> は <strong>tidyverse</strong> に含まれているので、<code><a href="https://rdrr.io/r/base/library.html">library()</a></code> で <strong>tidyverse</strong> を読み込めばよい。パッケージをインストール済みでない場合は、読み込みの前にまず<code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> でインストールする。</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co">#install.packages("tidyverse", dependencies = TRUE)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="データフレーム" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="データフレーム">
+</section><section id="sec-dataframe" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="sec-dataframe">
 <span class="header-section-number">6.2</span> データフレーム</h2>
 <p>ggplot2 で図を作るためには、<strong>データフレーム (data frame)</strong> と呼ばれる形式のデータが必要である。 そこで、まずデータフレームについて説明する。</p>
-<section id="csvデータの読み込み" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="csvデータの読み込み">
+<section id="sec-csv" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="sec-csv">
 <span class="header-section-number">6.2.1</span> CSVデータの読み込み</h3>
 <p>CSV形式で保存されたデータセットをもっているなら、<code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv()</a></code> や <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code> などでそのデータを読み込めば、データフレームができる。</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -290,10 +290,10 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>readr</strong> パッケージも tidyverse に含まれているので、tidyverse を読み込み済みならあらためて <code>librar(readr)</code> を実行する必要はない。 このように、tidyverse はデータ分析でよく使うツールをまとめて提供しており、便利である。 詳しくは、『私たちのR』「<a href="http://www.jaysong.net/RBook/datahandling1.html" target="_blank" rel="external">データハンドリング</a>」 を参照されたい。</p>
+<p><strong>readr</strong> パッケージも tidyverse に含まれているので、tidyverse を読み込み済みならあらためて <code>librar(readr)</code> を実行する必要はない。 このように、tidyverse はデータ分析でよく使うツールをまとめて提供しており、便利である。 詳しくは、『私たちのR』「<a href="http://www.jaysong.net/RBook/datahandling1.html">データハンドリング</a>」 を参照されたい。</p>
 </div>
 </div>
-<p>例として、これまでの授業でも使った <a href="http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_data_01.csv" target="_blank" rel="external">fake_data_01.csv</a> を読み込んでみよう。プロジェクト内の data ディレクトリ（フォルダ）に <code>fake_data_01.csv</code> があることを想定している。</p>
+<p>例として、これまでの授業でも使った <a href="http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_data_01.csv">fake_data_01.csv</a> を読み込んでみよう。プロジェクト内の data ディレクトリ（フォルダ）に <code>fake_data_01.csv</code> があることを想定している。</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">myd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/fake_data_01.csv"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -437,7 +437,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 </div>
 <p>この情報はR初心者にはわかりにくいと思われるので、最初は <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> を使った方がいいだろう。</p>
 <p>データセットをRに読み込んだら、<code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> をはじめとするさまざまな関数を使って、データの中身を確認する習慣を身につけよう。</p>
-</section><section id="データフレームの作成" class="level3" data-number="6.2.2"><h3 data-number="6.2.2" class="anchored" data-anchor-id="データフレームの作成">
+</section><section id="sec-makedf" class="level3" data-number="6.2.2"><h3 data-number="6.2.2" class="anchored" data-anchor-id="sec-makedf">
 <span class="header-section-number">6.2.2</span> データフレームの作成</h3>
 <p>データフレームは、<code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> を使ってRで作ることもできる。データフレームの代わりに<strong>tibble</strong> と呼ばれる形式のデータを使うこともできる。tibble は、<code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble::tibble()</a></code> で作れる。</p>
 <p>練習のために、df1という名前のデータフレーム (data.frame) と、df2という名前のtibble を作ってみよう。まず、x とy という2つの変数をもつ <code>df1</code> を作る。</p>
@@ -476,9 +476,9 @@ $ y &lt;int&gt; 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85,
 <div class="cell-output-stdout">
 <pre><code>Rows: 100
 Columns: 3
-$ v1 &lt;dbl&gt; 1.3459575, -0.1582415, -3.3082603, -2.4283621, 2.7130821, 3.7946706…
-$ v2 &lt;dbl&gt; -4.8299638, -7.0158821, -4.7966091, 2.3611988, -2.8495170, -0.15688…
-$ v3 &lt;dbl&gt; -0.18311786, -0.66789145, 0.19206144, 1.47439487, 1.33861254, 0.588…</code></pre>
+$ v1 &lt;dbl&gt; 0.03432746, -2.57080857, -3.48113997, -3.18259165, -15.49838890, 0.…
+$ v2 &lt;dbl&gt; -1.89968757, 2.15296597, -2.41121519, -5.53805499, 2.50157768, -2.1…
+$ v3 &lt;dbl&gt; 1.30243216, 0.54764461, -0.37782460, -1.83465092, -1.32645537, -0.6…</code></pre>
 </div>
 </div>
 <p><code>v1</code>, <code>v2</code>, <code>v3</code> という3つの変数があり、それぞれが <dbl> すなわち実数型であることがわかる。このデータフレームは100行3列である。</dbl></p>
@@ -503,7 +503,7 @@ $ v3 &lt;dbl&gt; -0.18311786, -0.66789145, 0.19206144, 1.47439487, 1.33861254, 0
 </div>
 </div>
 <p>このように、<code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> と <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> を使って、df1とdf2のという “data.frame” （データフレーム）を作ることができた。基本的にはどちらの方法でデータフレームを作っても良いが、特に<code><a href="https://rdrr.io/r/base/data.frame.html">data.frame()</a></code> のほうを好む理由がなければ、今後は <code><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble()</a></code> でデータフレーム (tibble) を作ろう。（tibble を優先する理由の説明は割愛するが、<strong>Consoleに直接</strong> <code>df1</code> [これは data.frame である] と入力して実行した結果と、 同じく <code>df2</code>[これは tibble である] と入力して実行した結果を比べると、tibble のほうが良い理由の1つがわかるだろう。）</p>
-</section><section id="組み込みデータ" class="level3" data-number="6.2.3"><h3 data-number="6.2.3" class="anchored" data-anchor-id="組み込みデータ">
+</section><section id="sec-builtindata" class="level3" data-number="6.2.3"><h3 data-number="6.2.3" class="anchored" data-anchor-id="sec-builtindata">
 <span class="header-section-number">6.2.3</span> 組み込みデータ</h3>
 <p>Rにはあらかじめいくつかの（多くの！）データフレームが用意されている。たとえば、自動車に関するデータセットである<strong>mtcars</strong>というものがある。このデータは、<code><a href="https://rdrr.io/r/utils/data.html">data()</a></code> で呼び出すことができる。</p>
 <div class="cell">
@@ -543,14 +543,14 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <div class="cell">
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="ggplot2の基礎" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="ggplot2の基礎">
+</section></section><section id="sec-ggplotbasic" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="sec-ggplotbasic">
 <span class="header-section-number">6.3</span> ggplot2の基礎</h2>
-<section id="ggplot2-とは何か" class="level3" data-number="6.3.1"><h3 data-number="6.3.1" class="anchored" data-anchor-id="ggplot2-とは何か">
+<section id="sec-wiggplt" class="level3" data-number="6.3.1"><h3 data-number="6.3.1" class="anchored" data-anchor-id="sec-wiggplt">
 <span class="header-section-number">6.3.1</span> ggplot2 とは何か</h3>
-<p><strong>ggplot2</strong> は、Rで<strong>綺麗な</strong>図を作るためのパッケージである。 RStudio のChief Scientist である <a href="http://hadley.nz/" target="_blank" rel="external">Hadley Wickham</a> が大学院生時代に開発・公開し、アップデートを重ねてきたものである（Hadley は <strong>tidyverse</strong> などの重要パッケージ開発の中心人物であり、世界中のRユーザから最も尊敬されている人物だと考えられる。日本の一部のRユーザは彼を「羽鳥先生」と呼ぶ）。</p>
+<p><strong>ggplot2</strong> は、Rで<strong>綺麗な</strong>図を作るためのパッケージである。 RStudio のChief Scientist である <a href="http://hadley.nz/">Hadley Wickham</a> が大学院生時代に開発・公開し、アップデートを重ねてきたものである（Hadley は <strong>tidyverse</strong> などの重要パッケージ開発の中心人物であり、世界中のRユーザから最も尊敬されている人物だと考えられる。日本の一部のRユーザは彼を「羽鳥先生」と呼ぶ）。</p>
 <p>ggplot2 の <em>gg</em> は　<em><strong>G</strong>rammar of <strong>G</strong>raphics</em>（図のための文法） という意味で、一貫した方法で様々な図が作れるように工夫されている。 最初は文法を覚えるのに少し苦労するかもしれない。しかし、一度文法を身につけてしまえば、様々な図を簡単に作れるようになるので、とても便利である。また、デフォルト（既定）の設定でそれなりに綺麗な図が作れるのも魅力である（某表計算ソフトのように、何も考えずに 3D棒グラフのような醜い図を作ってしまうということが防げる）。</p>
-<p>ggplot2 についての詳しい説明は、Hadley自身が書いた <em>ggplot2: Elegant Graphics for Data Analysis, 3rd edition.</em> (Springer) で読むことができる（オンラインで<a href="https://ggplot2-book.org/" target="_blank" rel="external">無料で公開</a> されている）。</p>
-<p>また、チートシート（<a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/japanese/data-visualization_ja.pdf" target="_blank" rel="external">日本語版</a>; <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf" target="_blank" rel="external">英語版</a>）が公開されているので、ダウンロードしていつでも見られるようにしておくと、便利である。</p>
+<p>ggplot2 についての詳しい説明は、Hadley自身が書いた <em>ggplot2: Elegant Graphics for Data Analysis, 3rd edition.</em> (Springer) で読むことができる（オンラインで<a href="https://ggplot2-book.org/">無料で公開</a> されている）。</p>
+<p>また、チートシート（<a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/japanese/data-visualization_ja.pdf">日本語版</a>; <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf">英語版</a>）が公開されているので、ダウンロードしていつでも見られるようにしておくと、便利である。</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -561,17 +561,17 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>この他にも、さまざまなチートシートが <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank" rel="external">RStudio のウェブサイト</a> で公開されている。 いくつかのチートシートには日本語翻訳もある。作成者と翻訳者の皆さんに感謝。</p>
+<p>この他にも、さまざまなチートシートが <a href="https://www.rstudio.com/resources/cheatsheets/">RStudio のウェブサイト</a> で公開されている。 いくつかのチートシートには日本語翻訳もある。作成者と翻訳者の皆さんに感謝。</p>
 </div>
 </div>
-</section><section id="ggplot2-パッケージの読み込み" class="level3" data-number="6.3.2"><h3 data-number="6.3.2" class="anchored" data-anchor-id="ggplot2-パッケージの読み込み">
+</section><section id="sec-loadggplot2" class="level3" data-number="6.3.2"><h3 data-number="6.3.2" class="anchored" data-anchor-id="sec-loadggplot2">
 <span class="header-section-number">6.3.2</span> ggplot2 パッケージの読み込み</h3>
 <p>このページの冒頭に書いたとおり、<strong>ggplot2</strong>は <strong>tidyverse</strong> に含まれているので、<code><a href="https://rdrr.io/r/base/library.html">library()</a></code> で <strong>tidyverse</strong> を読み込めばよい。上で実行したなら、再度実行する必要はない。パッケージをインストール済みでない場合は、読み込みの前にまず<code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> でインストールする。</p>
 <div class="cell">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co">#install.packages("tidyverse", dependencies = TRUE)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>次に、日本語が正しく表示されるようにするため、<code><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set()</a></code> で使用する文字フォントを指定する。OSによって命令がやや異なるので注意されたい。 以下のチャンクは、どのOSでも動くように適切に場合分けを行う（ただし、Windows の場合には <strong>fontregisterer</strong> というパッケージをあらかじめインストールしておく必要がある。これについては <a href="descriptive-stat.html" target="_blank" rel="external">記述統計</a> の説明を参照されたい）。 また、以下はあくまで例であり、他のフォントを使用してもよい（各自のパソコンにインストールされているフォントは私にはわからないので、変えたいなら自分で調べること。もちろん、日本語が表示できるフォントが必要）。また、RStudio Cloud を利用している場合は、日本語を表示することができない（一応表示する方法もあるが、ものすごく面倒なので割愛する）ので、諦めて英語を使おう（この授業では、レポートの本文が日本語で図のラベルが英語でも許容する。しかし、本来は日本語のレポートなら図のラベルもすべて日本語にすべきである。あるいは、英語で図を作るなら、本文も英語にすべきである）。</p>
+<p>次に、日本語が正しく表示されるようにするため、<code><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set()</a></code> で使用する文字フォントを指定する。OSによって命令がやや異なるので注意されたい。 以下のチャンクは、どのOSでも動くように適切に場合分けを行う（ただし、Windows の場合には <strong>fontregisterer</strong> というパッケージをあらかじめインストールしておく必要がある。これについては <a href="descriptive-stat.html">記述統計</a> の説明を参照されたい）。 また、以下はあくまで例であり、他のフォントを使用してもよい（各自のパソコンにインストールされているフォントは私にはわからないので、変えたいなら自分で調べること。もちろん、日本語が表示できるフォントが必要）。また、RStudio Cloud を利用している場合は、日本語を表示することができない（一応表示する方法もあるが、ものすごく面倒なので割愛する）ので、諦めて英語を使おう（この授業では、レポートの本文が日本語で図のラベルが英語でも許容する。しかし、本来は日本語のレポートなら図のラベルもすべて日本語にすべきである。あるいは、英語で図を作るなら、本文も英語にすべきである）。</p>
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co">## 図のなかで日本語を使えるようにする</span>
 <span class="co">## フォントの設定はお好みで</span>
@@ -605,7 +605,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <p>コードチャンク全体を一挙に実行するためには、<code>command</code> + <code>shift</code> + <code>return</code> または <code>Ctrl</code> + <code>Shift</code> + <code>Enter</code> というショートカットを利用する。</p>
 </div>
 </div>
-</section><section id="ggplot-の基本的な使い方" class="level3" data-number="6.3.3"><h3 data-number="6.3.3" class="anchored" data-anchor-id="ggplot-の基本的な使い方">
+</section><section id="sec-how2gg" class="level3" data-number="6.3.3"><h3 data-number="6.3.3" class="anchored" data-anchor-id="sec-how2gg">
 <span class="header-section-number">6.3.3</span> ggplot の基本的な使い方</h3>
 <p><code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot2::ggplot()</a></code> を使って図を作る手順は次のとおりである。</p>
 <ol type="1">
@@ -767,7 +767,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
-<p>指定可能な色は、<a href="http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC" target="_blank" rel="external">このページ</a> で確認できる。</p>
+<p>指定可能な色は、<a href="http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC">このページ</a> で確認できる。</p>
 </section><section id="例3箱ひげ図" class="level4" data-number="6.3.3.3"><h4 data-number="6.3.3.3" class="anchored" data-anchor-id="例3箱ひげ図">
 <span class="header-section-number">6.3.3.3</span> 例3：箱ひげ図</h4>
 <p>Rに用意されている、ダイヤモンドのデータ <strong>diamonds</strong> を使ってみよう。</p>
@@ -855,8 +855,8 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 <p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
-<p>これらの例からわかるとおり、作図に用いる変数の指定は、<code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> で行う。<strong>aes</strong> とは <u>aes</u>thetics（美感）のことである。この <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> の指定の仕方は作る図によって異なる。したがって、ggplot2 の使い方をマスターするには、geom ごとに異なるaes の使い方を覚える必要がある。覚えるといっても、必ずしも暗記する必要なない。頻繁に使うものは覚えたほうが楽（自然に覚える）が、その他のものについては上で紹介したチートシートやインターネット上にまとめられた情報（たとえば、<a href="https://qiita.com/yutannihilation/items/e1b9249541fc57b60705" target="_blank" rel="external">ココ</a> や<a href="https://ggplot2.tidyverse.org/reference/" target="_blank" rel="external">ココ</a>）で確認すればよい。</p>
-</section></section></section><section id="作成した図の保存" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="作成した図の保存">
+<p>これらの例からわかるとおり、作図に用いる変数の指定は、<code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> で行う。<strong>aes</strong> とは <u>aes</u>thetics（美感）のことである。この <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> の指定の仕方は作る図によって異なる。したがって、ggplot2 の使い方をマスターするには、geom ごとに異なるaes の使い方を覚える必要がある。覚えるといっても、必ずしも暗記する必要なない。頻繁に使うものは覚えたほうが楽（自然に覚える）が、その他のものについては上で紹介したチートシートやインターネット上にまとめられた情報（たとえば、<a href="https://qiita.com/yutannihilation/items/e1b9249541fc57b60705">ココ</a> や<a href="https://ggplot2.tidyverse.org/reference/">ココ</a>）で確認すればよい。</p>
+</section></section></section><section id="sec-savefig" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="sec-savefig">
 <span class="header-section-number">6.4</span> 作成した図の保存</h2>
 <p>作成した図は、PDFファイルやPNGファイルなどの外部ファイルに保存することができる。プロジェクト内に、図を保存するための <strong>figs</strong> というディレクトリ（フォルダ）を新たに作り、図をその中に保存しよう。</p>
 <div class="cell">
@@ -910,10 +910,10 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 <span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>これで図 (<code>p2_6</code>) が保存されるはずだ。figsディレクトリの中に、<code>hist_eg1.pdf</code> というPDFファイルができていることを確かめよう。また、PDFファイルを開いて図が保存されていることも確認しよう。</p>
-</section><section id="よく使う図の作り方" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="よく使う図の作り方">
+</section><section id="sec-commonfig" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="sec-commonfig">
 <span class="header-section-number">6.5</span> よく使う図の作り方</h2>
 <p>ggplotの使い方を身につけるために、統計学でよく使う基本的な図を作ってみよう。</p>
-<p>例として、<a href="http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_score.csv" target="_blank" rel="external">fake_score.csv</a> という架空のデータを使おう。このデータに含まれる変数は、以下の通りである。</p>
+<p>例として、<a href="http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_score.csv">fake_score.csv</a> という架空のデータを使おう。このデータに含まれる変数は、以下の通りである。</p>
 <ul>
 <li>id: 個人識別番号。</li>
 <li>class: クラス。1組から8組まで。</li>
@@ -926,7 +926,7 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 <div class="cell">
 <div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="st">"data"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>次に、データをダウンロードする。以下のコードはWindows では失敗する可能性が高いので、<a href="https://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_score.csv" target="_blank" rel="external">ココを右クリック</a> して対象をファイルに保存する。保存先はプロジェクトフォルダの中の data フォルダにする（ダウンロードした後にファイルを移動してもよい）。</p>
+<p>次に、データをダウンロードする。以下のコードはWindows では失敗する可能性が高いので、<a href="https://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_score.csv">ココを右クリック</a> して対象をファイルに保存する。保存先はプロジェクトフォルダの中の data フォルダにする（ダウンロードした後にファイルを移動してもよい）。</p>
 <div class="cell">
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span>
   url <span class="op">=</span> <span class="st">"https://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_score.csv"</span>,
@@ -952,12 +952,12 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 </div>
 </div>
 <p>正しくデータが読み込めたようだ。このデータを使い、作図の方法を学習しよう。</p>
-<p>この時点でデータが正しく読み込めていない場合は、ウェブブラウザで <a href="https://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_score.csv" target="_blank" rel="external">fake_score.csv</a> をダウンロードし、ダウンロードしたファイルを手動でプロジェクト内のデータフォルダの中に移動してから、以下を実行し直そう。 もう一度データを読み込む。</p>
+<p>この時点でデータが正しく読み込めていない場合は、ウェブブラウザで <a href="https://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_score.csv">fake_score.csv</a> をダウンロードし、ダウンロードしたファイルを手動でプロジェクト内のデータフォルダの中に移動してから、以下を実行し直そう。 もう一度データを読み込む。</p>
 <div class="cell">
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">myd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/fake_score.csv"</span><span class="op">)</span>
 <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">myd</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="棒グラフ" class="level3" data-number="6.5.1"><h3 data-number="6.5.1" class="anchored" data-anchor-id="棒グラフ">
+<section id="sec-barchart" class="level3" data-number="6.5.1"><h3 data-number="6.5.1" class="anchored" data-anchor-id="sec-barchart">
 <span class="header-section-number">6.5.1</span> 棒グラフ</h3>
 <p>棒グラフ (bar plot) は <code><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></code> で作る。まず、クラスごとの人数を棒グラフにしてみよう。 横軸にクラス、縦軸にはクラスの人数を表示する。そのために、次のコマンドを使う。</p>
 <div class="cell">
@@ -1023,7 +1023,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 </div>
 </div>
 <p>これで、クラス1からクラス4までは女子が20人で男子が30人だが、残りのクラスでは男女の数が逆転していることがわかる。</p>
-</section><section id="ヒストグラム" class="level3" data-number="6.5.2"><h3 data-number="6.5.2" class="anchored" data-anchor-id="ヒストグラム">
+</section><section id="sec-histogram" class="level3" data-number="6.5.2"><h3 data-number="6.5.2" class="anchored" data-anchor-id="sec-histogram">
 <span class="header-section-number">6.5.2</span> ヒストグラム</h3>
 <p>ヒストグラム (histogram) は、ある変数の分布の仕方を確かめる際に最も便利な図である。 既に説明した通り、ヒストグラムを作るには <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> を使う。</p>
 <section id="基本的な使い方" class="level4" data-number="6.5.2.1"><h4 data-number="6.5.2.1" class="anchored" data-anchor-id="基本的な使い方">
@@ -1124,7 +1124,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 </div>
 </div>
 <p>このように、クラスごとにヒストグラムができる。</p>
-</section></section><section id="箱ひげ図" class="level3" data-number="6.5.3"><h3 data-number="6.5.3" class="anchored" data-anchor-id="箱ひげ図">
+</section></section><section id="sec-boxplot" class="level3" data-number="6.5.3"><h3 data-number="6.5.3" class="anchored" data-anchor-id="sec-boxplot">
 <span class="header-section-number">6.5.3</span> 箱ひげ図</h3>
 <p>ヒストグラムは分布の形状を確かめるのに便利だが、上で作った <code>hist7</code> のように、複数のグループの分布を比較するのには少し不便である。 そこで異なるグループの分布を比較するときによく使われるのが、箱ひげ図 (box[-and-whisker] plot) である。箱ひげ図は、五数要約（最小値、第1四分位数、中央値、第3四分位数、最大値）と外れ値（「1.5 <span class="math inline">\(\times\)</span> IQRルール」で判定される）を図で表現するものである。</p>
 <p>箱ひげ図は、<code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> で作る。このとき、aes には <code>x</code>（比較するグループを表す変数）と<code>y</code>（作図の対象となる変数）を指定する（<code>x</code>の代わりに <code>group</code> を使うこともできる）。ここで、class の中身の数字には数値としての意味はなく、単にクラス分けのための記号にすぎないことを gpplotに伝えるために <code><a href="https://rdrr.io/r/base/factor.html">as.factor()</a></code> を使う（本当はデータ前処理の時点で　id と class は factor にしておくことが望ましいが、今回はこれで妥協する）。既に説明したとおり、横向きにしたいときは、<code>x</code> と<code>y</code> を入れ替えれば良い。</p>
@@ -1138,7 +1138,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 </div>
 </div>
 <p>これで、グループ間で数学の点数の五数を比較しやすくなった。</p>
-</section><section id="バイオリンプロット" class="level3" data-number="6.5.4"><h3 data-number="6.5.4" class="anchored" data-anchor-id="バイオリンプロット">
+</section><section id="sec-violinplot" class="level3" data-number="6.5.4"><h3 data-number="6.5.4" class="anchored" data-anchor-id="sec-violinplot">
 <span class="header-section-number">6.5.4</span> バイオリンプロット</h3>
 <p>箱ひげ図でグループ間比較がしやすくなったが、ヒストグラムとは異なり、分布の形状がわからなくなってしまった。この不満を解消してくれるのが、バイオリンプロット (violin plot) である。<code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin()</a></code> で作る。</p>
 <div class="cell">
@@ -1151,7 +1151,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 </div>
 </div>
 <p>この図は、ヒストグラムを横倒しにしてその概形を滑らかな線で表したものと、それを鏡に写したものが合わさってできている。バイオリンプロットの幅が広い（狭い）ところが、ヒストグラムの山が高い（低い）ところである。</p>
-</section><section id="箱ひげ図とバイオリンプロットの重ね描き" class="level3" data-number="6.5.5"><h3 data-number="6.5.5" class="anchored" data-anchor-id="箱ひげ図とバイオリンプロットの重ね描き">
+</section><section id="sec-overlay" class="level3" data-number="6.5.5"><h3 data-number="6.5.5" class="anchored" data-anchor-id="sec-overlay">
 <span class="header-section-number">6.5.5</span> 箱ひげ図とバイオリンプロットの重ね描き</h3>
 <p>バイオリンプロットは、分布の形状がわからないという箱ひげ図の弱点を克服しているものの、箱ひげ図では一目でわかった中央値や四分位範囲がわからないという弱点がある。両者の長所を活かすため、二つの図を重ねて描いてみよう。</p>
 <div class="cell">
@@ -1198,7 +1198,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 </div>
 </div>
 <p>この図を見れば、数学の点数の分布をクラス間で比較できる。</p>
-</section><section id="ビースウォームプロット蜂群図" class="level3" data-number="6.5.6"><h3 data-number="6.5.6" class="anchored" data-anchor-id="ビースウォームプロット蜂群図">
+</section><section id="sec-beeswarm" class="level3" data-number="6.5.6"><h3 data-number="6.5.6" class="anchored" data-anchor-id="sec-beeswarm">
 <span class="header-section-number">6.5.6</span> ビースウォームプロット（蜂群図）</h3>
 <p>箱ひげ図とバイオリンプロットで、グループ間の分布を比較できるようになった。しかし、観測値が実際にどの値をとったかはわからない。この問題を克服するために使われるのが、ビースウォームプロット (bee swarm plot) である。</p>
 <p>ggplotを使ってビースウォームプロットを描くには、<strong>ggbeeswarm</strong> というパッケージを導入するのが簡単だ。 まず、インストールする（既にインストール済みなら、このコマンドは実行しなくてよい）。</p>
@@ -1261,7 +1261,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 </div>
 </div>
 <p>これで、分布の形状と五数だけでなく、実際の観測値がどこにあるかまで明らかにできた。</p>
-</section><section id="散布図" class="level3" data-number="6.5.7"><h3 data-number="6.5.7" class="anchored" data-anchor-id="散布図">
+</section><section id="sec-scatterplot" class="level3" data-number="6.5.7"><h3 data-number="6.5.7" class="anchored" data-anchor-id="sec-scatterplot">
 <span class="header-section-number">6.5.7</span> 散布図</h3>
 <p>ここまでは、1つの変数を可視化するグラフを作ってきた。続いて、2変数の関係を可視化してみよう。</p>
 <p>2変数（2つの量的変数）の関係を可視化するための最も基本的な図は散布図 (scatter plot) である。散布図は、<code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> で作る。散布図の<code>aes</code>には、横軸の変数 <code>x</code> と縦軸の変数 <code>y</code> を指定する。</p>
@@ -1306,7 +1306,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 <p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-88-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
-<p>これで一応色分けはできたが、色があまり気に入らない。 特に、赤と緑を区別できない人がいると思われるので、<code><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer()</a></code> で色使い (color paletter) を <strong>Accent</strong> に変えてみよう。指定できるパレットについては、<a href="http://www.sthda.com/english/wiki/colors-in-r" target="_blank" rel="external">このページ</a> を参照されたい。</p>
+<p>これで一応色分けはできたが、色があまり気に入らない。 特に、赤と緑を区別できない人がいると思われるので、<code><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer()</a></code> で色使い (color paletter) を <strong>Accent</strong> に変えてみよう。指定できるパレットについては、<a href="http://www.sthda.com/english/wiki/colors-in-r">このページ</a> を参照されたい。</p>
 <div class="cell">
 <div class="sourceCode" id="cb112"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">scat3a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, 
                  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">math</span>, 
@@ -1489,6 +1489,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./r-markdown.html" class="pagination-link">

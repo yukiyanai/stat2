@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -227,8 +227,8 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">8.1</span> 準備</a></li>
-<li><a href="#%E4%B8%AD%E5%BF%83%E6%A5%B5%E9%99%90%E5%AE%9A%E7%90%86" class="nav-link" data-scroll-target="#%E4%B8%AD%E5%BF%83%E6%A5%B5%E9%99%90%E5%AE%9A%E7%90%86"> <span class="header-section-number">8.2</span> 中心極限定理</a></li>
+<li><a href="#sec-prep8" class="nav-link active" data-scroll-target="#sec-prep8"> <span class="header-section-number">8.1</span> 準備</a></li>
+<li><a href="#sec-clt" class="nav-link" data-scroll-target="#sec-clt"> <span class="header-section-number">8.2</span> 中心極限定理</a></li>
 </ul></nav>
     </div>
 <!-- main -->
@@ -239,7 +239,7 @@
 <ul>
 <li>中心極限定理を理解しよう！</li>
 </ul>
-<section id="準備" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="準備">
+<section id="sec-prep8" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="sec-prep8">
 <span class="header-section-number">8.1</span> 準備</h2>
 <p>必要なパッケージを読み込む。</p>
 <div class="cell">
@@ -265,7 +265,7 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="中心極限定理" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="中心極限定理">
+</section><section id="sec-clt" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="sec-clt">
 <span class="header-section-number">8.2</span> 中心極限定理</h2>
 <p>中心極限定理 (Central Limit Theorem)　は、「標本サイズ（サンプルサイズ）が大きくなれば、標本平均は正規分布で近似できる」という定理である（より正確には、「標本サイズを無限大にすると標本平均を標準化したものが標準正規分布に収束する」という定理である）。厳密に理解する（証明する）のはこの授業の範囲を超える（つまり、難しい）。しかし、私たちが統計的推定や検定を行うときに正規分布（特に標準正規分布）ばかり使ってもいいのは、この定理のおかげである。したがって、実際に正規分布ではない分布から正規分布ができるということを理解する必要がある。</p>
 <p>そこで、Rでシミュレーションを実行することを通じて中心極限定理を理解しよう。</p>
@@ -291,10 +291,10 @@
 <span class="va">exp_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">bag</span>, size <span class="op">=</span> <span class="fl">2</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  <span class="co"># 復元抽出</span>
 <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">exp_2</span><span class="op">)</span>   <span class="co"># 平均値を求める</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 2.5</code></pre>
 </div>
 </div>
-<p>今回は、たまたま6になった。</p>
+<p>今回は、たまたま2.5になった。</p>
 <p>では、この実験を1,000回繰り返すと「それぞれの回での平均値の分布」はどんな形になるだろうか。実際にやってみよう。</p>
 <p>Rで同じ作業を繰り返し行う簡単な方法は、<code>for</code> ループを使うことである。<code>for</code> の直後の丸カッコで繰り返し回数を指定し、ループさせる内容を中括弧 <code><a href="https://rdrr.io/r/base/Paren.html">{ }</a></code> で囲む。 たとえば、0からスタートして「1を足す」という作業を5回繰り返すには、次のようにする。</p>
 <p>まず、スタート時の数である0を保存する。</p>
@@ -504,6 +504,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./rng.html" class="pagination-link">

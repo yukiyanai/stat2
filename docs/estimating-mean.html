@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -227,25 +227,25 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">13.1</span> 準備</a></li>
-<li><a href="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B"> <span class="header-section-number">13.2</span> 母集団を定義する</a></li>
+<li><a href="#sec-prep13" class="nav-link active" data-scroll-target="#sec-prep13"> <span class="header-section-number">13.1</span> 準備</a></li>
+<li><a href="#sec-defpop13" class="nav-link" data-scroll-target="#sec-defpop13"> <span class="header-section-number">13.2</span> 母集団を定義する</a></li>
 <li>
-<a href="#%E6%A8%99%E6%9C%AC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%97%E3%81%A6%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%82%92%E6%8E%A8%E5%AE%9A%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%97%E3%81%A6%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%82%92%E6%8E%A8%E5%AE%9A%E3%81%99%E3%82%8B"> <span class="header-section-number">13.3</span> 標本を抽出して母平均を推定する</a>
+<a href="#sec-saple13" class="nav-link" data-scroll-target="#sec-saple13"> <span class="header-section-number">13.3</span> 標本を抽出して母平均を推定する</a>
 <ul class="collapse">
-<li><a href="#%E6%A8%99%E6%9C%AC1" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC1"> <span class="header-section-number">13.3.1</span> 標本1</a></li>
-<li><a href="#%E4%BF%A1%E9%A0%BC%E5%8C%BA%E9%96%93%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%82%8B" class="nav-link" data-scroll-target="#%E4%BF%A1%E9%A0%BC%E5%8C%BA%E9%96%93%E3%82%92%E6%B1%82%E3%82%81%E3%82%8B%E9%96%A2%E6%95%B0%E3%82%92%E4%BD%9C%E3%82%8B"> <span class="header-section-number">13.3.2</span> 信頼区間を求める関数を作る</a></li>
-<li><a href="#%E6%A8%99%E6%9C%AC2" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC2"> <span class="header-section-number">13.3.3</span> 標本2</a></li>
-<li><a href="#%E6%A8%99%E6%9C%AC3" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC3"> <span class="header-section-number">13.3.4</span> 標本3</a></li>
+<li><a href="#sec-13s1" class="nav-link" data-scroll-target="#sec-13s1"> <span class="header-section-number">13.3.1</span> 標本1</a></li>
+<li><a href="#sec-cifcn" class="nav-link" data-scroll-target="#sec-cifcn"> <span class="header-section-number">13.3.2</span> 信頼区間を求める関数を作る</a></li>
+<li><a href="#sec-13s2" class="nav-link" data-scroll-target="#sec-13s2"> <span class="header-section-number">13.3.3</span> 標本2</a></li>
+<li><a href="#sec-13s3" class="nav-link" data-scroll-target="#sec-13s3"> <span class="header-section-number">13.3.4</span> 標本3</a></li>
 </ul>
 </li>
 <li>
-<a href="#%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="nav-link" data-scroll-target="#%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"> <span class="header-section-number">13.4</span> シミュレーション</a>
+<a href="#sec-13sim" class="nav-link" data-scroll-target="#sec-13sim"> <span class="header-section-number">13.4</span> シミュレーション</a>
 <ul class="collapse">
-<li><a href="#%E4%B8%8D%E5%81%8F%E6%80%A7%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E4%B8%8D%E5%81%8F%E6%80%A7%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B"> <span class="header-section-number">13.4.1</span> 不偏性を確認する</a></li>
-<li><a href="#%E4%BF%A1%E9%A0%BC%E5%8C%BA%E9%96%93%E3%81%AE%E6%84%8F%E5%91%B3%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E4%BF%A1%E9%A0%BC%E5%8C%BA%E9%96%93%E3%81%AE%E6%84%8F%E5%91%B3%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B"> <span class="header-section-number">13.4.2</span> 信頼区間の意味を理解する</a></li>
+<li><a href="#sec-uncertainty" class="nav-link" data-scroll-target="#sec-uncertainty"> <span class="header-section-number">13.4.1</span> 不偏性を確認する</a></li>
+<li><a href="#sec-wici" class="nav-link" data-scroll-target="#sec-wici"> <span class="header-section-number">13.4.2</span> 信頼区間の意味を理解する</a></li>
 </ul>
 </li>
-<li><a href="#%E5%AE%9F%E7%BF%92%E8%AA%B2%E9%A1%8C" class="nav-link" data-scroll-target="#%E5%AE%9F%E7%BF%92%E8%AA%B2%E9%A1%8C"> <span class="header-section-number">13.5</span> 実習課題</a></li>
+<li><a href="#sec-ex13" class="nav-link" data-scroll-target="#sec-ex13"> <span class="header-section-number">13.5</span> 実習課題</a></li>
 </ul></nav>
     </div>
 <!-- main -->
@@ -256,7 +256,7 @@
 <ul>
 <li>標本を利用して母平均を推定する方法を理解しよう！</li>
 </ul>
-<section id="準備" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="準備">
+<section id="sec-prep13" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="sec-prep13">
 <span class="header-section-number">13.1</span> 準備</h2>
 <p>必要なパッケージを読み込む。</p>
 <div class="cell">
@@ -280,7 +280,7 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="母集団を定義する" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="母集団を定義する">
+</section><section id="sec-defpop13" class="level2" data-number="13.2"><h2 data-number="13.2" class="anchored" data-anchor-id="sec-defpop13">
 <span class="header-section-number">13.2</span> 母集団を定義する</h2>
 <div class="cell">
 
@@ -318,9 +318,9 @@
 </div>
 </div>
 <p>である。</p>
-</section><section id="標本を抽出して母平均を推定する" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="標本を抽出して母平均を推定する">
+</section><section id="sec-saple13" class="level2" data-number="13.3"><h2 data-number="13.3" class="anchored" data-anchor-id="sec-saple13">
 <span class="header-section-number">13.3</span> 標本を抽出して母平均を推定する</h2>
-<section id="標本1" class="level3" data-number="13.3.1"><h3 data-number="13.3.1" class="anchored" data-anchor-id="標本1">
+<section id="sec-13s1" class="level3" data-number="13.3.1"><h3 data-number="13.3.1" class="anchored" data-anchor-id="sec-13s1">
 <span class="header-section-number">13.3.1</span> 標本1</h3>
 <p>100万人の母集団全員を調べるのではなく、100人だけ標本として抽出し、その標本を利用して母平均を推定してみよう。</p>
 <p>標本サイズ100の標本を1つ抽出する。</p>
@@ -412,7 +412,7 @@
 </div>
 </div>
 <p>よって、この標本（標本1）から得られる95%信頼区間は、[168.18, 170.58] である。</p>
-</section></section><section id="信頼区間を求める関数を作る" class="level3" data-number="13.3.2"><h3 data-number="13.3.2" class="anchored" data-anchor-id="信頼区間を求める関数を作る">
+</section></section><section id="sec-cifcn" class="level3" data-number="13.3.2"><h3 data-number="13.3.2" class="anchored" data-anchor-id="sec-cifcn">
 <span class="header-section-number">13.3.2</span> 信頼区間を求める関数を作る</h3>
 <p>上で説明した方法で信頼区間を求められるが、以上の内容を標本を抽出し直す度に実行するのは面倒なので、信頼区間 (confidence intervals) を求める関数を作ってしまおう。信頼度は引数を指定して選べるようにする。</p>
 <div class="cell">
@@ -460,7 +460,7 @@
 </div>
 <p>で求められる。</p>
 <p>以下ではこの関数を利用しよう。</p>
-</section><section id="標本2" class="level3" data-number="13.3.3"><h3 data-number="13.3.3" class="anchored" data-anchor-id="標本2">
+</section><section id="sec-13s2" class="level3" data-number="13.3.3"><h3 data-number="13.3.3" class="anchored" data-anchor-id="sec-13s2">
 <span class="header-section-number">13.3.3</span> 標本2</h3>
 <p>先ほどとは別の標本（サイズは同じ）を抽出して、母平均を推定してみよう。</p>
 <div class="cell">
@@ -475,7 +475,7 @@
 </div>
 <p>先ほどとは異なる推定値が得られた。</p>
 <p><br></p>
-</section><section id="標本3" class="level3" data-number="13.3.4"><h3 data-number="13.3.4" class="anchored" data-anchor-id="標本3">
+</section><section id="sec-13s3" class="level3" data-number="13.3.4"><h3 data-number="13.3.4" class="anchored" data-anchor-id="sec-13s3">
 <span class="header-section-number">13.3.4</span> 標本3</h3>
 <p>もう1度やってみよう。 先ほどとは別の標本（サイズは同じ）を抽出して、母平均を推定してみよう。</p>
 <div class="cell">
@@ -488,7 +488,7 @@
      169.65      168.44      170.86 </code></pre>
 </div>
 </div>
-</section></section><section id="シミュレーション" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="シミュレーション">
+</section></section><section id="sec-13sim" class="level2" data-number="13.4"><h2 data-number="13.4" class="anchored" data-anchor-id="sec-13sim">
 <span class="header-section-number">13.4</span> シミュレーション</h2>
 <p>標本抽出を何度も繰り返し、推定（の誤差）がどのようにばらつくか確認してみよう。</p>
 <p>まず、シミュレーションの繰り返し回数を決める。1万回にしてみよう。（コンピュータの性能があまり良くない場合は、この回数を少し小さめ [例えば <code>1e3</code>]　にしたほうがいいかもしれない）。</p>
@@ -523,7 +523,7 @@
 </div>
 </div>
 <p>このように、1つの標本から計算された値が各行に保存されている。</p>
-<section id="不偏性を確認する" class="level3" data-number="13.4.1"><h3 data-number="13.4.1" class="anchored" data-anchor-id="不偏性を確認する">
+<section id="sec-uncertainty" class="level3" data-number="13.4.1"><h3 data-number="13.4.1" class="anchored" data-anchor-id="sec-uncertainty">
 <span class="header-section-number">13.4.1</span> 不偏性を確認する</h3>
 <p>上で実行したシミュレーションの結果を利用して、点推定値のヒストグラムを作ってみよう。点推定値は <code>res_sim</code> の1列目に保存されている。 ggplotで図を描くために、行列をデータフレームに変換しよう。<code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble()</a></code> で変換できる。</p>
 <div class="cell">
@@ -574,7 +574,7 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 </div>
 </div>
 <p>標本平均の平均と母平均が、ほぼ一致することがわかる。</p>
-</section><section id="信頼区間の意味を理解する" class="level3" data-number="13.4.2"><h3 data-number="13.4.2" class="anchored" data-anchor-id="信頼区間の意味を理解する">
+</section><section id="sec-wici" class="level3" data-number="13.4.2"><h3 data-number="13.4.2" class="anchored" data-anchor-id="sec-wici">
 <span class="header-section-number">13.4.2</span> 信頼区間の意味を理解する</h3>
 <p>95%信頼区間とは何だろうか。</p>
 <p>1つの信頼区間を取り出してみる。ここでは、79番目の信頼区間を取り出す。79番目にした理由は特にない。</p>
@@ -691,7 +691,7 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 </div>
 </div>
 <p>50個の95％信頼区間のうち、2個（2/50 = 0.04）の信頼区間が母数を捉え損ねている。 言い換えると、96％（約95％）の信頼区間が母数を捉えることに成功している。 これが95%信頼区間の「95%」の意味である。</p>
-</section></section><section id="実習課題" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="実習課題">
+</section></section><section id="sec-ex13" class="level2" data-number="13.5"><h2 data-number="13.5" class="anchored" data-anchor-id="sec-ex13">
 <span class="header-section-number">13.5</span> 実習課題</h2>
 <p>成人女性の身長に興味があるとする。母集団の人口を100万、母平均を約162cm、母標準偏差を約5cm に設定して、上と同様のシミュレーションを行い、複数の95％信頼区間を図示してみよう。</p>
 
@@ -771,6 +771,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./sampling-distribution.html" class="pagination-link">

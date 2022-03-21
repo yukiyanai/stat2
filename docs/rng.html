@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -227,20 +227,20 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">7.1</span> 準備</a></li>
+<li><a href="#sec-prep7" class="nav-link active" data-scroll-target="#sec-prep7"> <span class="header-section-number">7.1</span> 準備</a></li>
 <li>
-<a href="#%E4%B9%B1%E6%95%B0%E3%81%AE%E7%94%9F%E6%88%90" class="nav-link" data-scroll-target="#%E4%B9%B1%E6%95%B0%E3%81%AE%E7%94%9F%E6%88%90"> <span class="header-section-number">7.2</span> 乱数の生成</a>
+<a href="#sec-rng" class="nav-link" data-scroll-target="#sec-rng"> <span class="header-section-number">7.2</span> 乱数の生成</a>
 <ul class="collapse">
-<li><a href="#%E3%82%B3%E3%82%A4%E3%83%B3%E6%8A%95%E3%81%92" class="nav-link" data-scroll-target="#%E3%82%B3%E3%82%A4%E3%83%B3%E6%8A%95%E3%81%92"> <span class="header-section-number">7.2.1</span> コイン投げ</a></li>
-<li><a href="#%E3%82%B5%E3%82%A4%E3%82%B3%E3%83%AD%E6%8A%95%E3%81%92" class="nav-link" data-scroll-target="#%E3%82%B5%E3%82%A4%E3%82%B3%E3%83%AD%E6%8A%95%E3%81%92"> <span class="header-section-number">7.2.2</span> サイコロ投げ</a></li>
+<li><a href="#sec-coinflip" class="nav-link" data-scroll-target="#sec-coinflip"> <span class="header-section-number">7.2.1</span> コイン投げ</a></li>
+<li><a href="#sec-rolladie" class="nav-link" data-scroll-target="#sec-rolladie"> <span class="header-section-number">7.2.2</span> サイコロ投げ</a></li>
 </ul>
 </li>
 <li>
-<a href="#%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%81%8B%E3%82%89%E3%81%AE%E4%B9%B1%E6%95%B0%E7%94%9F%E6%88%90" class="nav-link" data-scroll-target="#%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%81%8B%E3%82%89%E3%81%AE%E4%B9%B1%E6%95%B0%E7%94%9F%E6%88%90"> <span class="header-section-number">7.3</span> 確率分布からの乱数生成</a>
+<a href="#sec-probdist" class="nav-link" data-scroll-target="#sec-probdist"> <span class="header-section-number">7.3</span> 確率分布からの乱数生成</a>
 <ul class="collapse">
-<li><a href="#%E4%B8%80%E6%A7%98%E5%88%86%E5%B8%83" class="nav-link" data-scroll-target="#%E4%B8%80%E6%A7%98%E5%88%86%E5%B8%83"> <span class="header-section-number">7.3.1</span> 一様分布</a></li>
-<li><a href="#%E4%BA%8C%E9%A0%85%E5%88%86%E5%B8%83" class="nav-link" data-scroll-target="#%E4%BA%8C%E9%A0%85%E5%88%86%E5%B8%83"> <span class="header-section-number">7.3.2</span> 二項分布</a></li>
-<li><a href="#%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83" class="nav-link" data-scroll-target="#%E6%AD%A3%E8%A6%8F%E5%88%86%E5%B8%83"> <span class="header-section-number">7.3.3</span> 正規分布</a></li>
+<li><a href="#sec-uniform" class="nav-link" data-scroll-target="#sec-uniform"> <span class="header-section-number">7.3.1</span> 一様分布</a></li>
+<li><a href="#sec-binomial" class="nav-link" data-scroll-target="#sec-binomial"> <span class="header-section-number">7.3.2</span> 二項分布</a></li>
+<li><a href="#sec-normal" class="nav-link" data-scroll-target="#sec-normal"> <span class="header-section-number">7.3.3</span> 正規分布</a></li>
 </ul>
 </li>
 </ul></nav>
@@ -253,7 +253,7 @@
 <ul>
 <li>乱数の作り方を覚えよう！</li>
 </ul>
-<section id="準備" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="準備">
+<section id="sec-prep7" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="sec-prep7">
 <span class="header-section-number">7.1</span> 準備</h2>
 <p>必要なパッケージを読み込む。</p>
 <div class="cell">
@@ -279,17 +279,17 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="乱数の生成" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="乱数の生成">
+</section><section id="sec-rng" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="sec-rng">
 <span class="header-section-number">7.2</span> 乱数の生成</h2>
 <p>Rを使って乱数 (random numbers) を生成しよう。</p>
-<section id="コイン投げ" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="コイン投げ">
+<section id="sec-coinflip" class="level3" data-number="7.2.1"><h3 data-number="7.2.1" class="anchored" data-anchor-id="sec-coinflip">
 <span class="header-section-number">7.2.1</span> コイン投げ</h3>
 <p>自分で決めた特定の対象から、ランダムにどれかを選びたいときは、<code><a href="https://rdrr.io/r/base/sample.html">sample()</a></code> 関数を利用する。たとえば、この関数を使ってコイン投げを実行したいときは、</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">coin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"表"</span>, <span class="st">"裏"</span><span class="op">)</span>  <span class="co"># コインを定義する</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] "裏"</code></pre>
+<pre><code>[1] "表"</code></pre>
 </div>
 </div>
 <p>とする。<code>size</code> で何回選ぶか（何回コインを投げるか）を指定している。</p>
@@ -301,11 +301,11 @@
 </div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] "表"</code></pre>
+<pre><code>[1] "裏"</code></pre>
 </div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] "裏"</code></pre>
+<pre><code>[1] "表"</code></pre>
 </div>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
@@ -313,7 +313,7 @@
 </div>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] "表"</code></pre>
+<pre><code>[1] "裏"</code></pre>
 </div>
 </div>
 <p>選ぶ回数を変えてみよう。</p>
@@ -327,7 +327,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] "裏" "表"</code></pre>
+<pre><code>[1] "表" "裏"</code></pre>
 </div>
 </div>
 <p>さらに、もう一度やってみよう。</p>
@@ -350,7 +350,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">5</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] "裏" "表" "裏" "表" "裏"</code></pre>
+<pre><code>[1] "表" "表" "裏" "裏" "裏"</code></pre>
 </div>
 </div>
 <p>これでコイン投げを複数回実行できる。</p>
@@ -359,7 +359,7 @@
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">coin10</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code> [1] "表" "表" "表" "表" "裏" "裏" "表" "裏" "裏" "裏"</code></pre>
+<pre><code> [1] "表" "表" "表" "裏" "表" "裏" "表" "表" "裏" "裏"</code></pre>
 </div>
 </div>
 <p>10回のうち、表は何回出ただろうか？Rを使って数えてみよう。数えるために、以下の方法をとる。</p>
@@ -401,7 +401,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">coin10</span> <span class="op">==</span> <span class="st">"表"</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code> [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE FALSE FALSE FALSE</code></pre>
+<pre><code> [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE</code></pre>
 </div>
 </div>
 <p>このように、各回について、表 (<code>TRUE</code>) か裏 (<code>FALSE</code>) かを教えてくれる。</p>
@@ -409,11 +409,11 @@
 <div class="cell">
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">coin10</span> <span class="op">==</span> <span class="st">"表"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 6</code></pre>
 </div>
 </div>
-<p>表は10回中5回だったことがわかる。</p>
-</section><section id="サイコロ投げ" class="level3" data-number="7.2.2"><h3 data-number="7.2.2" class="anchored" data-anchor-id="サイコロ投げ">
+<p>表は10回中6回だったことがわかる。</p>
+</section><section id="sec-rolladie" class="level3" data-number="7.2.2"><h3 data-number="7.2.2" class="anchored" data-anchor-id="sec-rolladie">
 <span class="header-section-number">7.2.2</span> サイコロ投げ</h3>
 <p>同じ関数を使って、サイコロ (die) 投げを実行してみよう。 まずは、サイコロを定義する。</p>
 <div class="cell" data-hold="true">
@@ -430,10 +430,10 @@
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">die100</span> <span class="op">==</span> <span class="fl">3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 13</code></pre>
+<pre><code>[1] 16</code></pre>
 </div>
 </div>
-<p>13回出たことがわかる。</p>
+<p>16回出たことがわかる。</p>
 <p>ここまでは、「正しいコイン (a fair coin)」や「正しいサイコロ (a fair die)」を想定してきたが、特定の目が出やすいサイコロ（やコイン）を使うこともできる。「1が出る確率だけ他の目の4倍」というサイコロを1,000回投げてみよう。そのために、<code>prob</code> で各目が出る比率を指定する（確率を指定してもよい）。</p>
 <div class="cell">
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">unfair1000</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">die</span>, 
@@ -445,10 +445,10 @@
 <div class="cell">
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">unfair1000</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 449</code></pre>
+<pre><code>[1] 433</code></pre>
 </div>
 </div>
-<p>1,000回のうち、449回1の目が出たことがわかる。</p>
+<p>1,000回のうち、433回1の目が出たことがわかる。</p>
 <p>このように、それぞれの選択肢が選べる確率を自由に設定して実験することができる。</p>
 <p>また、選ぶ対象も自由に設定できる。たとえば、</p>
 <div class="cell">
@@ -465,10 +465,10 @@
 <ul>
 <li>1から6までの目がある「正しい」サイコロを2個振るという作業を1,000回繰り返し、出た目の合計が9になる回数を数えてみよう。</li>
 <li>「正しくない」コイン（表が出る確率が0.5ではないコイン）を500回投げ、表が出た回数を数えよう。表が出る確率は自由に設定してよい（ただし、0, 0.5, 1 を除く）。</li>
-</ul></section></section><section id="確率分布からの乱数生成" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="確率分布からの乱数生成">
+</ul></section></section><section id="sec-probdist" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="sec-probdist">
 <span class="header-section-number">7.3</span> 確率分布からの乱数生成</h2>
 <p>Rでは、代表的な確率分布から乱数を生成することが可能である。基本的には、 <strong>r</strong>（randomの頭文字）と、分布名の最初の数文字を組み合わせた関数を使う。</p>
-<section id="一様分布" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="一様分布">
+<section id="sec-uniform" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="sec-uniform">
 <span class="header-section-number">7.3.1</span> 一様分布</h3>
 <p>一様分布 (<u>unif</u>orm distribution) からの乱数生成には、<code><a href="https://rdrr.io/r/stats/Uniform.html">runif()</a></code> を使う。この関数では、以下の3つの引数（ひきすう）を指定する。</p>
 <ol type="1">
@@ -542,7 +542,7 @@
 <p><img src="rng_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
-</section><section id="二項分布" class="level3" data-number="7.3.2"><h3 data-number="7.3.2" class="anchored" data-anchor-id="二項分布">
+</section><section id="sec-binomial" class="level3" data-number="7.3.2"><h3 data-number="7.3.2" class="anchored" data-anchor-id="sec-binomial">
 <span class="header-section-number">7.3.2</span> 二項分布</h3>
 <p>コイン投げの結果は、表か裏の2パタン（通常、「成功」と「失敗」と呼ばれる。コイン投げでは、表と裏のどちらを成功と呼んでもよいが、ここでは表を成功、裏を失敗としておく）しかない。また、同じコインを何度か投げることを繰り返すとき、1回1回のコイン投げで表が出る確率は一定であると考えられる。</p>
 <p>このように、結果が成功と失敗の2種類のみで、成功確率が <span class="math inline">\(\theta\)</span> で一定（したがって、失敗確率は “<span class="math inline">\(1-\theta\)</span>” で一定）であるような試行を <span class="math inline">\(N\)</span> 回繰り返したとき、その成功回数の分布を、「<strong>試行回数</strong> <span class="math inline">\(N\)</span> で成功確率 <span class="math inline">\(\theta\)</span> の二項分布 (<u>binom</u>ial distribution)」と呼ぶ。</p>
@@ -566,7 +566,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">8</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 6 4 3 2 4 4 3 4</code></pre>
+<pre><code>[1] 0 3 5 5 2 5 4 4</code></pre>
 </div>
 </div>
 <p>結果として、8つの数字が表示されるが、それぞれの数字が、1回ごとの実験（コインを10回投げる）で表が何回出たかを表している。</p>
@@ -587,33 +587,33 @@
 <div class="cell">
 <div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">8</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 2 4 3 5 4 4 5 3</code></pre>
+<pre><code>[1] 4 4 4 3 6 7 2 3</code></pre>
 </div>
 </div>
 <p>表が出る確率が0.5のコインを使って、1回のコイン投げ実験を1回だけ実行するには、</p>
 <div class="cell">
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 1</code></pre>
+<pre><code>[1] 0</code></pre>
 </div>
 </div>
 <p>とする。0と出れば表が0回出た（つまり、裏が出た）ということであり、1ならば表が出たということである。何度か試してみよう。</p>
 <div class="cell">
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0</code></pre>
+<pre><code>[1] 1</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -625,14 +625,14 @@
 <div class="cell">
 <div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 1</code></pre>
+<pre><code>[1] 0</code></pre>
 </div>
 </div>
 <p>表が出る確率が0.5のコインを使って、1回のコイン投げ実験を10回まとめて実行するには、次のようにする。</p>
 <div class="cell">
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code> [1] 1 0 0 1 0 1 1 1 1 1</code></pre>
+<pre><code> [1] 1 0 0 0 1 1 0 1 1 1</code></pre>
 </div>
 </div>
 <p><strong>実習課題 (2)</strong></p>
@@ -640,7 +640,7 @@
 <li>3つの引数の値を変えて、様々な条件で二項分布からの乱数生成を試してみよう！</li>
 </ul>
 <p><br></p>
-</section><section id="正規分布" class="level3" data-number="7.3.3"><h3 data-number="7.3.3" class="anchored" data-anchor-id="正規分布">
+</section><section id="sec-normal" class="level3" data-number="7.3.3"><h3 data-number="7.3.3" class="anchored" data-anchor-id="sec-normal">
 <span class="header-section-number">7.3.3</span> 正規分布</h3>
 <p>正規分布 (<u>norm</u>al distribution) からの乱数生成には、<code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> を使う。この関数では、以下の3つの引数（ひきすう）を指定する。</p>
 <ol type="1">
@@ -671,11 +671,11 @@
 <div class="cell">
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">b1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] -0.04147599</code></pre>
+<pre><code>[1] -0.1134789</code></pre>
 </div>
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">b1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 1.083666</code></pre>
+<pre><code>[1] 1.109442</code></pre>
 </div>
 </div>
 <p>元の分布の平均値と標準偏差と比べると、どんなことが言えるだろうか？</p>
@@ -696,11 +696,11 @@
 <div class="cell">
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">b2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] -0.0002736953</code></pre>
+<pre><code>[1] -0.01808632</code></pre>
 </div>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">b2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.9960791</code></pre>
+<pre><code>[1] 1.003547</code></pre>
 </div>
 </div>
 <p>元の分布の平均値と標準偏差と比べると、どんなことが言えるだろうか？</p>
@@ -785,6 +785,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./intro-to-ggplot2.html" class="pagination-link">

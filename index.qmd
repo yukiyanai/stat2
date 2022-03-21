@@ -8,11 +8,11 @@
 
 - 大切なことは授業で説明する。この資料にすべて書かれているわけではない。
 - この資料に書かれていない内容も授業で説明する。よって、この資料に書かれていない事項でも授業で説明した内容はすべて試験範囲である。
-- 受講生全員が [教科書](index.html#教科書) の指定範囲を読んでいるという前提で授業を進め、試験を実施する。教科書の内容をこの資料で詳しく説明することはないので、必ず教科書を読むように。
+- 受講生全員が [教科書](index.html#sec-textbook) の指定範囲を読んでいるという前提で授業を進め、試験を実施する。教科書の内容をこの資料で詳しく説明することはないので、必ず教科書を読むように。
 :::
 
 
-## 基本情報
+## 基本情報 {#sec-basicinfo}
 
 -   シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022.pdf)
 
@@ -28,20 +28,20 @@
 -   [授業用のSlackグループ](https://kut-stat2-2022.slack.com)
     -   [登録](https://join.slack.com/t/kut-stat2-2022/signup%7D) には大学ドメインのメールアドレスが必要
 
-## 教科書・副読本
+## 教科書・副読本 {#sec-refs}
 
-### 教科書
+### 教科書 {#sec-textbook}
 
 - 浅野正彦, 矢内勇生. 2018.『Rによる計量政治学』オーム社（[サポートページ](https://github.com/yukiyanai/quant-methods-R)）
 
-![](https://yukiyanai.github.io/jp/textbooks/images/quant-methods-R-cover.png){fig-align="middle" fig-alt="Rによる計量政治学" width="200"}
+![](https://yukiyanai.github.io/jp/textbooks/images/quant-methods-R-cover.png){fig-alt="Rによる計量政治学" width="200"}
 
-### 副読本
+### 副読本 {#sec-rn4e}
 
 - 宋財泫, 矢内勇生 （執筆中）『[私たちのR：ベストプラクティスの探求](http://www.jaysong.net/RBook/)』(web book、無料) 
 
 
-## 講義トピックとウェブ資料の対応
+## 講義トピックとウェブ資料の対応 {#sec-topics}
 
 授業の内容は、10のトピックに分かれている。[シラバス (PDF)](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022-1Q.pdf) にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。
 

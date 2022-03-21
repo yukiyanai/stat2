@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -120,7 +120,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -226,19 +226,19 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">15.1</span> 準備</a></li>
+<li><a href="#sec-prep15" class="nav-link active" data-scroll-target="#sec-prep15"> <span class="header-section-number">15.1</span> 準備</a></li>
 <li>
-<a href="#%E7%B5%B1%E8%A8%88%E7%9A%84%E6%A4%9C%E5%AE%9A" class="nav-link" data-scroll-target="#%E7%B5%B1%E8%A8%88%E7%9A%84%E6%A4%9C%E5%AE%9A"> <span class="header-section-number">15.2</span> 統計的検定</a>
+<a href="#sec-15test" class="nav-link" data-scroll-target="#sec-15test"> <span class="header-section-number">15.2</span> 統計的検定</a>
 <ul class="collapse">
-<li><a href="#%E6%9C%89%E6%84%8F%E6%B0%B4%E6%BA%96%E3%81%AE%E6%84%8F%E5%91%B3%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B%E5%B8%B0%E7%84%A1%E4%BB%AE%E8%AA%AC%E3%81%8C%E6%AD%A3%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="nav-link" data-scroll-target="#%E6%9C%89%E6%84%8F%E6%B0%B4%E6%BA%96%E3%81%AE%E6%84%8F%E5%91%B3%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B%E5%B8%B0%E7%84%A1%E4%BB%AE%E8%AA%AC%E3%81%8C%E6%AD%A3%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"> <span class="header-section-number">15.2.1</span> 有意水準の意味を理解する：帰無仮説が正しい場合の仮説検定シミュレーション</a></li>
-<li><a href="#%E5%8D%B1%E9%99%BA%E7%8E%87%E6%A4%9C%E5%87%BA%E5%8A%9B%E6%A8%99%E6%9C%AC%E3%82%B5%E3%82%A4%E3%82%BA%E5%AF%BE%E7%AB%8B%E4%BB%AE%E8%AA%AC%E3%81%8C%E6%AD%A3%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="nav-link" data-scroll-target="#%E5%8D%B1%E9%99%BA%E7%8E%87%E6%A4%9C%E5%87%BA%E5%8A%9B%E6%A8%99%E6%9C%AC%E3%82%B5%E3%82%A4%E3%82%BA%E5%AF%BE%E7%AB%8B%E4%BB%AE%E8%AA%AC%E3%81%8C%E6%AD%A3%E3%81%97%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E4%BB%AE%E8%AA%AC%E6%A4%9C%E5%AE%9A%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"> <span class="header-section-number">15.2.2</span> 危険率、検出力、標本サイズ：対立仮説が正しい場合の仮説検定シミュレーション</a></li>
+<li><a href="#sec-significant" class="nav-link" data-scroll-target="#sec-significant"> <span class="header-section-number">15.2.1</span> 有意水準の意味を理解する：帰無仮説が正しい場合の仮説検定シミュレーション</a></li>
+<li><a href="#sec-errortypes" class="nav-link" data-scroll-target="#sec-errortypes"> <span class="header-section-number">15.2.2</span> 危険率、検出力、標本サイズ：対立仮説が正しい場合の仮説検定シミュレーション</a></li>
 </ul>
 </li>
 <li>
-<a href="#%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%B7%AE%E3%81%AE%E6%A4%9C%E5%AE%9A" class="nav-link" data-scroll-target="#%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%B7%AE%E3%81%AE%E6%A4%9C%E5%AE%9A"> <span class="header-section-number">15.3</span> 平均値の差の検定</a>
+<a href="#sec-ttest" class="nav-link" data-scroll-target="#sec-ttest"> <span class="header-section-number">15.3</span> 平均値の差の検定</a>
 <ul class="collapse">
-<li><a href="#%E5%AF%BE%E5%BF%9C%E3%81%AE%E3%81%AA%E3%81%84%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%B7%AE%E3%81%AE%E6%A4%9C%E5%AE%9A" class="nav-link" data-scroll-target="#%E5%AF%BE%E5%BF%9C%E3%81%AE%E3%81%AA%E3%81%84%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%B7%AE%E3%81%AE%E6%A4%9C%E5%AE%9A"> <span class="header-section-number">15.3.1</span> 対応のないデータの平均値の差の検定</a></li>
-<li><a href="#%E5%AF%BE%E5%BF%9C%E3%81%AE%E3%81%82%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%B7%AE%E3%81%AE%E6%A4%9C%E5%AE%9A" class="nav-link" data-scroll-target="#%E5%AF%BE%E5%BF%9C%E3%81%AE%E3%81%82%E3%82%8B%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%B7%AE%E3%81%AE%E6%A4%9C%E5%AE%9A"> <span class="header-section-number">15.3.2</span> 対応のあるデータの平均値の差の検定</a></li>
+<li><a href="#sec-welch" class="nav-link" data-scroll-target="#sec-welch"> <span class="header-section-number">15.3.1</span> 対応のないデータの平均値の差の検定</a></li>
+<li><a href="#sec-paired" class="nav-link" data-scroll-target="#sec-paired"> <span class="header-section-number">15.3.2</span> 対応のあるデータの平均値の差の検定</a></li>
 </ul>
 </li>
 </ul></nav>
@@ -251,7 +251,7 @@
 <ul>
 <li>2つの集団の平均値が等しいかどうか統計的に判断する方法を理解しよう！</li>
 </ul>
-<section id="準備" class="level2" data-number="15.1"><h2 data-number="15.1" class="anchored" data-anchor-id="準備">
+<section id="sec-prep15" class="level2" data-number="15.1"><h2 data-number="15.1" class="anchored" data-anchor-id="sec-prep15">
 <span class="header-section-number">15.1</span> 準備</h2>
 <p>必要なパッケージを読み込み、図の日本語が正しく表示されるようにする。</p>
 <div class="cell">
@@ -272,9 +272,9 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="統計的検定" class="level2" data-number="15.2"><h2 data-number="15.2" class="anchored" data-anchor-id="統計的検定">
+</section><section id="sec-15test" class="level2" data-number="15.2"><h2 data-number="15.2" class="anchored" data-anchor-id="sec-15test">
 <span class="header-section-number">15.2</span> 統計的検定</h2>
-<section id="有意水準の意味を理解する帰無仮説が正しい場合の仮説検定シミュレーション" class="level3" data-number="15.2.1"><h3 data-number="15.2.1" class="anchored" data-anchor-id="有意水準の意味を理解する帰無仮説が正しい場合の仮説検定シミュレーション">
+<section id="sec-significant" class="level3" data-number="15.2.1"><h3 data-number="15.2.1" class="anchored" data-anchor-id="sec-significant">
 <span class="header-section-number">15.2.1</span> 有意水準の意味を理解する：帰無仮説が正しい場合の仮説検定シミュレーション</h3>
 <p>標準正規分布に従う変数 <span class="math inline">\(X\)</span> について考える。これを</p>
 <p><span class="math display">\[
@@ -313,7 +313,7 @@ X \sim  \mbox{Normal}(\mu = 0, \sigma = 1)
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smp_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.14308</code></pre>
+<pre><code>[1] -0.2502255</code></pre>
 </div>
 </div>
 <p>である。 この標本平均は0ではない。つまり <span class="math inline">\(\bar{x} \neq 0\)</span> であるが、ここから、<span class="math inline">\(\mu \neq 0\)</span>と言えるだろうか？</p>
@@ -327,21 +327,21 @@ X \sim  \mbox{Normal}(\mu = 0, \sigma = 1)
     One Sample t-test
 
 data:  smp_1
-t = 0.60125, df = 19, p-value = 0.5548
+t = -1.426, df = 19, p-value = 0.1701
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
- -0.3549995  0.6411594
+ -0.6174936  0.1170426
 sample estimates:
-mean of x 
-  0.14308 </code></pre>
+ mean of x 
+-0.2502255 </code></pre>
 </div>
 </div>
 <p>この結果の読み方を説明しよう。まず、<code>data: smp_1</code> というところに、検定に利用した標本が示される。次の行を見ると、検定統計量 <span class="math inline">\(T\)</span> の値が <code>t =</code> で 示された後、自由度 (df) と<span class="math inline">\(p\)</span> 値 (p-value) が表示される（<span class="math inline">\(p\)</span>値については「計量経済学」の講義で説明する [説明しないかもしれないが、<span class="math inline">\(p\)</span> 値は使わない方針なので問題ない]）。検定統計量の絶対値 <span class="math inline">\(|T|\)</span> が、自ら決めた有意水準における臨界値の絶対値 |<span class="math inline">\(c\)</span>| より大きいとき、帰無仮説を棄却する。検定統計量自体は、次のようにすれば取り出せる。</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">res_1</span><span class="op">$</span><span class="va">statistic</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>        t 
-0.6012491 </code></pre>
+<pre><code>       t 
+-1.42601 </code></pre>
 </div>
 </div>
 <p>また、自由度 <span class="math inline">\(N - 1\)</span> の <span class="math inline">\(t\)</span> 分布で、有意水準が5%のときに必要な臨界値は、</p>
@@ -415,7 +415,7 @@ mean of x
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sim_1</span><span class="op">[</span><span class="fl">1</span> <span class="op">:</span> <span class="fl">5</span><span class="op">]</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>     t      t      t      t      t 
-"null" "null" "null" "null"  "alt" </code></pre>
+"null" "null" "null" "null" "null" </code></pre>
 </div>
 </div>
 <p>結果が保存されていることが確認できる。</p>
@@ -425,7 +425,7 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_1
  alt null 
- 484 9516 </code></pre>
+ 483 9517 </code></pre>
 </div>
 </div>
 <p>割合を表示するために、シミュレーション回数で割ると、</p>
@@ -434,7 +434,7 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_1
    alt   null 
-0.0484 0.9516 </code></pre>
+0.0483 0.9517 </code></pre>
 </div>
 </div>
 <p>となる。 このように、対立仮説が約5%、帰無仮説が95%の検定で採用されている。</p>
@@ -446,7 +446,7 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_2
    alt   null 
-0.0114 0.9886 </code></pre>
+0.0106 0.9894 </code></pre>
 </div>
 </div>
 <p>第1種の誤り（null が正しいのに alt を採用）の割合は、約1%である。</p>
@@ -457,12 +457,12 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_3
    alt   null 
-0.1408 0.8592 </code></pre>
+0.1434 0.8566 </code></pre>
 </div>
 </div>
 <p>第1種の誤り（null が正しいのに alt を採用）の割合は、約14%になる。</p>
 <p><strong>実習課題：</strong> 第1種の誤りは、標本サイズの影響を受けるだろうか? 有意水準を固定し、標本サイズ <span class="math inline">\(N\)</span> を10, 20, 100, 200 と変えて、第1種の誤りの割合をシミュレーションしてみよう！</p>
-</section></section><section id="危険率検出力標本サイズ対立仮説が正しい場合の仮説検定シミュレーション" class="level3" data-number="15.2.2"><h3 data-number="15.2.2" class="anchored" data-anchor-id="危険率検出力標本サイズ対立仮説が正しい場合の仮説検定シミュレーション">
+</section></section><section id="sec-errortypes" class="level3" data-number="15.2.2"><h3 data-number="15.2.2" class="anchored" data-anchor-id="sec-errortypes">
 <span class="header-section-number">15.2.2</span> 危険率、検出力、標本サイズ：対立仮説が正しい場合の仮説検定シミュレーション</h3>
 <p>平均3、標準偏差2の正規分布に従う変数 <span class="math inline">\(Y\)</span> について考える。すなわち、</p>
 <p><span class="math display">\[
@@ -488,7 +488,7 @@ Y \sim \mbox{Normal}(\mu = 3, \sigma = 2)
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smp_2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 3.574945</code></pre>
+<pre><code>[1] 2.836539</code></pre>
 </div>
 </div>
 <p>である。 この標本平均は0ではない。つまり <span class="math inline">\(\bar{y} \neq 0\)</span> であるが、ここから、<span class="math inline">\(\mu \neq 0\)</span>と言えるだろうか？</p>
@@ -501,13 +501,13 @@ Y \sim \mbox{Normal}(\mu = 3, \sigma = 2)
     One Sample t-test
 
 data:  smp_2
-t = 8.1025, df = 19, p-value = 1.387e-07
+t = 7.0734, df = 19, p-value = 9.915e-07
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
- 2.651466 4.498424
+ 1.997211 3.675867
 sample estimates:
 mean of x 
- 3.574945 </code></pre>
+ 2.836539 </code></pre>
 </div>
 </div>
 <p>検定統計量 <span class="math inline">\(T\)</span> の値は、</p>
@@ -515,7 +515,7 @@ mean of x
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">res_2</span><span class="op">$</span><span class="va">statistic</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>       t 
-8.102458 </code></pre>
+7.073449 </code></pre>
 </div>
 </div>
 <p>である。 また、自由度 <span class="math inline">\(N - 1\)</span> の <span class="math inline">\(t\)</span> 分布で、有意水準が5%のときに必要な臨界値は、</p>
@@ -549,8 +549,8 @@ mean of x
 <div class="cell">
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>    t 
-"alt" </code></pre>
+<pre><code>     t 
+"null" </code></pre>
 </div>
 </div>
 <p>というように、1つの標本からどちらの仮説を採用したかがわかる。</p>
@@ -574,7 +574,7 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_11
    alt   null 
-0.8099 0.1901 </code></pre>
+0.8077 0.1923 </code></pre>
 </div>
 </div>
 <p>このように、対立仮説が約81%、帰無仮説が約19%の検定で採用されている。</p>
@@ -586,7 +586,7 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_12
    alt   null 
-0.5616 0.4384 </code></pre>
+0.5588 0.4412 </code></pre>
 </div>
 </div>
 <p>第2種の誤り（<s>null が正しいのに alt を採用</s> <strong>alt が正しいのに null を採用</strong>）の割合は、約44%である。有意水準を小さくしたところ、第2種の誤りの割合が大きくなった。</p>
@@ -597,10 +597,10 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_13
    alt   null 
-0.8908 0.1092 </code></pre>
+0.8986 0.1014 </code></pre>
 </div>
 </div>
-<p>第2種の誤り（null が正しいのに alt を採用）の割合は、約11%である。有意水準を大きくしたところ、第2種の誤りの割合が小さくなった。</p>
+<p>第2種の誤り（null が正しいのに alt を採用）の割合は、約10%である。有意水準を大きくしたところ、第2種の誤りの割合が小さくなった。</p>
 <p>このように、第2種の誤りの確率は、有意水準と負の相関関係をもつ。第2種の誤りをおかす確率を小さくするためには、有意水準を大きくすればよい。しかし、有意水準は、それ自体が第1種の誤りの確率を表しているので、有意水準を大きくするということは、第1種の誤りの確率が大きくなるということである。</p>
 <p>有意水準を変えずに、第2種の誤りの確率を小さくすることはできないだろうか。 第2種の誤りを小さくするには、「0との違い」を見つけ出す力を強めればよい。つまり、小さな違いでも違いとして見つけ出すことができれば、帰無仮説を棄却することができるようになり、第2種の誤りの確率は小さくなる。このような力のことを<strong>検出力 (power)</strong> と呼ぶ。検出力は標本サイズに依存する。</p>
 <p>有意水準を5%にして、標本サイズを 10, 20, 50, 100, 200 と変えて、第2種の誤りの割合を計算してみよう。</p>
@@ -611,7 +611,7 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_14
    alt   null 
-0.4735 0.5265 </code></pre>
+0.4664 0.5336 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 20\)</span> のとき。</p>
@@ -621,7 +621,7 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_15
    alt   null 
-0.8104 0.1896 </code></pre>
+0.8101 0.1899 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 50\)</span> のとき。</p>
@@ -631,7 +631,7 @@ mean of x
 <div class="cell-output-stdout">
 <pre><code>sim_16
    alt   null 
-0.9971 0.0029 </code></pre>
+0.9963 0.0037 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 100\)</span> のとき。</p>
@@ -655,10 +655,10 @@ alt
 </div>
 </div>
 <p>このように、標本サイズを大きくすると、第2種の誤りの確率は下がる。したがって、統計的検定における誤りの確率を減らすためには、有意水準を小さくし、標本サイズを大きくすることが重要になる（しかし、このことは、標本サイズさえ大きくすれば、些細な違いも検出されてしまうということも意味しているので、実用上は注意が必要である）。</p>
-</section></section></section><section id="平均値の差の検定" class="level2" data-number="15.3"><h2 data-number="15.3" class="anchored" data-anchor-id="平均値の差の検定">
+</section></section></section><section id="sec-ttest" class="level2" data-number="15.3"><h2 data-number="15.3" class="anchored" data-anchor-id="sec-ttest">
 <span class="header-section-number">15.3</span> 平均値の差の検定</h2>
 <p>2つのグループの平均値に差があるかどうか、統計的検定で判断しよう。これまで同様、<code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> を使って<span class="math inline">\(t\)</span>検定を行うが、問題によって指定しなけばいけない引数が異なるので注意が必要である。</p>
-<section id="対応のないデータの平均値の差の検定" class="level3" data-number="15.3.1"><h3 data-number="15.3.1" class="anchored" data-anchor-id="対応のないデータの平均値の差の検定">
+<section id="sec-welch" class="level3" data-number="15.3.1"><h3 data-number="15.3.1" class="anchored" data-anchor-id="sec-welch">
 <span class="header-section-number">15.3.1</span> 対応のないデータの平均値の差の検定</h3>
 <p><strong>例題：</strong> 2つのコーヒーチェーンで、どちらのコーヒーが美味しいか調べるため、無作為に選んだ10人にD店のコーヒーを、無作為に選んだ別の10人にS店のコーヒーを飲んでもらった。10点満点で点数をつけてもらったところ、次のようなデータが得られた。</p>
 <div class="cell">
@@ -710,7 +710,7 @@ mean of x mean of y
 </div>
 <p>である。<span class="math inline">\(|T| = 1.6953 &lt; 2.133352 = |c|\)</span> だから、帰無仮説は棄却されない。したがって、D店のコーヒーのほうが美味しいとは言えない。</p>
 <p>ちなみに、<code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> の結果として表示される95%信頼区間から、検定結果を出すこともできる。 この例では、DとSの差の95%信頼区間が表示されており、それが <span class="math inline">\([-0.439, 3.839]\)</span> である。この区間が0（つまり、2つの美味しさに差がない）を含んでいるので、有意水準5%で帰無仮説を棄却できない。</p>
-</section><section id="対応のあるデータの平均値の差の検定" class="level3" data-number="15.3.2"><h3 data-number="15.3.2" class="anchored" data-anchor-id="対応のあるデータの平均値の差の検定">
+</section><section id="sec-paired" class="level3" data-number="15.3.2"><h3 data-number="15.3.2" class="anchored" data-anchor-id="sec-paired">
 <span class="header-section-number">15.3.2</span> 対応のあるデータの平均値の差の検定</h3>
 <p><strong>例題：</strong> 2つのコーヒーチェーンで、どちらのコーヒーが美味しいか調べるため、無作為に選んだ10人にD店のコーヒーとS店のコーヒーを1杯ずつ飲んでもらった。それぞれのコーヒーに10点満点で点数をつけてもらったところ、次のようなデータが得られた。</p>
 <div class="cell">
@@ -858,6 +858,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./t-distribution.html" class="pagination-link">

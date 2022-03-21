@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -227,16 +227,16 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">14.1</span> 準備</a></li>
-<li><a href="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%AF%8D%E9%9B%86%E5%9B%A3%E3%82%92%E5%AE%9A%E7%BE%A9%E3%81%99%E3%82%8B"> <span class="header-section-number">14.2</span> 母集団を定義する</a></li>
+<li><a href="#sec-prep14" class="nav-link active" data-scroll-target="#sec-prep14"> <span class="header-section-number">14.1</span> 準備</a></li>
+<li><a href="#sec-14defpop" class="nav-link" data-scroll-target="#sec-14defpop"> <span class="header-section-number">14.2</span> 母集団を定義する</a></li>
 <li>
-<a href="#%E6%A8%99%E6%9C%AC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%97%E3%81%A6%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%82%92%E6%8E%A8%E5%AE%9A%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E3%82%92%E6%8A%BD%E5%87%BA%E3%81%97%E3%81%A6%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%82%92%E6%8E%A8%E5%AE%9A%E3%81%99%E3%82%8B"> <span class="header-section-number">14.3</span> 標本を抽出して母平均を推定する</a>
+<a href="#sec-14sample" class="nav-link" data-scroll-target="#sec-14sample"> <span class="header-section-number">14.3</span> 標本を抽出して母平均を推定する</a>
 <ul class="collapse">
-<li><a href="#%E6%A8%99%E6%9C%AC%E6%8A%BD%E5%87%BA%E3%81%A8%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%81%AE%E6%8E%A8%E5%AE%9A%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E6%8A%BD%E5%87%BA%E3%81%A8%E6%AF%8D%E5%B9%B3%E5%9D%87%E3%81%AE%E6%8E%A8%E5%AE%9A%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"> <span class="header-section-number">14.3.1</span> 標本抽出と母平均の推定のシミュレーション</a></li>
+<li><a href="#sec-14sim" class="nav-link" data-scroll-target="#sec-14sim"> <span class="header-section-number">14.3.1</span> 標本抽出と母平均の推定のシミュレーション</a></li>
 </ul>
 </li>
-<li><a href="#t-%E5%88%86%E5%B8%83%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B" class="nav-link" data-scroll-target="#t-%E5%88%86%E5%B8%83%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B"> <span class="header-section-number">14.4</span> <span class="math inline">\(t\)</span> 分布を理解する</a></li>
-<li><a href="#t-%E5%88%86%E5%B8%83%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E5%8C%BA%E9%96%93%E6%8E%A8%E5%AE%9A" class="nav-link" data-scroll-target="#t-%E5%88%86%E5%B8%83%E3%82%92%E5%88%A9%E7%94%A8%E3%81%97%E3%81%9F%E5%8C%BA%E9%96%93%E6%8E%A8%E5%AE%9A"> <span class="header-section-number">14.5</span> <span class="math inline">\(t\)</span> 分布を利用した区間推定</a></li>
+<li><a href="#sec-tdist" class="nav-link" data-scroll-target="#sec-tdist"> <span class="header-section-number">14.4</span> <span class="math inline">\(t\)</span> 分布を理解する</a></li>
+<li><a href="#sec-estwt" class="nav-link" data-scroll-target="#sec-estwt"> <span class="header-section-number">14.5</span> <span class="math inline">\(t\)</span> 分布を利用した区間推定</a></li>
 </ul></nav>
     </div>
 <!-- main -->
@@ -250,7 +250,7 @@
 <li>
 <span class="math inline">\(t\)</span> 分布を利用した統計的推定の方法を身につけよう！</li>
 </ul>
-<section id="準備" class="level2" data-number="14.1"><h2 data-number="14.1" class="anchored" data-anchor-id="準備">
+<section id="sec-prep14" class="level2" data-number="14.1"><h2 data-number="14.1" class="anchored" data-anchor-id="sec-prep14">
 <span class="header-section-number">14.1</span> 準備</h2>
 <p>必要なパッケージを読み込み、図の日本語が正しく表示されるようにする。</p>
 <div class="cell">
@@ -271,7 +271,7 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="母集団を定義する" class="level2" data-number="14.2"><h2 data-number="14.2" class="anchored" data-anchor-id="母集団を定義する">
+</section><section id="sec-14defpop" class="level2" data-number="14.2"><h2 data-number="14.2" class="anchored" data-anchor-id="sec-14defpop">
 <span class="header-section-number">14.2</span> 母集団を定義する</h2>
 <div class="cell">
 
@@ -312,9 +312,9 @@
 </div>
 </div>
 <p>である。</p>
-</section><section id="標本を抽出して母平均を推定する" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="標本を抽出して母平均を推定する">
+</section><section id="sec-14sample" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="sec-14sample">
 <span class="header-section-number">14.3</span> 標本を抽出して母平均を推定する</h2>
-<section id="標本抽出と母平均の推定のシミュレーション" class="level3" data-number="14.3.1"><h3 data-number="14.3.1" class="anchored" data-anchor-id="標本抽出と母平均の推定のシミュレーション">
+<section id="sec-14sim" class="level3" data-number="14.3.1"><h3 data-number="14.3.1" class="anchored" data-anchor-id="sec-14sim">
 <span class="header-section-number">14.3.1</span> 標本抽出と母平均の推定のシミュレーション</h3>
 <p>100万人の母集団で全員を調べるのではなく、10人だけ標本として抜き出して母平均を推定することを考える。 シミュレーションで標本抽出を1万回繰り返し、それぞれの標本で標本平均を計算しよう。</p>
 <p>まず、標本サイズを10に、シミュレーション回数を1万に設定する。</p>
@@ -564,7 +564,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
 </div>
 </div>
 <p>やはり多少のずれはあるものの、ほとんどの点が45度線上に乗っていることがわかる。よって、<span class="math inline">\(\hat{z}\)</span>は、自由度9の<span class="math inline">\(t\)</span>分布に従っていると言えそうである（少なくとも、「自由度9の<span class="math inline">\(t\)</span>分布に従っていない」とはっきり言うことはできない）。</p>
-</section></section></section><section id="t-分布を理解する" class="level2" data-number="14.4"><h2 data-number="14.4" class="anchored" data-anchor-id="t-分布を理解する">
+</section></section></section><section id="sec-tdist" class="level2" data-number="14.4"><h2 data-number="14.4" class="anchored" data-anchor-id="sec-tdist">
 <span class="header-section-number">14.4</span> <span class="math inline">\(t\)</span> 分布を理解する</h2>
 <p><span class="math inline">\(t\)</span> 分布は、自由度 <span class="math inline">\(df &gt; 0\)</span> によってその形を変える。</p>
 <p>たとえば、自由度1, 2, 10の <span class="math inline">\(t\)</span>乗分布は以下のように分布する。比較のため、標準正規分布も一緒に示す。</p>
@@ -644,7 +644,7 @@ $ group &lt;chr&gt; "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", "std
 <p>となることが確認できる。</p>
 <p><strong>実習課題</strong></p>
 <p>自由度 (df) の値をによって<span class="math inline">\(t\)</span>分布がどのように変化するか、関数 <code>plot_t()</code> を使って確かめてみよう。</p>
-</section><section id="t-分布を利用した区間推定" class="level2" data-number="14.5"><h2 data-number="14.5" class="anchored" data-anchor-id="t-分布を利用した区間推定">
+</section><section id="sec-estwt" class="level2" data-number="14.5"><h2 data-number="14.5" class="anchored" data-anchor-id="sec-estwt">
 <span class="header-section-number">14.5</span> <span class="math inline">\(t\)</span> 分布を利用した区間推定</h2>
 <p><span class="math inline">\(t\)</span> 分布を使った区間推定の方法も、基本的に標準正規分布を使った推定方法と同じである。 身長 <span class="math inline">\(x\)</span> の点推定値を <span class="math inline">\(\bar{x}\)</span> とすると、以下のように定義される信頼区間 (confidence interval) を区間推定に使う。</p>
 <p><span class="math display">\[
@@ -834,6 +834,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./estimating-mean.html" class="pagination-link">

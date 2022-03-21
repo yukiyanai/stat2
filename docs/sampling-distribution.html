@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.120">
@@ -121,7 +121,7 @@
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://yukiyanai.github.io/statistics/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
     <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
 <li>
@@ -227,19 +227,19 @@
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">このページの内容</h2>
 <ul>
-<li><a href="#%E6%BA%96%E5%82%99" class="nav-link active" data-scroll-target="#%E6%BA%96%E5%82%99"> <span class="header-section-number">12.1</span> 準備</a></li>
+<li><a href="#sec-prep12" class="nav-link active" data-scroll-target="#sec-prep12"> <span class="header-section-number">12.1</span> 準備</a></li>
 <li>
-<a href="#%E6%A8%99%E6%9C%AC%E5%88%86%E5%B8%83%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E5%88%86%E5%B8%83%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3"> <span class="header-section-number">12.2</span> 標本分布のシミュレーション</a>
+<a href="#sec-simsd" class="nav-link" data-scroll-target="#sec-simsd"> <span class="header-section-number">12.2</span> 標本分布のシミュレーション</a>
 <ul class="collapse">
-<li><a href="#%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A8%AD%E5%AE%9A" class="nav-link" data-scroll-target="#%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E5%95%8F%E9%A1%8C%E3%81%AE%E8%A8%AD%E5%AE%9A"> <span class="header-section-number">12.2.1</span> シミュレーション問題の設定</a></li>
-<li><a href="#%E6%A8%99%E6%9C%AC%E3%82%B5%E3%82%A4%E3%82%BA-n-%E3%81%8C1%E3%81%AE%E3%81%A8%E3%81%8D" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E3%82%B5%E3%82%A4%E3%82%BA-n-%E3%81%8C1%E3%81%AE%E3%81%A8%E3%81%8D"> <span class="header-section-number">12.2.2</span> 標本サイズ (<span class="math inline">\(N\)</span>) が1のとき</a></li>
-<li><a href="#%E6%A8%99%E6%9C%AC%E3%82%B5%E3%82%A4%E3%82%BA-n-%E3%81%8C2%E3%81%AE%E3%81%A8%E3%81%8D" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E3%82%B5%E3%82%A4%E3%82%BA-n-%E3%81%8C2%E3%81%AE%E3%81%A8%E3%81%8D"> <span class="header-section-number">12.2.3</span> 標本サイズ (<span class="math inline">\(N\)</span>) が2のとき</a></li>
-<li><a href="#%E6%A8%99%E6%9C%AC%E3%82%B5%E3%82%A4%E3%82%BA-n-%E3%81%8C10%E3%81%AE%E3%81%A8%E3%81%8D" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E3%82%B5%E3%82%A4%E3%82%BA-n-%E3%81%8C10%E3%81%AE%E3%81%A8%E3%81%8D"> <span class="header-section-number">12.2.4</span> 標本サイズ (<span class="math inline">\(N\)</span>) が10のとき</a></li>
-<li><a href="#%E5%AE%9F%E7%BF%92%E8%AA%B2%E9%A1%8C" class="nav-link" data-scroll-target="#%E5%AE%9F%E7%BF%92%E8%AA%B2%E9%A1%8C"> <span class="header-section-number">12.2.5</span> 実習課題</a></li>
+<li><a href="#sec-simset" class="nav-link" data-scroll-target="#sec-simset"> <span class="header-section-number">12.2.1</span> シミュレーション問題の設定</a></li>
+<li><a href="#sec-n1" class="nav-link" data-scroll-target="#sec-n1"> <span class="header-section-number">12.2.2</span> 標本サイズ (<span class="math inline">\(N\)</span>) が1のとき</a></li>
+<li><a href="#sec-n2" class="nav-link" data-scroll-target="#sec-n2"> <span class="header-section-number">12.2.3</span> 標本サイズ (<span class="math inline">\(N\)</span>) が2のとき</a></li>
+<li><a href="#sec-n10" class="nav-link" data-scroll-target="#sec-n10"> <span class="header-section-number">12.2.4</span> 標本サイズ (<span class="math inline">\(N\)</span>) が10のとき</a></li>
+<li><a href="#sec-ex12" class="nav-link" data-scroll-target="#sec-ex12"> <span class="header-section-number">12.2.5</span> 実習課題</a></li>
 </ul>
 </li>
-<li><a href="#%E8%AA%A4%E5%B7%AE%E3%81%AE%E5%88%86%E5%B8%83" class="nav-link" data-scroll-target="#%E8%AA%A4%E5%B7%AE%E3%81%AE%E5%88%86%E5%B8%83"> <span class="header-section-number">12.3</span> 誤差の分布</a></li>
-<li><a href="#%E6%A8%99%E6%9C%AC%E5%88%86%E5%B8%83%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3-1" class="nav-link" data-scroll-target="#%E6%A8%99%E6%9C%AC%E5%88%86%E5%B8%83%E3%81%AE%E3%82%B7%E3%83%9F%E3%83%A5%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3-1"> <span class="header-section-number">12.4</span> 標本分布のシミュレーション</a></li>
+<li><a href="#sec-error" class="nav-link" data-scroll-target="#sec-error"> <span class="header-section-number">12.3</span> 誤差の分布</a></li>
+<li><a href="#sec-mp4" class="nav-link" data-scroll-target="#sec-mp4"> <span class="header-section-number">12.4</span> 標本分布のシミュレーション</a></li>
 </ul></nav>
     </div>
 <!-- main -->
@@ -251,7 +251,7 @@
 <li>標本分布を理解しよう！</li>
 <li>標準誤差を理解しよう！</li>
 </ul>
-<section id="準備" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="準備">
+<section id="sec-prep12" class="level2" data-number="12.1"><h2 data-number="12.1" class="anchored" data-anchor-id="sec-prep12">
 <span class="header-section-number">12.1</span> 準備</h2>
 <p>必要なパッケージを読み込む。</p>
 <div class="cell">
@@ -275,9 +275,9 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="標本分布のシミュレーション" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="標本分布のシミュレーション">
+</section><section id="sec-simsd" class="level2" data-number="12.2"><h2 data-number="12.2" class="anchored" data-anchor-id="sec-simsd">
 <span class="header-section-number">12.2</span> 標本分布のシミュレーション</h2>
-<section id="シミュレーション問題の設定" class="level3" data-number="12.2.1"><h3 data-number="12.2.1" class="anchored" data-anchor-id="シミュレーション問題の設定">
+<section id="sec-simset" class="level3" data-number="12.2.1"><h3 data-number="12.2.1" class="anchored" data-anchor-id="sec-simset">
 <span class="header-section-number">12.2.1</span> シミュレーション問題の設定</h3>
 <p>母集団（成人男性全体）では、平均身長が170cm、身長の標準偏差が5.5cm であり、身長は正規分布に従うことを知っているとする。</p>
 <div class="cell">
@@ -288,7 +288,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span>  <span class="co"># シミュレーションの繰り返し回数</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="標本サイズ-n-が1のとき" class="level3" data-number="12.2.2"><h3 data-number="12.2.2" class="anchored" data-anchor-id="標本サイズ-n-が1のとき">
+</section><section id="sec-n1" class="level3" data-number="12.2.2"><h3 data-number="12.2.2" class="anchored" data-anchor-id="sec-n1">
 <span class="header-section-number">12.2.2</span> 標本サイズ (<span class="math inline">\(N\)</span>) が1のとき</h3>
 <p>標本サイズ <span class="math inline">\(N = 1\)</span> で標本を抽出し、標本平均を計算することを10^{4} 回<code>n_sims</code> 回）繰り返す。まず、<span class="math inline">\(N\)</span> を設定する。</p>
 <div class="cell">
@@ -302,7 +302,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 170.0815</code></pre>
+<pre><code>[1] 165.3563</code></pre>
 </div>
 </div>
 <p>である。 これを1万回繰り返せばよい。</p>
@@ -357,15 +357,15 @@
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sim_1</span><span class="op">)</span> <span class="co"># 標本平均の平均値</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 169.9872</code></pre>
+<pre><code>[1] 169.9863</code></pre>
 </div>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sim_1</span><span class="op">)</span>   <span class="co"># 標本平均の標準偏差 = 標準誤差</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 5.440604</code></pre>
+<pre><code>[1] 5.498095</code></pre>
 </div>
 </div>
 <p>このように、標本平均の平均値は母平均とほぼ同じであり、標本平均の標準偏差（これを平均値の<strong>標準誤差 (standard errors: SE)</strong> と呼ぶ）は、母標準偏差とほぼ同じである。</p>
-</section><section id="標本サイズ-n-が2のとき" class="level3" data-number="12.2.3"><h3 data-number="12.2.3" class="anchored" data-anchor-id="標本サイズ-n-が2のとき">
+</section><section id="sec-n2" class="level3" data-number="12.2.3"><h3 data-number="12.2.3" class="anchored" data-anchor-id="sec-n2">
 <span class="header-section-number">12.2.3</span> 標本サイズ (<span class="math inline">\(N\)</span>) が2のとき</h3>
 <p>標本サイズ <span class="math inline">\(N = 2\)</span> で、同様のシミュレーションを行ってみよう。 まず、<span class="math inline">\(N\)</span> を設定する。</p>
 <div class="cell">
@@ -416,11 +416,11 @@
 <div class="cell">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sim_2</span><span class="op">)</span> <span class="co"># 標本平均の平均値</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 170.0201</code></pre>
+<pre><code>[1] 170.0344</code></pre>
 </div>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sim_2</span><span class="op">)</span>   <span class="co"># 標本平均の標準偏差 = 標準誤差</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 3.922315</code></pre>
+<pre><code>[1] 3.872753</code></pre>
 </div>
 </div>
 <p>上のシミュレーションと同様、標本平均の平均値は母平均とほぼ同じである。しかし、標本平均の標準偏差である<strong>標準誤差 (standard errors; SE)</strong> は、母標準偏差よりもかなり小さくなっていることがわかる。</p>
@@ -432,7 +432,7 @@
 </div>
 </div>
 <p>これは、上で求めた標準誤差にほぼ一致する。</p>
-</section><section id="標本サイズ-n-が10のとき" class="level3" data-number="12.2.4"><h3 data-number="12.2.4" class="anchored" data-anchor-id="標本サイズ-n-が10のとき">
+</section><section id="sec-n10" class="level3" data-number="12.2.4"><h3 data-number="12.2.4" class="anchored" data-anchor-id="sec-n10">
 <span class="header-section-number">12.2.4</span> 標本サイズ (<span class="math inline">\(N\)</span>) が10のとき</h3>
 <p>標本サイズ <span class="math inline">\(nN = 10\)</span> で同様のシミュレーションを行ってみよう。 まず、<span class="math inline">\(N\)</span> を設定する。</p>
 <div class="cell">
@@ -483,11 +483,11 @@
 <div class="cell">
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sim_3</span><span class="op">)</span> <span class="co"># 標本平均の平均値</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 170.0469</code></pre>
+<pre><code>[1] 169.9863</code></pre>
 </div>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sim_3</span><span class="op">)</span>   <span class="co"># 標本平均の標準偏差 = 標準誤差</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 1.730576</code></pre>
+<pre><code>[1] 1.756063</code></pre>
 </div>
 </div>
 <p>先程と同様、標本平均の平均値は母平均とほぼ同じである。また、標本平均の標準偏差である<strong>標準誤差 (standard errors; SE)</strong> は、母標準偏差よりもより一層小さくなっていることがわかる。</p>
@@ -499,10 +499,10 @@
 </div>
 </div>
 <p>これは、上で求めた標準誤差にほぼ一致する。</p>
-</section><section id="実習課題" class="level3" data-number="12.2.5"><h3 data-number="12.2.5" class="anchored" data-anchor-id="実習課題">
+</section><section id="sec-ex12" class="level3" data-number="12.2.5"><h3 data-number="12.2.5" class="anchored" data-anchor-id="sec-ex12">
 <span class="header-section-number">12.2.5</span> 実習課題</h3>
 <p>標本サイズ <span class="math inline">\(N\)</span> を50、100にして、同様のシミュレーションを実行しよう。どのようなことがわかるか文章にまとめて整理しよう。</p>
-</section></section><section id="誤差の分布" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="誤差の分布">
+</section></section><section id="sec-error" class="level2" data-number="12.3"><h2 data-number="12.3" class="anchored" data-anchor-id="sec-error">
 <span class="header-section-number">12.3</span> 誤差の分布</h2>
 <p>標本平均の誤差は、 <span class="math display">\[誤差 = 標本平均 - 母平均\]</span> と表すことができる。また、標本平均の平均値（期待値）は母平均に等しいので、 <span class="math display">\[誤差 = 標本平均 - 標本平均の平均値\]</span> でも同じことである。</p>
 <p>したがって、上で実行した3つのシミュレーション（それぞれ、<span class="math inline">\(N = 1, 2, 10\)</span>）の誤差 <code>err_1</code>, <code>err_2</code>, <code>err_3</code> は、</p>
@@ -549,13 +549,13 @@
 </div>
 </div>
 <p>このように、標本平均を標準化すると、標準正規分布に似た分布が出てくる（4つの曲線が重なり合っていて区別が難しい）。よって、標準正規分布を利用した推定ができそうに見える（本当にできるかどうかは他の機会に解説する）。</p>
-</section><section id="標本分布のシミュレーション-1" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="標本分布のシミュレーション-1">
+</section><section id="sec-mp4" class="level2" data-number="12.4"><h2 data-number="12.4" class="anchored" data-anchor-id="sec-mp4">
 <span class="header-section-number">12.4</span> 標本分布のシミュレーション</h2>
 <p>標本分布のシミュレーション動画 (MP4) を例として示す</p>
 <ul>
-<li><a href="https://yukiyanai.github.io/jp/classes/stat2/contents/R/sampling_distribution_n1.mp4" target="_blank" rel="external"><span class="math inline">\(N = 1\)</span></a></li>
-<li><a href="https://yukiyanai.github.io/jp/classes/stat2/contents/R/sampling_distribution_n2.mp4" target="_blank" rel="external"><span class="math inline">\(N = 2\)</span></a></li>
-<li><a href="https://yukiyanai.github.io/jp/classes/stat2/contents/R/sampling_distribution_n10.mp4" target="_blank" rel="external"><span class="math inline">\(N = 10\)</span></a></li>
+<li><a href="https://yukiyanai.github.io/jp/classes/stat2/contents/R/sampling_distribution_n1.mp4"><span class="math inline">\(N = 1\)</span></a></li>
+<li><a href="https://yukiyanai.github.io/jp/classes/stat2/contents/R/sampling_distribution_n2.mp4"><span class="math inline">\(N = 2\)</span></a></li>
+<li><a href="https://yukiyanai.github.io/jp/classes/stat2/contents/R/sampling_distribution_n10.mp4"><span class="math inline">\(N = 10\)</span></a></li>
 </ul>
 
 
@@ -634,6 +634,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return popup.innerHTML;
     });
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/yukiyanai\.github\.io\/stat2\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./lawoflargenumbers.html" class="pagination-link">
