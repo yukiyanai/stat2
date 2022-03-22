@@ -253,6 +253,20 @@
 <section id="sec-rbasic" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="sec-rbasic">
 <span class="header-section-number">2.1</span> Rの基礎</h2>
 <p>RのコードはRのConsoleに直接入力してもいいし、スクリプトに保存してRから呼び出してもよい。スクリプトを使うときは、スクリプトファイルを<strong>file_name.R</strong> のように <strong>.R</strong> ファイルとして保存する。そして、RのConsole で <code>source("file_name.R")</code> とすれば、スクリプト全体が実行される。</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+重要
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>この資料にあるコードは簡単にコピーすることができる。それをR (RStduio) にペーストすれば（貼り付ければ）コマンドを実行することができる。 しかし、そのような方法ではなかなかコマンドを覚えることができないだろう。</p>
+<p><strong>Rのコマンドは、自らの手でタイプすることを強く勧める。プログラミングを身につけるためには、自分でプログラムを「書く」ことが必要である。</strong></p>
+</div>
+</div>
 <p>Rコマンドの区切りは改行である。改行すれば、1つのコマンドが終了したと認識される。</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fl">35</span> <span class="op">+</span> <span class="fl">87</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -276,6 +290,19 @@
 </div>
 <div class="cell-output-stdout">
 <pre><code>[1] 100</code></pre>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>この資料のRコマンドを読むときは、どこにスペースがあるかに注意し、自分で書く際も（少なくともはじめのうちは）それを真似するようにしよう。たとえば、上のコマンドの最初の足し算は、<code>35+87</code> ではなく、<code>35 + 87</code> と書かれている。</p>
 </div>
 </div>
 <p>通常は、1行には1つのコマンドのみ書くようにしよう。</p>
