@@ -88,7 +88,7 @@ theme_set(theme_gray(base_size = 9,
 dir.create("data")
 ```
 
-次にデータセット [fake-data-01.csv](http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake-data-01.csv) をダウンロードし、今作った data フォルダの中に保存する。
+次にデータセット [fake_data_01.csv](http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_data_01.csv) をダウンロードし、今作った data フォルダの中に保存する。
 
 ```{r}
 #| eval: false
@@ -97,7 +97,7 @@ download.file(
     destfile = "data/fake_data_01.csv")
 ```
 
-ダウンロードがうまくいかない（あるいは、次の読み込み段階で失敗する）場合は、ファイル (`fake_data_01.csv`) を[ここ](https://drive.google.com/drive/folders/1_TGTq6cgn5UAJhT8JOz6oSlmW6lV1vIU?usp=sharing) から手動でダウンロードして、プロジェクト内の data ディレクトリに移動する。
+ダウンロードがうまくいかない（あるいは、次の読み込み段階で失敗する）場合は、ファイル (`fake_data_01.csv`) を[ここ](http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_data_01.csv) から手動でダウンロードして、プロジェクト内の data ディレクトリに移動する。
 
 ::: callout-warning
 毎年、Windows ユーザの中に `download.file()` がうまくいく者とそうでない者がいる。原因がよくわからない（担当者はWindows を使わない）ので、今回うまくいかない場合は、次回以降も毎回手動でデータをダウンロードしてほしい。
