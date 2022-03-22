@@ -12,7 +12,7 @@
 まず、この授業で頻繁（ほぼ常に）に使う、**tidyverse**パッケージをインストールしよう。既にインストール済みなら、改めてインストールする必要はない。割と時間がかかるので注意。
 
 ::: callout-important
-大学の情報演習室のパソコンを使っている場合は、パッケージをインストールしてはいけない。基本的なパッケージはインストール済みなので、さらにインストールすると同じパッケージが二箇所に存在することになり、トラブルのもとになる。稀に大学PCでもインストールが必要なパッケージがあるが、そのときは別途アナウンスする。
+大学の情報演習室のパソコンを使っている場合は、パッケージをインストールしてはいけない。基本的なパッケージはインストール済みなので、さらにインストールすると同じパッケージが二箇所に存在することになり、トラブルのもとになる。大学PCにインストールしなければならないパッケージ（[CRAN](https://cran.r-project.org/)に登録されていないパッケージ）もある が、そのときは別途アナウンスする。
 :::
 
 パッケージのインストールには、`install.packages()` という関数を使う。**パッケージをインストールするにはネット接続が必須**。 パッケージは1度インストールすれば、Rのバージョンアップを行うまでそのまま使える。**同じパッケージを何度もインストールしないように注意！**（時間のムダ） **大学PCを使っている場合、以下のコードは実行しない**（理由は上に書いたとおり）。
@@ -33,7 +33,14 @@ remotes::install_github("Gedevan-Aleksizde/fontregisterer",
                         type = "source")
 ```
 
-インストールが完了したら、`library()` でパッケージを読み込もう。パッケージの読み込みは、R (RStudio) を起動するたびに行う必要がある。つまり、`library()` はそのパッケージを使う場合には毎回実行する必要がある。また、複数の Rmd で同じパッケージを使う場合には、それぞれの Rmdファイルに`library()` でパッケージを読み込む命令を書いておく必要がある。（Rmd ファイルについてはトピック5で説明する。）
+:::callout-tip
+Rで利用可能なパッケージのうち、[CRAN (Comprehensive R Archive Network)](https://cran.r-project.org/) に登録されているものは、`install.packages()` でインストールする。
+
+上でインストールした **fontregisterer** のように、CRANには登録されていないが [GitHub](https://github.com/) で公開されているものは、`remotes::install_github()` または `devtools::install_github()` でインストールすることができる。
+:::
+
+
+インストールが完了したら、`library()` でパッケージを読み込もう。パッケージの読み込みは、R (RStudio) を起動するたびに行う必要がある。つまり、`library()` はそのパッケージを使う場合には毎回実行する必要がある。また、複数の Rmd で同じパッケージを使う場合には、それぞれの Rmdファイルに`library()` でパッケージを読み込む命令を書いておく必要がある（Rmd ファイルについては [5章](r-markdown.html) で説明する）。
 
 ```{r}
 #| message: false
@@ -45,7 +52,7 @@ library(tidyverse)
 Linux ユーザ（[IPAexフォント](https://moji.or.jp/ipafont/) が利用可能である場合）は、
 
 ```{r}
-theme_set(theme_gray(base_size   = 9,
+theme_set(theme_gray(base_size = 9,
                      base_family = "IPAexGothic"))
 ```
 
@@ -55,7 +62,7 @@ macOS ユーザは、
 
 ```{r}
 #| eval: false
-theme_set(theme_gray(base_size   = 9,
+theme_set(theme_gray(base_size = 9,
                      base_family = "HiraginoSans-W3"))
 ```
 
@@ -66,7 +73,7 @@ Windows ユーザ（大学PCを含む）は、
 ```{r}
 #| eval: false
 library(fontregisterer)
-theme_set(theme_gray(base_size   = 9,
+theme_set(theme_gray(base_size = 9,
                      base_family = "Yu Gothic"))
 ```
 

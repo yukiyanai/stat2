@@ -270,7 +270,7 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>大学の情報演習室のパソコンを使っている場合は、パッケージをインストールしてはいけない。基本的なパッケージはインストール済みなので、さらにインストールすると同じパッケージが二箇所に存在することになり、トラブルのもとになる。稀に大学PCでもインストールが必要なパッケージがあるが、そのときは別途アナウンスする。</p>
+<p>大学の情報演習室のパソコンを使っている場合は、パッケージをインストールしてはいけない。基本的なパッケージはインストール済みなので、さらにインストールすると同じパッケージが二箇所に存在することになり、トラブルのもとになる。大学PCにインストールしなければならないパッケージ（<a href="https://cran.r-project.org/">CRAN</a>に登録されていないパッケージ）もある が、そのときは別途アナウンスする。</p>
 </div>
 </div>
 <p>パッケージのインストールには、<code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> という関数を使う。<strong>パッケージをインストールするにはネット接続が必須</strong>。 パッケージは1度インストールすれば、Rのバージョンアップを行うまでそのまま使える。<strong>同じパッケージを何度もインストールしないように注意！</strong>（時間のムダ） <strong>大学PCを使っている場合、以下のコードは実行しない</strong>（理由は上に書いたとおり）。</p>
@@ -285,27 +285,41 @@
                         repos <span class="op">=</span> <span class="cn">NULL</span>, 
                         type <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>インストールが完了したら、<code><a href="https://rdrr.io/r/base/library.html">library()</a></code> でパッケージを読み込もう。パッケージの読み込みは、R (RStudio) を起動するたびに行う必要がある。つまり、<code><a href="https://rdrr.io/r/base/library.html">library()</a></code> はそのパッケージを使う場合には毎回実行する必要がある。また、複数の Rmd で同じパッケージを使う場合には、それぞれの Rmdファイルに<code><a href="https://rdrr.io/r/base/library.html">library()</a></code> でパッケージを読み込む命令を書いておく必要がある。（Rmd ファイルについてはトピック5で説明する。）</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rで利用可能なパッケージのうち、<a href="https://cran.r-project.org/">CRAN (Comprehensive R Archive Network)</a> に登録されているものは、<code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> でインストールする。</p>
+<p>上でインストールした <strong>fontregisterer</strong> のように、CRANには登録されていないが <a href="https://github.com/">GitHub</a> で公開されているものは、<code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github()</a></code> または <code><a href="https://devtools.r-lib.org/reference/remote-reexports.html">devtools::install_github()</a></code> でインストールすることができる。</p>
+</div>
+</div>
+<p>インストールが完了したら、<code><a href="https://rdrr.io/r/base/library.html">library()</a></code> でパッケージを読み込もう。パッケージの読み込みは、R (RStudio) を起動するたびに行う必要がある。つまり、<code><a href="https://rdrr.io/r/base/library.html">library()</a></code> はそのパッケージを使う場合には毎回実行する必要がある。また、複数の Rmd で同じパッケージを使う場合には、それぞれの Rmdファイルに<code><a href="https://rdrr.io/r/base/library.html">library()</a></code> でパッケージを読み込む命令を書いておく必要がある（Rmd ファイルについては <a href="r-markdown.html">5章</a> で説明する）。</p>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>図中の日本語が文字化けすることがあるので、OSに合わせてフォントを指定する以下のコードを実行する（RStudio Cloud の場合は回避策が面倒なので省略。Cloudユーザは 英語 [アルファベット] を使うように）。これは、<code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> の後に、<strong>毎回実行する</strong>ことが必要。（Linux ユーザは、自分の環境で使用可能なフォントを指定すること。）</p>
 <p>Linux ユーザ（<a href="https://moji.or.jp/ipafont/">IPAexフォント</a> が利用可能である場合）は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size   <span class="op">=</span> <span class="fl">9</span>,
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="st">"IPAexGothic"</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>を実行する。</p>
 <p>macOS ユーザは、</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size   <span class="op">=</span> <span class="fl">9</span>,
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="st">"HiraginoSans-W3"</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>を実行する。</p>
 <p>Windows ユーザ（大学PCを含む）は、</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size   <span class="op">=</span> <span class="fl">9</span>,
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="st">"Yu Gothic"</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>を実行する。</p>

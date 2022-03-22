@@ -243,26 +243,40 @@
 <span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Rマークダウンの使い方</span>
 </h1></div></header><p><strong>今回の目標</strong></p>
 <ul>
-<li>Rマークダウンファイル (.Rmd ファイル) から PDF (.pdf) 文書を作成できるようになる</li>
-<li>R マークダウンファイルの基本的な使い方を身につける</li>
+<li>Rマークダウンファイル (.Rmd) から PDF (.pdf) 文書を作成する方法を理解しよう！</li>
+<li>R マークダウンファイルの基本的な使い方を身につけよう！</li>
 </ul>
 <section id="sec-rmd1" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="sec-rmd1">
 <span class="header-section-number">5.1</span> Rマークダウンファイルを knit してレポートを作る</h2>
 <p>Rマークダウンファイルの作り方と書き方は後で説明する。その前に、Rマークダウンファイルを書いた後、それをどうやって他の形式のファイルに出力する（言い換えると、レポートとして提出可能な状態に変換する）方法を説明する。</p>
-<p>RマークダウンファイルをPDF（またはHTML） に出力するために、<code><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html">rmarkdown::render()</a></code> や<code><a href="https://rdrr.io/pkg/knitr/man/knit.html">knitr::knit()</a></code> を利用する。これらがインストール済みでない場合はまずインストールする。</p>
+<p>RマークダウンファイルをPDF（またはHTML） に出力するために、<code><a href="https://pkgs.rstudio.com/rmarkdown/reference/render.html">rmarkdown::render()</a></code> や<code><a href="https://rdrr.io/pkg/knitr/man/knit.html">knitr::knit()</a></code> を利用する。これらがインストール済みでない場合はまずインストールする。 既にインストール済みのパッケージをあらためてインストールする必要はない。</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># tidyverse, systemfonts, remotes, fontregisterer は前回インストールしたはず</span>
+<span class="co">#install.packages("tidyverse")</span>
+<span class="co">#install.packages("systemfonts")</span>
+<span class="co">#install.packages("remotes")</span>
+<span class="co">#remotes::install_github("Gedevan-Aleksizde/fontregisterer", </span>
+<span class="co">#                        repos = NULL, </span>
+<span class="co">#                        type = "source")</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rmarkdown"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> 
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"knitr"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> 
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"systemfonts"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"Gedevan-Aleksizde/fontregisterer"</span>, 
-                        repos <span class="op">=</span> <span class="cn">NULL</span>, 
-                        type <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"knitr"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="sec-pdf" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="sec-pdf">
 <span class="header-section-number">5.1.1</span> RマークダウンファイルをPDFファイルに出力する</h3>
-<p>RマークダウンファイルからPDFファイルを作るためにはTeXが必要である。まず、 <strong>tinytex</strong> をインストールする（<strong>注意</strong>：大学PCにはインストールしない！）。</p>
+<p>RマークダウンファイルからPDFファイルを作るためにはTeXが必要である。まず、 <strong>tinytex</strong> をインストールする。</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+注意
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>大学PCにはインストールしない！</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tinytex"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -277,7 +291,7 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>既にLaTeX環境が設定済みなら、以下のコードを実行する必要はない。情報演習室のパソコンには Tex Live がインストールされているので、次のコードは実行しない！</p>
+<p>既にLaTeX環境が設定済みなら、以下のコードを実行する必要はない。情報演習室のパソコンには TeX Live がインストールされているので、<code>install_tinytex()</code> は実行しない！</p>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -290,14 +304,28 @@
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>数式や図表を含む論文を書く際には、LaTeX を使うことが多い。LaTeX を利用するためには、TeX Live（macOS の場合は MacTeX でも可）をインストールする（無料）。インストール方法は <a href="https://texwiki.texjp.org/?TeX%20Live">ココ</a> で説明されている。TeX Live (MacTeX) をインストールするなら次のコードを実行してはいけない。 実行してしまったが TeX Live に切り替えたいという場合は、<code><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">tinytex::uninstall_tinytex()</a></code> を実行して tinytex をアンインストールしてから、TeX Live をインストールしよう。</p>
+<p>数式や図表を含む論文を書く際には、LaTeX を使うことが多い。LaTeX を利用するためには、TeX Live（macOS の場合は MacTeX でも可）をインストールする（無料）。インストール方法は <a href="https://texwiki.texjp.org/?TeX%20Live">ココ</a> で説明されている。TeX Live (MacTeX) をインストールするなら、<code>install_tinytex()</code> を実行してはいけない。 実行してしまったが TeX Live に切り替えたいという場合は、<code><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">tinytex::uninstall_tinytex()</a></code> を実行して tinytex をアンインストールしてから、TeX Live をインストールしよう。</p>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">tinytex</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>準備ができたら、<a href="https://drive.google.com/file/d/1-yu3Q5ZdCojrqTaNiFQ0aR_Lv09j4Yj-/view?usp=sharing">stat2_sample2022.Rmd</a> を “stat2_sample2022.pdf” に変換してみよう。</p>
-<p>まず、リンク先からファイルをダウンロードする。次に、ダウンロードしたファイルを授業用のプロジェクトのフォルダに移動する。移動できたら、RStudio の右下の “Files” タブでからそのファイルを開こう。開いたら、コード編集画面の上にある “Knit” ボタン（毛糸と棒針のマーク）の右にある三角ボタンを押して、表示されたメニューから “Knit to PDF” を選べばPDFができる。初めて実行するときは、足りないパッケージを自動でインストールするので、時間がかかるかもしれない。</p>
+<p>まず、<a href="https://drive.google.com/file/d/1-yu3Q5ZdCojrqTaNiFQ0aR_Lv09j4Yj-/view?usp=sharing">リンク</a> から Rマークダウンファイルをダウンロードする。次に、ダウンロードしたファイルを授業用のプロジェクトのフォルダに移動する。移動できたら、RStudio の右下の “Files” タブでからそのファイルを開こう。開いたら、コード編集画面の上にある “Knit” ボタン（毛糸と棒針のマーク）の右にある三角ボタンを押して、表示されたメニューから “Knit to PDF” を選べばPDFができる。初めて実行するときは、足りないパッケージを自動でインストールするので、時間がかかるかもしれない。</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+ヒント
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ダウンロードしたファイルは通常「ダウンロード (Downloads)」という名前のフォルダに保存されている。 これをプロジェクトのフォルダに移動するためには、macOS ならファインダ（Finder）、Windows なら Explorer（エクスプローラー）と呼ばれるファイル表示アプリを利用してファイルを移動すればよい。ファインダやエクスプローラーを開くのが面倒なら、RStudio 右下の “Files” タブを利用してファイルを移動してもよい。</p>
+<p>Linux や macOS でコマンドラインが使えるなら（RStudio にも “Terminal” タブが用意されている！）、<code>mv</code> で移動することもできる。</p>
+</div>
+</div>
 <p>出力されたPDFファイルは（他のディレクトリを指定しない限り）元のRmdファイルと同じディレクトリ（プロジェクトのフォルダ。ダウンロードしたファイルを移動せずにそのまま開いた場合は「ダウンロード」フォルダ）に保存される。出来上がったPDFファイルをAdobe Readerやskim 等のPDFリーダで開いて確認してみよう。</p>
 <p>うまくいけば <a href="https://drive.google.com/file/d/1065UBeSbQ_vlwTj5qvhTX8DMb3Wc72G3/view?usp=sharing">stat2_sample2022_success.pdf</a> と同じ（ような）ファイルができるはずである。</p>
 </section><section id="sec-html" class="level3" data-number="5.1.2"><h3 data-number="5.1.2" class="anchored" data-anchor-id="sec-html">
