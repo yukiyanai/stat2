@@ -93,8 +93,8 @@ dir.create("data")
 ```{r}
 #| eval: false
 download.file(
-    url = "http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_data_01.csv",
-    destfile = "data/fake_data_01.csv")
+  url = "http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_data_01.csv",
+  destfile = "data/fake_data_01.csv")
 ```
 
 ダウンロードがうまくいかない（あるいは、次の読み込み段階で失敗する）場合は、ファイル (`fake_data_01.csv`) を[ここ](http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_data_01.csv) から手動でダウンロードして、プロジェクト内の data ディレクトリに移動する。
