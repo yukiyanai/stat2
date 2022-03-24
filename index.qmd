@@ -18,7 +18,7 @@ date: "March 22, 2022"
 
 ## 基本情報 {#sec-basicinfo}
 
--   シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022.pdf)
+-   シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022-1Q.pdf)
 
 -   [講義スライド](https://drive.google.com/drive/folders/1-tff1nEf0s09C0JhSQmcyS7D1sL4Z2D4?usp=sharing)
     -   各授業の**後**に最新版をアップロードする
