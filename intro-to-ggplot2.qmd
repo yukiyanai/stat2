@@ -233,26 +233,22 @@ ggplot2 についての詳しい説明は、Hadley自身が書いた *ggplot2: E
 library(tidyverse)
 ```
 
-次に、日本語が正しく表示されるようにするため、`theme_set()` で使用する文字フォントを指定する。OSによって命令がやや異なるので注意されたい。 以下のチャンクは、どのOSでも動くように適切に場合分けを行う（ただし、Windows の場合には **fontregisterer** というパッケージをあらかじめインストールしておく必要がある。これについては [記述統計](descriptive-stat.html) の説明を参照されたい）。 また、以下はあくまで例であり、他のフォントを使用してもよい（各自のパソコンにインストールされているフォントは私にはわからないので、変えたいなら自分で調べること。もちろん、日本語が表示できるフォントが必要）。また、RStudio Cloud を利用している場合は、日本語を表示することができない（一応表示する方法もあるが、ものすごく面倒なので割愛する）ので、諦めて英語を使おう（この授業では、レポートの本文が日本語で図のラベルが英語でも許容する。しかし、本来は日本語のレポートなら図のラベルもすべて日本語にすべきである。あるいは、英語で図を作るなら、本文も英語にすべきである）。
+次に、日本語が正しく表示されるようにするため、`theme_set()` で使用する文字フォントを指定する。OSによって命令がやや異なるので注意されたい。 以下のチャンクは、どのOSでも動くように適切に場合分けを行う。その際、[**fontregisterer**](https://github.com/Gedevan-Aleksizde/fontregisterer) というパッケージを利用するので、これをあらかじめインストールしておく必要がある。このパッケージのインストール方法については [記述統計](descriptive-stat.html) の説明を、パッケージの詳細については [作者による説明](https://ill-identified.hatenablog.com/entry/2020/10/03/200618) を参照されたい）。 また、以下はあくまで例であり、他のフォントを使用してもよい（各自のパソコンにインストールされているフォントは私にはわからないので、変えたいなら自分で調べること。もちろん、日本語が表示できるフォントが必要）。また、RStudio Cloud を利用している場合は、日本語を表示することができない（一応表示する方法もあるが、ものすごく面倒なので割愛する）ので、諦めて英語を使おう（この授業では、レポートの本文が日本語で図のラベルが英語でも許容する。しかし、本来は日本語のレポートなら図のラベルもすべて日本語にすべきである。あるいは、英語で図を作るなら、本文も英語にすべきである）。
 
 ```{r}
 #| message: false
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") {
-  # Windows
-  require(fontregisterer)
+library(fontregisterer)
+if (.Platform$OS.type == "windows") { # Windows
   my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) {
-  # macOS
-  my_font <- "HiraginoSans-W3"
-} else {
-  # Unix/Linux
+} else if (capabilities("aqua")) { # macOS
+  my_font <- "Hiragino Sans"
+} else { # Unix/Linux
   my_font <- "IPAexGothic"
 }
-## ggplot2 用の設定
-theme_set(theme_gray(base_size   = 9,
+theme_set(theme_gray(base_size = 9,
                      base_family = my_font))
 ```
 
@@ -528,17 +524,17 @@ dir.create("figs")
     -   `Ctrl` + `Shift` + `Enter` （どのOSでも）
 -   チャンク右上の実行ボタン (Run Current Chunk) をクリックする
 
-PDF形式の図を保存するには、`cairo_pdf()` という関数を使うのが便利である。 先ほど作ったヒストグラム `p2_6` を、PDFファイルに保存しよう。 ファイル名は、`hist_eg1.pdf` にしよう。図の大きさは、A4用紙の半ページよりやや小さくなるように、幅 (width) を5インチ (127.0mm)、高さ (height) を4インチ (101.6mm) にする。また、軸ラベルに日本語を使っているので、日本語を表示できるフォントを指定する必要がある。ここでは `family = "sans"` （サンセリフ体）を指定しよう。上で `library(tidyverse)` を実行した直後に、`theme_set()` で指定したフォント（Linux は IPAexゴシック、macOS は ヒラギノ角ゴシック、Windows は游ゴシック）が使われる。 第1ステップの内容をまとめると、次のようになる（**第1ステップだけで実行しない!!!**）。
+PDF形式の図を保存するには、`cairo_pdf()` という関数を使うのが便利である。 先ほど作ったヒストグラム `p2_6` を、PDFファイルに保存しよう。 ファイル名は、`hist_eg1.pdf` にしよう。図の大きさは、A4用紙の半ページよりやや小さくなるように、幅 (width) を5インチ (127.0mm)、高さ (height) を4インチ (101.6mm) にする。軸ラベルに日本語を使っているので、日本語を表示できるフォントを指定する必要があるが、上で `library(tidyverse)` を実行した直後に **fontregregisterer** パッケージを利用して `theme_set()` で指定したフォント（Linux は IPAexゴシック、macOS は ヒラギノ角ゴシック、Windows は游ゴシック）が使われる。 第1ステップの内容をまとめると、次のようになる（**第1ステップだけで実行しない!!!**）。
 
 ```{r}
 #| eval: false
-cairo_pdf(file = "figs/hist_eg1.pdf", family = "sans",
+cairo_pdf(file = "figs/hist_eg1.pdf",
           width = 5, height = 4)
 ```
 
 **file** の `figs/` という部分が、figs ディレクトリ（フォルダ）の中にファイルを作ることを指示している。
 
-第2ステップは、第1ステップの直後に `plot(p2_6)` とすればよい。
+第2ステップは、第1ステップの直後に `print(p2_6)` とすればよい。
 
 最後に、ファイルを閉じるために、`dev.off()` を実行する。
 
@@ -546,13 +542,27 @@ cairo_pdf(file = "figs/hist_eg1.pdf", family = "sans",
 
 ```{r}
 #| eval: false
-cairo_pdf(file = "figs/hist_eg1.pdf", family = "sans",
-          width = 5, heigh = 4)
-plot(p2_6)
+cairo_pdf(file = "figs/hist_eg1.pdf",
+          width = 5, height = 4)
+print(p2_6)
 dev.off()
 ```
 
 これで図 (`p2_6`) が保存されるはずだ。figsディレクトリの中に、`hist_eg1.pdf` というPDFファイルができていることを確かめよう。また、PDFファイルを開いて図が保存されていることも確認しよう。
+
+:::callout-note
+macOS を使っているなら、`cairo_pdf()` の代わりに `quartz()` を使うこともできる。`quartz()` を使う場合は、
+
+```{r}
+#| eval: false
+quartz(file = "figs/hist_eg1.pdf", 
+       type = "pdf", family = "HiraginoSans-W3",
+       width = 5, height = 4)
+print(p2_6)
+dev.off()
+```
+のようにする。
+:::
 
 ## よく使う図の作り方 {#sec-commonfig}
 

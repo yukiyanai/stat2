@@ -21,8 +21,30 @@
 #| eval: false
 install.packages("tidyverse")
 install.packages("systemfonts")
+install.packages("shiny")
+install.packages("miniUI")
+install.packages("DT")
+install.packages("patchwork")
 install.packages("remotes")
 ```
+
+:::callout-tip
+手間を少し減らしたい場合は、
+
+```{r}
+#| eval: false
+pkgs <- c("tidyverse", 
+          "sytemfonts",
+          "shiny",
+          "miniUI",
+          "DT",
+          "patchwork",
+          "remotes")
+install.packages(pkgs)
+```
+のようにすればよい。
+:::
+
 
 ただし、一部のパッケージは `install.packages()` 以外の方法でインストールする必要がある。この授業では必要になるたびに説明する。 今日はとりあえず次のコードを実行する。 **このコードは、大学PCを利用している場合も実行する。**
 
@@ -52,6 +74,8 @@ library(tidyverse)
 Linux ユーザ（[IPAexフォント](https://moji.or.jp/ipafont/) が利用可能である場合）は、
 
 ```{r}
+#| message: false
+library(fontregisterer)
 theme_set(theme_gray(base_size = 9,
                      base_family = "IPAexGothic"))
 ```
@@ -62,8 +86,9 @@ macOS ユーザは、
 
 ```{r}
 #| eval: false
+library(fontregisterer)
 theme_set(theme_gray(base_size = 9,
-                     base_family = "HiraginoSans-W3"))
+                     base_family = "Hiragino Sans"))
 ```
 
 を実行する。

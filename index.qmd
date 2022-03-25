@@ -1,7 +1,3 @@
----
-date: "March 22, 2022"
----
-
 # はじめに
 
 これは、[高知工科大学](https://www.kochi-tech.ac.jp/) [経済・マネジメント学群](https://www.kochi-tech.ac.jp/academics/mng/)で開講されている「統計学2」（担当：[矢内勇生](https://yukiyanai.github.io/)）の講義用資料である。
