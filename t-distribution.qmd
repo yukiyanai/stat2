@@ -12,19 +12,14 @@
 ```{r}
 #| message: false
 library(tidyverse)
-
-if (.Platform$OS.type == "windows") { 
-  if (require(fontregisterer)) {
-    my_font <- "Yu Gothic"
-  } else {
-    my_font <- "Japan1"
-  }
-} else if (capabilities("aqua")) {
-  my_font <- "HiraginoSans-W3"
-} else {
+library(fontregisterer)
+if (.Platform$OS.type == "windows") { # Windows
+  my_font <- "Yu Gothic"
+} else if (capabilities("aqua")) { # macOS
+  my_font <- "Hiragino Sans"
+} else { # Unix/Linux
   my_font <- "IPAexGothic"
 }
-
 theme_set(theme_gray(base_size = 9,
                      base_family = my_font))
 ```

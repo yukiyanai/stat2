@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.120">
+<meta name="generator" content="quarto-0.9.133">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>KUT 統計学2 - 14&nbsp; \(t\) 分布を利用した母平均の推定</title>
 <style>
@@ -80,7 +80,7 @@
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./mean-comparison.html" rel="next">
 <link href="./estimating-mean.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -255,19 +255,14 @@
 <p>必要なパッケージを読み込み、図の日本語が正しく表示されるようにする。</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-
-<span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> 
-  <span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-    <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Yu Gothic"</span>
-  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
-    <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Japan1"</span>
-  <span class="op">}</span>
-<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/capabilities.html">capabilities</a></span><span class="op">(</span><span class="st">"aqua"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"HiraginoSans-W3"</span>
-<span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span>
+<span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> <span class="co"># Windows</span>
+  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Yu Gothic"</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/capabilities.html">capabilities</a></span><span class="op">(</span><span class="st">"aqua"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> <span class="co"># macOS</span>
+  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Hiragino Sans"</span>
+<span class="op">}</span> <span class="kw">else</span> <span class="op">{</span> <span class="co"># Unix/Linux</span>
   <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"IPAexGothic"</span>
 <span class="op">}</span>
-
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -294,7 +289,7 @@
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この母集団の身長の平均（母平均）は、</p>
@@ -350,7 +345,7 @@
        y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>なんとなく正規分布になっているように見えるが、はたしてそうだろうか。 得られた標本平均を標準化して、標準正規分布と分布を比べてみよう。</p>
@@ -392,7 +387,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
        y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>標準正規分布に似ているように見える。<code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code> を使って <span class="math inline">\(z\)</span> の確率密度曲線（青い点線） を描き、標準正規分布の確率密度曲線（赤い実線）と比べてみよう。</p>
@@ -416,7 +411,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
        title <span class="op">=</span> <span class="st">"母分散が既知の場合"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="576"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>2つの確率密度曲線はほぼ一致している。</p>
@@ -441,7 +436,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
        title <span class="op">=</span> <span class="st">"母分散が未知の場合"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>標準正規分布に似ているように見えるが、どうだろうか。<code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code> を使って <span class="math inline">\(\hat{z}\)</span>の確率密度曲線（青い点線） を描き、標準正規分布の確率密度曲線（赤い実線）と比べてみよう。</p>
@@ -464,7 +459,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
        title <span class="op">=</span> <span class="st">"母分散が未知の場合"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="576"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>2つの確率密度曲線は、少しずれている。 2つの確率密度は、0（付近）で最大値をとるという点で同じである。 しかし、分布のばらつきが違う。 平均値付近を比べると、<span class="math inline">\(\hat{z}\)</span> の分布の方が確率密度が低くなっている。 代わりに、分布の両裾を比べると、<span class="math inline">\(\hat{z}\)</span> の分布の方が、確率密度が高い。 言い換えると、<span class="math inline">\(\hat{z}\)</span> の分布は、標準正規分布よりも裾が厚い（重い）分布になっている。</p>
@@ -489,7 +484,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
        title <span class="op">=</span> <span class="st">"母分散が未知の場合"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h6</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="576"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>このように、確率密度曲線がほぼ一致する。</p>
@@ -520,7 +515,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
        y <span class="op">=</span> <span class="st">"シミュレーションで得たz"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">qq1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>シミュレーションなので多少のずれはあるものの、点がほぼ45度線上にあることがわかる。</p>
@@ -540,7 +535,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
 <pre><code>Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>先ほどとは異なり、点が45度線から大きくずれている。ここから、<span class="math inline">\(\hat{z}\)</span>は標準正規分布に従わないことがよりはっきりとわかる。特に、裾（図の両端）で標準正規分布との違いが大きいことがわかるだろう。</p>
@@ -560,7 +555,7 @@ z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{N}}}.
 <pre><code>Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>やはり多少のずれはあるものの、ほとんどの点が45度線上に乗っていることがわかる。よって、<span class="math inline">\(\hat{z}\)</span>は、自由度9の<span class="math inline">\(t\)</span>分布に従っていると言えそうである（少なくとも、「自由度9の<span class="math inline">\(t\)</span>分布に従っていない」とはっきり言うことはできない）。</p>
@@ -602,7 +597,7 @@ $ group &lt;chr&gt; "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", "std
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>, y <span class="op">=</span> <span class="st">"確率密度"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">plt_t</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p><span class="math inline">\(t\)</span>分布の特徴として、</p>
@@ -631,14 +626,14 @@ $ group &lt;chr&gt; "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", "stdn", "std
 <div class="cell">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">plot_t</span><span class="op">(</span>df <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>自由度3の <span class="math inline">\(t\)</span>分布は、</p>
 <div class="cell">
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">plot_t</span><span class="op">(</span>df <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="t-distribution_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="480"></p>
+<p><img src="t-distribution_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>となることが確認できる。</p>

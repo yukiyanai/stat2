@@ -17,19 +17,18 @@ library(tidyverse)
 次に、日本語が正しく表示されるようにする。
 
 ```{r}
+#| message: false
 ## 図のなかで日本語を使えるようにする
-if (.Platform$OS.type == "windows") { # Window
-  if (require(fontregisterer)) {
-    my_font <- "Yu Gothic"
-  } else {
-    my_font <- "Japan1"
-  }
+## フォントの設定はお好みで
+## （Unix/Linux ではIPAexフォントのインストールが必要かも）
+library(fontregisterer)
+if (.Platform$OS.type == "windows") { # Windows
+  my_font <- "Yu Gothic"
 } else if (capabilities("aqua")) { # macOS
-  my_font <- "HiraginoSans-W3"
+  my_font <- "Hiragino Sans"
 } else { # Unix/Linux
   my_font <- "IPAexGothic"
 }
-
 theme_set(theme_gray(base_size = 9,
                      base_family = my_font))
 ```
