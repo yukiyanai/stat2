@@ -46,7 +46,7 @@ install.packages(pkgs)
 :::
 
 
-ただし、一部のパッケージは `install.packages()` 以外の方法でインストールする必要がある。この授業では必要になるたびに説明する。 今日はとりあえず次のコードを実行する。 **このコードは、大学PCを利用している場合も実行する。**
+ただし、一部のパッケージは `install.packages()` 以外の方法でインストールする必要がある。この授業では必要になるたびに説明する。 今日はとりあえず次のコードを実行する（**大学PCでは実行しない！**)。
 
 ```{r}
 #| eval: false
@@ -58,7 +58,7 @@ remotes::install_github("Gedevan-Aleksizde/fontregisterer",
 :::callout-tip
 Rで利用可能なパッケージのうち、[CRAN (Comprehensive R Archive Network)](https://cran.r-project.org/) に登録されているものは、`install.packages()` でインストールする。
 
-上でインストールした **fontregisterer** のように、CRANには登録されていないが [GitHub](https://github.com/) で公開されているものは、`remotes::install_github()` または `devtools::install_github()` でインストールすることができる。
+上でインストールした [fontregisterer](https://github.com/Gedevan-Aleksizde/fontregisterer) のように、CRANには登録されていないが [GitHub](https://github.com/) で公開されているものは、`remotes::install_github()` または `devtools::install_github()` でインストールすることができる。
 :::
 
 
@@ -103,6 +103,31 @@ theme_set(theme_gray(base_size = 9,
 ```
 
 を実行する。
+
+
+:::callout-note
+利用可能なフォントは、`library(fontregisterer)` を実行した後に、自分のOSにあわせて以下のいずれかを実行することで確認できる。
+
+```{r}
+#| eval: false
+# Linux
+systemfonts::system_fonts()$family
+```
+
+```{r}
+#| eval: false
+# macOS
+names(quartzFonts())
+```
+
+```{r}
+#| eval: false
+# Windows
+names(windowsFonts())
+```
+
+:::
+
 
 ### データセットの読み込み {#sec-datasets}
 
