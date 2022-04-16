@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.133">
+<meta name="generator" content="quarto-0.9.120">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>KUT 統計学2 - 8&nbsp; 中心極限定理</title>
 <style>
@@ -80,7 +80,7 @@
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./intro-to-inference.html" rel="next">
 <link href="./rng.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -268,7 +268,7 @@
 <p>例として、10個のボールが入った袋を考える。ボールにはそれぞれ0から9までの整数が書いてあるとする。この袋から、ランダムに1つボールを選ぶとすると、選んだボールに書かれた数は、0から9までの整数のどれかで、0から9が選ばれる確率は等しく10分の1（0.1）である。図にすると、以下のようになる。</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="clt_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="480"></p>
+<p><img src="clt_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>つまり、ランダムにボールを1つ選ぶというのは、（離散）一様分布からの乱数生成である。 1つボールを選ぶとき、ボールに書かれている数の平均値（期待値）は、<span class="math inline">\((9 - 0) / 2 = 4.5\)</span> である。</p>
@@ -278,7 +278,7 @@
 <p>理論的には、次の図のような確率で、それぞれの平均値が得られる。</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="clt_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="480"></p>
+<p><img src="clt_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この図から、この実験を1回だけ行うとき、正解である4.5が選ばれる確率は0.1 であることがわかる。試しに1回やってみよう。</p>
@@ -287,10 +287,10 @@
 <span class="va">exp_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">bag</span>, size <span class="op">=</span> <span class="fl">2</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  <span class="co"># 復元抽出</span>
 <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">exp_2</span><span class="op">)</span>   <span class="co"># 平均値を求める</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.5</code></pre>
+<pre><code>[1] 7.5</code></pre>
 </div>
 </div>
-<p>今回は、たまたま0.5になった。</p>
+<p>今回は、たまたま7.5になった。</p>
 <p>では、この実験を1,000回繰り返すと「それぞれの回での平均値の分布」はどんな形になるだろうか。実際にやってみよう。</p>
 <p>Rで同じ作業を繰り返し行う簡単な方法は、<code>for</code> ループを使うことである。<code>for</code> の直後の丸カッコで繰り返し回数を指定し、ループさせる内容を中括弧 <code><a href="https://rdrr.io/r/base/Paren.html">{ }</a></code> で囲む。 たとえば、0からスタートして「1を足す」という作業を5回繰り返すには、次のようにする。</p>
 <p>まず、スタート時の数である0を保存する。</p>
@@ -342,7 +342,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">0</span> <span class="op">:</span> <span class="fl">9</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h_sim1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="clt_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="480"></p>
+<p><img src="clt_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この分布は正規分布に見えるだろうか？</p>
@@ -368,7 +368,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">9</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h_sim2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="clt_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="480"></p>
+<p><img src="clt_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この分布は正規分布に見えるだろうか？</p>
@@ -391,7 +391,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"10個のボールの平均値"</span>, y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h_sim3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="clt_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="480"></p>
+<p><img src="clt_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この分布は正規分布に見えるだろうか？</p>
@@ -414,7 +414,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"100個のボールの平均値"</span>, y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h_sim4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="clt_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="480"></p>
+<p><img src="clt_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>このように、元の分布は一様分布でも、サンプルサイズ <span class="math inline">\(N\)</span> を増やすと、「平均値の分布」は正規分布に近づく。よって、サンプルサイズ <span class="math inline">\(N\)</span> が十分大きい（大まかな目安は <span class="math inline">\(N &gt; 100\)</span>）とき、正規分布を使って統計的推定や検定を行うことが許される。</p>

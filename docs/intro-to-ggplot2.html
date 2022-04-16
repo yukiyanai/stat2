@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.133">
+<meta name="generator" content="quarto-0.9.120">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>KUT 統計学2 - 6&nbsp; ggplot2 入門</title>
 <style>
@@ -80,7 +80,7 @@
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./rng.html" rel="next">
 <link href="./r-markdown.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -476,9 +476,9 @@ $ y &lt;int&gt; 100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85,
 <div class="cell-output-stdout">
 <pre><code>Rows: 100
 Columns: 3
-$ v1 &lt;dbl&gt; -3.2608381, 2.5838938, -3.9477754, 4.8239941, 4.5632602, 2.5877297,…
-$ v2 &lt;dbl&gt; -8.4629425, -4.2887016, 0.2913474, -2.8091622, -9.2786343, -5.64461…
-$ v3 &lt;dbl&gt; 1.69091656, -0.71814955, -0.65227193, 1.06417266, 0.09929469, 0.271…</code></pre>
+$ v1 &lt;dbl&gt; -10.5731470, -0.8574520, -1.4413472, 9.6093487, 10.0180255, 5.24835…
+$ v2 &lt;dbl&gt; 2.1118399, 0.6672941, 1.2322585, -8.7369674, -3.7481166, 1.9679399,…
+$ v3 &lt;dbl&gt; -1.64694384, 0.23997074, 0.40881576, 0.13554171, -0.21460224, 1.347…</code></pre>
 </div>
 </div>
 <p><code>v1</code>, <code>v2</code>, <code>v3</code> という3つの変数があり、それぞれが <dbl> すなわち実数型であることがわかる。このデータフレームは100行3列である。</dbl></p>
@@ -637,7 +637,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <div class="cell">
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p1_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>指定した通り、横軸に<code>wt</code>、縦軸に<code>mpg</code>をとった図を描く準備ができているが、グラフ自体はまだない。</p>
@@ -650,7 +650,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <div class="cell">
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p1_2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>散布図ができた。</p>
@@ -664,7 +664,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <div class="cell">
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p1_3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>これで散布図ができた。</p>
@@ -676,7 +676,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
          y <span class="op">=</span> <span class="st">"燃費 (Miles / US gallon)"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 </section><section id="例2ヒストグラム" class="level4" data-number="6.3.3.2"><h4 data-number="6.3.3.2" class="anchored" data-anchor-id="例2ヒストグラム">
@@ -690,7 +690,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <div class="cell">
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p2_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-68-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>指定した通り、横軸にmpgをとった図を描く準備ができているが、グラフ自体はまだない。また、縦軸は指定していないので何もない。</p>
@@ -705,7 +705,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-72-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>ヒストグラム自体はできている。しかし、ビン（ヒストグラムの一つひとつの棒）の幅が狭すぎるので、<code>binwidth</code> で調整する（<code>binwidth</code> を指定しないと、<code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">stat_bin()</a></code> using … というメッセージが表示され、適切な <code>binwidth</code> を設定するよう促される）。ここでは、2.5 mpgごとに1つのビン（ヒストグラムの棒）を作ってみよう。</p>
@@ -714,7 +714,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p2_3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-74-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>ビンの境が見えにくいので、ビンの縁に黒色をつけよう。ビンの縁取りは <code>color</code> で指定する。<code>color</code> で指定するのはビンの中身の色ではないので注意しよう。</p>
@@ -723,7 +723,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">2.5</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p2_4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-76-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>ビンの区切りがちょうどいい位置にないので、<code>boundary</code> でビンの境界をどの位置に置きくか指定する。今回はビンの幅が2.5 なので、境界線が<span class="math inline">\(5, 7.5, 10, \dots\)</span> になるように 5 を指定する。</p>
@@ -734,7 +734,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
                  boundary <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p2_5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-78-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>次に、ラベルをわかりやすいものに変える。（<strong>注意：</strong> RStudio Cloud を使っている場合は日本語不可。）</p>
@@ -743,7 +743,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"燃費 (Miles / US gallon)"</span>, y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p2_6</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-80-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>これで縦軸が度数 (count, frequency) のヒストグラムができた。</p>
@@ -760,7 +760,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
          y <span class="op">=</span> <span class="st">"確率密度"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p2_dens</span><span class="op">)</span>    </code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-82-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>指定可能な色は、<a href="http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC">このページ</a> で確認できる。</p>
@@ -796,7 +796,7 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">p3_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">diamonds</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cut</span>, y <span class="op">=</span> <span class="va">depth</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p3_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-86-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>指定通り、横軸に cut、縦軸に depth を可視化する準備ができている。</p>
@@ -805,7 +805,7 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 <div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">p3_2</span> <span class="op">&lt;-</span> <span class="va">p3_1</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p3_2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-88-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>軸ラベルを日本語にする (RStudio Cloud 以外)。</p>
@@ -813,7 +813,7 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 <div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">p3_3</span> <span class="op">&lt;-</span> <span class="va">p3_2</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"カット"</span>, y <span class="op">=</span> <span class="st">"深さ"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p3_3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-90-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>Fair, Good なども日本語にすることもできるが、今回は覚えなくて良い（私にはダイヤモンドの知識がまったくないのでよくわからないが、ネットで検索した限りだと、Fair の訳は フェア、Good の訳は グッド、 … で日本語にする意味がなさそう）。一応できるということを見せるために、コードは載せておく（このコードは今は理解しなくてよい）。</p>
@@ -829,7 +829,7 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"カット"</span>, y <span class="op">=</span> <span class="st">"深さ"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p3_3a</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-92-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>箱ひげ図の向きを横向きにしたいときは、作った図に <code><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip()</a></code> を使えば良い。</p>
@@ -837,7 +837,7 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">p3_4</span> <span class="op">&lt;-</span> <span class="va">p3_3</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p3_4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-94-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>このように、<code><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip()</a></code> は横軸と縦軸を入れ替えてくれる。箱ひげ図以外でも使える。</p>
@@ -848,7 +848,7 @@ $ z       &lt;dbl&gt; 2.43, 2.31, 2.31, 2.63, 2.75, 2.48, 2.47, 2.53, 2.49, 2.39
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"カット"</span>, y <span class="op">=</span> <span class="st">"深さ"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-96-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>これらの例からわかるとおり、作図に用いる変数の指定は、<code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> で行う。<strong>aes</strong> とは <u>aes</u>thetics（美感）のことである。この <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> の指定の仕方は作る図によって異なる。したがって、ggplot2 の使い方をマスターするには、geom ごとに異なるaes の使い方を覚える必要がある。覚えるといっても、必ずしも暗記する必要なない。頻繁に使うものは覚えたほうが楽（自然に覚える）が、その他のものについては上で紹介したチートシートやインターネット上にまとめられた情報（たとえば、<a href="https://qiita.com/yutannihilation/items/e1b9249541fc57b60705">ココ</a> や<a href="https://ggplot2.tidyverse.org/reference/">ココ</a>）で確認すればよい。</p>
@@ -986,7 +986,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 <div class="cell">
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bar1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-118-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>各クラスの人数が、等しく50人ずつであることがわかる。</p>
@@ -999,7 +999,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 <div class="cell">
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bar2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-122-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>クラスの数字をすべて表示することができた。</p>
@@ -1011,7 +1011,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bar3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-124-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>女子の方が多いクラスと男子の方が多いクラスがあるようだ。 凡例 (legend) が英語になっているので、日本語に直そう。</p>
@@ -1022,7 +1022,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
                       labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"女"</span>, <span class="st">"男"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bar4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-126-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この棒グラフでは男女の数の比較が難しいので、男女の棒を並べて描きたい。そのために、<code>position = "dodge"</code> を指定する。</p>
@@ -1036,7 +1036,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
                       labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"女"</span>, <span class="st">"男"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bar5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-128-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>これで、クラス1からクラス4までは女子が20人で男子が30人だが、残りのクラスでは男女の数が逆転していることがわかる。</p>
@@ -1055,7 +1055,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-130-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>このままだと、ヒストグラムの一つひとつの棒 (bin) の区切りが分かりにくいので、棒の縁に色をつけよう。 既に説明したとおり、縁取りの色は<code>color</code> で指定する。このとき、変数によって色を変えるのではなく、自分で設定した色を使うため、<code>aes</code>の<strong>外</strong>で <code>color</code> を指定する（上での棒グラフの例では、<code>aes</code>の中で <code>fill</code> を指定した）。</p>
@@ -1068,7 +1068,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-132-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>次に棒の幅 (bin width) を変えてみよう。<strong>binwidth</strong> を指定することで、棒の幅を設定できる。試しに、10点ごとにしてみよう。</p>
@@ -1078,7 +1078,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"数学の点数"</span>, y <span class="op">=</span> <span class="st">"人数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-134-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 </section><section id="縦軸を確率密度に変える" class="level4" data-number="6.5.2.2"><h4 data-number="6.5.2.2" class="anchored" data-anchor-id="縦軸を確率密度に変える">
@@ -1090,7 +1090,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"数学の点数"</span>, y <span class="op">=</span> <span class="st">"確率密度"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-136-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-68-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>縦軸が確率密度のヒストグラムができた。</p>
@@ -1111,7 +1111,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
                color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-140-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-70-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>次に、平均値の値を（小数第一位までに丸めて [round] して）書き込む。 日本語を使うので、<code>family</code> でフォントを指定する必要がある。</p>
@@ -1126,7 +1126,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 <div class="cell">
 <div class="sourceCode" id="cb95"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist6</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-144-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-72-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 </section><section id="facet-でグループを分ける" class="level4" data-number="6.5.2.4"><h4 data-number="6.5.2.4" class="anchored" data-anchor-id="facet-でグループを分ける">
@@ -1137,7 +1137,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">class</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist7</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-146-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-73-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>このように、クラスごとにヒストグラムができる。</p>
@@ -1151,7 +1151,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"クラス"</span>, y <span class="op">=</span> <span class="st">"数学の点数"</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">box1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-148-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-74-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>これで、グループ間で数学の点数の五数を比較しやすくなった。</p>
@@ -1164,7 +1164,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"クラス"</span>, y <span class="op">=</span> <span class="st">"数学の点数"</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">vln1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-150-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-75-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この図は、ヒストグラムを横倒しにしてその概形を滑らかな線で表したものと、それを鏡に写したものが合わさってできている。バイオリンプロットの幅が広い（狭い）ところが、ヒストグラムの山が高い（低い）ところである。</p>
@@ -1178,7 +1178,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"クラス"</span>, y <span class="op">=</span> <span class="st">"数学の点数"</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bv1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-152-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-76-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>バイロリンプロットが箱ひげ図の線に重なり、箱ひげ図がよく見えない。箱ひげ図をバイオリンプロットの上に（手前に）描いたほうがよさそうだ。ggplotでは、<strong>後に加えた要素（層）が上になる</strong>ので、<code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin()</a></code> の後に <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> を書く。</p>
@@ -1189,7 +1189,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"クラス"</span>, y <span class="op">=</span> <span class="st">"数学の点数"</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bv2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-154-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-77-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>今度は、箱がバイオリンの線に重なってしまっている。<code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code> で <strong>width</strong> を指定し、箱の幅を狭くしてみよう。</p>
@@ -1200,7 +1200,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"クラス"</span>, y <span class="op">=</span> <span class="st">"数学の点数"</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bv3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-156-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-78-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>これで、箱ひげ図とバイロリンプロットが同時に確認できるようになった。しかし、このままでは箱ひげ図が目立たないので、色を変えよう。</p>
@@ -1211,7 +1211,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"クラス"</span>, y <span class="op">=</span> <span class="st">"数学の点数"</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bv4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-158-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-79-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この図を見れば、数学の点数の分布をクラス間で比較できる。</p>
@@ -1233,7 +1233,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"クラス"</span>, y <span class="op">=</span> <span class="st">"数学の点数"</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bee1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-164-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-82-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <div class="cell">
@@ -1242,7 +1242,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"クラス"</span>, y <span class="op">=</span> <span class="st">"数学の点数"</span><span class="op">)</span> 
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bee2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-166-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-83-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>ビースウォームプロットでは、全く同じか近い値をとった観測値が重ならないよう、点を散らして (jittering) くれる。その散らし方が、二つの geom で異なる。</p>
@@ -1251,7 +1251,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
 <div class="sourceCode" id="cb107"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">bee3</span> <span class="op">&lt;-</span> <span class="va">bv4</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/pkg/ggbeeswarm/man/geom_quasirandom.html">geom_quasirandom</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bee3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-168-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-84-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>点のせいで箱ひげ図がの線が見えにくいなら、(1) 点の色を変えるか、(2) 点の透明度を上げてみよう。透明度は <code>alpha</code> で指定する。<code>alpha = 1/3</code> とすると、点が3つ重なったときに透明度が0（つまり、普通の色）になるなるようになる。</p>
@@ -1261,7 +1261,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://rdrr.io/pkg/ggbeeswarm/man/geom_quasirandom.html">geom_quasirandom</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"skyblue"</span>, alpha <span class="op">=</span> <span class="fl">3</span><span class="op">/</span><span class="fl">5</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bee4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-170-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-85-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>男女の点の色を変えてみよう。</p>
@@ -1274,7 +1274,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
                        labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"女"</span>, <span class="st">"男"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">bee5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-172-1.png" class="img-fluid" width="576"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-86-1.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <p>これで、分布の形状と五数だけでなく、実際の観測値がどこにあるかまで明らかにできた。</p>
@@ -1289,7 +1289,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"数学の得点"</span>, y <span class="op">=</span> <span class="st">"英語の得点"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-174-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-87-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>英語も数学も100点満点の試験なのに、図が横長になっていて数学の得点の範囲の方が広く見えてしまう。 この点を改善するために、<code><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim()</a></code> と <code><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim()</a></code> で横軸と縦軸の範囲を指定し、<code>coord_fixed(ratio = 1)</code> で縦横比を1:1にしよう（ratio = 1 はデフォルトなので、単に <code><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed()</a></code> でもいいが、比がはっきりわかるようにここでは明示しておく）。</p>
@@ -1300,7 +1300,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-176-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-88-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>男女の点を、色 (color) と形 (shape) で区別してみよう。</p>
@@ -1320,7 +1320,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-178-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-89-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>これで一応色分けはできたが、色があまり気に入らない。 特に、赤と緑を区別できない人がいると思われるので、<code><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer()</a></code> で色使い (color paletter) を <strong>Accent</strong> に変えてみよう。指定できるパレットについては、<a href="http://www.sthda.com/english/wiki/colors-in-r">このページ</a> を参照されたい。</p>
@@ -1340,7 +1340,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat3a</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-180-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-90-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>色分けができた。試しにもう1つ異なるパレットを作ってみよう。<code>Set1</code> を使ってみる。</p>
@@ -1360,7 +1360,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat3b</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-182-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-91-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>「男は青で女は赤」というステレオタイプ（偶然そうなってしまっただけだが）が気にいらないなら、色を逆にしてみよう。パレットに用意された色を使う順番を、<code>direction = -1</code> で逆順にできる。</p>
@@ -1381,7 +1381,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat3c</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-184-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-92-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>次に、形 (shape) で区別する。</p>
@@ -1400,7 +1400,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-186-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-93-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>最後に、色と形で区別する。</p>
@@ -1424,7 +1424,7 @@ $ chemistry &lt;dbl&gt; 97, 60, 75, 60, 57, 67, 62, 63, 69, 67, 70, 48, 59, 76, 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span><span class="op">(</span>ratio <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-188-1.png" class="img-fluid" width="480"></p>
+<p><img src="intro-to-ggplot2_files/figure-html/unnamed-chunk-94-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>このように、ggplot2を使えば<strong>簡単</strong>に<strong>綺麗</strong>な図を作ることができる。</p>
