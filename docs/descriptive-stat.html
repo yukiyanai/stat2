@@ -259,7 +259,7 @@
 <span class="header-section-number">4.1</span> 1変数の記述統計とデータの可視化</h2>
 <section id="sec-pacs" class="level3" data-number="4.1.1"><h3 data-number="4.1.1" class="anchored" data-anchor-id="sec-pacs">
 <span class="header-section-number">4.1.1</span> パッケージの読み込み</h3>
-<p>まず、この授業で頻繁（ほぼ常に）に使う、<strong>tidyverse</strong>パッケージをインストールしよう。既にインストール済みなら、改めてインストールする必要はない。割と時間がかかるので注意。</p>
+<p>まず、この授業で頻繁に（ほぼ毎回）使う、<strong>tidyverse</strong>パッケージをインストールしよう。既にインストール済みなら再度インストールする必要はない。割と時間がかかるので注意。</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -334,8 +334,7 @@
 <p>図中の日本語が文字化けすることがあるので、OSに合わせてフォントを指定する以下のコードを実行する（RStudio Cloud の場合は回避策が面倒なので省略。Cloudユーザは 英語 [アルファベット] を使うように）。これは、<code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> の後に、<strong>毎回実行する</strong>ことが必要。（Linux ユーザは、自分の環境で使用可能なフォントを指定すること。）</p>
 <p>Linux ユーザ（<a href="https://moji.or.jp/ipafont/">IPAexフォント</a> が利用可能である場合）は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,
                      base_family <span class="op">=</span> <span class="st">"IPAexGothic"</span><span class="op">)</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>を実行する。</p>
@@ -413,7 +412,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">myd</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>確認できたら、スプレッドシートのタブを閉じる。</p>
+<p>確認できたら、スプレッドシートが表示されているタブを閉じる。</p>
 <p>次に、コンソール上に、データセットの最上部または最下部にある数行分だけを表示してみよう。</p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">myd</span><span class="op">)</span>          <span class="co"># 行数を指定しないと6行分</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -511,7 +510,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 </div>
 </div>
 <p>私たちが利用しているデータセット <code>myd</code> に含まれる <code>height</code>（身長）という変数 (variable) の平均値（算術平均; mean）を求めよう。Rでは、<code>mean(変数名)</code>とすると、平均値が求められる。</p>
-<p>ただし、<code>height</code> という変数は <code>myd</code> というデータの の一部（1つの変数, 1つの列）なので、それをRに伝える必要がある。データセットの中身の変数を使うときは、$ マークを使って、<code>データセット名$変数名</code>とすればよい。よって、height の平均値は</p>
+<p>ただし、<code>height</code> という変数は <code>myd</code> というデータの一部（1つの変数, 1つの列）なので、それをRに伝える必要がある。データセットの中身の変数を使うときは、$ マークを使って、<code>データセット名$変数名</code>とすればよい。よって、height の平均値は</p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
@@ -628,7 +627,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 </ul></section><section id="sec-viz1" class="level3" data-number="4.1.4"><h3 data-number="4.1.4" class="anchored" data-anchor-id="sec-viz1">
 <span class="header-section-number">4.1.4</span> 変数の可視化</h3>
 <p>変数の特徴は統計量によってある程度把握することができるが、統計量だけではわかりにくい特徴もある。そこで、データ分析を行う際には、図を作って自分が持っているデータを可視化するという作業が必要かつ重要である。</p>
-<p>今日は、<strong>ggplot2</strong>パッケージを使って、簡単な図をいくつか作ってみよう。<strong>ggplot2</strong>は先ほど読み込んだ <strong>tidyverse</strong> の一部なので、新たに読み込む必要はない。また、<strong>ggplot2</strong>の詳しい使い方は Topic 5 で解説するので、今日はコードの中身まで理解しなくてもよい。</p>
+<p>今日は、<strong>ggplot2</strong>パッケージを使って、簡単な図をいくつか作ってみよう。<strong>ggplot2</strong>は先ほど読み込んだ <strong>tidyverse</strong> の一部なので、新たに読み込む必要はない。また、<strong>ggplot2</strong>の詳しい使い方は Topic 5（Web資料の「<a href="intro-to-ggplot2.html">6. ggplot2入門</a>」）で解説するので、今日はコードの中身まで理解しなくてもよい。</p>
 <p>まず、最も基本的かつよく使う図であるヒストグラム　(histogram) を作ってみよう。 ggplot2では <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> でヒストグラムを作ることができる。</p>
 <p>例として、身長のヒストグラムを描いてみよう。</p>
 <div class="cell">
@@ -643,7 +642,8 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 <p>このヒストグラムを元にして、様々なカスタマイズが可能である。例えば、横軸と縦軸のラベル (label) を変えたいときは、次のように <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code>を加える。</p>
 <div class="cell">
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">hist_h2</span> <span class="op">&lt;-</span> <span class="va">hist_h</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, 
+         y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist_h2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="descriptive-stat_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="480"></p>
@@ -652,8 +652,10 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 <p>バーの色を変えたいときは、<code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code> で <code>fill</code> を指定する。 指定可能な色については <a href="http://www.okadajp.org/RWiki/?%E8%89%B2%E8%A6%8B%E6%9C%AC">このページ</a> を参照。</p>
 <div class="cell">
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">hist_h3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, 
+                 fill <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, 
+       y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist_h3</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="descriptive-stat_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="480"></p>
@@ -665,7 +667,8 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, 
                  fill <span class="op">=</span> <span class="st">"royalblue"</span>, 
                  binwidth <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, 
+       y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist_h4</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="descriptive-stat_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="480"></p>
@@ -677,7 +680,8 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, 
                  fill <span class="op">=</span> <span class="st">"dodgerblue"</span>, 
                  binwidth <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, y <span class="op">=</span> <span class="st">"確率密度"</span><span class="op">)</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, 
+       y <span class="op">=</span> <span class="st">"確率密度"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">hist_h5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="descriptive-stat_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="480"></p>
@@ -740,7 +744,7 @@ $ income &lt;dbl&gt; 3475810, 457018, 1627793, 6070642, 1083052, 2984929, 148106
 </div>
 </div>
 <p>この図を見て、<span class="math inline">\(x\)</span>と<span class="math inline">\(y\)</span>は無関係と言えるだろうか？</p>
-<p>散布図から明らか（<span class="math inline">\(y\)</span>をどのように作ったかを見ればもっと明らかだが）なように、<span class="math inline">\(x\)</span>と<span class="math inline">\(y\)</span>には強い関係がある（<span class="math inline">\(y\)</span>は<span class="math inline">\(x\)</span>の関数である）。しかし、その関係は<strong>曲線的</strong> なので、<strong>直線的な関係しか捉えられない相関係数</strong>は、強い関係を見落としてしまうのである。</p>
+<p>散布図から明らか（<span class="math inline">\(y\)</span>をどのように作ったかを思い出せばもっと明らかだが）なように、<span class="math inline">\(x\)</span>と<span class="math inline">\(y\)</span>には強い関係がある（<span class="math inline">\(y\)</span>は<span class="math inline">\(x\)</span>の関数である）。しかし、その関係は<strong>曲線的</strong> なので、<strong>直線的な関係しか捉えられない相関係数</strong>は、強い関係を見落としてしまうのである。</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
