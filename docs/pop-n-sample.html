@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.120">
+<meta name="generator" content="quarto-0.9.133">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>KUT 統計学2 - 10&nbsp; 母集団と標本をシミュレーションで理解する</title>
 <style>
@@ -80,7 +80,7 @@
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./lawoflargenumbers.html" rel="next">
 <link href="./intro-to-inference.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -311,21 +311,21 @@ female   male
 <div class="cell-output-stdout">
 <pre><code>sample_1
 female   male 
-  0.46   0.54 </code></pre>
+  0.43   0.57 </code></pre>
 </div>
 </div>
 <p>この比率は標本（サンプル）の比率なので、標本比率と呼ばれる。 女性比率だけを調べる（女性比率がわかれば男性比率もわかるので）には、</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">sample_1</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span> <span class="op">/</span> <span class="va">N</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.46</code></pre>
+<pre><code>[1] 0.43</code></pre>
 </div>
 </div>
 <p>または、</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.46</code></pre>
+<pre><code>[1] 0.43</code></pre>
 </div>
 </div>
 <p>とすればよい。</p>
@@ -334,7 +334,7 @@ female   male
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sample_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_2</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.35</code></pre>
+<pre><code>[1] 0.38</code></pre>
 </div>
 </div>
 <p>もう一度、別の100人で調べてみよう（先ほどと同じ人物が選ばれる可能性はある）。</p>
@@ -342,7 +342,7 @@ female   male
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sample_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_3</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.48</code></pre>
+<pre><code>[1] 0.33</code></pre>
 </div>
 </div>
 <p>このように、毎回異なる標本比率が得られる。標本から得られる統計量は、母数（この例題の場合は母比率）と必ずしも一致しないし、同じ方法を何度も繰り返すと異なる値が得られる。</p>
@@ -384,7 +384,7 @@ female   male
 <div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">res_1</span><span class="op">[</span><span class="fl">1</span> <span class="op">:</span> <span class="fl">10</span><span class="op">]</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code> [1] 0.38 0.42 0.44 0.47 0.51 0.50 0.51 0.51 0.41 0.45</code></pre>
+<pre><code> [1] 0.50 0.55 0.43 0.44 0.42 0.46 0.42 0.48 0.48 0.45</code></pre>
 </div>
 </div>
 <p>さきほどは <code>NA</code> だったところに数値（標本比率）が保存されたことがわかる。</p>
@@ -413,7 +413,7 @@ female   male
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">res_1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 0.04882356</code></pre>
+<pre><code>[1] 0.04964746</code></pre>
 </div>
 </div>
 <p>である。</p>

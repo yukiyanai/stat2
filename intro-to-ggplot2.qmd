@@ -48,7 +48,7 @@ is.data.frame(myd)
 glimpse(myd)
 ```
 
-`id`, `gender`, `age`, `height`, `weight`, `income` という6つの変数があり、`gender` が <chr> すなわち文字列 (character) 型で、他の変数はすべて <dbl> すなわち実数 (double \[double-precision floating-point\]) 型であることがわかる。
+`id`, `gender`, `age`, `height`, `weight`, `income` という6つの変数があり、`gender` が `<chr>` すなわち文字列 (character) 型で、他の変数はすべて `<dbl>` すなわち実数 (double \[double-precision floating-point\]) 型であることがわかる。
 
 データフレームの中身を確認する方法は他にもいくつかある。 `View()` を使うと、表計算ソフトのスプレッドシートと同じように、データを表形式で表示してくれる。 Souce ペインに表示されるので確認が終わったらタブを閉じるようにしよう。 **この関数は R Markdown ファイルではなく、Console に直接入力**したほうが良い。
 
