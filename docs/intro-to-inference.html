@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.133">
+<meta name="generator" content="quarto-0.9.120">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>KUT 統計学2 - 9&nbsp; 統計的推定と仮説検定の基礎</title>
 <style>
@@ -80,7 +80,7 @@
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./pop-n-sample.html" rel="next">
 <link href="./clt.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -309,7 +309,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">7</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">0.45</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 3 5 5 2 6 7 6</code></pre>
+<pre><code>[1] 6 5 4 6 5 4 4</code></pre>
 </div>
 </div>
 </section><section id="sec-test" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="sec-test">
@@ -329,7 +329,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">16</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 9</code></pre>
+<pre><code>[1] 10</code></pre>
 </div>
 </div>
 <p>表は何回出ただろうか？</p>
@@ -337,7 +337,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">16</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 9</code></pre>
+<pre><code>[1] 6</code></pre>
 </div>
 </div>
 <p>表は何回出ただろうか？</p>
@@ -350,19 +350,19 @@
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">result1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 7.9649</code></pre>
+<pre><code>[1] 7.9977</code></pre>
 </div>
 </div>
-<p>平均すると 7.9649回表が出たことがわかった。理論値である <span class="math inline">\(16 \cdot 0.5 = 8\)</span> に近い値である。</p>
+<p>平均すると 7.9977回表が出たことがわかった。理論値である <span class="math inline">\(16 \cdot 0.5 = 8\)</span> に近い値である。</p>
 <p>分散 (variance) と標準偏差 (standard deviation) はいくつだろうか。</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">result1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 3.975466</code></pre>
+<pre><code>[1] 3.998095</code></pre>
 </div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">result1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 1.993857</code></pre>
+<pre><code>[1] 1.999524</code></pre>
 </div>
 </div>
 <p>分散の理論値は <span class="math inline">\(16\cdot 0.5 (1 - 0.5) = 4\)</span>、標準偏差の理論値は<span class="math inline">\(\sqrt{4} = 2\)</span> だから、どちらもほぼ理論値どおりの値である。</p>
@@ -391,7 +391,7 @@
 <p><img src="intro-to-inference_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
-<p>このヒストグラムの形状に注目してみると、なんとなく正規分布に似ているように見える。そこで、先ほど計算した平均値と標準偏差（分散）を利用して、平均が 7.9649で標準偏差が1.9938569の正規分布を、このヒストグラムに重ねて描いてみよう。</p>
+<p>このヒストグラムの形状に注目してみると、なんとなく正規分布に似ているように見える。そこで、先ほど計算した平均値と標準偏差（分散）を利用して、平均が 7.9977で標準偏差が1.9995236の正規分布を、このヒストグラムに重ねて描いてみよう。</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 次の2行の中身は現時点で理解しなくてもよい</span>
 <span class="va">df2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">16</span>, length.out <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -407,14 +407,14 @@
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">result1</span><span class="op">)</span> <span class="op">-</span> <span class="fl">2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">result1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 3.977186</code></pre>
+<pre><code>[1] 3.998653</code></pre>
 </div>
 </div>
 <p>と</p>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">result1</span><span class="op">)</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">result1</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 11.95261</code></pre>
+<pre><code>[1] 11.99675</code></pre>
 </div>
 </div>
 <p>の間にあるはずだ。</p>
@@ -450,7 +450,7 @@
 </div>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co">#quantile(result1, prob = c(0.025, 0.975))  # 2つの値を1度に求めたいとき</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>このようんみ、わざわざ小さい順に並べ替えたり、2.5%と97.5%は何番目の数かを考えたりしなくても、<code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> を使えば簡単に答えが求められる。</p>
+<p>このように、わざわざ小さい順に並べ替えたり2.5%と97.5%は何番目の数かを考えたりしなくても、<code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> を使えば簡単に答えが求められる。</p>
 <p>いずれの方法を使っても、仮にコイン投げの回数が16回（仮説1）だとすれば、例題の観測値として得られた「10回」という回数は、平均周りの95%の範囲に含まれている。つまり、「16回コインを投げて10回表が出る」という現象は、特に珍しいわけではない。よって、<span class="math inline">\(N=16\)</span>という<strong>仮説を否定するような証拠はない</strong>と考えられる。仮説1はとりあえず<strong>保留</strong>しておこう。</p>
 </section><section id="sec-testh2" class="level3" data-number="9.4.2"><h3 data-number="9.4.2" class="anchored" data-anchor-id="sec-testh2">
 <span class="header-section-number">9.4.2</span> 仮説2 (<span class="math inline">\(N=36\)</span>) が正しいと仮定する</h3>
@@ -458,7 +458,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">36</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 20</code></pre>
+<pre><code>[1] 19</code></pre>
 </div>
 </div>
 <p>表は何回出ただろうか？</p>
@@ -466,7 +466,7 @@
 <div class="cell">
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">1</span>, size <span class="op">=</span> <span class="fl">36</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 24</code></pre>
+<pre><code>[1] 18</code></pre>
 </div>
 </div>
 <p>表は何回出ただろうか？</p>
@@ -478,19 +478,19 @@
 <div class="cell">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">result2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 17.9532</code></pre>
+<pre><code>[1] 17.9692</code></pre>
 </div>
 </div>
-<p>平均すると 17.9532回表が出たことがわかった。</p>
+<p>平均すると 17.9692回表が出たことがわかった。</p>
 <p>分散と標準偏差はいくつだろうか。</p>
 <div class="cell">
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">result2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 9.208731</code></pre>
+<pre><code>[1] 8.98255</code></pre>
 </div>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">result2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 3.034589</code></pre>
+<pre><code>[1] 2.99709</code></pre>
 </div>
 </div>
 <p>結果をヒストグラムにしてみよう。</p>
@@ -511,7 +511,7 @@
 </div>
 </div>
 <p>例題で得られた「表が10回」という結果は、このヒストグラムのどの辺りにあるだろうか。</p>
-<p>このヒストグラムの形状に注目してみると、なんとなく正規分布に似ているように見える。そこで、先ほど計算して平均値と標準偏差（分散）を利用して、平均が 17.9532で標準偏差が3.034589の正規分布を、このヒストグラムに重ねて描いてみよう。</p>
+<p>このヒストグラムの形状に注目してみると、なんとなく正規分布に似ているように見える。そこで、先ほど計算して平均値と標準偏差（分散）を利用して、平均が 17.9692で標準偏差が2.9970902の正規分布を、このヒストグラムに重ねて描いてみよう。</p>
 <div class="cell">
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 次の2行の中身は現時点で理解しなくてもよい</span>
 <span class="va">df4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">32</span>, length.out <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
@@ -527,14 +527,14 @@
 <div class="cell">
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">result2</span><span class="op">)</span> <span class="op">-</span> <span class="fl">2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">result2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 11.88402</code></pre>
+<pre><code>[1] 11.97502</code></pre>
 </div>
 </div>
 <p>と</p>
 <div class="cell">
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">result2</span><span class="op">)</span> <span class="op">+</span> <span class="fl">2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">result2</span><span class="op">)</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
-<pre><code>[1] 24.02238</code></pre>
+<pre><code>[1] 23.96338</code></pre>
 </div>
 </div>
 <p>の間にあるはずだ。</p>
@@ -556,7 +556,7 @@
 <p>いずれの方法を使っても、仮にコイン投げの回数が36回（仮説2）だとすれば、例題の観測値として得られた「10回」という回数は、平均周りの95%の範囲に含まれていない。つまり、「36回コインを投げて10回表が出る」という現象は、とても珍しい現象であり、あまり起こることは期待されない。これは、<span class="math inline">\(N=36\)</span>という<strong>仮説を否定するような証拠</strong>と考えられるので、<span class="math inline">\(N=36\)</span>という<strong>仮説は棄却</strong> (reject) する。</p>
 </section></section><section id="sec-estimation" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="sec-estimation">
 <span class="header-section-number">9.5</span> 統計的推定の基礎</h2>
-<p>仮説検定の方法を使えば、1つひとつの仮説について、その説がおかしいと言える証拠があるかどうか確かめていくことができる。しかし、理論的に可能な仮説はたくさん存在しており、1つひとつ確かめるのは少し面倒だ。私たちが考えている例題の場合、10以上の整数であれば、どんな数でも可能である（<span class="math inline">\(N=36\)</span> が仮説として妥当でないとわかった時点で、37以上の数は無視できるが）。</p>
+<p>仮説検定の方法を使えば、1つひとつの仮説について、その説がおかしいと言える証拠があるかどうか確かめることができる。しかし、理論的に可能な仮説はたくさん存在しており、1つひとつ確かめるのは少し面倒だ。私たちが考えている例題の場合、10以上の整数であれば、どんな数でも可能である（<span class="math inline">\(N=36\)</span> が仮説として妥当でないとわかった時点で、37以上の数は無視できるが）。</p>
 <p>そこで、そもそも <span class="math inline">\(N\)</span> はいくつなのかということ自体を直接考えるのが、統計的推定 (statistical estimation) である。</p>
 <section id="sec-pointestimation" class="level3" data-number="9.5.1"><h3 data-number="9.5.1" class="anchored" data-anchor-id="sec-pointestimation">
 <span class="header-section-number">9.5.1</span> 点推定 (point estimation)</h3>
