@@ -22,11 +22,7 @@ book:
   sharing: [twitter, facebook]
   chapters: 
     - index.qmd
-    - intro-to-R.qmd
-    - intro-to-RStudio.qmd
-    - descriptive-stat.qmd
-    - r-markdown.qmd
-    - intro-to-ggplot2.qmd
+    - how2quarto.qmd
     - rng.qmd
     - clt.qmd
     - intro-to-inference.qmd
@@ -36,6 +32,7 @@ book:
     - estimating-mean.qmd
     - t-distribution.qmd
     - mean-comparison.qmd
+    - bivariate.qmd
     
 format:
   html:

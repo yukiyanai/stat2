@@ -9,7 +9,7 @@ callout-tip-caption: "ヒント"
 callout-note-caption: "備考"
 callout-warning-caption: "注意"
 callout-important-caption: "重要"
-callout-danger-caption: "危険！"
+callout-caution-caption: "危険！"
 
 code-summary: "Code"
 

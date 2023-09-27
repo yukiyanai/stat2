@@ -2,62 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://yukiyanai.github.io/stat2/index.html</loc>
-    <lastmod>2022-05-18T11:31:09.666Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.599Z</lastmod>
   </url>
   <url>
-    <loc>https://yukiyanai.github.io/stat2/intro-to-R.html</loc>
-    <lastmod>2022-05-18T11:31:09.668Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yukiyanai.github.io/stat2/intro-to-RStudio.html</loc>
-    <lastmod>2022-05-18T11:31:09.669Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yukiyanai.github.io/stat2/descriptive-stat.html</loc>
-    <lastmod>2022-05-18T11:31:09.671Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yukiyanai.github.io/stat2/r-markdown.html</loc>
-    <lastmod>2022-05-18T11:31:09.671Z</lastmod>
-  </url>
-  <url>
-    <loc>https://yukiyanai.github.io/stat2/intro-to-ggplot2.html</loc>
-    <lastmod>2022-05-18T11:31:09.675Z</lastmod>
+    <loc>https://yukiyanai.github.io/stat2/how2quarto.html</loc>
+    <lastmod>2023-09-27T09:56:24.601Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/rng.html</loc>
-    <lastmod>2022-05-18T11:31:09.677Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.646Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/clt.html</loc>
-    <lastmod>2022-05-18T11:31:09.678Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.648Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/intro-to-inference.html</loc>
-    <lastmod>2022-05-18T11:31:09.682Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.675Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/pop-n-sample.html</loc>
-    <lastmod>2022-05-18T11:31:09.683Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.695Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/lawoflargenumbers.html</loc>
-    <lastmod>2022-05-18T11:31:09.684Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.713Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/sampling-distribution.html</loc>
-    <lastmod>2022-05-18T11:31:09.685Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.751Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/estimating-mean.html</loc>
-    <lastmod>2022-05-18T11:31:09.687Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.784Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/t-distribution.html</loc>
-    <lastmod>2022-05-18T11:31:09.690Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.821Z</lastmod>
   </url>
   <url>
     <loc>https://yukiyanai.github.io/stat2/mean-comparison.html</loc>
-    <lastmod>2022-05-18T11:31:09.692Z</lastmod>
+    <lastmod>2023-09-27T09:56:24.848Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yukiyanai.github.io/stat2/bivariate.html</loc>
+    <lastmod>2023-09-27T09:56:24.850Z</lastmod>
   </url>
 </urlset>
