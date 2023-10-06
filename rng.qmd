@@ -20,11 +20,11 @@ library(tidyverse)
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-library(fontregisterer)
 if (.Platform$OS.type == "windows") { # Windows
+  library(fontregisterer)
   my_font <- "Yu Gothic"
 } else if (capabilities("aqua")) { # macOS
-  my_font <- "Hiragino Sans"
+  my_font <- "HiraginoSans-W3"
 } else { # Unix/Linux
   my_font <- "IPAexGothic"
 }

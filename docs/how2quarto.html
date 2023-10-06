@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.353">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>KUT 統計学2 - 2&nbsp; Quartoによるレポート作成</title>
 <style>
 code{white-space: pre-wrap;}
@@ -20,8 +17,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -40,8 +70,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -59,19 +88,12 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 </head>
-
 <body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -82,13 +104,9 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
@@ -96,20 +114,20 @@ ul.task-list li input[type="checkbox"] {
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+<li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
       </ul>
-    </div>
+</div>
 </div>
     </div>
       </div>
@@ -120,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
@@ -193,19 +211,39 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">このページの内容</h2>
+   
+  <ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC" id="toc-基本" class="nav-link active" data-scroll-target="#%E5%9F%BA%E6%9C%AC"><span class="header-section-number">2.1</span> 基本</a></li>
+  <li>
+<a href="#%E6%96%87%E3%81%AE%E4%BF%AE%E9%A3%BE" id="toc-文の修飾" class="nav-link" data-scroll-target="#%E6%96%87%E3%81%AE%E4%BF%AE%E9%A3%BE"><span class="header-section-number">2.2</span> 文の修飾</a>
+  <ul class="collapse">
+<li><a href="#%E7%AF%80%E3%81%AE%E6%A7%8B%E6%88%90" id="toc-節の構成" class="nav-link" data-scroll-target="#%E7%AF%80%E3%81%AE%E6%A7%8B%E6%88%90"><span class="header-section-number">2.2.1</span> 節の構成</a></li>
+  <li><a href="#%E6%96%87%E5%AD%97%E3%81%AE%E4%BF%AE%E9%A3%BE" id="toc-文字の修飾" class="nav-link" data-scroll-target="#%E6%96%87%E5%AD%97%E3%81%AE%E4%BF%AE%E9%A3%BE"><span class="header-section-number">2.2.2</span> 文字の修飾</a></li>
+  <li><a href="#%E7%AE%87%E6%9D%A1%E6%9B%B8%E3%81%8D" id="toc-箇条書き" class="nav-link" data-scroll-target="#%E7%AE%87%E6%9D%A1%E6%9B%B8%E3%81%8D"><span class="header-section-number">2.2.3</span> 箇条書き</a></li>
+  </ul>
+</li>
+  <li><a href="#r-%E3%82%B3%E3%83%BC%E3%83%89" id="toc-r-コード" class="nav-link" data-scroll-target="#r-%E3%82%B3%E3%83%BC%E3%83%89"><span class="header-section-number">2.3</span> R コード</a></li>
+  <li>
+<a href="#%E6%95%B0%E5%BC%8F" id="toc-数式" class="nav-link" data-scroll-target="#%E6%95%B0%E5%BC%8F"><span class="header-section-number">2.4</span> 数式</a>
+  <ul class="collapse">
+<li><a href="#%E6%95%B0%E5%BC%8F%E6%95%B0%E5%AD%A6%E8%A8%98%E5%8F%B7%E3%81%AE%E5%9F%BA%E6%9C%AC" id="toc-数式数学記号の基本" class="nav-link" data-scroll-target="#%E6%95%B0%E5%BC%8F%E6%95%B0%E5%AD%A6%E8%A8%98%E5%8F%B7%E3%81%AE%E5%9F%BA%E6%9C%AC"><span class="header-section-number">2.4.1</span> 数式・数学記号の基本</a></li>
+  <li><a href="#%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86%E8%A8%98%E5%8F%B7" id="toc-よく使う記号" class="nav-link" data-scroll-target="#%E3%82%88%E3%81%8F%E4%BD%BF%E3%81%86%E8%A8%98%E5%8F%B7"><span class="header-section-number">2.4.2</span> よく使う記号</a></li>
+  <li><a href="#%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3%E6%96%87%E5%AD%97" id="toc-ギリシャ文字" class="nav-link" data-scroll-target="#%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3%E6%96%87%E5%AD%97"><span class="header-section-number">2.4.3</span> ギリシャ文字</a></li>
+  </ul>
+</li>
+  <li><a href="#%E5%9B%B3%E8%A1%A8" id="toc-図表" class="nav-link" data-scroll-target="#%E5%9B%B3%E8%A1%A8"><span class="header-section-number">2.5</span> 図表</a></li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quartoによるレポート作成</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quartoによるレポート作成</span>
+</h1>
 </div>
 
 
@@ -218,13 +256,569 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header>
+</header><p>この実習の準備</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">## 図のなかで日本語を使えるようにする</span></span>
+<span><span class="co">## フォントの設定はお好みで</span></span>
+<span><span class="co">## （Unix/Linux ではIPAexフォントのインストールが必要かも）</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> <span class="co"># Windows</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span></span>
+<span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Yu Gothic"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/capabilities.html">capabilities</a></span><span class="op">(</span><span class="st">"aqua"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> <span class="co"># macOS</span></span>
+<span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"HiraginoSans-W3"</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span> <span class="co"># Unix/Linux</span></span>
+<span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"IPAexGothic"</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,</span>
+<span>                     base_family <span class="op">=</span> <span class="va">my_font</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="基本" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="基本">
+<span class="header-section-number">2.1</span> 基本</h2>
+<p>基本的な使い方は<a href="https://yukiyanai.github.io/stat1/">統計学1</a>の授業で解説済みなので、<a href="https://yukiyanai.github.io/stat1/intro-to-quarto.html">統計学1の資料</a>で復習してほしい。<a href="https://www.jaysong.net/RBook/">『私たちのR』</a>の<a href="https://www.jaysong.net/RBook/quarto.html">Quarto入門</a>にもう少し詳しい説明があるので、そちらも合わせて参照されたい。</p>
+</section><section id="文の修飾" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="文の修飾">
+<span class="header-section-number">2.2</span> 文の修飾</h2>
+<section id="節の構成" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="節の構成">
+<span class="header-section-number">2.2.1</span> 節の構成</h3>
+<p>文の中に節 (section) や小節 (subsection) などを作りたいときは、<code>#</code>（ハッシュ）を使う。ハッシュの数が多くなるほど、下の階層が構成される。今、皆さんが見ている「Quartoによるレポート作成」という資料では、<code># Quartoによるレポート作成</code> がハッシュ1つの節であり、<code>## 基本</code> や <code>## 文の修飾</code> などがハッシュ2つの小節、<code>### 節の構成</code> がハッシュ3つの小小節 (subsubsection) である。YAMLヘッダの<code>number-sections:</code> を <code>true</code> にすると、「2」「2．1」などの番号が自動的に付される。番号を付けたくないときは、<code>number-sections: false</code> にする。</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>ハッシュ記号の直後に半角スペースが1つ以上必要なので注意</strong>されたい。</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ただし、この資料の場合、資料全体を「本 (book)」と考えると、「2」は節 (section) ではなく章 (chapter) である。レポート・論文を構成する区切りは1節、2節、3節 <span class="math inline">\(\dots\)</span> という節 (section) であり、それぞれの下の階層は 1.1節、1.2節などの小節 (subsection)、さらには1.1.1節などのsubsubsection である。</p>
+</div>
+</div>
+</section><section id="文字の修飾" class="level3" data-number="2.2.2"><h3 data-number="2.2.2" class="anchored" data-anchor-id="文字の修飾">
+<span class="header-section-number">2.2.2</span> 文字の修飾</h3>
+<p>文字を太字 (bold) にしたいときは、<code>**太字**</code>とすると<strong>太字</strong>になる。 また、イタリック（斜字体）にしたいときは、<code>*italics*</code> とすると <em>italics</em> になる。<strong>日本語をイタリックにはしない</strong>。 太字かつイタリックは、<code>***bold italics***</code>で<strong><em>bold italics</em></strong> になる。</p>
+<p>これらの文字の修飾は、レポートや論文などでは使わない。</p>
+</section><section id="箇条書き" class="level3" data-number="2.2.3"><h3 data-number="2.2.3" class="anchored" data-anchor-id="箇条書き">
+<span class="header-section-number">2.2.3</span> 箇条書き</h3>
+<p>番号なしの箇条書きは、<code>-</code>、 <code>+</code>、 <code>*</code> で作る。記号の直後には半角スペースが必要である。</p>
+<p>例えば、</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>項目1</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>項目2</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>項目2.1</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>項目2.2</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>項目3</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>と入力すると、以下のように出力される。</p>
+<ul>
+<li>項目1</li>
+<li>項目2
+<ul>
+<li>項目2.1</li>
+<li>項目2.2</li>
+</ul>
+</li>
+<li>項目3</li>
+</ul>
+<p>番号付きの箇条書きは、<code>1.</code> のように、数字とドット（ピリオド）で作る。ドットの直後に半角スペースが必要である。数字は、全部1でもよいし、<code>1.</code>、<code>2.</code> などのように変えても良い。</p>
+<p>例えば</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>項目1</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>項目2</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>項目2.1</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    1. </span>項目2.2</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>項目3</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>と入力すると、以下のように出力される。</p>
+<ol type="1">
+<li>項目1</li>
+<li>項目2
+<ol type="1">
+<li>項目2.1</li>
+<li>項目2.2</li>
+</ol>
+</li>
+<li>項目3</li>
+</ol></section></section><section id="r-コード" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="r-コード">
+<span class="header-section-number">2.3</span> R コード</h2>
+<p>Rコードは、基本的にコードチャンクの中に書く。コードチャンクとは、</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ここにRのコードを書く。</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>というものであり、チャンクを挿入するキーボードショートカットは、</p>
+<ul>
+<li>
+<code>control</code> + <code>option</code> + <code>I</code> (macOS)</li>
+<li>
+<code>Control</code> + <code>Alt</code> + <code>I</code> (Windows)</li>
+</ul>
+<p>である。</p>
+<p>各チャンクにチャンクオプションを付けることで、チャンクごとの挙動を制御することができる。 チャンクオプションは、<code>#|</code> という記号を使って、以下のように書く。</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: true</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: true</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 3</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ここにRコードを書く</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>上で書いたオプションは、</p>
+<ul>
+<li>echo: コードを表示するかどうか。<code>false</code> で非表示。</li>
+<li>eval: コードを実行するかどうか。<code>false</code> でコードを実行しない。</li>
+<li>message: コード実行時のメッセージを表示するかどうか。<code>false</code> で非表示。</li>
+<li>warning: コード実行時の警告文を表示するかどうか。<code>false</code> で非表示。</li>
+<li>fig-height: 図の高さ。単位はインチ。</li>
+<li>fig-width: 図の幅。単位はインチ。</li>
+</ul>
+<p>これら以外のチャンクオプションについては、<a href="https://quarto.org/docs/computations/execution-options.html">公式ガイド</a> を参照。</p>
+</section><section id="数式" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="数式">
+<span class="header-section-number">2.4</span> 数式</h2>
+<section id="数式数学記号の基本" class="level3" data-number="2.4.1"><h3 data-number="2.4.1" class="anchored" data-anchor-id="数式数学記号の基本">
+<span class="header-section-number">2.4.1</span> 数式・数学記号の基本</h3>
+<p>Quartoでは、<span class="math inline">\(\LaTeX\)</span> と同じ方法で数式を書くことができる。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\LaTeX\)</span> について詳しく知りたい者には、奥村晴彦, 黒木裕介. 2020.『LaTeX2<span class="math inline">\(\varepsilon\)</span> 美文書作成入門』（技術評論社）を参照されたい。</p>
+</div>
+</div>
+<p>文書の中に数式を入れたいときは、数式を書くためのコードを<code>$</code>で挟み、文書のなかに挿入する。 例えば、単純な足し算は <code>$1 + 3 = 4$</code> と書くことで、<span class="math inline">\(1 + 3 = 4\)</span> と表示される。あるいは、<code>$Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i$</code> と書けば、<span class="math inline">\(Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i\)</span> となる。</p>
+<p>数式を独立した行に表示したいときは、以下のようにする。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{N} \sum_{n=1}^N x_n</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>これは、次のように表示される。 <span class="math display">\[
+\bar{x} = \frac{1}{N} \sum_{n=1}^N x_n
+\]</span></p>
+<p>複数行にわたる数式を書きたいときは、<code>aligned</code> 環境を使って以下のように書くことができる。</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>\bar{x} </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a> &amp;= \frac{1}{N} \sum_{n=1}^N x_n <span class="sc">\\</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> &amp;= \frac{1}{N} \left(x_1 + x_2 + \cdots + x_N \right)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>上のコードでは、<code>\\</code> で改行している。また、各行は <code>&amp;</code> の位置で整列する。結果は次のようになる。 <span class="math display">\[
+\begin{aligned}
+\bar{x}
+&amp;= \frac{1}{N} \sum_{n=1}^N x_n \\
+&amp;= \frac{1}{N} \left(x_1 + x_2 + \cdots + x_N \right)
+\end{aligned}
+\]</span></p>
+<p>上の例からわかるとおり、分数は<code>\frac{分子}{分母}</code>で書くことができる。</p>
+<p>数式でカッコを使うとき、<code>()</code> と <code>[]</code> はそのまま入力すればよいが、<code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>を使いたいときは <code>\{</code> や<code>\}</code>のようにする必要がある。また、<code>\left( \right)</code> 、<code>\left\{ \right\}</code>、<code>\left[ \right]</code> のようにすると、カッコの中身に合わせてカッコの大きさを調節してくれる。例えば、</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>(x - \frac{1}{2})(y - \frac{2}{\frac{3}{31}})^2</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>と入力すると、 <span class="math display">\[
+(x - \frac{1}{2})(y - \frac{2}{\frac{3}{31}})^2
+\]</span> と表示されるが、</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>\left(x - \frac{1}{2} \right) \left(y - \frac{2}{\frac{3}{31}} \right)^2</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>$$</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>と入力すると、 <span class="math display">\[
+\left(x - \frac{1}{2} \right) \left(y - \frac{2}{\frac{3}{31}} \right)^2
+\]</span> と、なる。</p>
+<p>下付きの添字は、<code>_</code>（アンダースコア）を使って、<code>x_i</code> と書くと、<span class="math inline">\(x_i\)</span>のように表示される。 ただし、添字が2文字以上のときに<code>x_23</code> のようにすると<span class="math inline">\(x_23\)</span>となってしまうので、<span class="math inline">\(x_{23}\)</span>にするためには<code>x_{23}</code>とする。</p>
+<p>上付きの文字は、<code>^</code>（キャレット）を使って<code>x^a</code>のように書くと、<span class="math inline">\(x^a\)</span> のように表示される。 下付きの場合と同様に、2文字以上のときには<code>x^{a-b}</code>のようにすると<span class="math inline">\(x^{a-b}\)</span>となる。</p>
+</section><section id="よく使う記号" class="level3" data-number="2.4.2"><h3 data-number="2.4.2" class="anchored" data-anchor-id="よく使う記号">
+<span class="header-section-number">2.4.2</span> よく使う記号</h3>
+<p>よく使う記号を以下に示す</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead><tr class="header">
+<th>コード</th>
+<th>出力</th>
+<th>使用例</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>\times</code></td>
+<td><span class="math inline">\(\times\)</span></td>
+<td><span class="math inline">\(x \times y\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\cdot</code></td>
+<td><span class="math inline">\(\cdot\)</span></td>
+<td><span class="math inline">\(x \cdot y\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\cdots</code></td>
+<td><span class="math inline">\(\cdots\)</span></td>
+<td><span class="math inline">\(x_1 + x_2 + \cdots + x_N\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\dots</code></td>
+<td><span class="math inline">\(\dots\)</span></td>
+<td><span class="math inline">\(a, b, \dots, z\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\Pr(.)</code></td>
+<td><span class="math inline">\(\Pr(.)\)</span></td>
+<td><span class="math inline">\(\Pr(X =x )\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\sum</code></td>
+<td><span class="math inline">\(\sum\)</span></td>
+<td><span class="math inline">\(\sum (x_i - \mu)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\sum_{n = 1}^{N}</code></td>
+<td><span class="math inline">\(\displaystyle \sum_{n = 1}^{N}\)</span></td>
+<td><span class="math inline">\(\displaystyle \sum_{n = 1}^{N} (x_n - \bar{x})^2\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\prod</code></td>
+<td><span class="math inline">\(\prod\)</span></td>
+<td><span class="math inline">\(\displaystyle \prod_{n=1}^N x_n\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\exp(.)</code></td>
+<td><span class="math inline">\(\exp(.)\)</span></td>
+<td><span class="math inline">\(\exp(-\lambda)\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\log(.)</code></td>
+<td><span class="math inline">\(\log(.)\)</span></td>
+<td><span class="math inline">\(\log(2a)\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\partial</code></td>
+<td><span class="math inline">\(\partial\)</span></td>
+<td><span class="math inline">\(\displaystyle \frac{\partial f(x, y)}{\partial x}\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\int</code></td>
+<td><span class="math inline">\(\int\)</span></td>
+<td><span class="math inline">\(\displaystyle \int_{a}^b f(x) dx\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>\lim</code></td>
+<td><span class="math inline">\(\lim\)</span></td>
+<td><span class="math inline">\(\displaystyle \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{n!}\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\infty</code></td>
+<td><span class="math inline">\(\infty\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>\sim</code></td>
+<td><span class="math inline">\(\sim\)</span></td>
+<td><span class="math inline">\(X \sim \mbox{Normal}(\mu, \sigma)\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\to</code></td>
+<td><span class="math inline">\(\to\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>\binom{n}{k}</code></td>
+<td><span class="math inline">\(\binom{n}{k}\)</span></td>
+<td><span class="math inline">\(\displaystyle \binom{n}{k} = \frac{n!}{k! (n-k)!}\)</span></td>
+</tr>
+<tr class="even">
+<td><code>\bar{x}</code></td>
+<td><span class="math inline">\(\bar{x}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>\hat{x}</code></td>
+<td><span class="math inline">\(\hat{x}\)</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>\widehat{abcde}</code></td>
+<td><span class="math inline">\(\widehat{abcde}\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>\tilde{x}</code></td>
+<td><span class="math inline">\(\tilde{x}\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table></section><section id="ギリシャ文字" class="level3" data-number="2.4.3"><h3 data-number="2.4.3" class="anchored" data-anchor-id="ギリシャ文字">
+<span class="header-section-number">2.4.3</span> ギリシャ文字</h3>
+<p>ギリシャ文字も数式環境の中で使える。文章中にギリシャ文字を入れたいときは、<code>$</code>と<code>$</code>の間に以下のコードを入力する（よく使うものだけ挙げる）。</p>
+<table class="table">
+<thead><tr class="header">
+<th>文字</th>
+<th>コード</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span></td>
+<td><code>\alpha</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\beta\)</span></td>
+<td><code>\beta</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\gamma\)</span></td>
+<td><code>\gamma</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu\)</span></td>
+<td><code>\mu</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\sigma\)</span></td>
+<td><code>\sigma</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\lambda\)</span></td>
+<td><code>\lambda</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\phi\)</span></td>
+<td><code>\phi</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\pi\)</span></td>
+<td><code>\pi</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\delta\)</span></td>
+<td><code>\delta</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\epsilon\)</span></td>
+<td><code>\epsilon</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\varepsilon\)</span></td>
+<td><code>\varepsilon</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\nu\)</span></td>
+<td><code>\nu</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\xi\)</span></td>
+<td><code>\xi</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\zeta\)</span></td>
+<td><code>\zeta</code></td>
+</tr>
+</tbody>
+</table>
+<p>ギリシャ文字の大文字の書き方は、以下の2つのパタンに分かれる。</p>
+<ul>
+<li>コードの1文字目を大文字にする
+<ul>
+<li>例）<span class="math inline">\(\delta\)</span>の大文字<span class="math inline">\(\Delta\)</span> は <code>\Delta</code>
+</li>
+<li>例）<span class="math inline">\(\phi\)</span>の大文字<span class="math inline">\(\Phi\)</span> は <code>\phi</code>
+</li>
+</ul>
+</li>
+<li>アルファベットの大文字をそのまま使う。
+<ul>
+<li>例）<span class="math inline">\(\alpha\)</span>の大文字Aは<code>A</code>
+</li>
+<li>例）<span class="math inline">\(\beta\)</span>の大文字Bは<code>B</code>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li>和算の記号<span class="math inline">\(\sum\)</span> は<code>\Sigma</code>ではなく、<code>\sum</code>
+<ul>
+<li>
+<code>\sum</code>: <span class="math inline">\(\sum\)</span>
+</li>
+<li>
+<code>\Sigma</code>: <span class="math inline">\(\Sigma\)</span>
+</li>
+</ul>
+</li>
+<li>乗算の記号<span class="math inline">\(\prod\)</span>は<code>\Pi</code> はなく<code>\prod</code>
+<ul>
+<li>
+<code>\prod</code>: <span class="math inline">\(\prod\)</span>
+</li>
+<li>
+<code>\Pi</code>: <span class="math inline">\(\Pi\)</span>
+</li>
+</ul>
+</li>
+</ul></section></section><section id="図表" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="図表">
+<span class="header-section-number">2.5</span> 図表</h2>
+<p>単に図を表示させるなら、<code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>で作った図を <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> で示せばよい。</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">D</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>x1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>,</span>
+<span>            x2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1000</span>, mean <span class="op">=</span> <span class="op">-</span><span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">D</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x1</span>, y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>         y <span class="op">=</span> <span class="st">"確率密度"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="how2quarto_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+<p>チャンクオプションを使うことによって、表示する図の大きさを変えたり、図に通し番号とキャプションを付けたりすることができる。 例えば、</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 6</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 3</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "$x_1$のヒストグラム"</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-hist-x1</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p1)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>と書けば、以下のようになる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-hist-x1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="how2quarto_files/figure-html/fig-hist-x1-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">図&nbsp;2.1: <span class="math inline">\(x_1\)</span>のヒストグラム</figcaption></figure>
+</div>
+</div>
+</div>
+<p>図 (figure) のラベルは、必ず<code>fig-</code>から始まるようにする。上の例では、<code>fig-hist-x1</code>がラベルである。ラベルを付けておくと、文章中でその図に言及する際、「<code>@fig-hist-x1</code>は〜」と書くと、「<a href="#fig-hist-x1">図&nbsp;<span>2.1</span></a> は〜」のように表示される。この番号は自動で付される。</p>
+<p>試しにもう1つ図を作って表示してみよう。まずは、図を作る。</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">D</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x2</span>, y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>         y <span class="op">=</span> <span class="st">"確率密度"</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>この図を、以下のコードで表示する。</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 5</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "$x_2$のヒストグラム"</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-hist-x2</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p2)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>以下の結果が得られる。</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-hist-x2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="how2quarto_files/figure-html/fig-hist-x2-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">図&nbsp;2.2: <span class="math inline">\(x_2\)</span>のヒストグラム</figcaption></figure>
+</div>
+</div>
+</div>
+<p>「<code>@fig-hist-x2</code> は<span class="math inline">\(x_2\)</span>のヒストグラムである」と書けば、「<a href="#fig-hist-x2">図&nbsp;<span>2.2</span></a> は<span class="math inline">\(x_2\)</span>のヒストグラムである」というように、自動的に正しい図番号が示される。</p>
+<p>表についても、図と同様にラベルをつけて、自動的に番号を付すことができる。 Markdown での表は、次のようにして作ることができる。</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>| 列1      | 列2      | 列3      |</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>| :-----   | :-----:  | -----:   |</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>| $x_{11}$ | $x_{12}$ | $x_{13}$ |</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>| $x_{21}$ | $x_{22}$ | $x_{23}$ |</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>: Markdown で表を作る例 {#tbl-mdtable1 .striped}</span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-mdtable1" class="anchored">
+<table class="table-striped table">
+<caption>表&nbsp;2.1: Markdown で表を作る例</caption>
+<thead><tr class="header">
+<th style="text-align: left;">列1</th>
+<th style="text-align: center;">列2</th>
+<th style="text-align: right;">列3</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(x_{11}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x_{12}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(x_{13}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(x_{21}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(x_{22}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(x_{23}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><code>:---</code> の列は左揃え、<code>:---:</code> は中央揃え、<code>---:</code> は右揃えである。表の下の <code>:</code> の後に表 (table) のキャプションをつけることができる。その後の<code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code>の中に<code>#tbl-</code> から始まるラベルをつけることができる。<code>.striped</code> はオプションで、これをつけると表の背景の色が、白とグレーが交互に現れるストライプになる。</p>
+<p>「<code>@tbl-mdtable1</code> は Markdownで表を作る例である」と書くと、「<a href="#tbl-mdtable1">表&nbsp;<span>2.1</span></a> は Markdownで表を作る例である」と表示される。</p>
+<p>Rのコードで表を作ることもできる。 例えば、</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Rで表を作る例"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-Rtable</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>D <span class="sc">|&gt;</span> </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>と書くと、以下のようになる。</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-Rtable" class="anchored">
+<table class="table table-sm table-striped small">
+<caption>表&nbsp;2.2: Rで表を作る例</caption>
+<thead><tr class="header">
+<th style="text-align: right;">x1</th>
+<th style="text-align: right;">x2</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">-1.5865369</td>
+<td style="text-align: right;">-13.281264</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1.0289901</td>
+<td style="text-align: right;">-10.869058</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.2572372</td>
+<td style="text-align: right;">-10.479346</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1.3799192</td>
+<td style="text-align: right;">-8.612718</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">-0.9863852</td>
+<td style="text-align: right;">-8.572604</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">-0.1065776</td>
+<td style="text-align: right;">-10.507123</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>先程と同様、「<code>@tbl-Rtable</code> はRで表を作る例である」と書くと、「<a href="#tbl-Rtable">表&nbsp;<span>2.2</span></a> は Rで表を作る例である」と表示される。</p>
+<p>Rコードでの表の作り方については、必要になったときにもう少し詳しく説明する。</p>
 
 
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -470,9 +1064,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span>
       </a>          
@@ -484,8 +1076,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -495,7 +1086,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-
 
 
 </body></html>

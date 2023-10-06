@@ -23,7 +23,7 @@
 一般公開用のスライドでは一部の情報がカットされているので、正規受講生（単位を取得したい者）は [KUTLMS]https://lms.kochi-tech.ac.jp/course/view.php?id=2797) で完全版を入手すること
 :::
 
--   [KUTLMS]https://lms.kochi-tech.ac.jp/course/view.php?id=2797)
+-   [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=2797)
     -   登録キーはポータルで通知する
 -   [授業用のSlackグループ](https://kut-stat1-2023.slack.com)
     -   [登録](https://join.slack.com/t/kut-stat1-2023/signup%7D) には大学ドメインのメールアドレスが必要
@@ -48,7 +48,6 @@
 | トピック                          | ウェブ資料                                                               |
 |:-----------------------------------|:-----------------------------------|
 | 1\. イントロダクション             |                                    |
-
 | 2\. Quarto によるレポート作成 | 作成中 |
 | 3\. シミュレーション              | [乱数生成](rng.html)                                                     |
 |                                   | [中心極限定理](clt.html)                                                 |

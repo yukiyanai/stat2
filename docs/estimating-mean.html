@@ -264,2372 +264,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">9.1</span> 準備</h2>
 <p>必要なパッケージを読み込む。</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>次に、日本語が正しく表示されるようにする。</p>
-<div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## 図のなかで日本語を使えるようにする</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## 図のなかで日本語を使えるようにする</span></span>
 <span><span class="co">## フォントの設定はお好みで</span></span>
 <span><span class="co">## （Unix/Linux ではIPAexフォントのインストールが必要かも）</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 7 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 7 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 8 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 8 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 8 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 8 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 8 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 8 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 10 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 10 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 10 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 14 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 14 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 14 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 10 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 10 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 10 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 16 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 16 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 16 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 8 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 8 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 8 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 7 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 7 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 7 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 7 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 7 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 12 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 12 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 9 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 9 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 5 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 5 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 8 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 8 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 8 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 16 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 16 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 16 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 10 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 10 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 10 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 6 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 6 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 4 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 4 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 2 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 2 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in width == "normal" &amp;&amp; weight == "normal": 'length(x) = 3 &gt; 1' in
-coercion to 'logical(1)'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'
-
-Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
-'logical(1)'</code></pre>
-</div>
-<div class="sourceCode" id="cb431"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> <span class="co"># Windows</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> <span class="co"># Windows</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span></span>
 <span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Yu Gothic"</span></span>
 <span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/capabilities.html">capabilities</a></span><span class="op">(</span><span class="st">"aqua"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> <span class="co"># macOS</span></span>
-<span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Hiragino Sans"</span></span>
+<span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"HiraginoSans-W3"</span></span>
 <span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span> <span class="co"># Unix/Linux</span></span>
 <span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"IPAexGothic"</span></span>
 <span><span class="op">}</span></span>
@@ -2640,11 +284,11 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <span class="header-section-number">9.2</span> 母集団を定義する</h2>
 <p>成人男性の身長に興味があるとする。母集団の人口を100万、母平均を約170cm、母標準偏差を約6cm に設定する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb432"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e6</span>, mean <span class="op">=</span> <span class="fl">170</span>, sd <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e6</span>, mean <span class="op">=</span> <span class="fl">170</span>, sd <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>母集団の身長分布は以下のようになる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb433"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pop_height</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, </span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pop_height</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, </span>
 <span>                     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">pop</span>, </span>
 <span>                         y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">density</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -2653,19 +297,19 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <span>       title <span class="op">=</span> <span class="st">"母集団の分布"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pop_height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="estimating-mean_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="480"></p>
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>この母集団における身長の母平均は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb434"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 170.0008</code></pre>
 </div>
 </div>
 <p>であり、母標準偏差は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb436"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6.001557</code></pre>
 </div>
@@ -2678,14 +322,14 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <p>100万人の母集団全員を調べるのではなく、100人だけ標本として抽出し、その標本を利用して母平均を推定してみよう。</p>
 <p>標本サイズ100の標本を1つ抽出する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb438"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">100</span>  <span class="co"># 標本サイズ</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">100</span>  <span class="co"># 標本サイズ</span></span>
 <span><span class="va">sample_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="点推定-point-estimation" class="level4" data-number="9.3.1.1"><h4 data-number="9.3.1.1" class="anchored" data-anchor-id="点推定-point-estimation">
 <span class="header-section-number">9.3.1.1</span> 点推定 (point estimation)</h4>
 <p>標本平均を計算する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb439"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 169.3795</code></pre>
 </div>
@@ -2700,14 +344,14 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <p>また、<span class="math inline">\(Q\)</span>（と<span class="math inline">\(-Q\)</span>） は、どのような信頼区間を求めたいかによって変わる。 例えば、95％信頼区間を求めたいときは、<span class="math inline">\(Q = 1.96\)</span> を使う。</p>
 <p>特定の信頼度（信頼度に何パーセントを使うか）に対するQの求め方は次の通りである。 まず、100%から信頼度を引く。95%の場合 <span class="math inline">\(1 - 0.95 = 0.05\)</span> である。次に、その値を2で割る。 95%の場合、<span class="math inline">\(0.05/2= 0.025\)</span> である。この値を <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> 関数に当てはめる。ただし、<code>lower.tail = FALSE</code> を指定する（指定しない場合は<span class="math inline">\(-Q\)</span> が出てくるので、それを利用してもよい）。</p>
 <div class="cell">
-<div class="sourceCode" id="cb441"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">Q_95</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, lower.tail<span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">Q_95</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, lower.tail<span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.959964</code></pre>
 </div>
 </div>
 <p>小数第2位までで丸めると、</p>
 <div class="cell">
-<div class="sourceCode" id="cb443"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Q_95</span>, digit <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">Q_95</span>, digit <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.96</code></pre>
 </div>
@@ -2715,7 +359,7 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <p>である。</p>
 <p>87%信頼区間を使いたいときは、</p>
 <div class="cell">
-<div class="sourceCode" id="cb445"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">Q_87</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">0.87</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">Q_87</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">0.87</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.514102</code></pre>
 </div>
@@ -2723,28 +367,28 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <p>を使う。</p>
 <p>次に、SE（標準誤差）を求めよう。 そのためにまず、標本の分散（不偏分散, unbiased variance）を計算する。身長を <span class="math inline">\(h\)</span>とすると、身長の不偏分散 Var(<span class="math inline">\(h\)</span>) は <span class="math display">\[\mathrm{Var}(h) = \frac{\sum_{i=1}^n (h_i - \bar{h})^2}{N - 1}\]</span> と定義される。これは、<code><a href="https://rdrr.io/r/stats/cor.html">var()</a></code> で計算できる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb447"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">var_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">var_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 37.35728</code></pre>
 </div>
 </div>
 <p>この平方根が不偏分散の平方根である。</p>
 <div class="cell">
-<div class="sourceCode" id="cb449"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">sd_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">var_1</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">sd_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">var_1</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6.11206</code></pre>
 </div>
 </div>
 <p>この値は<code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> で直接求められる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb451"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6.11206</code></pre>
 </div>
 </div>
 <p>母分散（母集団の分散）または母標準偏差（母集団の標準偏差）を知らないときは、ここで計算した標本から得られる値を推定値として使う。ここでは、標本の標準偏差（不偏分散の平方根）を母標準偏差の推定値として使おう。 すると、このサンプルから推定されるSEは、</p>
 <div class="cell">
-<div class="sourceCode" id="cb453"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">SE_1</span> <span class="op">&lt;-</span> <span class="va">sd_1</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">SE_1</span> <span class="op">&lt;-</span> <span class="va">sd_1</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.611206</code></pre>
 </div>
@@ -2752,14 +396,14 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <p>となる。</p>
 <p>以上から、95%信頼区間の下限は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb455"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">lb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span> <span class="op">-</span> <span class="va">Q_95</span> <span class="op">*</span> <span class="va">SE_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">lb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span> <span class="op">-</span> <span class="va">Q_95</span> <span class="op">*</span> <span class="va">SE_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 168.1816</code></pre>
 </div>
 </div>
 <p>上限は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb457"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">ub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span> <span class="op">+</span> <span class="va">Q_95</span> <span class="op">*</span> <span class="va">SE_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">ub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span> <span class="op">+</span> <span class="va">Q_95</span> <span class="op">*</span> <span class="va">SE_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 170.5775</code></pre>
 </div>
@@ -2769,7 +413,7 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <span class="header-section-number">9.3.2</span> 信頼区間を求める関数を作る</h3>
 <p>上で説明した方法で信頼区間を求められるが、以上の内容を標本を抽出し直す度に実行するのは面倒なので、信頼区間 (confidence intervals) を求める関数を作ってしまおう。信頼度は引数を指定して選べるようにする。</p>
 <div class="cell">
-<div class="sourceCode" id="cb459"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">get_confint</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">level</span> <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">get_confint</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">level</span> <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co">## 標準正規分布を利用して信頼区間を求める関数</span></span>
 <span>  <span class="co">## 引数：x = 推定に使う標本（サンプル）</span></span>
 <span>  <span class="co">##       level = 信頼度。既定値（デフォルト）は 0.95</span></span>
@@ -2787,7 +431,7 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 </div>
 <p>先ほどのサンプルを使い、この関数が意図した通りに動くか確認しよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb460"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   estimate lower bound upper bound 
      169.38      168.18      170.58 </code></pre>
@@ -2796,7 +440,7 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <p>上で求めたのものと同じ結果が得られた。</p>
 <p>この関数を使って50%信頼区間を求めるには、</p>
 <div class="cell">
-<div class="sourceCode" id="cb462"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span>, level <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span>, level <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   estimate lower bound upper bound 
      169.38      168.97      169.79 </code></pre>
@@ -2805,7 +449,7 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <p>とする。</p>
 <p>87%信頼区間は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb464"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span>, level <span class="op">=</span> <span class="fl">0.87</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_1</span>, level <span class="op">=</span> <span class="fl">0.87</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   estimate lower bound upper bound 
      169.38      168.45      170.30 </code></pre>
@@ -2817,10 +461,10 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <span class="header-section-number">9.3.3</span> 標本2</h3>
 <p>先ほどとは別の標本（サイズは同じ）を抽出して、母平均を推定してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb466"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb467"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   estimate lower bound upper bound 
      169.41      168.22      170.59 </code></pre>
@@ -2832,10 +476,10 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <span class="header-section-number">9.3.4</span> 標本3</h3>
 <p>もう1度やってみよう。 先ほどとは別の標本（サイズは同じ）を抽出して、母平均を推定してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb469"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb470"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">get_confint</span><span class="op">(</span><span class="va">sample_3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   estimate lower bound upper bound 
      169.65      168.44      170.86 </code></pre>
@@ -2846,26 +490,26 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <p>標本抽出を何度も繰り返し、推定（の誤差）がどのようにばらつくか確認してみよう。</p>
 <p>まず、シミュレーションの繰り返し回数を決める。1万回にしてみよう。（コンピュータの性能があまり良くない場合は、この回数を少し小さめ [例えば <code>1e3</code>]　にしたほうがいいかもしれない）。</p>
 <div class="cell">
-<div class="sourceCode" id="cb472"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>結果を保存する容器を用意する。今回は、1回ごとに保存する値が3つあるので、1万行 <span class="math inline">\(\times\)</span> 3列の行列 (matrix) を用意する。行 (row) の数は <code>nrow</code>、列 (column) の数は <code>ncol</code> で指定する。いつものシミュレーションと同じように、とりあえず <code>NA</code> を入れておく。</p>
 <div class="cell">
-<div class="sourceCode" id="cb473"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_sim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, nrow <span class="op">=</span> <span class="va">n_sims</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_sim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA</span>, nrow <span class="op">=</span> <span class="va">n_sims</span>, ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>行列の中身をわかりやすくするために、3つの列に名前をつけておこう。名前は、<code>est</code>（estimate, 推定値）、<code>lb</code>（lower bound, 95％信頼区間の下限値)、<code>ub</code> (upper bound, 95％信頼区間の上限値）にする。</p>
 <div class="cell">
-<div class="sourceCode" id="cb474"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">res_sim</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"est"</span>, <span class="st">"lb"</span>, <span class="st">"ub"</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">res_sim</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"est"</span>, <span class="st">"lb"</span>, <span class="st">"ub"</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>準備ができたので、<code>for</code>ループでシミュレーションを行う。結果を <code>res_sim</code> の <span class="math inline">\(i\)</span> 行目に保存するために、<code>res_sim[i, ]</code> で <span class="math inline">\(i\)</span>行目を指定する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb475"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">smpl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span>  <span class="va">res_sim</span><span class="op">[</span><span class="va">i</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">get_confint</span><span class="op">(</span><span class="va">smpl</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>まず、最初の5つの結果を確認してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb476"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_sim</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_sim</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        est     lb     ub
 [1,] 169.15 167.90 170.39
@@ -2880,11 +524,11 @@ Warning in style == "italic" || italic: 'length(x) = 3 &gt; 1' in coercion to
 <span class="header-section-number">9.4.1</span> 不偏性を確認する</h3>
 <p>上で実行したシミュレーションの結果を利用して、点推定値のヒストグラムを作ってみよう。点推定値は <code>res_sim</code> の1列目に保存されている。 ggplotで図を描くために、行列をデータフレームに変換しよう。<code><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble()</a></code> で変換できる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb478"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_sim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">res_sim</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_sim</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">res_sim</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>中身を確認してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb479"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 10,000
 Columns: 3
@@ -2895,11 +539,11 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 </div>
 <p>このように、行列 <code>res_sim</code> の列名を変数名とするデータフレームができた。あとで使うために、シミュレーションid を通し番号で追加しておく。</p>
 <div class="cell">
-<div class="sourceCode" id="cb481"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_sim</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_sim</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>シミュレーションで得られた点推定値の分布をヒストグラムで確認してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb482"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h_est</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">est</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h_est</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df_sim</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">est</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, </span>
 <span>                 fill <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>, </span>
@@ -2912,16 +556,16 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="estimating-mean_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="480"></p>
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>これらの標本平均の平均は母平均に一致するというのが「不偏性」である。確かめてみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb484"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">$</span><span class="va">est</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">df_sim</span><span class="op">$</span><span class="va">est</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 170.0055</code></pre>
 </div>
-<div class="sourceCode" id="cb486"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 170.0008</code></pre>
 </div>
@@ -2932,7 +576,7 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 <p>95%信頼区間とは何だろうか。</p>
 <p>1つの信頼区間を取り出してみる。ここでは、79番目の信頼区間を取り出す。79番目にした理由は特にない。</p>
 <div class="cell">
-<div class="sourceCode" id="cb488"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_sim</span><span class="op">[</span><span class="fl">79</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_sim</span><span class="op">[</span><span class="fl">79</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    lb     ub 
 167.53 170.28 </code></pre>
@@ -2941,7 +585,7 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 <p>この信頼区間に、真の母平均170.0007993 は含まれているだろうか。母数が区間内にあれば、<strong>この</strong>95％信頼区間が母数（パラメタ）を区間内に捉えている確率は1 (100%) である。反対に、母数がこの区間内になければ、<strong>この</strong>95％信頼区間が母数（パラメタ）を区間内に捉えている確率は0である。</p>
 <p>別の信頼区間を取り出してみる。ここでは、5番目の信頼区間を取り出す。5番目を選んだ理由は特にない。</p>
 <div class="cell">
-<div class="sourceCode" id="cb490"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_sim</span><span class="op">[</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_sim</span><span class="op">[</span><span class="fl">5</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    lb     ub 
 168.67 170.95 </code></pre>
@@ -2955,18 +599,18 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 </ul>
 <p>上の2つの条件を<strong>両方とも</strong>満たすとき、信頼区間が母数を捉えているといえる。今回のように、2つの以上の条件があるときは、<code>&amp;</code> で条件を並べる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb492"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">caught</span> <span class="op">&lt;-</span> <span class="va">res_sim</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">res_sim</span><span class="op">[</span>, <span class="fl">3</span><span class="op">]</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">caught</span> <span class="op">&lt;-</span> <span class="va">res_sim</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">res_sim</span><span class="op">[</span>, <span class="fl">3</span><span class="op">]</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>条件を2つとも満たす場合は <code>TRUE</code>, そうでない（1つでも条件に合わない）場合は <code>FALSE</code> になる。最初の5つ分だけ確認してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb493"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">caught</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">caught</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
 </div>
 <p>母数を捉えた区間の数は <code>TRUE</code> の個数なので、</p>
 <div class="cell">
-<div class="sourceCode" id="cb495"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">caught</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">caught</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9481</code></pre>
 </div>
@@ -2975,11 +619,11 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 <p>理解を深めるために、信頼区間を図示してみよう。 シミュレーションで得た1万個の信頼区間から、50個だけ無作為に選び、選んだ50個の信頼区間を図示してみよう。</p>
 <p>まず、無作為に50個の結果を選ぶ。データフレームから無作為に行を選びたいときは、<strong>dplyr</strong> パッケージ（<strong>tidyverse</strong> に含まれる）の <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample()</a></code> を使う。</p>
 <div class="cell">
-<div class="sourceCode" id="cb497"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rdm_50</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span><span class="va">df_sim</span>, n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rdm_50</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_sample</a></span><span class="op">(</span><span class="va">df_sim</span>, n <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>選ばれた信頼区間を図示する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb498"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ci1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, </span>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ci1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, </span>
 <span>              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">id</span><span class="op">)</span>, </span>
 <span>                  y <span class="op">=</span> <span class="va">est</span>, </span>
 <span>                  ymin <span class="op">=</span> <span class="va">lb</span>, </span>
@@ -2990,12 +634,12 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># x軸とy軸を入れ替える</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ci1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="estimating-mean_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="480"></p>
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>結果を見やすくするため、点推定値の大きで並べ替えてみよう。並べ替えは、<code><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder()</a></code> で行う。 点推定値 (est) が小さい順に並べ替えよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb499"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ci2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">est</span><span class="op">)</span><span class="op">)</span>, </span>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ci2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">est</span><span class="op">)</span><span class="op">)</span>, </span>
 <span>                          y <span class="op">=</span> <span class="va">est</span>, </span>
 <span>                          ymin <span class="op">=</span> <span class="va">lb</span>,</span>
 <span>                          ymax <span class="op">=</span> <span class="va">ub</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -3008,17 +652,17 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># x軸とy軸を入れ替える</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ci2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="estimating-mean_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="480"></p>
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>95％信頼区間が青い点線の位置を区間内に含めば、その信頼区間は母数を捉えている。反対に、95％信頼区間が青い点線と交わっていないとき、その信頼区間は母数を捉え損ねている。母数を捉え損ねた区間に色をつけてみよう。</p>
 <p>まず、先ほどと同じ条件を使い、母数を捉えているかどうかを調べる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb500"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rdm_50</span><span class="op">$</span><span class="va">caught</span> <span class="op">&lt;-</span> <span class="va">rdm_50</span><span class="op">$</span><span class="va">lb</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">rdm_50</span><span class="op">$</span><span class="va">ub</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rdm_50</span><span class="op">$</span><span class="va">caught</span> <span class="op">&lt;-</span> <span class="va">rdm_50</span><span class="op">$</span><span class="va">lb</span> <span class="op">&lt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">rdm_50</span><span class="op">$</span><span class="va">ub</span> <span class="op">&gt;=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>myd$caught</code> が <code>TRUE</code> の場合と<code>FALSE</code>の場合で線の色と点推定値の形を区別する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb501"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ci3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">est</span><span class="op">)</span><span class="op">)</span>, </span>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ci3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">rdm_50</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">est</span><span class="op">)</span><span class="op">)</span>, </span>
 <span>                          y <span class="op">=</span> <span class="va">est</span>,</span>
 <span>                          ymin <span class="op">=</span> <span class="va">lb</span>, </span>
 <span>                          ymax <span class="op">=</span> <span class="va">ub</span>, </span>
@@ -3038,7 +682,7 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>  <span class="co"># x軸とy軸を入れ替える</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ci3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="estimating-mean_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="768"></p>
+<p><img src="estimating-mean_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <p>50個の95％信頼区間のうち、2個（2/50 = 0.04）の信頼区間が母数を捉え損ねている。 言い換えると、96％（約95％）の信頼区間が母数を捉えることに成功している。 これが95%信頼区間の「95%」の意味である。</p>

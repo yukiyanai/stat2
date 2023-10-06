@@ -12,11 +12,15 @@
 ```{r}
 #| message: false
 library(tidyverse)
-library(fontregisterer)
+
+## 図のなかで日本語を使えるようにする
+## フォントの設定はお好みで
+## （Unix/Linux ではIPAexフォントのインストールが必要かも）
 if (.Platform$OS.type == "windows") { # Windows
+  library(fontregisterer)
   my_font <- "Yu Gothic"
 } else if (capabilities("aqua")) { # macOS
-  my_font <- "Hiragino Sans"
+  my_font <- "HiraginoSans-W3"
 } else { # Unix/Linux
   my_font <- "IPAexGothic"
 }
@@ -497,7 +501,7 @@ get_ci <- function(x, level = 0.95) {
 この関数を使ってみよう。標本1 (smpl_1) から得られる母平均の95%信頼区間は、
 
 ```{r}
-#|  message: TRUE
+#|  message: true
 get_ci(smpl_1)
 ```
 
