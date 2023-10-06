@@ -222,6 +222,7 @@ $$
 | `\sum` | $\sum$ | $\sum (x_i - \mu)^2$ |
 | `\sum_{n = 1}^{N}` | $\displaystyle \sum_{n = 1}^{N}$ | $\displaystyle \sum_{n = 1}^{N} (x_n - \bar{x})^2$ |
 | `\prod` | $\prod$ | $\displaystyle \prod_{n=1}^N x_n$ |
+| `\sqrt{a}` | $\sqrt{a}$ | $\sqrt{xyz}$
 | `\exp(.)` | $\exp(.)$ | $\exp(-\lambda)$ |
 | `\log(.)`  | $\log(.)$ | $\log(2a)$|
 | `\partial` | $\partial$ | $\displaystyle \frac{\partial f(x, y)}{\partial x}$ |
@@ -263,7 +264,7 @@ $$
 
 - コードの1文字目を大文字にする
     - 例）$\delta$の大文字$\Delta$ は `\Delta`
-    - 例）$\phi$の大文字$\Phi$ は `\phi`
+    - 例）$\phi$の大文字$\Phi$ は `\Phi`
 - アルファベットの大文字をそのまま使う。
     - 例）$\alpha$の大文字Aは`A`
     - 例）$\beta$の大文字Bは`B`
