@@ -12,7 +12,6 @@
 ```{r}
 #| message: false
 library(tidyverse)
-
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
@@ -78,7 +77,7 @@ sim_1 <- rep(NA, n_sims)
 シミュレーションを実行する準備が整ったので、`for`ループでシミュレーションを実行する（`for`ループ以外で実行する方法を知っている者は、その方法を利用してよい）。
 
 ```{r}
-for (i in 1 : n_sims) {
+for (i in 1:n_sims) {
   h <- rnorm(N, mean = mu, sd = sigma)
   sim_1[i] <- mean(h)
 }
@@ -119,7 +118,7 @@ mean(sim_1) # 標本平均の平均値
 sd(sim_1)   # 標本平均の標準偏差 = 標準誤差
 ```
 
-このように、標本平均の平均値は母平均とほぼ同じであり、標本平均の標準偏差（これを平均値の**標準誤差 (standard errors: SE)** と呼ぶ）は、母標準偏差とほぼ同じである。
+このように、標本平均の平均値は母平均とほぼ同じであり、標本平均の標準偏差（これを平均値の**標準誤差 (standard errors; SE)** と呼ぶ）は、母標準偏差とほぼ同じである。
 
 ### 標本サイズ ($N$) が2のとき {#sec-n2}
 
@@ -133,7 +132,7 @@ N <- 2
 
 ```{r}
 sim_2 <- rep(NA, n_sims) 
-for (i in 1 : n_sims) {
+for (i in 1:n_sims) {
   h <- rnorm(N, mean = mu, sd = sigma)
   sim_2[i] <- mean(h)  # sim_2 を使う
 }
@@ -194,7 +193,7 @@ N <- 10
 
 ```{r}
 sim_3 <- rep(NA, n_sims) 
-for (i in 1 : n_sims) {
+for (i in 1:n_sims) {
   h <- rnorm(N, mean = mu, sd = sigma)
   sim_3[i] <- mean(h)  # sim_3 を使う
 }

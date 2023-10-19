@@ -313,21 +313,21 @@ female   male
 <div class="cell-output cell-output-stdout">
 <pre><code>sample_1
 female   male 
-  0.51   0.49 </code></pre>
+   0.4    0.6 </code></pre>
 </div>
 </div>
 <p>この比率は標本（サンプル）の比率なので、標本比率と呼ばれる。 女性比率だけを調べる（女性比率がわかれば男性比率もわかるので）には、</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">sample_1</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span> <span class="op">/</span> <span class="va">N</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.51</code></pre>
+<pre><code>[1] 0.4</code></pre>
 </div>
 </div>
 <p>または、</p>
 <div class="cell">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_1</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.51</code></pre>
+<pre><code>[1] 0.4</code></pre>
 </div>
 </div>
 <p>とすればよい。</p>
@@ -336,7 +336,7 @@ female   male
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_2</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.42</code></pre>
+<pre><code>[1] 0.49</code></pre>
 </div>
 </div>
 <p>もう一度、別の100人で調べてみよう（先ほどと同じ人物が選ばれる可能性はある）。</p>
@@ -344,10 +344,10 @@ female   male
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_3</span> <span class="op">==</span> <span class="st">"female"</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.44</code></pre>
+<pre><code>[1] 0.53</code></pre>
 </div>
 </div>
-<p>このように、毎回異なる標本比率が得られる。標本から得られる統計量は、母数（この例題の場合は母比率）と必ずしも一致しないし、同じ方法を何度も繰り返すと異なる値が得られる。</p>
+<p>このように、毎回異なる標本が抽出され、その結果として異なる標本比率が得られる。標本から得られる統計量は、母数（この例題の場合は母比率）と必ずしも一致しないし、同じ方法を何度も繰り返すと異なる値が得られる。</p>
 <p>1万人から100人を選ぶ方法は <span class="math inline">\(6.5 \times 10^{241}\)</span> 通りあるので、全部の組み合わせを調べるのは不可能である。そこで、Rを使って10,000通りだけ調べてみよう。</p>
 <p>まず、1万個の結果（女性の標本比率）を保存する容器（ベクトル, vector）を用意する。</p>
 <div class="cell">
@@ -386,7 +386,7 @@ Tip
 <div class="cell">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_1</span><span class="op">[</span><span class="fl">1</span> <span class="op">:</span> <span class="fl">10</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.53 0.37 0.43 0.45 0.58 0.51 0.53 0.52 0.48 0.46</code></pre>
+<pre><code> [1] 0.45 0.51 0.43 0.44 0.49 0.43 0.47 0.47 0.44 0.48</code></pre>
 </div>
 </div>
 <p>さきほどは <code>NA</code> だったところに数値（標本比率）が保存されたことがわかる。</p>
@@ -399,14 +399,10 @@ Tip
 <span>                 fill <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0.46</span>, </span>
 <span>             color <span class="op">=</span> <span class="st">"red"</span>, </span>
-<span>             size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>             linewidth <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"女性の標本比率"</span>, </span>
-<span>       y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>       y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">hist1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="pop-n-sample_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="480"></p>
 </div>
@@ -415,17 +411,17 @@ Tip
 <p>このヒストグラムからわかる通り、統計量は分布する（つまり、標本ごとにばらばらの値をとる）。このような標本ごとの分布を <strong>標本分布 (sampling distribution)</strong> と呼ぶ（標本分布については、次のトピックで説明する）。</p>
 </section><section id="sec-se1" class="level3" data-number="6.2.3"><h3 data-number="6.2.3" class="anchored" data-anchor-id="sec-se1">
 <span class="header-section-number">6.2.3</span> 標準誤差 (standard error; SE)</h3>
-<p>標準誤差は、標本分布に現れる標準偏差（統計量のばらつき）なので、このシミュレーションで得られる標準誤差は、</p>
+<p>標本分布に現れる標準偏差（統計量のばらつき）を<strong>標準誤差 (standard error; SE)</strong> という。このシミュレーションで得られる標準誤差は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">res_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">res_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.04990179</code></pre>
+<pre><code>[1] 0.05047791</code></pre>
 </div>
 </div>
 <p>である。</p>
 <p>詳しくは次のトピックで説明するが、理論的には <span class="math display">\[\mbox{SE} = \frac{母標準偏差}{\sqrt{標本サイズ}}\]</span> なので、</p>
 <div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pi</span> <span class="op">&lt;-</span> <span class="fl">0.46</span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pi</span> <span class="op">&lt;-</span> <span class="fl">0.46</span></span>
 <span><span class="va">pop_sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">pi</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">pi</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">pop_sd</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -435,7 +431,7 @@ Tip
 <p>になるはずであるが、シミュレーションなので実行する度に値が変わり、理論値に近づいたり離れたりする。</p>
 </section></section><section id="sec-ex10" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="sec-ex10">
 <span class="header-section-number">6.3</span> 実習課題</h2>
-<p>標本サイズ <span class="math inline">\(N\)</span> の値を変えて (N = 25, N = 400)、同様のシミュレーションを実行してみよう。</p>
+<p>標本サイズ <span class="math inline">\(N\)</span> の値を変えて (<span class="math inline">\(N = 25\)</span>, <span class="math inline">\(N = 400\)</span> で)、同様のシミュレーションを実行してみよう。</p>
 <ul>
 <li>ヒストグラムはどのように変化するだろうか。</li>
 <li>標準誤差はどのように変化するだろうか。</li>

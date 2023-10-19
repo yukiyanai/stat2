@@ -317,7 +317,7 @@ Note
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smp_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.03804671</code></pre>
+<pre><code>[1] -0.2705114</code></pre>
 </div>
 </div>
 <p>である。 この標本平均は0ではない。つまり <span class="math inline">\(\bar{x} \neq 0\)</span> であるが、ここから、<span class="math inline">\(\mu \neq 0\)</span>と言えるだろうか？</p>
@@ -331,21 +331,21 @@ Note
     One Sample t-test
 
 data:  smp_1
-t = -0.23175, df = 19, p-value = 0.8192
+t = -1.5156, df = 19, p-value = 0.1461
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
- -0.3816664  0.3055730
+ -0.6440741  0.1030514
 sample estimates:
-  mean of x 
--0.03804671 </code></pre>
+ mean of x 
+-0.2705114 </code></pre>
 </div>
 </div>
 <p>この結果の読み方を説明しよう。まず、<code>data: smp_1</code> というところに、検定に利用した標本が示される。次の行を見ると、検定統計量 <span class="math inline">\(T\)</span> の値が <code>t =</code> で 示された後、自由度 (df) と<span class="math inline">\(p\)</span> 値 (p-value) が表示される（<span class="math inline">\(p\)</span>値については「計量経済学」の講義で説明する [説明しないかもしれないが、<span class="math inline">\(p\)</span> 値は使わない方針なので問題ない]）。検定統計量の絶対値 <span class="math inline">\(|T|\)</span> が、自ら決めた有意水準における臨界値の絶対値 |<span class="math inline">\(c\)</span>| より大きいとき、帰無仮説を棄却する。検定統計量自体は、次のようにすれば取り出せる。</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_1</span><span class="op">$</span><span class="va">statistic</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>         t 
--0.2317465 </code></pre>
+<pre><code>       t 
+-1.51564 </code></pre>
 </div>
 </div>
 <p>また、自由度 <span class="math inline">\(N - 1\)</span> の <span class="math inline">\(t\)</span> 分布で、有意水準が5%のときに必要な臨界値は、</p>
@@ -429,7 +429,7 @@ Note
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_1
  alt null 
- 474 9526 </code></pre>
+ 515 9485 </code></pre>
 </div>
 </div>
 <p>割合を表示するために、シミュレーション回数で割ると、</p>
@@ -438,7 +438,7 @@ Note
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_1
    alt   null 
-0.0474 0.9526 </code></pre>
+0.0515 0.9485 </code></pre>
 </div>
 </div>
 <p>となる。 このように、対立仮説が約5%、帰無仮説が95%の検定で採用されている。</p>
@@ -450,7 +450,7 @@ Note
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_2
    alt   null 
-0.0079 0.9921 </code></pre>
+0.0091 0.9909 </code></pre>
 </div>
 </div>
 <p>第1種の誤り（null が正しいのに alt を採用）の割合は、約1%である。</p>
@@ -461,7 +461,7 @@ Note
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_3
    alt   null 
-0.1444 0.8556 </code></pre>
+0.1352 0.8648 </code></pre>
 </div>
 </div>
 <p>第1種の誤り（null が正しいのに alt を採用）の割合は、約14%になる。</p>
@@ -492,7 +492,7 @@ Y \sim \mbox{Normal}(\mu = 3, \sigma = 2)
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smp_2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.809925</code></pre>
+<pre><code>[1] 2.77461</code></pre>
 </div>
 </div>
 <p>である。 この標本平均は0ではない。つまり <span class="math inline">\(\bar{y} \neq 0\)</span> であるが、ここから、<span class="math inline">\(\mu \neq 0\)</span>と言えるだろうか？</p>
@@ -505,13 +505,13 @@ Y \sim \mbox{Normal}(\mu = 3, \sigma = 2)
     One Sample t-test
 
 data:  smp_2
-t = 10.198, df = 19, p-value = 3.834e-09
+t = 6.1844, df = 19, p-value = 6.083e-06
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
- 3.027988 4.591862
+ 1.835589 3.713632
 sample estimates:
 mean of x 
- 3.809925 </code></pre>
+  2.77461 </code></pre>
 </div>
 </div>
 <p>検定統計量 <span class="math inline">\(T\)</span> の値は、</p>
@@ -519,7 +519,7 @@ mean of x
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_2</span><span class="op">$</span><span class="va">statistic</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       t 
-10.19809 </code></pre>
+6.184443 </code></pre>
 </div>
 </div>
 <p>である。 また、自由度 <span class="math inline">\(N - 1\)</span> の <span class="math inline">\(t\)</span> 分布で、有意水準が5%のときに必要な臨界値は、</p>
@@ -568,7 +568,7 @@ mean of x
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_11</span><span class="op">[</span><span class="fl">1</span> <span class="op">:</span> <span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     t      t      t      t      t 
-"null"  "alt"  "alt"  "alt"  "alt" </code></pre>
+"null"  "alt"  "alt" "null"  "alt" </code></pre>
 </div>
 </div>
 <p>結果が保存されていることが確認できる。</p>
@@ -578,7 +578,7 @@ mean of x
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_11
    alt   null 
-0.8074 0.1926 </code></pre>
+0.8052 0.1948 </code></pre>
 </div>
 </div>
 <p>このように、対立仮説が約81%、帰無仮説が約19%の検定で採用されている。</p>
@@ -590,7 +590,7 @@ mean of x
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_12
    alt   null 
-0.5596 0.4404 </code></pre>
+0.5567 0.4433 </code></pre>
 </div>
 </div>
 <p>第2種の誤り（<s>null が正しいのに alt を採用</s> <strong>alt が正しいのに null を採用</strong>）の割合は、約44%である。有意水準を小さくしたところ、第2種の誤りの割合が大きくなった。</p>
@@ -601,7 +601,7 @@ mean of x
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_13
    alt   null 
-0.8918 0.1082 </code></pre>
+0.8859 0.1141 </code></pre>
 </div>
 </div>
 <p>第2種の誤り（null が正しいのに alt を採用）の割合は、約11%である。有意水準を大きくしたところ、第2種の誤りの割合が小さくなった。</p>
@@ -615,7 +615,7 @@ mean of x
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_14
    alt   null 
-0.4697 0.5303 </code></pre>
+0.4657 0.5343 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 20\)</span> のとき。</p>
@@ -625,7 +625,7 @@ mean of x
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_15
    alt   null 
-0.8043 0.1957 </code></pre>
+0.8088 0.1912 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 50\)</span> のとき。</p>
@@ -635,7 +635,7 @@ mean of x
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_16
    alt   null 
-0.9968 0.0032 </code></pre>
+0.9966 0.0034 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 100\)</span> のとき。</p>

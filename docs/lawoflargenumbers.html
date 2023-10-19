@@ -294,16 +294,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>準備ができたので、<code>n_flips</code>回コイン投げを行い、それぞれのコイン投げが終わった時点での表の比率を計算する。</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">coins_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="va">n_flips</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_flips</span><span class="op">)</span> <span class="op">{</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_flips</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">n_head</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">coins_1</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">i</span><span class="op">]</span> <span class="op">==</span> <span class="st">"表"</span><span class="op">)</span> <span class="co"># i回目までに何回表が出たか数える</span></span>
 <span>  <span class="va">ratio_1</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">n_head</span> <span class="op">/</span> <span class="va">i</span>            <span class="co"># i回目までの表の比率を計算して記録する</span></span>
 <span><span class="op">}</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>これで、<code>ratio_1</code> に結果が記録された。確認のため、最初の5回分を表示してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ratio_1</span><span class="op">[</span><span class="fl">1</span> <span class="op">:</span> <span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ratio_1</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0000000 0.5000000 0.3333333 0.2500000 0.4000000</code></pre>
+<pre><code>[1] 1.0000000 0.5000000 0.6666667 0.5000000 0.6000000</code></pre>
 </div>
 </div>
 <p>結果を図示しよう。</p>

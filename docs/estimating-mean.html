@@ -502,7 +502,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>準備ができたので、<code>for</code>ループでシミュレーションを行う。結果を <code>res_sim</code> の <span class="math inline">\(i\)</span> 行目に保存するために、<code>res_sim[i, ]</code> で <span class="math inline">\(i\)</span>行目を指定する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_sims</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">smpl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">pop</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span>  <span class="va">res_sim</span><span class="op">[</span><span class="va">i</span>,<span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">get_confint</span><span class="op">(</span><span class="va">smpl</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -539,7 +539,7 @@ $ ub  &lt;dbl&gt; 170.39, 172.23, 171.05, 171.86, 170.95, 171.50, 170.76, 170.65
 </div>
 <p>このように、行列 <code>res_sim</code> の列名を変数名とするデータフレームができた。あとで使うために、シミュレーションid を通し番号で追加しておく。</p>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_sim</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="op">:</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_sim</span><span class="op">$</span><span class="va">id</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>シミュレーションで得られた点推定値の分布をヒストグラムで確認してみよう。</p>
 <div class="cell">

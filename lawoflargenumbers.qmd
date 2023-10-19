@@ -65,7 +65,7 @@ ratio_1 <- rep(NA, n_flips)
 
 ```{r}
 coins_1 <- sample(coin, size = n_flips, replace = TRUE)
-for (i in 1 : n_flips) {
+for (i in 1:n_flips) {
   n_head <- sum(coins_1[1:i] == "表") # i回目までに何回表が出たか数える
   ratio_1[i] <- n_head / i            # i回目までの表の比率を計算して記録する
 }
@@ -74,7 +74,7 @@ for (i in 1 : n_flips) {
 これで、`ratio_1` に結果が記録された。確認のため、最初の5回分を表示してみよう。
 
 ```{r}
-ratio_1[1 : 5]
+ratio_1[1:5]
 ```
 
 結果を図示しよう。

@@ -272,7 +272,7 @@ colnames(res_sim) <- c("est", "lb", "ub")
 準備ができたので、`for`ループでシミュレーションを行う。結果を `res_sim` の $i$ 行目に保存するために、`res_sim[i, ]` で $i$行目を指定する。
 
 ```{r}
-for (i in 1 : n_sims) {
+for (i in 1:n_sims) {
   smpl <- sample(pop, size = N, replace = FALSE)
   res_sim[i,] <- get_confint(smpl)
 }
@@ -302,7 +302,7 @@ glimpse(df_sim)
 このように、行列 `res_sim` の列名を変数名とするデータフレームができた。あとで使うために、シミュレーションid を通し番号で追加しておく。
 
 ```{r}
-df_sim$id <- 1 : n_sims
+df_sim$id <- 1:n_sims
 ```
 
 シミュレーションで得られた点推定値の分布をヒストグラムで確認してみよう。
