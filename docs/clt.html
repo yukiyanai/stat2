@@ -289,10 +289,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span><span class="va">exp_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">bag</span>, size <span class="op">=</span> <span class="fl">2</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>  <span class="co"># 復元抽出</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">exp_2</span><span class="op">)</span>   <span class="co"># 平均値を求める</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.5</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
 </div>
-<p>今回は、たまたま7.5になった。</p>
+<p>今回は、たまたま7になった。</p>
 <p>では、この実験を1,000回繰り返すと「それぞれの回での平均値の分布」はどんな形になるだろうか。実際にやってみよう。</p>
 <p>Rで同じ作業を繰り返し行う簡単な方法は、<code>for</code> ループを使うことである。<code>for</code> の直後の丸カッコで繰り返し回数を指定し、ループさせる内容を中括弧 <code><a href="https://rdrr.io/r/base/Paren.html">{ }</a></code> で囲む。 たとえば、0からスタートして「1を足す」という作業を5回繰り返すには、次のようにする。</p>
 <p>まず、スタート時の数である0を保存する。</p>
@@ -689,7 +689,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2022, Yuki Yanai</div>
+    <div class="nav-footer-center">Copyright 2022-2023, Yuki Yanai</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

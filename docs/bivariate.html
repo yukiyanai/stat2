@@ -341,7 +341,7 @@ $ faheight &lt;dbl&gt; 179.0, 166.4, 169.7, 171.5, 156.5, 163.1, 170.5, 173.8, 1
 <span class="header-section-number">13</span> 質的変数同士の関係を調べる</h1>
 <section id="質的変数" class="level2" data-number="13.1"><h2 data-number="13.1" class="anchored" data-anchor-id="質的変数">
 <span class="header-section-number">13.1</span> 質的変数</h2>
-<p><code>myd</code>（読み込んだデータセット） には、女性を表す <code>famale</code> 変数と、内閣に対する支持を表す <code>support</code> 変数がある。これらの変数では、数字自体には特に意味がない。このような変数は、質的変数 (qualitative variables) と呼ばれる。また、<code>female</code> のように、ある特性を備えているかどうかを0 と 1 で表現する変数を<strong>ダミー変数</strong> (dummy variable) と呼ぶ。<code>female</code> の場合、変数名が female（女性）なので、女性という特性をもっているかどうかを表している。その特性をもっていれば（つまり、女性は）1、もっていなければ（つまり男性は）0で表される。</p>
+<p><code>myd</code>（読み込んだデータセット） には、女性を表す <code>female</code> 変数と、内閣に対する支持を表す <code>support</code> 変数がある。これらの変数では、数字自体には特に意味がない。このような変数は、質的変数 (qualitative variables) と呼ばれる。また、<code>female</code> のように、ある特性を備えているかどうかを0 と 1 で表現する変数を<strong>ダミー変数</strong> (dummy variable) と呼ぶ。<code>female</code> の場合、変数名が female（女性）なので、女性という特性をもっているかどうかを表している。その特性をもっていれば（つまり、女性は）1、もっていなければ（つまり男性は）0で表される。</p>
 <p>データセットのうち、何人が女性で何人が男性かを調べるために、表を作ってみよう。表は <code><a href="https://rdrr.io/r/base/table.html">table()</a></code> で作れる。</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">female</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -381,7 +381,13 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>パイプ演算子を入力するためのショートカットは、 - <code>Cmd</code> + <code>Shift</code> + <code>M</code> (macOS) - <code>Control</code> + <code>Shift</code> + <code>M</code> (macOS and Windows) である。</p>
+<p>パイプ演算子を入力するためのショートカットは、</p>
+<ul>
+<li>
+<code>Cmd</code> + <code>Shift</code> + <code>M</code> (macOS)</li>
+<li>
+<code>Control</code> + <code>Shift</code> + <code>M</code> (macOS and Windows) である。</li>
+</ul>
 </div>
 </div>
 <p>もう一度、先ほどと同じように表を作ってみよう。</p>
@@ -597,16 +603,13 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_colour_discrete.html">scale_color_discrete</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"自由度 (df)"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_linetype.html">scale_linetype_discrete</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"自由度 (df)"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dens_chisq</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 1000 rows containing missing values (`geom_line()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="bivariate_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>カイ二乗分布の形状を確認するための関数を用意したので、これを使って色々なカイ二乗分布の形状を確認してみよう（この関数の中身を理解する必要はない）。</p>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plot_chisq</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plot_chisq</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">upper</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">df</span> <span class="op">+</span> <span class="fl">10</span>, <span class="va">df</span><span class="op">*</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="va">upper</span>, length <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span>  <span class="va">chisq</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Chisquare.html">dchisq</a></span><span class="op">(</span><span class="va">x</span>, df <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span>
@@ -619,14 +622,14 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 </div>
 <p>自由度1のカイ二乗分布は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">plot_chisq</span><span class="op">(</span>df <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">plot_chisq</span><span class="op">(</span>df <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="bivariate_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="480"></p>
 </div>
 </div>
 <p>自由度3のカイ二乗分布は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">plot_chisq</span><span class="op">(</span>df <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">plot_chisq</span><span class="op">(</span>df <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="bivariate_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="480"></p>
 </div>
@@ -639,26 +642,26 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <p>私たちのデータセットには、<code>height</code>（身長）と <code>faheight</code>（父親の身長） という2つの量的変数（quantitative variables）がある。量的変数とは、簡単にいうと、数値自体に意味がある変数である。</p>
 <p>量的変数を調べるときは、ます、基本的な統計量とヒストグラムを確認する。 まず、<code>height</code> の統計量を確認する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 165.8727</code></pre>
 </div>
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 166.15</code></pre>
 </div>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 53.41806</code></pre>
 </div>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7.308766</code></pre>
 </div>
 </div>
 <p>ヒストグラムを作る。</p>
 <div class="cell">
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h_height</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h_height</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"dodgerblue"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h_height</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -672,7 +675,7 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <p>ヒストグラムに山が2つある。なぜだろうか？</p>
 <p>このデータが身長のデータであり、男女共データに含まれていることを考えると、性別によって分布の山が変わりそうである。男女別にヒストグラムを作ってみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h_height_gender</span> <span class="op">&lt;-</span> <span class="va">h_height</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h_height_gender</span> <span class="op">&lt;-</span> <span class="va">h_height</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span>row <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html">vars</a></span><span class="op">(</span><span class="va">female</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h_height_gender</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -685,26 +688,26 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <p>やはり、性別によって分布が異なることがわかる。このようなことがわかるので、<strong>データ分析の前に必ずヒストグラムを確認する</strong>習慣をつけてほしい。</p>
 <p>同様に、<code>faheight</code> の統計量を確認する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">faheight</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">faheight</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 169.7533</code></pre>
 </div>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">faheight</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">faheight</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 169.6</code></pre>
 </div>
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">faheight</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">faheight</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 31.34405</code></pre>
 </div>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">faheight</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">myd</span><span class="op">$</span><span class="va">faheight</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.598576</code></pre>
 </div>
 </div>
 <p>ヒストグラムを作る。</p>
 <div class="cell">
-<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h_father</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">faheight</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">h_father</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">faheight</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, fill <span class="op">=</span> <span class="st">"tomato"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"身長 (cm)"</span>, y <span class="op">=</span> <span class="st">"度数"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">h_father</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -720,7 +723,7 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <span class="header-section-number">14.2</span> 質的変数と量的変数の関係</h2>
 <p>身長のヒストグラムから明らかになったように、性別（質的変数）と身長（量的変数）の間に関係がありそうである。 質的変数と量的変数の関係は、図示すると理解しやすい。<strong>箱ひげ図 (box-and-whisker plot または単に box plot)</strong> と<strong>バイオリン図 (violin plot)</strong> と呼ばれる図を作って確認してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vb1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">female</span>, y <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vb1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">female</span>, y <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"gray"</span>, width <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"性別"</span>, y <span class="op">=</span> <span class="st">"身長 (cm)"</span><span class="op">)</span></span>
@@ -730,7 +733,19 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 </div>
 </div>
 <p>この図は、箱がデータの中心50%分を表している。箱の中にある太い線は、中央値（50パーセンタイル、第2四分位）である。箱の下端が第1四分位（25パーセンタイル）、箱の上端が第3四分位（75パーセンタイル）を示している。また、箱から上下に伸びている線がひげである。ひげの下端が最小値（外れ値を除く）であり、上端が最大値（外れ値を除く）である。ひげよりも外側にある点は外れ値（outlier）である。</p>
-<p><span class="math inline">\(\ast\)</span>（第3四分位数（箱の上端）より、1.5<span class="math inline">\(\times\)</span>IQR以上<strong>大きい</strong>値、または第1四分位数（箱の下端）より、1.5<span class="math inline">\(\times\)</span>IQR 以上<strong>小さい</strong>値が外れ値と見なされる。ただし、IQR（interquartile range, 四分位範囲）とは、第3四分位と第1四分位の差（図で考えると、箱の高さ）である。）</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>第3四分位数（箱の上端）より、1.5<span class="math inline">\(\times\)</span>IQR以上<strong>大きい</strong>値、または第1四分位数（箱の下端）より、1.5<span class="math inline">\(\times\)</span>IQR 以上<strong>小さい</strong>値が外れ値と見なされる。ただし、IQR（interquartile range, 四分位範囲）とは、第3四分位と第1四分位の差（図で考えると、箱の高さ）である。）</p>
+</div>
+</div>
 <p>この図を見ると、男性の身長の分布と女性の身長の分布は異なる分布であり、男性の身長のほうが高いようである。</p>
 <p>しかし、これはあくまで標本の分布であり、母集団でも同じことが言えるかどうかは検定で確かめる必要がある。 これを確かめるためには、<strong>平均値の差の検定</strong>（この場合は <strong>ウェルチ (Welch) の <span class="math inline">\(t\)</span> 検定</strong>）を行う必要がある。</p>
 </section><section id="量的変数同士の関係" class="level2" data-number="14.3"><h2 data-number="14.3" class="anchored" data-anchor-id="量的変数同士の関係">
@@ -738,7 +753,7 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <p>次に量的変数同士（height とfaheight）の関係を確かめてみよう。</p>
 <p>まず、2つの関係を図示する。2つの量的変数同士の関係は、<strong>散布図 (scatter plot)</strong> を使って図示する。<code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> で散布図が描ける。</p>
 <div class="cell" data-hold="true">
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">scat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">faheight</span>, y <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">scat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">faheight</span>, y <span class="op">=</span> <span class="va">height</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"父親の身長 (cm)"</span>, y <span class="op">=</span> <span class="st">"本人の身長 (cm)"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">scat1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -749,7 +764,7 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <p>この図を見ると、父親の身長が高いほど、子の身長が高いという関係がありそうだ。ヒストグラムで確認したように、データには男女が含まれているが、性別によって身長の分布が異なり、点が2つのグループに分かれていることがわかる。</p>
 <p>次に、2変数の<strong>直線的な</strong>関係の強さを測るために、相関係数 (correlation coefficient) を計算してみよう。<code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> を使う。</p>
 <div class="cell">
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">faheight</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">faheight</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2394457</code></pre>
 </div>
@@ -758,7 +773,7 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <p>図から得られた情報と相関係数から得られた情報は整合的だろうか。 相関係数だけ見ると、父親の身長と子の身長にはあまり強い関係はなさそうだという結論になる。 しかし、散布図を見ると、2変数の間には非常に強い関係がありそうである。</p>
 <p>図からわかる通り、散布図の点は2つのグループに分かれている。男女を色と形で区別して散布図を作り直してみよう。</p>
 <div class="cell" data-hold="true">
-<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">scat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">faheight</span>, y <span class="op">=</span> <span class="va">height</span>, </span>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">scat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">myd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">faheight</span>, y <span class="op">=</span> <span class="va">height</span>, </span>
 <span>                         color <span class="op">=</span> <span class="va">female</span>, shape <span class="op">=</span> <span class="va">female</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"父親の身長 (cm)"</span>, y <span class="op">=</span> <span class="st">"本人の身長 (cm)"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -772,7 +787,7 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <p>この図からわかる通り、性別ごとにグループができている。</p>
 <p>男女別にして相関係数を求め直そう。 まず、女性の場合について求める。<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> を使うと、女性だけ簡単に抜き出せる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">myd</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">myd</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">female</span> <span class="op">==</span> <span class="st">"女性"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">faheight</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -782,7 +797,7 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 </div>
 <p>このコマンドは、パイプを使わないと次のように書ける。</p>
 <div class="cell">
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">myd</span>, <span class="va">female</span> <span class="op">==</span> <span class="st">"女性"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">faheight</span><span class="op">)</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">myd</span>, <span class="va">female</span> <span class="op">==</span> <span class="st">"女性"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">faheight</span><span class="op">)</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.81</code></pre>
 </div>
@@ -791,7 +806,7 @@ X-squared = 10.101, df = 1, p-value = 0.001482</code></pre>
 <p>この結果から、女性については父親の身長と本人の身長の間に強い正の相関があることがわかる。</p>
 <p>男性はどうだろうか。</p>
 <div class="cell">
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">myd</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">myd</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">female</span> <span class="op">==</span> <span class="st">"男性"</span><span class="op">)</span>　 <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">height</span>, <span class="va">faheight</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span>digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1062,7 +1077,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2022, Yuki Yanai</div>
+    <div class="nav-footer-center">Copyright 2022-2023, Yuki Yanai</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
