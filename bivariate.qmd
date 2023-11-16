@@ -39,7 +39,7 @@ theme_set(theme_gray(base_size = 9,
 dir.create("data")
 ```
 
-次に、今回の実習で利用する[データ (fake_bivariate.csv)](http://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_bivariate.csv) をダウンロードし、プロジェクト内の data フォルダの中に保存する（このデータは架空のものである）。
+次に、今回の実習で利用する[データ (fake_bivariate.csv)](https://yukiyanai.github.io/jp/classes/stat2/contents/data/fake_bivariate.csv) をダウンロードし、プロジェクト内の data フォルダの中に保存する（このデータは架空のものである）。
 
 このデータセットを `read_csv()` で読み込み、 `myd` という名前で利用する。
 ```{r read_csv}
