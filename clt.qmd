@@ -11,21 +11,29 @@
 ```{r}
 #| message: false
 library(tidyverse)
+```
 
+JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。
+```{r}
+#| message: false
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") { # Windows
-  library(fontregisterer)
-  my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) { # macOS
+if (.Platform$OS.type == "windows") { 
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
   my_font <- "HiraginoSans-W3"
-} else { # Unix/Linux
+} else {
   my_font <- "IPAexGothic"
 }
 theme_set(theme_gray(base_size = 9,
                      base_family = my_font))
 ```
+
 
 ## 中心極限定理 {#sec-clt}
 
@@ -105,7 +113,7 @@ result  # result の中身を確認する
 `for`ループを利用して、数を1だけ加える作業を5回繰り返す。
 
 ```{r}
-for (i in 1 : 5) {    # i が1から5までの繰り返し
+for (i in 1 : 5) {  # i が1から5までの繰り返し
   a <- a + 1        # a に1を足す
   result[i] <- a    # i番目の足し算の結果を result[i] に入れる    
 }

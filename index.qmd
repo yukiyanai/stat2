@@ -14,20 +14,9 @@
 
 ## 基本情報 {#sec-basicinfo}
 
--   シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2023-3Q.pdf)
-
--   [講義スライド](https://drive.google.com/drive/folders/1-tff1nEf0s09C0JhSQmcyS7D1sL4Z2D4?usp=sharing)
-    -   各授業の**後**に最新版をアップロードする
+- 2024年度の講義は非常勤講師の[宋財泫（ソン・ジェヒョン）](https://www.jaysong.net/)先生に担当してもらう。
+    - 講義計画・講義資料の入手方法等については、第1回の授業で説明されるので、宋先生の指示に従うこと。
     
-:::callout-warning
-一般公開用のスライドでは一部の情報がカットされているので、正規受講生（単位を取得したい者）は [KUTLMS]https://lms.kochi-tech.ac.jp/course/view.php?id=2797) で完全版を入手すること
-:::
-
--   [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=2797)
-    -   登録キーはポータルで通知する
--   [授業用のSlackグループ](https://kut-stat1-2023.slack.com)
-    -   [登録](https://join.slack.com/t/kut-stat1-2023/signup%7D) には大学ドメインのメールアドレスが必要
-
 ## 教科書・副読本 {#sec-refs}
 
 ### 教科書 {#sec-textbook}
@@ -38,12 +27,12 @@
 
 ### 副読本 {#sec-rn4e}
 
-- 宋財泫, 矢内勇生 （執筆中）『[私たちのR：ベストプラクティスの探求](http://www.jaysong.net/RBook/)』(web book、無料) 
+- 宋財泫, 矢内勇生 （執筆中）『[私たちのR：ベストプラクティスの探求](https://www.jaysong.net/RBook/)』(web book、無料) 
 
 
 ## 講義トピックとウェブ資料の対応 {#sec-topics}
 
-授業の内容は、10のトピックに分かれている。[シラバス (PDF)](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2022-1Q.pdf) にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。
+授業の内容は、10のトピックに分かれている。[2023年度版シラバス (PDF)](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2023-3Q.pdf) にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。
 
 | トピック                          | ウェブ資料                                                               |
 |:-----------------------------------|:-----------------------------------|

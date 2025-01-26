@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>KUT 統計学2 - 11&nbsp; 統計的検定と平均値の比較</title>
 <style>
@@ -86,7 +86,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 </head>
@@ -100,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./mean-comparison.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">統計的検定と平均値の比較</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -110,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="sidebar-title mb-0 py-0">
       <a href="./">KUT 統計学2</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/yukiyanai/stat2/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/yukiyanai/stat2/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -258,19 +259,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="sec-prep15" class="level2" data-number="11.1"><h2 data-number="11.1" class="anchored" data-anchor-id="sec-prep15">
 <span class="header-section-number">11.1</span> 準備</h2>
-<p>必要なパッケージを読み込み、図の日本語が正しく表示されるようにする。</p>
+<p>今回利用するパッケージを読み込む。</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">## 図のなかで日本語を使えるようにする</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">## 図のなかで日本語を使えるようにする</span></span>
 <span><span class="co">## フォントの設定はお好みで</span></span>
 <span><span class="co">## （Unix/Linux ではIPAexフォントのインストールが必要かも）</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> <span class="co"># Windows</span></span>
-<span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span></span>
-<span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Yu Gothic"</span></span>
-<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/capabilities.html">capabilities</a></span><span class="op">(</span><span class="st">"aqua"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span> <span class="co"># macOS</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="va">.Platform</span><span class="op">$</span><span class="va">OS.type</span> <span class="op">==</span> <span class="st">"windows"</span><span class="op">)</span> <span class="op">{</span> </span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">fontregisterer</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Yu Gothic"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"Japan1"</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/capabilities.html">capabilities</a></span><span class="op">(</span><span class="st">"aqua"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"HiraginoSans-W3"</span></span>
-<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span> <span class="co"># Unix/Linux</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
 <span>  <span class="va">my_font</span> <span class="op">&lt;-</span> <span class="st">"IPAexGothic"</span></span>
 <span><span class="op">}</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme_get.html">theme_set</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_gray</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">9</span>,</span>
@@ -297,14 +303,14 @@ X \sim  \mbox{Normal}(\mu = 0, \sigma = 1)
 </h4>
 <p>まず、標本を抽出する。標本サイズ <span class="math inline">\(N = 20\)</span> に設定しよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
 <span><span class="va">smp_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">N</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>  <span class="co"># 標準正規分布からの乱数生成</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>この標本の標本平均は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smp_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smp_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.303926</code></pre>
+<pre><code>[1] 0.03672693</code></pre>
 </div>
 </div>
 <p>である。 この標本平均は0ではない。つまり <span class="math inline">\(\bar{x} \neq 0\)</span> であるが、ここから、<span class="math inline">\(\mu \neq 0\)</span>と言えるだろうか？</p>
@@ -312,37 +318,37 @@ X \sim  \mbox{Normal}(\mu = 0, \sigma = 1)
 <p>ある標本を利用して、「母平均が0」という帰無仮説を検証したいときは、<code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> という関数を使う。</p>
 <p>対立仮説が「母平均は0ではない」のときは、次のようにする。</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">res_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">smp_1</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">res_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">smp_1</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
 
 data:  smp_1
-t = 1.4158, df = 19, p-value = 0.173
+t = 0.14406, df = 19, p-value = 0.887
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
- -0.1453650  0.7532171
+ -0.4968552  0.5703091
 sample estimates:
-mean of x 
- 0.303926 </code></pre>
+ mean of x 
+0.03672693 </code></pre>
 </div>
 </div>
 <p>この結果の読み方を説明しよう。まず、<code>data: smp_1</code> というところに、検定に利用した標本が示される。次の行を見ると、検定統計量 <span class="math inline">\(T\)</span> の値が <code>t =</code> で 示された後、自由度 (df) と<span class="math inline">\(p\)</span> 値 (p-value) が表示される（<span class="math inline">\(p\)</span>値については「計量経済学」の講義で説明する [説明しないかもしれないが、<span class="math inline">\(p\)</span> 値は使わない方針なので問題ない]）。検定統計量の絶対値 <span class="math inline">\(|T|\)</span> が、自ら決めた有意水準における臨界値の絶対値 |<span class="math inline">\(c\)</span>| より大きいとき、帰無仮説を棄却する。検定統計量自体は、次のようにすれば取り出せる。</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_1</span><span class="op">$</span><span class="va">statistic</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_1</span><span class="op">$</span><span class="va">statistic</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      t 
-1.41584 </code></pre>
+<pre><code>        t 
+0.1440647 </code></pre>
 </div>
 </div>
 <p>また、自由度 <span class="math inline">\(N - 1\)</span> の <span class="math inline">\(t\)</span> 分布で、有意水準が5%のときに必要な臨界値は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="va">N</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="va">N</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -2.093024</code></pre>
 </div>
 </div>
-<p>である。この2つの値の絶対値同士を比べると、<span class="math display">\[|T| &lt; |c|\]</span> だから、帰無仮説は棄却されない。つまり、<span class="math inline">\(\mu = 0\)</span> を否定する証拠はない。</p>
+<p>である。この2つの値の<strong>絶対値</strong>同士を比べると、<span class="math display">\[|T| &lt; |c|\]</span> だから、帰無仮説は棄却されない。つまり、<span class="math inline">\(\mu = 0\)</span> を否定する証拠はない。</p>
 <p>実際、<span class="math inline">\(\mu = 0\)</span>ということを私たちは知っているので、これは妥当な結論である。標本抽出と仮説検定を繰り返したら、どんなことが起きるだろうか？</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -363,7 +369,7 @@ Important
 </h4>
 <p>まず、標本抽出と仮説検定を1回行い、帰無仮説 (null hypothesis) を棄却しないときは <strong>null</strong> を、帰無仮説を棄却して対立仮説 (alternative hypothesis) を採用するときは <strong>alt</strong> を返す関数を作る。 有意水準 (level) と標本サイズは自分で設定できるようにしておく。</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">smp_test</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">N</span> <span class="op">=</span> <span class="fl">10</span>, <span class="va">level</span> <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">smp_test</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">N</span> <span class="op">=</span> <span class="fl">10</span>, <span class="va">level</span> <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co">## 標本を抽出し、「母平均 = 0」という仮説を検定する関数</span></span>
 <span>  <span class="co">## 引数：N = 標本サイズ（既定値は10）</span></span>
 <span>  <span class="co">##       level = 有意水準（既定値は0.05）</span></span>
@@ -389,21 +395,21 @@ Note
 </div>
 <p>試しにこの関数を使ってみると、</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">smp_test</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">smp_test</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    t 
-"alt" </code></pre>
+<pre><code>     t 
+"null" </code></pre>
 </div>
 </div>
 <p>というように、1つの標本からどちらの仮説を採用したかがわかる。</p>
 <p>標本サイズ <span class="math inline">\(N = 20\)</span>、有意水準5% で、この作業を10,000回繰り返してみよう。関数を繰り返し実行する際は、<code><a href="https://rdrr.io/r/base/lapply.html">replicate()</a></code> を使うのが便利である。</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></span>
 <span><span class="va">sim_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>sim_1</code> の中に、10,000個の検定結果が保存されたはずである。最初の5個だけ確認してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_1</span><span class="op">[</span><span class="fl">1</span> <span class="op">:</span> <span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_1</span><span class="op">[</span><span class="fl">1</span> <span class="op">:</span> <span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     t      t      t      t      t 
 "null" "null" "null" "null" "null" </code></pre>
@@ -412,43 +418,43 @@ Note
 <p>結果が保存されていることが確認できる。</p>
 <p>では、それぞれの仮説はそれぞれ何回ずつ採用されただろうか？表 (table) にしてみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_1
  alt null 
- 477 9523 </code></pre>
+ 490 9510 </code></pre>
 </div>
 </div>
 <p>割合を表示するために、シミュレーション回数で割ると、</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_1</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_1</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_1
-   alt   null 
-0.0477 0.9523 </code></pre>
+  alt  null 
+0.049 0.951 </code></pre>
 </div>
 </div>
 <p>となる。 このように、対立仮説が約5%、帰無仮説が95%の検定で採用されている。</p>
 <p>私たちは、上で <span class="math inline">\(\mu=0\)</span> と設定しているので、帰無仮説こそが正しい仮説である。しかし、帰無仮説が正しくても、5%分の検定では、誤って帰無仮説を棄却し、対立仮説を採用してしまう。この誤りのことを、「第1種の誤り (Type I error)」と呼ぶ。第1種の誤りの確率は、有意水準に一致する。私たちは有意水準5%を選んだので、約5%の検定で第1種の誤りをおかしてしまう。</p>
 <p>有意水準を1%にして、本当にそうなるか確かめてみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_2</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_2
    alt   null 
-0.0096 0.9904 </code></pre>
+0.0084 0.9916 </code></pre>
 </div>
 </div>
 <p>第1種の誤り（null が正しいのに alt を採用）の割合は、約1%である。</p>
 <p>有意水準を14%にすると、</p>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.14</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.14</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_3</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_3
    alt   null 
-0.1414 0.8586 </code></pre>
+0.1374 0.8626 </code></pre>
 </div>
 </div>
 <p>第1種の誤り（null が正しいのに alt を採用）の割合は、約14%になる。</p>
@@ -457,7 +463,7 @@ Note
 <span class="header-section-number">11.2.2</span> 危険率、検出力、標本サイズ：対立仮説が正しい場合の仮説検定シミュレーション</h3>
 <p>平均3、標準偏差2の正規分布に従う変数 <span class="math inline">\(Y\)</span> について考える。すなわち、</p>
 <p><span class="math display">\[
-Y \sim \mbox{Normal}(\mu = 3, \sigma = 2)
+Y \sim \mbox{Normal}(\mu = 2, \sigma = 2)
 \]</span> となる変数 <span class="math inline">\(Y\)</span> について考える。</p>
 <p>私たちが<strong>母数を知らないと仮定して</strong>、この集団からランダムに標本を抽出し、以下の仮説を検証する。</p>
 <ul>
@@ -472,46 +478,46 @@ Y \sim \mbox{Normal}(\mu = 3, \sigma = 2)
 </h4>
 <p>まず、標本を抽出する。標本サイズ <span class="math inline">\(N = 20\)</span> に設定しよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
-<span><span class="va">smp_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">N</span>, mean <span class="op">=</span> <span class="fl">3</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>  <span class="co"># N(3, 2) からの乱数生成</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">20</span></span>
+<span><span class="va">smp_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">N</span>, mean <span class="op">=</span> <span class="fl">2</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>  <span class="co"># N(3, 2) からの乱数生成</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>この標本の標本平均は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smp_2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">smp_2</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.338013</code></pre>
+<pre><code>[1] 2.544141</code></pre>
 </div>
 </div>
 <p>である。 この標本平均は0ではない。つまり <span class="math inline">\(\bar{y} \neq 0\)</span> であるが、ここから、<span class="math inline">\(\mu \neq 0\)</span>と言えるだろうか？</p>
 <p>標本平均の分布は自由度 <span class="math inline">\(N - 1\)</span> の <span class="math inline">\(t\)</span> 分布に従うので、<span class="math inline">\(t\)</span> 分布を利用して検定を行う。</p>
 <p>先ほど同様、<code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> を使う。仮説は先ほどと同じなので、次のようにする。</p>
 <div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">res_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">smp_2</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">res_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">smp_2</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
 
 data:  smp_2
-t = 4.8381, df = 19, p-value = 0.0001143
+t = 5.1469, df = 19, p-value = 5.732e-05
 alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
- 1.326553 3.349472
+ 1.509552 3.578731
 sample estimates:
 mean of x 
- 2.338013 </code></pre>
+ 2.544141 </code></pre>
 </div>
 </div>
 <p>検定統計量 <span class="math inline">\(T\)</span> の値は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_2</span><span class="op">$</span><span class="va">statistic</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">res_2</span><span class="op">$</span><span class="va">statistic</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       t 
-4.838076 </code></pre>
+5.146922 </code></pre>
 </div>
 </div>
 <p>である。 また、自由度 <span class="math inline">\(N - 1\)</span> の <span class="math inline">\(t\)</span> 分布で、有意水準が5%のときに必要な臨界値は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="va">N</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="va">N</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -2.093024</code></pre>
 </div>
@@ -523,7 +529,7 @@ mean of x
 </h4>
 <p>まず、標本抽出と仮説検定を1回行い、帰無仮説 (null hypothesis) を棄却しないときは <strong>null</strong> を、帰無仮説を棄却して対立仮説 (alternative hypothesis) を採用するときは <strong>alt</strong> を返す関数を作る。 先ほど作った関数を改良し、母平均と母標準偏差も自分で設定できるようにする。</p>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">smp_test_2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">N</span> <span class="op">=</span> <span class="fl">10</span>, <span class="va">level</span> <span class="op">=</span> <span class="fl">0.05</span>, <span class="va">mu</span> <span class="op">=</span> <span class="fl">0</span>, <span class="va">sigma</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">smp_test_2</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">N</span> <span class="op">=</span> <span class="fl">10</span>, <span class="va">level</span> <span class="op">=</span> <span class="fl">0.05</span>, <span class="va">mu</span> <span class="op">=</span> <span class="fl">0</span>, <span class="va">sigma</span> <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co">## 標本を抽出し、「母平均 = 0」という仮説を検定する関数</span></span>
 <span>  <span class="co">## 引数：N = 標本サイズ（既定値は10）</span></span>
 <span>  <span class="co">##       level = 有意水準（既定値は0.05）</span></span>
@@ -538,7 +544,7 @@ mean of x
 </div>
 <p>試しにこの関数を使ってみると、</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    t 
 "alt" </code></pre>
@@ -547,48 +553,48 @@ mean of x
 <p>というように、1つの標本からどちらの仮説を採用したかがわかる。</p>
 <p>標本サイズ <span class="math inline">\(N = 20\)</span>、有意水準5% で、この作業を10,000回繰り返してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></span>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_sims</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></span>
 <span><span class="va">sim_11</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>sim_11 の中に、10,000個の検定結果が保存されたはずである。最初の5個だけ確認してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_11</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_11</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    t     t     t     t     t 
-"alt" "alt" "alt" "alt" "alt" </code></pre>
+<pre><code>     t      t      t      t      t 
+ "alt"  "alt"  "alt" "null"  "alt" </code></pre>
 </div>
 </div>
 <p>結果が保存されていることが確認できる。</p>
 <p>では、それぞれの仮説はそれぞれ何割ずつ採用されただろうか？表 (table) にしてみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_11</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_11</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_11
    alt   null 
-0.8104 0.1896 </code></pre>
+0.8009 0.1991 </code></pre>
 </div>
 </div>
-<p>このように、対立仮説が約81%、帰無仮説が約19%の検定で採用されている。</p>
-<p>私たちは、上で <span class="math inline">\(\mu=2\)</span> と設定しているので、対立仮説こそが正しい仮説である。しかし、対立仮説が正しくても、19%分の検定では、帰無仮説を棄却せず、対立仮説を採用できない。この誤りのことを、「第2種の誤り (Type II error)」と呼ぶ。第2種の誤りの確率は、どうやって決まるのだろうか？</p>
+<p>このように、対立仮説が約80%、帰無仮説が約20%の検定で採用されている。</p>
+<p>私たちは、上で <span class="math inline">\(\mu=2\)</span> と設定しているので、対立仮説こそが正しい仮説である。しかし、対立仮説が正しくても、20%分の検定では、帰無仮説を棄却せず、対立仮説を採用できない。この誤りのことを、「第2種の誤り (Type II error)」と呼ぶ。第2種の誤りの確率は、どうやって決まるのだろうか？</p>
 <p>有意水準を1%にして、第2種の誤りの割合を計算してみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.01</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_12</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.01</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_12</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_12
    alt   null 
-0.5577 0.4423 </code></pre>
+0.5573 0.4427 </code></pre>
 </div>
 </div>
 <p>第2種の誤り（<s>null が正しいのに alt を採用</s> <strong>alt が正しいのに null を採用</strong>）の割合は、約44%である。有意水準を小さくしたところ、第2種の誤りの割合が大きくなった。</p>
 <p>今度は、有意水準を10%にしてみよう。</p>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_13</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.1</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_13</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.1</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_13</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_13
    alt   null 
-0.8902 0.1098 </code></pre>
+0.8864 0.1136 </code></pre>
 </div>
 </div>
 <p>第2種の誤り（null が正しいのに alt を採用）の割合は、約11%である。有意水準を大きくしたところ、第2種の誤りの割合が小さくなった。</p>
@@ -597,37 +603,37 @@ mean of x
 <p>有意水準を5%にして、標本サイズを 10, 20, 50, 100, 200 と変えて、第2種の誤りの割合を計算してみよう。</p>
 <p><span class="math inline">\(N = 10\)</span> のとき。</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_14</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">10</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_14</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">10</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_14</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_14
    alt   null 
-0.4667 0.5333 </code></pre>
+0.4646 0.5354 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 20\)</span> のとき。</p>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_15</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_15</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">20</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_15</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_15
    alt   null 
-0.8059 0.1941 </code></pre>
+0.8067 0.1933 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 50\)</span> のとき。</p>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_16</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">50</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_16</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">50</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_16</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_16
    alt   null 
-0.9956 0.0044 </code></pre>
+0.9968 0.0032 </code></pre>
 </div>
 </div>
 <p><span class="math inline">\(N = 100\)</span> のとき。</p>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_17</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">100</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_17</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">100</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_17</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_17
@@ -637,7 +643,7 @@ alt
 </div>
 <p><span class="math inline">\(N = 200\)</span> のとき。</p>
 <div class="cell">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_18</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">200</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_18</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">replicate</a></span><span class="op">(</span><span class="va">n_sims</span>, <span class="fu">smp_test_2</span><span class="op">(</span>N <span class="op">=</span> <span class="fl">200</span>, level <span class="op">=</span> <span class="fl">0.05</span>, mu <span class="op">=</span> <span class="fl">2</span>, sigma <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">sim_18</span><span class="op">)</span> <span class="op">/</span> <span class="va">n_sims</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>sim_18
@@ -653,17 +659,17 @@ alt
 <span class="header-section-number">11.3.1</span> 対応のないデータの平均値の差の検定</h3>
 <p><strong>例題：</strong> 2つのコーヒーチェーンで、どちらのコーヒーが美味しいか調べるため、無作為に選んだ10人にD店のコーヒーを、無作為に選んだ別の10人にS店のコーヒーを飲んでもらった。10点満点で点数をつけてもらったところ、次のようなデータが得られた。</p>
 <div class="cell">
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">7</span>, <span class="fl">7</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">7</span>, <span class="fl">7</span><span class="op">)</span></span>
 <span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">10</span>, <span class="fl">3</span>, <span class="fl">10</span>, <span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">6</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>d とs がそれぞれのコーヒーに対する10人の評価である。D店のコーヒーを飲んだ10人と、S店のコーヒーを飲んだ10人は異なるので、これは対応のないデータであると考えられる。</p>
 <p>2つの店のコーヒーの味に対する評価の平均値は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">d</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7.4</code></pre>
 </div>
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.7</code></pre>
 </div>
@@ -677,7 +683,7 @@ alt
 <p>ということになる。これを、有意水準5% で検定する。また、2つのグループの分散は異なると仮定する（2つのグループの分散が等しいと仮定できるときは、<code>var.equal = TRUE</code> を指定するが、通常は母分散を知らないので等しいと仮定しない）。</p>
 <p>以下のコマンドで Welch の <span class="math inline">\(t\)</span> 検定を実行する。</p>
 <div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">eg_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">s</span>, var.equal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">eg_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">s</span>, var.equal <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -694,7 +700,7 @@ mean of x mean of y
 </div>
 <p>検定統計量は、1.6953 である。また、この検定に必要な <span class="math inline">\(t\)</span> 分布の自由度 (df) は、14.848 である。この自由度を使って検定に使う臨界値を求めると、</p>
 <div class="cell">
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="fl">14.848</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="fl">14.848</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -2.133352</code></pre>
 </div>
@@ -705,7 +711,7 @@ mean of x mean of y
 <span class="header-section-number">11.3.2</span> 対応のあるデータの平均値の差の検定</h3>
 <p><strong>例題：</strong> 2つのコーヒーチェーンで、どちらのコーヒーが美味しいか調べるため、無作為に選んだ10人にD店のコーヒーとS店のコーヒーを1杯ずつ飲んでもらった。それぞれのコーヒーに10点満点で点数をつけてもらったところ、次のようなデータが得られた。</p>
 <div class="cell">
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">survey</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">survey</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  id <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,</span>
 <span>  d <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">7</span>, <span class="fl">7</span><span class="op">)</span>,</span>
 <span>  s <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">10</span>, <span class="fl">3</span>, <span class="fl">10</span>, <span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">6</span><span class="op">)</span></span>
@@ -731,11 +737,11 @@ mean of x mean of y
 <p>同じ10人がD店のコーヒーとS店のコーヒーの両方を飲んで評価しているので、これは対応のあるデータであると考えられる。</p>
 <p>2つの店のコーヒーの味に対する評価の平均値は、</p>
 <div class="cell">
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">survey</span><span class="op">$</span><span class="va">d</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">survey</span><span class="op">$</span><span class="va">d</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 7.4</code></pre>
 </div>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">survey</span><span class="op">$</span><span class="va">s</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">survey</span><span class="op">$</span><span class="va">s</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.7</code></pre>
 </div>
@@ -748,7 +754,7 @@ mean of x mean of y
 </ul>
 <p>ということになる。これを、有意水準5% で検証する。対応のあるデータであることをRに伝えるため、<code>paired = TRUE</code> を指定する）。</p>
 <div class="cell">
-<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">eg_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">survey</span><span class="op">$</span><span class="va">d</span>, <span class="va">survey</span><span class="op">$</span><span class="va">s</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">eg_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">survey</span><span class="op">$</span><span class="va">d</span>, <span class="va">survey</span><span class="op">$</span><span class="va">s</span>, paired <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -765,7 +771,7 @@ mean difference
 </div>
 <p>検定統計量は、1.6805 である。また、この検定に必要な <span class="math inline">\(t\)</span> 分布の自由度 (df) は、9 である。この自由度を使って検定に使う臨界値を求めると、</p>
 <div class="cell">
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TDist.html">qt</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.05</span> <span class="op">/</span> <span class="fl">2</span>, df <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></code><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -2.262157</code></pre>
 </div>
@@ -1036,7 +1042,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">Copyright 2022-2023, Yuki Yanai</div>
+    <div class="nav-footer-center">Copyright 2022-2025, Yuki Yanai</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

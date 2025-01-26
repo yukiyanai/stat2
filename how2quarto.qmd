@@ -6,15 +6,19 @@
 #| message: false
 #| warning: false
 library(tidyverse)
+## JDCat分析ツールを使わない場合は以下のコードブロックが必要
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") { # Windows
-  library(fontregisterer)
-  my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) { # macOS
+if (.Platform$OS.type == "windows") { 
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
   my_font <- "HiraginoSans-W3"
-} else { # Unix/Linux
+} else {
   my_font <- "IPAexGothic"
 }
 theme_set(theme_gray(base_size = 9,
@@ -48,7 +52,7 @@ theme_set(theme_gray(base_size = 9,
 また、イタリック（斜字体）にしたいときは、`*italics*` とすると *italics* になる。**日本語をイタリックにはしない**。
 太字かつイタリックは、`***bold italics***`で***bold italics*** になる。
 
-これらの文字の修飾は、レポートや論文などでは使わない。
+これらの文字の修飾は、**レポートや論文などでは使わない**。
 
 ### 箇条書き
 
@@ -140,7 +144,7 @@ Rコードは、基本的にコードチャンクの中に書く。コードチ�
 Quartoでは、$\LaTeX$ と同じ方法で数式を書くことができる。
 
 ::: callout-note
-$\LaTeX$ について詳しく知りたい者には、奥村晴彦, 黒木裕介. 2020.『LaTeX2$\varepsilon$ 美文書作成入門』（技術評論社）を参照されたい。
+$\LaTeX$ について詳しく知りたい者には、奥村晴彦, 黒木裕介. 2023.『LaTeX 美文書作成入門 改訂第9版』（技術評論社）を参照されたい。
 :::
 
 文書の中に数式を入れたいときは、数式を書くためのコードを`$`で挟み、文書のなかに挿入する。
@@ -285,6 +289,7 @@ $$
 
 単に図を表示させるなら、`ggplot()`で作った図を `plot()` で示せばよい。
 ```{r}
+#| warning: false
 D <- tibble(x1 = rnorm(1000),
             x2 = rnorm(1000, mean = -10, sd = 2))
 p1 <- ggplot(D, aes(x = x1, y = after_stat(density))) +

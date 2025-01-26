@@ -6,21 +6,27 @@
 
 ## 準備 {#sec-prep15}
 
-必要なパッケージを読み込み、図の日本語が正しく表示されるようにする。
-
+今回利用するパッケージを読み込む。
 ```{r}
 #| message: false
 library(tidyverse)
+```
 
+JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。
+```{r}
+#| message: false
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") { # Windows
-  library(fontregisterer)
-  my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) { # macOS
+if (.Platform$OS.type == "windows") { 
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
   my_font <- "HiraginoSans-W3"
-} else { # Unix/Linux
+} else {
   my_font <- "IPAexGothic"
 }
 theme_set(theme_gray(base_size = 9,
@@ -84,7 +90,7 @@ res_1$statistic
 ```{r}
 qt(p = 0.05 / 2, df = N - 1)
 ```
-である。この2つの値の絶対値同士を比べると、$$|T| < |c|$$ だから、帰無仮説は棄却されない。つまり、$\mu = 0$ を否定する証拠はない。
+である。この2つの値の**絶対値**同士を比べると、$$|T| < |c|$$ だから、帰無仮説は棄却されない。つまり、$\mu = 0$ を否定する証拠はない。
 
 実際、$\mu = 0$ということを私たちは知っているので、これは妥当な結論である。標本抽出と仮説検定を繰り返したら、どんなことが起きるだろうか？
 
@@ -180,7 +186,7 @@ table(sim_3) / n_sims
 平均3、標準偏差2の正規分布に従う変数 $Y$ について考える。すなわち、
 
 $$
-Y \sim \mbox{Normal}(\mu = 3, \sigma = 2)
+Y \sim \mbox{Normal}(\mu = 2, \sigma = 2)
 $$
 となる変数 $Y$ について考える。
 
@@ -197,7 +203,7 @@ $$
 
 ```{r}
 N <- 20
-smp_2 <- rnorm(N, mean = 3, sd = 2)  # N(3, 2) からの乱数生成
+smp_2 <- rnorm(N, mean = 2, sd = 2)  # N(3, 2) からの乱数生成
 ```
 
 この標本の標本平均は、

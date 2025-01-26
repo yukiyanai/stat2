@@ -6,21 +6,27 @@
 
 ## 準備 {#sec-prep11}
 
-必要なパッケージを読み込む。
-
+今回利用するパッケージを読み込む。
 ```{r}
 #| message: false
 library(tidyverse)
+```
 
+JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。
+```{r}
+#| message: false
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") { # Windows
-  library(fontregisterer)
-  my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) { # macOS
+if (.Platform$OS.type == "windows") { 
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
   my_font <- "HiraginoSans-W3"
-} else { # Unix/Linux
+} else {
   my_font <- "IPAexGothic"
 }
 theme_set(theme_gray(base_size = 9,
@@ -65,9 +71,9 @@ ratio_1 <- rep(NA, n_flips)
 
 ```{r}
 coins_1 <- sample(coin, size = n_flips, replace = TRUE)
-for (i in 1:n_flips) {
-  n_head <- sum(coins_1[1:i] == "表") # i回目までに何回表が出たか数える
-  ratio_1[i] <- n_head / i            # i回目までの表の比率を計算して記録する
+for (i in 1 : n_flips) {
+  n_head <- sum(coins_1[1 : i] == "表") # i回目までに何回表が出たか数える
+  ratio_1[i] <- n_head / i              # i回目までの表の比率を計算して記録する
 }
 ```
 
@@ -94,13 +100,12 @@ plot(p1)
 比率が少しずつ0.5に近づいていくことがわかる。
 
 もう1度やってみよう。
-
 ```{r}
 ratio_2 <- rep(NA, n_flips)
 coins_2 <- sample(coin, size = n_flips, replace = TRUE)
 for (i in 1 : n_flips) {
-  n_head <- sum(coins_2[1:i] == "表") # i回目までに何回表が出たか数える
-  ratio_2[i] <- n_head / i            # i回目までの表の比率を計算して記録する
+  n_head <- sum(coins_2[1 : i] == "表") # i回目までに何回表が出たか数える
+  ratio_2[i] <- n_head / i              # i回目までの表の比率を計算して記録する
 }
 df2$ratio_2 <- ratio_2
 p2 <- ggplot(df2, aes(x = N, y = ratio_2)) +
@@ -113,13 +118,12 @@ plot(p2)
 ```
 
 もう1度やってみよう。
-
 ```{r}
 ratio_3 <- rep(NA, n_flips)
 coins_3 <- sample(coin, size = n_flips, replace = TRUE)
 for (i in 1 : n_flips) {
-  n_head <- sum(coins_3[1:i] == "表") # i回目までに何回表が出たか数える
-  ratio_3[i] <- n_head / i            # i回目までの表の比率を計算して記録する
+  n_head <- sum(coins_3[1 : i] == "表") # i回目までに何回表が出たか数える
+  ratio_3[i] <- n_head / i              # i回目までの表の比率を計算して記録する
 }
 df2$ratio_3 <- ratio_3
 p3 <- ggplot(df2, aes(x = N, y = ratio_3)) +

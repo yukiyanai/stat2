@@ -13,19 +13,21 @@
 library(tidyverse)
 ```
 
-次に、日本語が正しく表示されるようにする。
-
+JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。
 ```{r}
 #| message: false
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") { # Windows
-  library(fontregisterer)
-  my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) { # macOS
+if (.Platform$OS.type == "windows") { 
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
   my_font <- "HiraginoSans-W3"
-} else { # Unix/Linux
+} else {
   my_font <- "IPAexGothic"
 }
 theme_set(theme_gray(base_size = 9,
@@ -94,10 +96,10 @@ sample(coin, size = 5, replace = TRUE)
 
 これでコイン投げを複数回実行できる。
 
-試しにコインを10回投げて、その結果を **coin10** という名前で保存してみよう。（`%>% print()`は結果を表示するためにつけているだけなので、結果を表示する必要がないならなくてもよい。）
+試しにコインを10回投げて、その結果を **coin10** という名前で保存してみよう。（`|> print()`は結果を表示するためにつけているだけなので、結果を表示する必要がないならなくてもよい。）
 
 ```{r, hold = TRUE}
-coin10 <- sample(coin, size = 10, replace = TRUE) %>% 
+coin10 <- sample(coin, size = 10, replace = TRUE) |> 
   print()
 ```
 
@@ -112,7 +114,7 @@ Rである特定の値（数または文字列）になっているか調べた�
 `=` \[等号1つ\] は `<-` と同じで右側の内容を左側に保存してしまうので注意。
 :::
 
-「二重等号の左側は右側と同じかどうか」を調べ、同じときは `TRUE`（真）、異なるときは `FALSE`（偽）という答えが返ってくる。簡単な例で確認してみよう。
+二重等号 `==`は、「二重等号の左側は右側と同じかどうか」を調べ、同じときは `TRUE`（真）、異なるときは `FALSE`（偽）という答えを返す。簡単な例で確認してみよう。
 
 ```{r}
 a <- 2    # aに2を代入する
@@ -143,7 +145,7 @@ sum(coin10 == "表")
 
 ```{r}
 #| hold: true
-die <- 1:6  # 1から6までの整数
+die <- 1 : 6  # 1から6までの整数
 # 以下のような書き方も可能
 # die <- c(1, 2, 3, 4, 5, 6)
 # die <- seq(from = 1, to = 6, by = 1)
@@ -186,7 +188,7 @@ sum(unfair1000 == 1)
 
 ```{r}
 sample(c("高知工科大", "高知県立大", "高知大"), 
-       size = 1, 
+       size = 6, 
        replace = TRUE, 
        prob = c(3, 2, 1))
 ```

@@ -7,20 +7,27 @@
 
 ## 準備 {#sec-prep12}
 
-必要なパッケージを読み込む。
-
+今回利用するパッケージを読み込む。
 ```{r}
 #| message: false
 library(tidyverse)
+```
+
+JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。
+```{r}
+#| message: false
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") { # Windows
-  library(fontregisterer)
-  my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) { # macOS
+if (.Platform$OS.type == "windows") { 
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
   my_font <- "HiraginoSans-W3"
-} else { # Unix/Linux
+} else {
   my_font <- "IPAexGothic"
 }
 theme_set(theme_gray(base_size = 9,
@@ -46,7 +53,7 @@ n_sims <- 1e4  # シミュレーションの繰り返し回数
 
 ### 標本サイズ ($N$) が1のとき {#sec-n1}
 
-標本サイズ $N = 1$ で標本を抽出し、標本平均を計算することを`r n_sims` 回`n_sims` 回）繰り返す。まず、$N$ を設定する。
+標本サイズ $N = 1$ で標本を抽出し、標本平均を計算することを10000 回繰り返す。まず、$N$ を設定する。
 
 ```{r}
 N <- 1
@@ -68,7 +75,7 @@ mean(h)
 
 （本当はもっと簡単な方法もあるが） `for` ループを使ってシミュレーションを実行してみよう。
 
-まず、結果を保存するために、`r n_sims` 個の値を保存する容器（ベクトル）を用意する。要素（中身）は `NA` にしておく。
+まず、結果を保存するために、10000個の値を保存する容器（ベクトル）を用意する。要素（中身）は `NA` にしておく。
 
 ```{r}
 sim_1 <- rep(NA, n_sims)
@@ -77,7 +84,7 @@ sim_1 <- rep(NA, n_sims)
 シミュレーションを実行する準備が整ったので、`for`ループでシミュレーションを実行する（`for`ループ以外で実行する方法を知っている者は、その方法を利用してよい）。
 
 ```{r}
-for (i in 1:n_sims) {
+for (i in 1 : n_sims) {
   h <- rnorm(N, mean = mu, sd = sigma)
   sim_1[i] <- mean(h)
 }
@@ -99,13 +106,12 @@ plot(hist1)
 このヒストグラムに、平均 170、標準偏差 5.5 の正規分布 ($\mbox{N}(170, 5.5)$ と表記する) の確率密度曲線を重ね書きしてみよう。
 
 ```{r}
-df1$x <- seq(140, 200, length.out = nrow(df1))
-df1$dens <- dnorm(df1$x, mean = mu, sd = sigma)
-hist1_2 <- hist1 + 
-  geom_line(data = df1, 
-            aes(x = x, y = dens), 
-            color = "red", 
-            size = 1.5)
+hist1_2 <- hist1 +
+  stat_function(fun = dnorm,
+                args = list(mean = 170, sd = 5.5),
+                inherit.aes = FALSE,
+                color = "tomato",
+                linewidth = 1.5)
 plot(hist1_2)
 ```
 
@@ -118,7 +124,7 @@ mean(sim_1) # 標本平均の平均値
 sd(sim_1)   # 標本平均の標準偏差 = 標準誤差
 ```
 
-このように、標本平均の平均値は母平均とほぼ同じであり、標本平均の標準偏差（これを平均値の**標準誤差 (standard errors; SE)** と呼ぶ）は、母標準偏差とほぼ同じである。
+このように、**$N=1$ の場合には**、標本平均の平均値は母平均とほぼ同じであり、標本平均の標準偏差（これを平均値の**標準誤差 (standard errors; SE)** と呼ぶ）は、母標準偏差とほぼ同じである。
 
 ### 標本サイズ ($N$) が2のとき {#sec-n2}
 
@@ -132,7 +138,7 @@ N <- 2
 
 ```{r}
 sim_2 <- rep(NA, n_sims) 
-for (i in 1:n_sims) {
+for (i in 1 : n_sims) {
   h <- rnorm(N, mean = mu, sd = sigma)
   sim_2[i] <- mean(h)  # sim_2 を使う
 }
@@ -155,17 +161,17 @@ plot(hist2)
 
 ```{r}
 hist2_2 <- hist2 + 
-  geom_line(data = df1, 
-            aes(x = x, y = dens), 
-            color = "red", 
-            size = 1.5)
+  stat_function(fun = dnorm,
+                args = list(mean = 170, sd = 5.5),
+                inherit.aes = FALSE,
+                color = "tomato",
+                linewidth = 1.5)
 plot(hist2_2)
 ```
 
 先ほどとは異なり、標本平均の標本分布と、母集団の分布は少し異なる。標本分布の方が、母集団よりも狭い範囲に集まっていることがわかる。
 
 統計量も確かめてみよう。
-
 ```{r}
 mean(sim_2) # 標本平均の平均値
 sd(sim_2)   # 標本平均の標準偏差 = 標準誤差
@@ -193,7 +199,7 @@ N <- 10
 
 ```{r}
 sim_3 <- rep(NA, n_sims) 
-for (i in 1:n_sims) {
+for (i in 1 : n_sims) {
   h <- rnorm(N, mean = mu, sd = sigma)
   sim_3[i] <- mean(h)  # sim_3 を使う
 }
@@ -216,10 +222,11 @@ plot(hist3)
 
 ```{r}
 hist3_2 <- hist3 +
-  geom_line(data = df1, 
-            aes(x = x, y = dens), 
-            color = "red", 
-            size = 1.5)
+  stat_function(fun = dnorm,
+                args = list(mean = 170, sd = 5.5),
+                inherit.aes = FALSE,
+                color = "tomato",
+                linewidth = 1.5)
 plot(hist3_2)
 ```
 

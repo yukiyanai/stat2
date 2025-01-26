@@ -9,29 +9,32 @@
 ## パッケージの読み込み {#sec-prep9}
 
 今回利用するパッケージを読み込む。
-
 ```{r}
 #| message: false
 library(tidyverse)
 ```
 
-次に、図の中で日本語が正しく表示されるようにする。
+JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。
 ```{r}
 #| message: false
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") { # Windows
-  library(fontregisterer)
-  my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) { # macOS
+if (.Platform$OS.type == "windows") { 
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
   my_font <- "HiraginoSans-W3"
-} else { # Unix/Linux
+} else {
   my_font <- "IPAexGothic"
 }
 theme_set(theme_gray(base_size = 9,
                      base_family = my_font))
 ```
+
 
 ## 例題 {#sec-example9}
 
@@ -87,7 +90,7 @@ result1 <- rbinom(n = 10000, size = 16, prob = 0.5)
 
 上の関数をRStudio で実行すると、右下（あるいは右上）の "Environment" タブの "Values" という列に `result1`が表示されるはずである。そして、その横に int \[1:10000\] と書かれているはずである。これは、`result1`の中身を示しており、`int` というのは整数 (integer) のことで、`[1:10000]` というのは、1個目から10,000個目まで数がある（つまり、「A : B」は「AからBまでの整数」という意味）ことを示している。「コインを16回投げる」という実験を実際に10,000回繰り返し、その結果を手で書いて記録するのはものすごく大変だが、Rを使えば同様の実験をほんの数秒で実施できてしまう。
 
-この結果を詳しく検討して見よう。まず、表が出る回数の平均値 (mean) はいくつだろうか。
+この結果を詳しく検討しよう。まず、表が出る回数の平均値 (mean) はいくつだろうか。
 
 ```{r}
 mean(result1)
@@ -365,8 +368,8 @@ bin_exp(36)
 
 ```{r}
 set.seed(2019-05-10)  # 乱数の種を指定
-x <- 10:35          # 10から35までの整数の数列を作り、xという名前で保存する
-names(x) <- 10:35
+x <- 10 : 35          # 10から35までの整数の数列を作り、xという名前で保存する
+names(x) <- 10 : 35
 sapply(x, bin_exp)    # xの要素をすべて bin_exp に適用 (apply) する
 ```
 
@@ -380,5 +383,5 @@ for (x in 10:35) {
 }
 ```
 
-$N$が10から12の間または32以上では、データである10が2つの数値の間にないことがわかるので、これらの仮説は棄却する。よって、「$N \in [13, 31]$ すなわち $13 \leq N \leq 31$ （$N$は整数）」と答えるのが、区間推定である。
+$N$が10から12の間と32以上の場合にはデータである10が2つの数値の間にないことがわかるので、これらの仮説は棄却する。よって、「$N$は13以上31以下の整数である」と答えるのが、区間推定である。
 

@@ -7,21 +7,27 @@
 
 ## 準備 {#sec-prep14}
 
-必要なパッケージを読み込み、図の日本語が正しく表示されるようにする。
-
+今回利用するパッケージを読み込む。
 ```{r}
 #| message: false
 library(tidyverse)
+```
 
+JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。
+```{r}
+#| message: false
 ## 図のなかで日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
-if (.Platform$OS.type == "windows") { # Windows
-  library(fontregisterer)
-  my_font <- "Yu Gothic"
-} else if (capabilities("aqua")) { # macOS
+if (.Platform$OS.type == "windows") { 
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
   my_font <- "HiraginoSans-W3"
-} else { # Unix/Linux
+} else {
   my_font <- "IPAexGothic"
 }
 theme_set(theme_gray(base_size = 9,
@@ -93,7 +99,7 @@ means <- rep(NA, 1e4)
 u <- rep(NA, 1e4)
 ```
 
-母集団 `pop` から標本サイズ `N = 10` の標本を抽出する作業を `n_sims` = `r n_sims` 回繰り返し、それぞれで標本平均と不偏分散の平方根を計算する。
+母集団 `pop` から標本サイズ `N = 10` の標本を抽出する作業を `n_sims` =  10000回繰り返し、それぞれで標本平均と不偏分散の平方根を計算する。
 
 ```{r}
 for (i in 1 : n_sims) {
@@ -167,8 +173,6 @@ plot(h2)
 ```{r}
 #| fig.height: 5
 #| fig.width: 6
-df_sim$x <- seq(from = -4, to = 4, length.out = nrow(df_sim))
-df_sim$dens <- dnorm(df_sim$x, mean = 0, sd = 1)
 h3 <- ggplot(df_sim) +
   geom_histogram(aes(x = z, 
                      y = after_stat(density)),
@@ -179,9 +183,9 @@ h3 <- ggplot(df_sim) +
                    y = after_stat(density)), 
                color = "blue", 
                linetype = "dashed") +
-  geom_line(aes(x = x, 
-                y = dens), 
-            color = "red") +
+  stat_function(fun = dnorm,
+                inherit.aes = FALSE,
+                color = "red") +
   labs(y = "確率密度", 
        title = "母分散が既知の場合")
 plot(h3)
@@ -232,9 +236,9 @@ h5 <- ggplot(df_sim) +
                    y = after_stat(density)), 
                color = "blue", 
                linetype = "dashed") +
-  geom_line(aes(x = x, 
-                y = dens), 
-            color = "red") +
+  stat_function(fun = dnorm,
+                inherit.aes = FALSE,
+                color = "red") +
   labs(x = expression(hat(z)), 
        y = "確率密度", 
        title = "母分散が未知の場合")
@@ -250,7 +254,6 @@ plot(h5)
 ```{r}
 #| fig.height: 5
 #| fig.width:  6
-df_sim$tdens <- dt(df_sim$x, df = 9)
 h6 <- ggplot(df_sim) +
   geom_histogram(aes(x = z_hat, 
                      y = after_stat(density)),
@@ -261,8 +264,10 @@ h6 <- ggplot(df_sim) +
                    y = after_stat(density)), 
                color = "blue", 
                linetype = "dashed") +
-  geom_line(aes(x = x, y = tdens), 
-            color = "red") +
+  stat_function(fun = dt,
+                args = list(df = 9),
+                inherit.aes = FALSE,
+                color = "red") +
   labs(x = expression(hat(z)), 
        y = "確率密度", 
        title = "母分散が未知の場合")
@@ -275,9 +280,9 @@ plot(h6)
 
 上の例では、確率密度曲線を重ね書きすることで分布を比較した。 もう少し厳密に分布を比べたいとき、特に2つの分布が同じ分布といえるかどうか確かめたいときには、Q-Qプロット (qunatile-quantile plot) という図を使う。
 
-この図では、分布を確かめる対象となるシミュレーションで得た変数の分位点 (quantile) を縦軸に、比較対象の分布の分位点を横軸にとる。分位点と分位点を比べるので、Q-Q プロットと呼ばれる。
+この図では、分布を確かめる対象となるシミュレーションで得た変数の分位点 (quantile) を縦軸に、比較対象の（基準となる）分布の分位点を横軸にとる。分位点と分位点を比べるので、Q-Q プロットと呼ばれる。
 
-分位点とは、簡単に言うと、「確率分布で下からa%分に相当する値はいくつか」という値である。標準正規分布では、2.5%の分位点 (「2.5パーセンタイル」と呼ばれる) は$-1.96$、50%の分位点（50パーセンタイル）は0、97.5％の分位点は1.96 である。 Rでは、`quantile()` で分位点を求めることができる。
+分位点とは、簡単に言うと、「確率分布で下からa%分に相当する値はいくつか」という値である。標準正規分布では、2.5%の分位点 (「2.5パーセンタイル」と呼ばれる) は$-1.96$、50%の分位点（50パーセンタイル）は$0$、97.5％の分位点は$1.96$ である。 Rでは、`quantile()` で分位点を求めることができる。
 
 ```{r}
 quantile(z, probs = c(0.025, 0.5, 0.975))
@@ -287,7 +292,7 @@ quantile(z, probs = c(0.025, 0.5, 0.975))
 
 2つの分布がもし完全に一致するなら、2つの分布の a% の分位点は、aがどんな値であっても等しいはずである。したがって、片方の分布の分位点を $y$、もう一方の分布の分位点を $x$ とすれば、2つの分布が等しいときには $y=x$ になるはずである。つまり、yとxの散布図の点が45度線の上にすべて乘るはずである。
 
-この性質を利用し、Q-Qプロット上の点が45度線の上にあるかどうか（45度線からどれだけずれているか）を調べることで、分布を比較してみよう。
+この性質を利用し、Q-Qプロット上の点が45度線の上にあるかどうか（45度線からどれだけずれているか）を調べることで、分布を比較する。
 
 まず、$z$（母分散を知っているときに、標本平均を標準化したもの; sample）と標準正規分布 (`qnorm`) を比べてみよう。 標準正規分布と比較するためのQ-Qプロットは、`stat_qq()` で作れる。
 
@@ -314,7 +319,8 @@ qq2 <- ggplot(df_sim, aes(sample = z_hat)) +
               slope = 1, 
               linetype = "dashed") +  # 45度線 
   stat_qq(distribution = qnorm) +
-  xlim(-6, 6) + ylim(-6, 6) +
+  xlim(-6, 6) + 
+  ylim(-6, 6) +
   coord_fixed(ratio = 1) +            # 図の縦横比を1:1にする
   labs(x = "標準正規分布", 
        y = expression(paste("シミュレーションで得た", hat(z))))
@@ -331,7 +337,8 @@ qq3 <- ggplot(df_sim, aes(sample = z_hat)) +
               slope = 1,
               linetype = "dashed") +  # 45度線 
   stat_qq(distribution = qt, dparams = 9) +
-  xlim(-6, 6) + ylim(-6, 6) +
+  xlim(-6, 6) + 
+  ylim(-6, 6) +
   coord_fixed(ratio = 1) +            # 図の縦横比を1:1にする
   labs(x = "自由度9のt分布",
        y = expression(paste("シミュレーションで得た", hat(z))))
@@ -344,7 +351,7 @@ plot(qq3)
 
 $t$ 分布は、自由度 $df > 0$ によってその形を変える。
 
-たとえば、自由度1, 2, 10の $t$乗分布は以下のように分布する。比較のため、標準正規分布も一緒に示す。
+たとえば、自由度1, 2, 10の $t$分布は以下のように分布する。比較のため、標準正規分布も一緒に示す。
 
 まず、データフレームを作る。
 
@@ -422,7 +429,7 @@ plot_t(df = 3)
 
 ## $t$ 分布を利用した区間推定 {#sec-estwt}
 
-$t$ 分布を使った区間推定の方法も、基本的に標準正規分布を使った推定方法と同じである。 身長 $x$ の点推定値を $\bar{x}$ とすると、以下のように定義される信頼区間 (confidence interval) を区間推定に使う。
+$t$ 分布を使った区間推定の方法も、基本的には標準正規分布を使った推定方法と同じである。 身長 $x$ の点推定値を $\bar{x}$ とすると、以下のように定義される信頼区間 (confidence interval; CI) を区間推定に使う。
 
 $$
 \left[\bar{h} - t_{N-1, p} \cdot \mathrm{SE}, \bar{h} + t_{N-1, p} \cdot \mathrm{SE} \right].
@@ -492,8 +499,9 @@ get_ci <- function(x, level = 0.95) {
   t <- qt(df = N - 1, p = (1 - level) / 2, lower.tail = FALSE)
   lb <- x_bar - t * se
   ub <- x_bar + t * se
-  confint <- c(下限値 = lb, 上限値 = ub)
-  message(paste0(level * 100, "%信頼区間"))
+  confint <- c(lb, ub)
+  names(confint) <- c(str_c(level*100, "%CIの下限値"),
+                      str_c(level*100, "%CIの上限値"))
   return(confint)
 }
 ```
@@ -501,7 +509,6 @@ get_ci <- function(x, level = 0.95) {
 この関数を使ってみよう。標本1 (smpl_1) から得られる母平均の95%信頼区間は、
 
 ```{r}
-#|  message: true
 get_ci(smpl_1)
 ```
 
@@ -510,7 +517,6 @@ get_ci(smpl_1)
 89%信頼区間は、
 
 ```{r}
-#| message: true
 get_ci(smpl_1, level = 0.89)
 ```
 
@@ -519,7 +525,6 @@ get_ci(smpl_1, level = 0.89)
 99.9%信頼区間は、
 
 ```{r}
-#| message: true
 get_ci(smpl_1, level = 0.999)
 ```
 
