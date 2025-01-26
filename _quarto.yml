@@ -6,7 +6,7 @@ language: jayy.yml
 book: 
   title: "KUT 統計学2"
   author: "矢内 勇生"
-  date: "March 22, 2022（2025-01-26 改訂版）"
+  date: "March 22, 2022"
   sidebar: 
     style: docked
     background: light
