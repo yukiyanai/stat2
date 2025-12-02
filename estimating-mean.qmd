@@ -10,21 +10,12 @@
 ```{r}
 #| message: false
 library(tidyverse)
-```
-
-JDCat分析ツールを使わない場合は、日本語が正しく表示されるように以下のコードを実行する。
-```{r}
-#| message: false
-## 図のなかで日本語を使えるようにする
+## 図の中で日本語を使えるようにする
 ## フォントの設定はお好みで
 ## （Unix/Linux ではIPAexフォントのインストールが必要かも）
 if (.Platform$OS.type == "windows") { 
-  if (require(fontregisterer)) {
-    my_font <- "Yu Gothic"
-  } else {
-    my_font <- "Japan1"
-  }
-} else if (capabilities("aqua")) {
+  my_font <- "Yu Gothic"  
+} else if (capabilities("aqua")) { 
   my_font <- "HiraginoSans-W3"
 } else {
   my_font <- "IPAexGothic"
