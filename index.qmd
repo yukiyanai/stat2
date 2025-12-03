@@ -14,7 +14,7 @@
 
 ## 基本情報 {#sec-basicinfo}
 
-- シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2025-4Q.pdf) 
+- シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2025-4Q.pdf)
 - 講義スライドは [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=4239) で配布する
 - [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=4239)（登録キーはポータルで通知する）
 - [授業用のSlack](https://kut-stat-2025.slack.com/)
@@ -35,7 +35,7 @@
 
 ## 講義トピックとウェブ資料の対応 {#sec-topics}
 
-授業の内容は、10のトピックに分かれている。[シラバス (PDF)](](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2025-4Q.pdf) ) にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。
+授業の内容は、10のトピックに分かれている。[シラバス (PDF)](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2025-4Q.pdf) ) にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。
 
 | トピック                          | ウェブ資料                                                               |
 |:-----------------------------------|:-----------------------------------|
