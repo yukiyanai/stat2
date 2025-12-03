@@ -228,6 +228,7 @@ $$
 | `\int` | $\int$ | $\displaystyle \int_{a}^b f(x) dx$ |
 | `\lim` | $\lim$ | $\displaystyle \lim_{n \to \infty} \sum_{i=1}^n \frac{1}{n!}$ |
 | `\infty`  | $\infty$  | |
+| `\neq` | $\neq$ | $x \neq y$ |
 | `\sim` | $\sim$ | $X \sim \mbox{Normal}(\mu, \sigma)$ |
 | `\to` | $\to$ |  |
 | `\binom{n}{k}` | $\binom{n}{k}$ | $\displaystyle \binom{n}{k} = \frac{n!}{k! (n-k)!}$ |
@@ -274,7 +275,7 @@ $$
 - 和算の記号$\sum$ は`\Sigma`ではなく、`\sum`
     - `\sum`: $\sum$
     - `\Sigma`: $\Sigma$
-- 乗算の記号$\prod$は`\Pi` はなく`\prod`
+- 乗算の記号$\prod$は`\Pi` ではなく`\prod`
     - `\prod`: $\prod$
     - `\Pi`: $\Pi$
 

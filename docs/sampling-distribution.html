@@ -339,7 +339,7 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code></pre></div><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 168.3186</code></pre>
+<pre><code>[1] 166.7551</code></pre>
 </div>
 </div>
 <p>である。 これを1万回繰り返せばよい。</p>
@@ -399,11 +399,11 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sim_1</span><span class="op">)</span> <span class="co"># 標本平均の平均値</span></span></code></pre></div><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 169.9936</code></pre>
+<pre><code>[1] 170.0536</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sim_1</span><span class="op">)</span>   <span class="co"># 標本平均の標準偏差 = 標準誤差</span></span></code></pre></div><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.508066</code></pre>
+<pre><code>[1] 5.442861</code></pre>
 </div>
 </div>
 <p>このように、<strong><span class="math inline">\(N=1\)</span> の場合には</strong>、標本平均の平均値は母平均とほぼ同じであり、標本平均の標準偏差（これを平均値の<strong>標準誤差 (standard errors; SE)</strong> と呼ぶ）は、母標準偏差とほぼ同じである。</p>
@@ -465,11 +465,11 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sim_2</span><span class="op">)</span> <span class="co"># 標本平均の平均値</span></span></code></pre></div><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 169.9944</code></pre>
+<pre><code>[1] 169.9793</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sim_2</span><span class="op">)</span>   <span class="co"># 標本平均の標準偏差 = 標準誤差</span></span></code></pre></div><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.879727</code></pre>
+<pre><code>[1] 3.885498</code></pre>
 </div>
 </div>
 <p>上のシミュレーションと同様、標本平均の平均値は母平均とほぼ同じである。しかし、標本平均の標準偏差である<strong>標準誤差 (standard errors; SE)</strong> は、母標準偏差よりもかなり小さくなっていることがわかる。</p>
@@ -539,11 +539,11 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sim_3</span><span class="op">)</span> <span class="co"># 標本平均の平均値</span></span></code></pre></div><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 169.9899</code></pre>
+<pre><code>[1] 169.9997</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sim_3</span><span class="op">)</span>   <span class="co"># 標本平均の標準偏差 = 標準誤差</span></span></code></pre></div><button title="コピーする" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.720282</code></pre>
+<pre><code>[1] 1.721975</code></pre>
 </div>
 </div>
 <p>先程と同様、標本平均の平均値は母平均とほぼ同じである。また、標本平均の標準偏差である<strong>標準誤差 (standard errors; SE)</strong> は、母標準偏差よりもより一層小さくなっていることがわかる。</p>
