@@ -14,11 +14,11 @@
 
 ## 基本情報 {#sec-basicinfo}
 
-- シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2025-4Q.pdf)
-- 講義スライドは [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=4239) で配布する
-- [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=4239)（登録キーはポータルで通知する）
-- [授業用のSlack](https://kut-stat-2025.slack.com/)
-    - [登録](https://join.slack.com/t/kut-stat-2025/signup) には大学ドメインのメールアドレスが必要
+- シラバス（講義要項）：[PDF](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2026-3Q.pdf)
+- 講義スライドは [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=4700) で配布する
+- [KUTLMS](https://lms.kochi-tech.ac.jp/course/view.php?id=4700)（登録キーはポータルで通知する）
+- [授業用のSlack](https://kut-stat-2026.slack.com/)
+    - [登録](https://join.slack.com/t/kut-stat-2026/signup) には大学ドメインのメールアドレスが必要
     
 ## 教科書・副読本 {#sec-refs}
 
@@ -35,7 +35,7 @@
 
 ## 講義トピックとウェブ資料の対応 {#sec-topics}
 
-授業の内容は、10のトピックに分かれている。[シラバス (PDF)](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2025-4Q.pdf) ) にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。
+授業の内容は、9つのトピックに分かれている。[シラバス (PDF)](https://yukiyanai.github.io/jp/classes/stat2/docs/syllabus-stat2_2026-3Q.pdf) ) にはトピックごとの予習課題と参考文献が記載されている。 各トピックとこのウェブ資料の対応は以下の通りである。
 
 | トピック                          | ウェブ資料                                                               |
 |:-----------------------------------|:-----------------------------------|
@@ -51,8 +51,8 @@
 | 6\. $t$ 分布と母平均の推定        | [$t$ 分布を利用した母平均の推定](t-distribution.html)                    |
 | 7\. 2つの平均値を比較する        | [統計的検定と平均値の比較](mean-comparison.html)                         |
 | 8\. 2つの変数の関係を理解する     | [2変数の関係](bivariate.html) |
-| 9\. 期末試験                       | なし  |
-| 10\. まとめ                       | なし  |
+| 期末試験                       | なし  |
+| 9\. まとめ                       | なし  |
 
 :::callout-warning
 一部の例外を除いて、各ページ（各章）の内容を実行するために必要なパッケージはページの冒頭で読み込むことにする。ページの途中から実行しても動かないことがあると思われるので、その際はページの最初から実行してほしい。
@@ -64,3 +64,5 @@
 （2024年度版：2025年1月26日に改訂）
 
 （2025年度版：2025年12月2日に改訂）
+
+（2026年度版：2026年9月25日に改訂）
